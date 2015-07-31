@@ -1,0 +1,81 @@
+<div class="block block-vertnav hide-below-768">
+    <div class="block-title">
+        <strong><span>Main Categories</span></strong>
+    </div>
+    <div class="block-content">
+        <ul class="accordion accordion-style1 vertnav vertnav-side clearer">
+            <li class="level0 nav-1 first parent">
+<a href="http://www.madiwin.com/default/cartridges.html?___SID=U">
+<span>Cartridges</span>
+</a>
+<span class="opener">&nbsp;</span>
+
+<ul class="level0">
+<li class="level1 nav-1-1 first">
+<a href="http://www.madiwin.com/default/cartridges/blu.html?___SID=U">
+<span>Blu</span>
+</a>
+</li><li class="level1 nav-1-2">
+<a href="http://www.madiwin.com/default/cartridges/njoy.html?___SID=U">
+<span>NJOY</span>
+</a>
+</li><li class="level1 nav-1-3">
+<a href="http://www.madiwin.com/default/cartridges/mistic.html?___SID=U">
+<span>Mistic</span>
+</a>
+</li><li class="level1 nav-1-4">
+<a href="http://www.madiwin.com/default/cartridges/krave.html?___SID=U">
+<span>Krave</span>
+</a>
+</li><li class="level1 nav-1-5">
+<a href="http://www.madiwin.com/default/cartridges/logic.html?___SID=U">
+<span>Logic</span>
+</a>
+</li><li class="level1 nav-1-6 last">
+<a href="http://www.madiwin.com/default/cartridges/green-smoke.html?___SID=U">
+<span>Green Smoke</span>
+</a>
+</li>
+</ul>
+
+</li><li class="level0 nav-2 last parent">
+<a href="http://www.madiwin.com/default/brands.html?___SID=U">
+<span>Brands</span>
+</a>
+<span class="opener">&nbsp;</span>
+
+<ul class="level0">
+<li class="level1 nav-2-1 first">
+<a href="http://www.madiwin.com/default/brands/blu.html?___SID=U">
+<span>Blu</span>
+</a>
+</li><li class="level1 nav-2-2">
+<a href="http://www.madiwin.com/default/brands/green-smoke.html?___SID=U">
+<span>Green Smoke</span>
+</a>
+</li><li class="level1 nav-2-3">
+<a href="http://www.madiwin.com/default/brands/njoy.html?___SID=U">
+<span>NJOY</span>
+</a>
+</li><li class="level1 nav-2-4">
+<a href="http://www.madiwin.com/default/brands/mistic.html?___SID=U">
+<span>Mistic</span>
+</a>
+</li><li class="level1 nav-2-5">
+<a href="http://www.madiwin.com/default/brands/krave.html?___SID=U">
+<span>Krave</span>
+</a>
+</li><li class="level1 nav-2-6">
+<a href="http://www.madiwin.com/default/brands/fin.html?___SID=U">
+<span>Fin</span>
+</a>
+</li><li class="level1 nav-2-7 last">
+<a href="http://www.madiwin.com/default/brands/logic.html?___SID=U">
+<span>Logic</span>
+</a>
+</li>
+</ul>
+
+</li>        </ul>
+    </div>
+</div>

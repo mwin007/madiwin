@@ -1,0 +1,57 @@
+
+    
+            <div class="the-slideshow-wrapper-outer" >
+    
+            <div class="the-slideshow-wrapper">
+
+                <div class="the-slideshow    slider-arrows2 slider-pagination2 pagination-pos-over-bottom-centered">
+                    <div id="slideshow-9ebe0de7674660088c0a8d65e10b65c3" class="slides">
+                                                                        <div class="item slide">
+                                <a href="http://www.madiwin.com/default/ultimo-responsive-magento-theme/?___SID=U" title="Click to see all features">
+
+	<img src="http://www.madiwin.com/media/wysiwyg/demo/infortis/ultimo/slideshow/home-blu-slide.png" alt="Responsive Magento Theme" />
+
+
+</a>                            </div>
+                                                                                                <div class="item slide">
+                                <p><a title="Click to see all features" href="http://www.madiwin.com/default/ultimo-responsive-magento-theme/?___SID=U"> <img src="http://www.madiwin.com/media/wysiwyg/demo/infortis/ultimo/slideshow/s1_1.jpg" alt="Customizable Magento Theme" /></a></p>
+<div class="caption light1 top-right">
+<h2 class="heading permanent">&nbsp;</h2>
+</div>                            </div>
+                                                                </div> <!-- end: slides -->
+                </div> <!-- end: the-slideshow -->
+
+                
+            </div> <!-- end: the-slideshow-wrapper -->
+
+            </div> <!-- end: the-slideshow-wrapper-outer -->
+    
+<script type="text/javascript">
+//<![CDATA[
+    jQuery(function($) {
+        
+        var owl = $('#slideshow-9ebe0de7674660088c0a8d65e10b65c3');
+        owl.owlCarousel({
+
+            singleItem: true,
+
+                    slideSpeed: 400,
+        
+                    paginationSpeed: 500,
+        
+                    autoPlay: 5000,
+        
+                    stopOnHover: true,
+        
+                    rewindNav: true,
+            rewindSpeed: 600,
+        
+        
+        
+            navigation: true
+
+        }); //end: owl
+
+    });
+//]]>
+</script>

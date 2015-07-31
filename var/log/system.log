@@ -1,0 +1,340 @@
+2014-03-04T21:48:57+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-04T21:48:57+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:11:25+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:11:25+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:11:25+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:12:43+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:12:44+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2014-03-05T17:12:44+00:00 DEBUG (7): HEADERS ALREADY SENT: <pre>[0] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:52
+[1] C:\WampDeveloper\Websites\www.madiwin.com\webroot\lib\Zend\Controller\Response\Abstract.php:766
+[2] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Response\Http.php:83
+[3] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Controller\Varien\Front.php:184
+[4] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\code\core\Mage\Core\Model\App.php:354
+[5] C:\WampDeveloper\Websites\www.madiwin.com\webroot\app\Mage.php:684
+[6] C:\WampDeveloper\Websites\www.madiwin.com\webroot\index.php:87
+</pre>
+2015-07-31T00:09:21+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:21+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:21+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:21+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:22+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:23+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:24+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:25+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:38+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:38+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:38+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:38+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:39+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 521
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Validate/Hostname.php on line 617
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 782
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 1048
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 311
+2015-07-31T00:09:40+00:00 ERR (3): Deprecated functionality: iconv_set_encoding(): Use of iconv.internal_encoding is deprecated  in /Users/martinnguyen/Documents/MAMP_Websites/madiwin/lib/Zend/Locale/Format.php on line 472
