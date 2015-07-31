@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.1
+-- version 4.4.7
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 15, 2014 at 08:30 PM
--- Server version: 5.5.31-log
--- PHP Version: 5.3.25
+-- Host: localhost:3306
+-- Generation Time: Jul 30, 2015 at 07:34 PM
+-- Server version: 5.6.25
+-- PHP Version: 5.5.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,19 +27,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `adminnotification_inbox` (
-  `notification_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Notification id',
+  `notification_id` int(10) unsigned NOT NULL COMMENT 'Notification id',
   `severity` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Problem type',
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Create date',
   `title` varchar(255) NOT NULL COMMENT 'Title',
   `description` text COMMENT 'Description',
   `url` varchar(255) DEFAULT NULL COMMENT 'Url',
   `is_read` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag if notification read',
-  `is_remove` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag if notification might be removed',
-  PRIMARY KEY (`notification_id`),
-  KEY `IDX_ADMINNOTIFICATION_INBOX_SEVERITY` (`severity`),
-  KEY `IDX_ADMINNOTIFICATION_INBOX_IS_READ` (`is_read`),
-  KEY `IDX_ADMINNOTIFICATION_INBOX_IS_REMOVE` (`is_remove`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Adminnotification Inbox' AUTO_INCREMENT=79 ;
+  `is_remove` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag if notification might be removed'
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8 COMMENT='Adminnotification Inbox';
 
 --
 -- Dumping data for table `adminnotification_inbox`
@@ -123,7 +119,20 @@ INSERT INTO `adminnotification_inbox` (`notification_id`, `severity`, `date_adde
 (75, 4, '2013-12-11 20:35:06', 'Magento Community Edition 1.8.1.0 is here!', 'This new version offers significant tax calculation, product quality, and security enhancements. Be sure to carefully review the upgrade instructions before starting. More information is available at http://www.magentocommerce.com/blog/comments/magento-community-edition-1810-is-here/', 'http://www.magentocommerce.com/blog/comments/magento-community-edition-1810-is-here/', 0, 0),
 (76, 4, '2013-12-13 04:24:39', 'Important Magento Community Edition Patch', 'A security patch is available for Magento Community Edition 1.4.0.0 through 1.7.0.2; the issue has been fixed in Magento Community Edition 1.8.0.0 and later. It resolves a vulnerability discovered through our quarterly penetration testing process and has not been reported by merchants. We encourage all merchants to apply the patch in their next regularly scheduled maintenance cycle. The patch is available at http://www.magentocommerce.com/download in the Magento Community Edition Patches section.', 'http://www.magentocommerce.com/download', 0, 0),
 (77, 4, '2014-01-21 23:34:48', 'PHP 5.4 Patch Now Available', 'Magento is advancing its platform and making development more efficient by adding support for PHP 5.4. Patches are available for download at www.magentocommerce.com/download and you can learn more about this update in our blog post at http://www.magentocommerce.com/blog/comments/magento-now-supports-php-54 .', 'http://www.magentocommerce.com/blog/comments/magento-now-supports-php-54', 0, 0),
-(78, 4, '2014-02-03 21:14:54', 'Imagine 2014 Registration is Open', 'Register today to join us May 12-14 at the Hard Rock Hotel in Las Vegas for Imagine 2014, Magento''s annual conference.\n\nEarly-bird registration pricing ends February 17 so don’t delay!\n\nhttp://www.imagineecommerce.com?utm_source=magento&utm_medium=cerss&utm_campaign=registrationopen\n\n', 'http://www.imagineecommerce.com?utm_source=magento&utm_medium=cerss&utm_campaign=registrationopen', 0, 0);
+(78, 4, '2014-02-03 21:14:54', 'Imagine 2014 Registration is Open', 'Register today to join us May 12-14 at the Hard Rock Hotel in Las Vegas for Imagine 2014, Magento''s annual conference.\n\nEarly-bird registration pricing ends February 17 so don’t delay!\n\nhttp://www.imagineecommerce.com?utm_source=magento&utm_medium=cerss&utm_campaign=registrationopen\n\n', 'http://www.imagineecommerce.com?utm_source=magento&utm_medium=cerss&utm_campaign=registrationopen', 0, 0),
+(79, 4, '2014-02-20 22:51:46', 'Discover Card Validation Patch Available', 'A patch that resolves an issue with validating Discover credit cards is now available for download at http://www.magentocommerce.com/download. More information on the patch is available in the Magento Knowledge Base at http://www.magentocommerce.com/knowledge-base/entry/discover-card-validation', 'http://www.magentocommerce.com/knowledge-base/entry/discover-card-validation ', 0, 0),
+(80, 4, '2014-03-04 20:12:26', 'Learn How to Quickly Increase Sales on Your Site', 'Adding the PayPal Express Checkout button to your checkout page can help increase sales 18% on average. It’s fast and easy and you can do it right now to boost sales. Express Checkout is already seamlessly integrated into Community Edition.', 'http://magento.com/paypal/CE_Express_Checkout_NA?utm_source=messagemodule&utm_medium=message&utm_campaign=Ceexpresscheckout', 0, 0),
+(81, 4, '2014-05-13 20:46:11', 'Magento Community Edition 1.9 is now available!', 'It accelerates your entry into the mobile commerce space by slashing the time and cost of getting a mobile device-friendly responsive site.  And a new Bill Me Later payment option helps boost your sales. Visit http://magento.com/blog/magento-news/magento-enables-responsive-sites-half-time to learn more.', 'http://magento.com/blog/magento-news/magento-enables-responsive-sites-half-time', 0, 0),
+(82, 4, '2014-10-08 08:55:06', 'It’s still not too late: Boost your 2014 Holiday sales today.', 'See results in as little as one week with eBay Enterprise Display and 2 business days with eBay Enterprise Affiliate. DID YOU KNOW: Get access to over 128 million highly qualified shoppers on eBay.com with eBay Enterprise Display. And the average retail client using product retargeting sees a $10 to $1 ROI on retargeting spend during Q4. With the eBay Enterprise Affiliate Network, get access to over 200,000 active network publishers across 30+ verticals, and only pay when a customer makes a purchase (Affiliate Network is only available in the U.S. & Canada).  GET STARTED TODAY by visiting www.ebayenterprise.com/turbochargesales', 'http://www.ebayenterprise.com/turbochargesales', 0, 0),
+(83, 4, '2014-11-13 00:03:26', 'Important: PayPal Users Must Discontinue Using SSL 3.0 By December 3, 2014', 'To address a vulnerability with the SSL 3.0 security protocol, PayPal and other payment gateways will be disabling SSL 3.0 support. Merchants must upgrade to Transport Layer Service (TLS) by December 3, 2014 to avoid PayPal payment operation failures. Learn more about what you need to do at https://devblog.paypal.com/poodle-ssl-3-0-vulnerability/', 'https://devblog.paypal.com/poodle-ssl-3-0-vulnerability/', 0, 0),
+(84, 4, '2014-11-25 04:25:21', 'Magento Community Edition 1.9.1 is available!', 'Magento Community Edition 1.9.1 empowers merchants to deliver compelling shopping experiences by offering enhanced responsive design capabilities, new swatches to display product variations, and improved performance through support for MySQL 5.6 and PHP 5.5. It also includes support for Google Universal Analytics and over 70 product improvements. Find out more at http://magento.com/blog/magento-news/magento-community-edition-191-now-available-download', 'http://magento.com/blog/magento-news/magento-community-edition-191-now-available-download', 0, 0),
+(85, 4, '2015-01-22 22:47:08', 'Join Us at Imagine Commerce 2015 - April 20-22 at the Wynn Las Vegas', 'Join Magento, eBay Enterprise, and over 2,000 merchants, developers, and eCommerce experts at the premier Commerce event of the year. With three days of cutting-edge keynote presentations, special technical programs, dynamic breakout sessions, and incredible networking opportunities, Imagine Commerce 2015 will educate, enrich, and inspire you to take your business to new heights. Register now at http://imagine2015.magento.com/.', 'http://imagine2015.magento.com/', 0, 0),
+(86, 1, '2015-04-16 20:17:07', 'Critical Reminder: Download and install Magento security patches.  Download now.', 'Download and implement 2 important security patches (SUPEE-5344 and SUPEE-1533) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  If you have not done so already, download and install 2 previously-released patches that prevent an attacker from remotely executing code on Magento software.  These issues affect all versions of Magento Community Edition.  A press release from Check Point Software Technologies in the coming days will make one of these issues widely known, possibly alerting hackers who may try to exploit it.  Ensure the patches are in place as a preventative measure before the issue is publicized.', 'https://www.magentocommerce.com/products/downloads/magento/ ', 0, 0),
+(87, 1, '2015-04-20 02:37:00', 'Second Reminder: Download and install Magento critical security patches now.', 'If you have not done so already, download and install 2 previously-released security patches (SUPEE-5344 and SUPEE-1533) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  These security issues affect all versions of Magento Community Edition and enable an attacker to remotely execute code on Magento software. A press release from Check Point Software Technologies tomorrow  will make one of these issues widely known, possibly alerting hackers who may try to exploit it.  Ensure the patches are in place as a preventative measure before the issue is publicized.', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 0),
+(88, 1, '2015-04-23 23:43:31', 'Urgent: Immediately install Magento critical security patches', 'It is critical for you to download and install 2 previously-released security patches (SUPEE-5344 and SUPEE-1533) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  Please do this immediately, as Check Point Software Technologies has published a technical description of how they discovered the issue, which we feel might serve as a tutorial for implementing an attack against your website. ', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 0),
+(89, 1, '2015-05-15 04:34:01', 'Important: New Magento Security Patch - Install it Now', 'It is important for you to download and install a new security patch (SUPEE-5994) from the Magento Community Edition download page (https://www.magentocommerce.com/products/downloads/magento/).  Please apply this critical update immediately to help protect your site from exposure to multiple security vulnerabilities impacting all versions of the Magento Community Edition software. Please note that this patch should be installed in addition to the recent Shoplift patch (SUPEE-5344).', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 0),
+(90, 4, '2015-07-07 20:28:25', 'Now available:  Enhanced site quality and security with Community Edition 1.9.2', 'Magento Community Edition 1.9.2 is now available for download and features over 105 product improvements, nearly 170 automated functional tests to help internal development teams improve implementation quality and time to market, and several security enhancements. Read our blog announcement for more information (http://magento.com/blog/magento-news/magento-community-edition-192-now-available), or go to the Community Edition download page to get the software today (https://www.magentocommerce.com/products/downloads/magento/).', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 0),
+(91, 1, '2015-07-07 21:08:05', 'July 7, 2015: New Magento Security Patch (SUPEE-6285) – Install Immediately', 'Today we are providing a new security patch (SUPEE-6285) that addresses critical security vulnerabilities. The patch is available for Community Edition 1.4.1 to 1.9.1.1 and is part of the core code of our latest release, Community Edition 1.9.2, available for download today.  PLEASE NOTE:  You must first implement SUPEE-5994 to ensure SUPEE-6285 works properly. Download Community Edition 1.9.2 or the patch from the Community Edition download page: https://www.magentocommerce.com/products/downloads/magento/  ', 'https://www.magentocommerce.com/products/downloads/magento/', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -132,11 +141,10 @@ INSERT INTO `adminnotification_inbox` (`notification_id`, `severity`, `date_adde
 --
 
 CREATE TABLE IF NOT EXISTS `admin_assert` (
-  `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert ID',
+  `assert_id` int(10) unsigned NOT NULL COMMENT 'Assert ID',
   `assert_type` varchar(20) DEFAULT NULL COMMENT 'Assert Type',
-  `assert_data` text COMMENT 'Assert Data',
-  PRIMARY KEY (`assert_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Admin Assert Table' AUTO_INCREMENT=1 ;
+  `assert_data` text COMMENT 'Assert Data'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Admin Assert Table';
 
 -- --------------------------------------------------------
 
@@ -145,17 +153,14 @@ CREATE TABLE IF NOT EXISTS `admin_assert` (
 --
 
 CREATE TABLE IF NOT EXISTS `admin_role` (
-  `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role ID',
+  `role_id` int(10) unsigned NOT NULL COMMENT 'Role ID',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent Role ID',
   `tree_level` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Role Tree Level',
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Role Sort Order',
   `role_type` varchar(1) NOT NULL DEFAULT '0' COMMENT 'Role Type',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'User ID',
-  `role_name` varchar(50) DEFAULT NULL COMMENT 'Role Name',
-  PRIMARY KEY (`role_id`),
-  KEY `IDX_ADMIN_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`),
-  KEY `IDX_ADMIN_ROLE_TREE_LEVEL` (`tree_level`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Admin Role Table' AUTO_INCREMENT=5 ;
+  `role_name` varchar(50) DEFAULT NULL COMMENT 'Role Name'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Admin Role Table';
 
 --
 -- Dumping data for table `admin_role`
@@ -173,17 +178,14 @@ INSERT INTO `admin_role` (`role_id`, `parent_id`, `tree_level`, `sort_order`, `r
 --
 
 CREATE TABLE IF NOT EXISTS `admin_rule` (
-  `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule ID',
+  `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule ID',
   `role_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Role ID',
   `resource_id` varchar(255) DEFAULT NULL COMMENT 'Resource ID',
   `privileges` varchar(20) DEFAULT NULL COMMENT 'Privileges',
   `assert_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Assert ID',
   `role_type` varchar(1) DEFAULT NULL COMMENT 'Role Type',
-  `permission` varchar(10) DEFAULT NULL COMMENT 'Permission',
-  PRIMARY KEY (`rule_id`),
-  KEY `IDX_ADMIN_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`),
-  KEY `IDX_ADMIN_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Admin Rule Table' AUTO_INCREMENT=2 ;
+  `permission` varchar(10) DEFAULT NULL COMMENT 'Permission'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Admin Rule Table';
 
 --
 -- Dumping data for table `admin_rule`
@@ -199,12 +201,12 @@ INSERT INTO `admin_rule` (`rule_id`, `role_id`, `resource_id`, `privileges`, `as
 --
 
 CREATE TABLE IF NOT EXISTS `admin_user` (
-  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User ID',
+  `user_id` int(10) unsigned NOT NULL COMMENT 'User ID',
   `firstname` varchar(32) DEFAULT NULL COMMENT 'User First Name',
   `lastname` varchar(32) DEFAULT NULL COMMENT 'User Last Name',
   `email` varchar(128) DEFAULT NULL COMMENT 'User Email',
   `username` varchar(40) DEFAULT NULL COMMENT 'User Login',
-  `password` varchar(40) DEFAULT NULL COMMENT 'User Password',
+  `password` varchar(100) DEFAULT NULL COMMENT 'User Password',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'User Created Time',
   `modified` timestamp NULL DEFAULT NULL COMMENT 'User Modified Time',
   `logdate` timestamp NULL DEFAULT NULL COMMENT 'User Last Login Time',
@@ -213,10 +215,8 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'User Is Active',
   `extra` text COMMENT 'User Extra Data',
   `rp_token` text COMMENT 'Reset Password Link Token',
-  `rp_token_created_at` timestamp NULL DEFAULT NULL COMMENT 'Reset Password Link Token Creation Date',
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `UNQ_ADMIN_USER_USERNAME` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Admin User Table' AUTO_INCREMENT=3 ;
+  `rp_token_created_at` timestamp NULL DEFAULT NULL COMMENT 'Reset Password Link Token Creation Date'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Admin User Table';
 
 --
 -- Dumping data for table `admin_user`
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
 
 INSERT INTO `admin_user` (`user_id`, `firstname`, `lastname`, `email`, `username`, `password`, `created`, `modified`, `logdate`, `lognum`, `reload_acl_flag`, `is_active`, `extra`, `rp_token`, `rp_token_created_at`) VALUES
 (1, 'Store', 'Owner', 'owner@example.com', 'admin', '2b1a68dbdcedc0bf844406b78a721c95:G2', '2013-11-01 04:35:10', '2013-11-01 03:35:10', '2013-11-01 03:33:37', 59, 0, 1, 'N;', NULL, NULL),
-(2, 'Martin', 'Nguyen', 'nguyen0martin@gmail.com', 'mwin007', '85630825d03aa5b1f959159b588e8898:ha', '2014-02-14 23:24:46', '2014-01-19 00:25:25', '2014-02-15 02:25:58', 6, 0, 1, 'a:1:{s:11:"configState";a:53:{s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"1";s:10:"web_secure";s:1:"1";s:11:"web_default";s:1:"1";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"1";s:11:"web_session";s:1:"1";s:24:"web_browser_capabilities";s:1:"1";s:15:"general_country";s:1:"1";s:14:"general_region";s:1:"1";s:14:"general_locale";s:1:"1";s:25:"general_store_information";s:1:"1";s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"1";s:11:"design_head";s:1:"1";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"1";s:17:"design_pagination";s:1:"1";s:12:"design_email";s:1:"0";s:21:"ultramegamenu_general";s:1:"1";s:22:"ultramegamenu_mainmenu";s:1:"1";s:22:"ultramegamenu_widemenu";s:1:"1";s:24:"ultramegamenu_mobilemenu";s:1:"1";s:22:"ultramegamenu_sidemenu";s:1:"1";s:29:"ultramegamenu_category_labels";s:1:"1";s:12:"dev_restrict";s:1:"0";s:9:"dev_debug";s:1:"1";s:12:"dev_template";s:1:"1";s:20:"dev_translate_inline";s:1:"1";s:7:"dev_log";s:1:"0";s:6:"dev_js";s:1:"0";s:7:"dev_css";s:1:"1";s:13:"ultimo_header";s:1:"1";s:15:"ultimo_category";s:1:"1";s:20:"ultimo_category_grid";s:1:"1";s:20:"ultimo_category_list";s:1:"1";s:19:"ultimo_product_page";s:1:"0";s:21:"ultimo_product_labels";s:1:"1";s:13:"ultimo_footer";s:1:"0";s:21:"ultimo_product_slider";s:1:"1";s:21:"ultimo_magento_blocks";s:1:"1";s:26:"ultimo_sidebar_blocks_home";s:1:"1";s:14:"ultimo_install";s:1:"1";s:20:"ultimo_customization";s:1:"0";s:22:"ultraslideshow_general";s:1:"1";s:22:"ultraslideshow_banners";s:1:"1";s:24:"cataloginventory_options";s:1:"1";s:29:"cataloginventory_item_options";s:1:"1";s:17:"contacts_contacts";s:1:"1";s:14:"contacts_email";s:1:"1";s:24:"ultimo_layout_responsive";s:1:"1";}}', NULL, NULL);
+(2, 'Martin', 'Nguyen', 'nguyen0martin@gmail.com', 'mwin007', '85630825d03aa5b1f959159b588e8898:ha', '2015-07-31 01:19:00', '2014-01-19 00:25:25', '2015-07-31 05:19:00', 7, 0, 1, 'a:1:{s:11:"configState";a:53:{s:7:"web_url";s:1:"1";s:7:"web_seo";s:1:"1";s:12:"web_unsecure";s:1:"1";s:10:"web_secure";s:1:"1";s:11:"web_default";s:1:"1";s:9:"web_polls";s:1:"0";s:10:"web_cookie";s:1:"1";s:11:"web_session";s:1:"1";s:24:"web_browser_capabilities";s:1:"1";s:15:"general_country";s:1:"1";s:14:"general_region";s:1:"1";s:14:"general_locale";s:1:"1";s:25:"general_store_information";s:1:"1";s:14:"design_package";s:1:"1";s:12:"design_theme";s:1:"1";s:11:"design_head";s:1:"1";s:13:"design_header";s:1:"1";s:13:"design_footer";s:1:"1";s:16:"design_watermark";s:1:"1";s:17:"design_pagination";s:1:"1";s:12:"design_email";s:1:"0";s:21:"ultramegamenu_general";s:1:"1";s:22:"ultramegamenu_mainmenu";s:1:"1";s:22:"ultramegamenu_widemenu";s:1:"1";s:24:"ultramegamenu_mobilemenu";s:1:"1";s:22:"ultramegamenu_sidemenu";s:1:"1";s:29:"ultramegamenu_category_labels";s:1:"1";s:12:"dev_restrict";s:1:"0";s:9:"dev_debug";s:1:"1";s:12:"dev_template";s:1:"1";s:20:"dev_translate_inline";s:1:"1";s:7:"dev_log";s:1:"0";s:6:"dev_js";s:1:"0";s:7:"dev_css";s:1:"1";s:13:"ultimo_header";s:1:"1";s:15:"ultimo_category";s:1:"1";s:20:"ultimo_category_grid";s:1:"1";s:20:"ultimo_category_list";s:1:"1";s:19:"ultimo_product_page";s:1:"0";s:21:"ultimo_product_labels";s:1:"1";s:13:"ultimo_footer";s:1:"0";s:21:"ultimo_product_slider";s:1:"1";s:21:"ultimo_magento_blocks";s:1:"1";s:26:"ultimo_sidebar_blocks_home";s:1:"1";s:14:"ultimo_install";s:1:"1";s:20:"ultimo_customization";s:1:"0";s:22:"ultraslideshow_general";s:1:"1";s:22:"ultraslideshow_banners";s:1:"1";s:24:"cataloginventory_options";s:1:"1";s:29:"cataloginventory_item_options";s:1:"1";s:17:"contacts_contacts";s:1:"1";s:14:"contacts_email";s:1:"1";s:24:"ultimo_layout_responsive";s:1:"1";}}', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -233,15 +233,12 @@ INSERT INTO `admin_user` (`user_id`, `firstname`, `lastname`, `email`, `username
 --
 
 CREATE TABLE IF NOT EXISTS `api2_acl_attribute` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `user_type` varchar(20) NOT NULL COMMENT 'Type of user',
   `resource_id` varchar(255) NOT NULL COMMENT 'Resource ID',
   `operation` varchar(20) NOT NULL COMMENT 'Operation',
-  `allowed_attributes` text COMMENT 'Allowed attributes',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_API2_ACL_ATTRIBUTE_USER_TYPE_RESOURCE_ID_OPERATION` (`user_type`,`resource_id`,`operation`),
-  KEY `IDX_API2_ACL_ATTRIBUTE_USER_TYPE` (`user_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Filter ACL Attributes' AUTO_INCREMENT=1 ;
+  `allowed_attributes` text COMMENT 'Allowed attributes'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Filter ACL Attributes';
 
 -- --------------------------------------------------------
 
@@ -250,14 +247,11 @@ CREATE TABLE IF NOT EXISTS `api2_acl_attribute` (
 --
 
 CREATE TABLE IF NOT EXISTS `api2_acl_role` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
-  `role_name` varchar(255) NOT NULL COMMENT 'Name of role',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_API2_ACL_ROLE_CREATED_AT` (`created_at`),
-  KEY `IDX_API2_ACL_ROLE_UPDATED_AT` (`updated_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Roles' AUTO_INCREMENT=3 ;
+  `role_name` varchar(255) NOT NULL COMMENT 'Name of role'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Roles';
 
 --
 -- Dumping data for table `api2_acl_role`
@@ -274,13 +268,11 @@ INSERT INTO `api2_acl_role` (`entity_id`, `created_at`, `updated_at`, `role_name
 --
 
 CREATE TABLE IF NOT EXISTS `api2_acl_rule` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `role_id` int(10) unsigned NOT NULL COMMENT 'Role ID',
   `resource_id` varchar(255) NOT NULL COMMENT 'Resource ID',
-  `privilege` varchar(20) DEFAULT NULL COMMENT 'ACL Privilege',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_API2_ACL_RULE_ROLE_ID_RESOURCE_ID_PRIVILEGE` (`role_id`,`resource_id`,`privilege`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Rules' AUTO_INCREMENT=1 ;
+  `privilege` varchar(20) DEFAULT NULL COMMENT 'ACL Privilege'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Rules';
 
 -- --------------------------------------------------------
 
@@ -290,9 +282,7 @@ CREATE TABLE IF NOT EXISTS `api2_acl_rule` (
 
 CREATE TABLE IF NOT EXISTS `api2_acl_user` (
   `admin_id` int(10) unsigned NOT NULL COMMENT 'Admin ID',
-  `role_id` int(10) unsigned NOT NULL COMMENT 'Role ID',
-  UNIQUE KEY `UNQ_API2_ACL_USER_ADMIN_ID` (`admin_id`),
-  KEY `FK_API2_ACL_USER_ROLE_ID_API2_ACL_ROLE_ENTITY_ID` (`role_id`)
+  `role_id` int(10) unsigned NOT NULL COMMENT 'Role ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api2 Global ACL Users';
 
 -- --------------------------------------------------------
@@ -302,11 +292,10 @@ CREATE TABLE IF NOT EXISTS `api2_acl_user` (
 --
 
 CREATE TABLE IF NOT EXISTS `api_assert` (
-  `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert id',
+  `assert_id` int(10) unsigned NOT NULL COMMENT 'Assert id',
   `assert_type` varchar(20) DEFAULT NULL COMMENT 'Assert type',
-  `assert_data` text COMMENT 'Assert additional data',
-  PRIMARY KEY (`assert_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Asserts' AUTO_INCREMENT=1 ;
+  `assert_data` text COMMENT 'Assert additional data'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Asserts';
 
 -- --------------------------------------------------------
 
@@ -315,17 +304,14 @@ CREATE TABLE IF NOT EXISTS `api_assert` (
 --
 
 CREATE TABLE IF NOT EXISTS `api_role` (
-  `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role id',
+  `role_id` int(10) unsigned NOT NULL COMMENT 'Role id',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent role id',
   `tree_level` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Role level in tree',
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order to display on admin area',
   `role_type` varchar(1) NOT NULL DEFAULT '0' COMMENT 'Role type',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'User id',
-  `role_name` varchar(50) DEFAULT NULL COMMENT 'Role name',
-  PRIMARY KEY (`role_id`),
-  KEY `IDX_API_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`),
-  KEY `IDX_API_ROLE_TREE_LEVEL` (`tree_level`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Roles' AUTO_INCREMENT=1 ;
+  `role_name` varchar(50) DEFAULT NULL COMMENT 'Role name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Roles';
 
 -- --------------------------------------------------------
 
@@ -334,17 +320,14 @@ CREATE TABLE IF NOT EXISTS `api_role` (
 --
 
 CREATE TABLE IF NOT EXISTS `api_rule` (
-  `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Api rule Id',
+  `rule_id` int(10) unsigned NOT NULL COMMENT 'Api rule Id',
   `role_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Api role Id',
   `resource_id` varchar(255) DEFAULT NULL COMMENT 'Module code',
   `api_privileges` varchar(20) DEFAULT NULL COMMENT 'Privileges',
   `assert_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Assert id',
   `role_type` varchar(1) DEFAULT NULL COMMENT 'Role type',
-  `api_permission` varchar(10) DEFAULT NULL COMMENT 'Permission',
-  PRIMARY KEY (`rule_id`),
-  KEY `IDX_API_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`),
-  KEY `IDX_API_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Rules' AUTO_INCREMENT=1 ;
+  `api_permission` varchar(10) DEFAULT NULL COMMENT 'Permission'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api ACL Rules';
 
 -- --------------------------------------------------------
 
@@ -355,9 +338,7 @@ CREATE TABLE IF NOT EXISTS `api_rule` (
 CREATE TABLE IF NOT EXISTS `api_session` (
   `user_id` int(10) unsigned NOT NULL COMMENT 'User id',
   `logdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Login date',
-  `sessid` varchar(40) DEFAULT NULL COMMENT 'Sessioin id',
-  KEY `IDX_API_SESSION_USER_ID` (`user_id`),
-  KEY `IDX_API_SESSION_SESSID` (`sessid`)
+  `sessid` varchar(40) DEFAULT NULL COMMENT 'Sessioin id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api Sessions';
 
 -- --------------------------------------------------------
@@ -367,19 +348,18 @@ CREATE TABLE IF NOT EXISTS `api_session` (
 --
 
 CREATE TABLE IF NOT EXISTS `api_user` (
-  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User id',
+  `user_id` int(10) unsigned NOT NULL COMMENT 'User id',
   `firstname` varchar(32) DEFAULT NULL COMMENT 'First name',
   `lastname` varchar(32) DEFAULT NULL COMMENT 'Last name',
   `email` varchar(128) DEFAULT NULL COMMENT 'Email',
   `username` varchar(40) DEFAULT NULL COMMENT 'Nickname',
-  `api_key` varchar(40) DEFAULT NULL COMMENT 'Api key',
+  `api_key` varchar(100) DEFAULT NULL COMMENT 'Api key',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'User record create date',
   `modified` timestamp NULL DEFAULT NULL COMMENT 'User record modify date',
   `lognum` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Quantity of log ins',
   `reload_acl_flag` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Refresh ACL flag',
-  `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Account status',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api Users' AUTO_INCREMENT=1 ;
+  `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Account status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Api Users';
 
 -- --------------------------------------------------------
 
@@ -391,8 +371,7 @@ CREATE TABLE IF NOT EXISTS `captcha_log` (
   `type` varchar(32) NOT NULL COMMENT 'Type',
   `value` varchar(32) NOT NULL COMMENT 'Value',
   `count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Count',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time',
-  PRIMARY KEY (`type`,`value`)
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Count Login Attempts';
 
 -- --------------------------------------------------------
@@ -402,10 +381,9 @@ CREATE TABLE IF NOT EXISTS `captcha_log` (
 --
 
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock` (
-  `stock_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Stock Id',
-  `stock_name` varchar(255) DEFAULT NULL COMMENT 'Stock Name',
-  PRIMARY KEY (`stock_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock' AUTO_INCREMENT=2 ;
+  `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
+  `stock_name` varchar(255) DEFAULT NULL COMMENT 'Stock Name'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock';
 
 --
 -- Dumping data for table `cataloginventory_stock`
@@ -421,7 +399,7 @@ INSERT INTO `cataloginventory_stock` (`stock_id`, `stock_name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cataloginventory_stock_item` (
-  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',
+  `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Id',
   `stock_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Stock Id',
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
@@ -445,12 +423,8 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_item` (
   `qty_increments` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty Increments',
   `use_config_enable_qty_inc` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Use Config Enable Qty Increments',
   `enable_qty_increments` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Enable Qty Increments',
-  `is_decimal_divided` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Divided into Multiple Boxes for Shipping',
-  PRIMARY KEY (`item_id`),
-  UNIQUE KEY `UNQ_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_STOCK_ID` (`product_id`,`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID` (`product_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_STOCK_ID` (`stock_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Item' AUTO_INCREMENT=90 ;
+  `is_decimal_divided` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Divided into Multiple Boxes for Shipping'
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Item';
 
 --
 -- Dumping data for table `cataloginventory_stock_item`
@@ -493,10 +467,7 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
-  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status',
-  PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_ID` (`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID` (`website_id`)
+  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status';
 
 --
@@ -538,10 +509,7 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_idx` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
-  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status',
-  PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_STOCK_ID` (`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_WEBSITE_ID` (`website_id`)
+  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status Indexer Idx';
 
 --
@@ -583,10 +551,7 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_tmp` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
   `qty` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty',
-  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status',
-  PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_STOCK_ID` (`stock_id`),
-  KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_WEBSITE_ID` (`website_id`)
+  `stock_status` smallint(5) unsigned NOT NULL COMMENT 'Stock Status'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Cataloginventory Stock Status Indexer Tmp';
 
 -- --------------------------------------------------------
@@ -596,7 +561,7 @@ CREATE TABLE IF NOT EXISTS `cataloginventory_stock_status_tmp` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalogrule` (
-  `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id',
+  `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `description` text COMMENT 'Description',
   `from_date` date DEFAULT NULL COMMENT 'From Date',
@@ -610,10 +575,8 @@ CREATE TABLE IF NOT EXISTS `catalogrule` (
   `discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount',
   `sub_is_enable` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Rule Enable For Subitems',
   `sub_simple_action` varchar(32) DEFAULT NULL COMMENT 'Simple Action For Subitems',
-  `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems',
-  PRIMARY KEY (`rule_id`),
-  KEY `IDX_CATALOGRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule' AUTO_INCREMENT=1 ;
+  `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule';
 
 -- --------------------------------------------------------
 
@@ -622,8 +585,7 @@ CREATE TABLE IF NOT EXISTS `catalogrule` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalogrule_affected_product` (
-  `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
-  PRIMARY KEY (`product_id`)
+  `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Affected Product';
 
 -- --------------------------------------------------------
@@ -634,10 +596,7 @@ CREATE TABLE IF NOT EXISTS `catalogrule_affected_product` (
 
 CREATE TABLE IF NOT EXISTS `catalogrule_customer_group` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
-  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
-  PRIMARY KEY (`rule_id`,`customer_group_id`),
-  KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`),
-  KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`)
+  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Rules To Customer Groups Relations';
 
 -- --------------------------------------------------------
@@ -649,11 +608,7 @@ CREATE TABLE IF NOT EXISTS `catalogrule_customer_group` (
 CREATE TABLE IF NOT EXISTS `catalogrule_group_website` (
   `rule_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Rule Id',
   `customer_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Group Id',
-  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
-  PRIMARY KEY (`rule_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOGRULE_GROUP_WEBSITE_RULE_ID` (`rule_id`),
-  KEY `IDX_CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID` (`website_id`)
+  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Group Website';
 
 -- --------------------------------------------------------
@@ -663,7 +618,7 @@ CREATE TABLE IF NOT EXISTS `catalogrule_group_website` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalogrule_product` (
-  `rule_product_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product Id',
+  `rule_product_id` int(10) unsigned NOT NULL COMMENT 'Rule Product Id',
   `rule_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Rule Id',
   `from_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'From Time',
   `to_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'To time',
@@ -675,16 +630,8 @@ CREATE TABLE IF NOT EXISTS `catalogrule_product` (
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `sub_simple_action` varchar(32) DEFAULT NULL COMMENT 'Simple Action For Subitems',
-  `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems',
-  PRIMARY KEY (`rule_product_id`),
-  UNIQUE KEY `EAA51B56FF092A0DCB795D1CEF812B7B` (`rule_id`,`from_time`,`to_time`,`website_id`,`customer_group_id`,`product_id`,`sort_order`),
-  KEY `IDX_CATALOGRULE_PRODUCT_RULE_ID` (`rule_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_FROM_TIME` (`from_time`),
-  KEY `IDX_CATALOGRULE_PRODUCT_TO_TIME` (`to_time`),
-  KEY `IDX_CATALOGRULE_PRODUCT_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product' AUTO_INCREMENT=1 ;
+  `sub_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount For Subitems'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product';
 
 -- --------------------------------------------------------
 
@@ -693,20 +640,15 @@ CREATE TABLE IF NOT EXISTS `catalogrule_product` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalogrule_product_price` (
-  `rule_product_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product PriceId',
+  `rule_product_price_id` int(10) unsigned NOT NULL COMMENT 'Rule Product PriceId',
   `rule_date` date NOT NULL COMMENT 'Rule Date',
   `customer_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Group Id',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Id',
   `rule_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Rule Price',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `latest_start_date` date DEFAULT NULL COMMENT 'Latest StartDate',
-  `earliest_end_date` date DEFAULT NULL COMMENT 'Earliest EndDate',
-  PRIMARY KEY (`rule_product_price_id`),
-  UNIQUE KEY `UNQ_CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID` (`rule_date`,`website_id`,`customer_group_id`,`product_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product Price' AUTO_INCREMENT=1 ;
+  `earliest_end_date` date DEFAULT NULL COMMENT 'Earliest EndDate'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CatalogRule Product Price';
 
 -- --------------------------------------------------------
 
@@ -716,10 +658,7 @@ CREATE TABLE IF NOT EXISTS `catalogrule_product_price` (
 
 CREATE TABLE IF NOT EXISTS `catalogrule_website` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
-  PRIMARY KEY (`rule_id`,`website_id`),
-  KEY `IDX_CATALOGRULE_WEBSITE_RULE_ID` (`rule_id`),
-  KEY `IDX_CATALOGRULE_WEBSITE_WEBSITE_ID` (`website_id`)
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Rules To Websites Relations';
 
 -- --------------------------------------------------------
@@ -729,14 +668,11 @@ CREATE TABLE IF NOT EXISTS `catalogrule_website` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalogsearch_fulltext` (
-  `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `fulltext_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `data_index` longtext COMMENT 'Data index',
-  PRIMARY KEY (`fulltext_id`),
-  UNIQUE KEY `UNQ_CATALOGSEARCH_FULLTEXT_PRODUCT_ID_STORE_ID` (`product_id`,`store_id`),
-  FULLTEXT KEY `FTI_CATALOGSEARCH_FULLTEXT_DATA_INDEX` (`data_index`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Catalog search result table' AUTO_INCREMENT=28281 ;
+  `data_index` longtext COMMENT 'Data index'
+) ENGINE=MyISAM AUTO_INCREMENT=28281 DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
 
 --
 -- Dumping data for table `catalogsearch_fulltext`
@@ -1083,7 +1019,7 @@ INSERT INTO `catalogsearch_fulltext` (`fulltext_id`, `product_id`, `store_id`, `
 --
 
 CREATE TABLE IF NOT EXISTS `catalogsearch_query` (
-  `query_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Query ID',
+  `query_id` int(10) unsigned NOT NULL COMMENT 'Query ID',
   `query_text` varchar(255) DEFAULT NULL COMMENT 'Query text',
   `num_results` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Num results',
   `popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Popularity',
@@ -1093,11 +1029,8 @@ CREATE TABLE IF NOT EXISTS `catalogsearch_query` (
   `display_in_terms` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Display in terms',
   `is_active` smallint(6) DEFAULT '1' COMMENT 'Active status',
   `is_processed` smallint(6) DEFAULT '0' COMMENT 'Processed status',
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Updated at',
-  PRIMARY KEY (`query_id`),
-  KEY `IDX_CATALOGSEARCH_QUERY_QUERY_TEXT_STORE_ID_POPULARITY` (`query_text`,`store_id`,`popularity`),
-  KEY `IDX_CATALOGSEARCH_QUERY_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog search query table' AUTO_INCREMENT=30 ;
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Updated at'
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Catalog search query table';
 
 --
 -- Dumping data for table `catalogsearch_query`
@@ -1140,10 +1073,7 @@ INSERT INTO `catalogsearch_query` (`query_id`, `query_text`, `num_results`, `pop
 CREATE TABLE IF NOT EXISTS `catalogsearch_result` (
   `query_id` int(10) unsigned NOT NULL COMMENT 'Query ID',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
-  `relevance` decimal(20,4) NOT NULL DEFAULT '0.0000' COMMENT 'Relevance',
-  PRIMARY KEY (`query_id`,`product_id`),
-  KEY `IDX_CATALOGSEARCH_RESULT_QUERY_ID` (`query_id`),
-  KEY `IDX_CATALOGSEARCH_RESULT_PRODUCT_ID` (`product_id`)
+  `relevance` decimal(20,4) NOT NULL DEFAULT '0.0000' COMMENT 'Relevance'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog search result table';
 
 --
@@ -1175,9 +1105,7 @@ INSERT INTO `catalogsearch_result` (`query_id`, `product_id`, `relevance`) VALUE
 
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_idx` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
-  `path` varchar(255) DEFAULT NULL COMMENT 'Path',
-  KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_CATEGORY_ID` (`category_id`),
-  KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_PATH_CATEGORY_ID` (`path`,`category_id`)
+  `path` varchar(255) DEFAULT NULL COMMENT 'Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Indexer Index Table';
 
 -- --------------------------------------------------------
@@ -1188,9 +1116,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_idx` (
 
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_tmp` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
-  `path` varchar(255) DEFAULT NULL COMMENT 'Path',
-  KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_CATEGORY_ID` (`category_id`),
-  KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_PATH_CATEGORY_ID` (`path`,`category_id`)
+  `path` varchar(255) DEFAULT NULL COMMENT 'Path'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -1202,8 +1128,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_anc_categs_index_tmp` (
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_idx` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `position` int(10) unsigned DEFAULT NULL COMMENT 'Position',
-  KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_IDX_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`)
+  `position` int(10) unsigned DEFAULT NULL COMMENT 'Position'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Product Indexer Index Table';
 
 -- --------------------------------------------------------
@@ -1215,8 +1140,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_idx` (
 CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_tmp` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `position` int(10) unsigned DEFAULT NULL COMMENT 'Position',
-  KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_TMP_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`)
+  `position` int(10) unsigned DEFAULT NULL COMMENT 'Position'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Anchor Product Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -1226,7 +1150,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_anc_products_index_tmp` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attriute Set ID',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent Category ID',
@@ -1235,11 +1159,8 @@ CREATE TABLE IF NOT EXISTS `catalog_category_entity` (
   `path` varchar(255) NOT NULL COMMENT 'Tree Path',
   `position` int(11) NOT NULL COMMENT 'Position',
   `level` int(11) NOT NULL DEFAULT '0' COMMENT 'Tree Level',
-  `children_count` int(11) NOT NULL COMMENT 'Child Count',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_LEVEL` (`level`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_PATH_ENTITY_ID` (`path`,`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Table' AUTO_INCREMENT=101 ;
+  `children_count` int(11) NOT NULL COMMENT 'Child Count'
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Table';
 
 --
 -- Dumping data for table `catalog_category_entity`
@@ -1272,18 +1193,13 @@ INSERT INTO `catalog_category_entity` (`entity_id`, `entity_type_id`, `attribute
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` datetime DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DTIME_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Datetime Attribute Backend Table' AUTO_INCREMENT=253 ;
+  `value` datetime DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Datetime Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_category_entity_datetime`
@@ -1330,18 +1246,13 @@ INSERT INTO `catalog_category_entity_datetime` (`value_id`, `entity_type_id`, `a
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_decimal` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` decimal(12,4) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DEC_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Decimal Attribute Backend Table' AUTO_INCREMENT=80 ;
+  `value` decimal(12,4) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Decimal Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_category_entity_decimal`
@@ -1372,18 +1283,13 @@ INSERT INTO `catalog_category_entity_decimal` (`value_id`, `entity_type_id`, `at
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` int(11) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_CTGR_ENTT_INT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Integer Attribute Backend Table' AUTO_INCREMENT=654 ;
+  `value` int(11) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=654 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Integer Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_category_entity_int`
@@ -1500,18 +1406,13 @@ INSERT INTO `catalog_category_entity_int` (`value_id`, `entity_type_id`, `attrib
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` text COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_CTGR_ENTT_TEXT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Text Attribute Backend Table' AUTO_INCREMENT=1242 ;
+  `value` text COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=1242 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Text Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_category_entity_text`
@@ -1658,18 +1559,13 @@ INSERT INTO `catalog_category_entity_text` (`value_id`, `entity_type_id`, `attri
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_category_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_CTGR_ENTT_VCHR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Category Varchar Attribute Backend Table' AUTO_INCREMENT=1393 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=1393 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Varchar Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_category_entity_varchar`
@@ -1893,11 +1789,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_1` (
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
   `url_key` varchar(255) DEFAULT NULL COMMENT 'URL Key',
-  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_LEVEL` (`level`)
+  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 1)';
 
 --
@@ -1971,11 +1863,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_2` (
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
   `url_key` varchar(255) DEFAULT NULL COMMENT 'URL Key',
-  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_LEVEL` (`level`)
+  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 2)';
 
 --
@@ -2049,11 +1937,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_3` (
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
   `url_key` varchar(255) DEFAULT NULL COMMENT 'URL Key',
-  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_LEVEL` (`level`)
+  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 3)';
 
 --
@@ -2127,11 +2011,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_4` (
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
   `url_key` varchar(255) DEFAULT NULL COMMENT 'URL Key',
-  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_LEVEL` (`level`)
+  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 4)';
 
 --
@@ -2205,11 +2085,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_5` (
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
   `url_key` varchar(255) DEFAULT NULL COMMENT 'URL Key',
-  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_LEVEL` (`level`)
+  `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 5)';
 
 --
@@ -2283,11 +2159,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_6` (
   `umm_cat_block_proportions` varchar(255) DEFAULT NULL COMMENT 'Proportions: Subcategories / Block Right',
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_block_bottom` text COMMENT 'Block Bottom',
-  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_LEVEL` (`level`)
+  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 6)';
 
 -- --------------------------------------------------------
@@ -2337,11 +2209,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_7` (
   `umm_cat_block_proportions` varchar(255) DEFAULT NULL COMMENT 'Proportions: Subcategories / Block Right',
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_block_bottom` text COMMENT 'Block Bottom',
-  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_LEVEL` (`level`)
+  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 7)';
 
 -- --------------------------------------------------------
@@ -2391,11 +2259,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_8` (
   `umm_cat_block_proportions` varchar(255) DEFAULT NULL COMMENT 'Proportions: Subcategories / Block Right',
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_block_bottom` text COMMENT 'Block Bottom',
-  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_LEVEL` (`level`)
+  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 8)';
 
 -- --------------------------------------------------------
@@ -2445,11 +2309,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_9` (
   `umm_cat_block_proportions` varchar(255) DEFAULT NULL COMMENT 'Proportions: Subcategories / Block Right',
   `umm_cat_block_top` text COMMENT 'Block Top',
   `umm_cat_block_bottom` text COMMENT 'Block Bottom',
-  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_PATH` (`path`),
-  KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_LEVEL` (`level`)
+  `umm_cat_label` varchar(255) DEFAULT NULL COMMENT 'Category Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Flat (Store 9)';
 
 -- --------------------------------------------------------
@@ -2461,9 +2321,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_flat_store_9` (
 CREATE TABLE IF NOT EXISTS `catalog_category_product` (
   `category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Category ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position',
-  PRIMARY KEY (`category_id`,`product_id`),
-  KEY `IDX_CATALOG_CATEGORY_PRODUCT_PRODUCT_ID` (`product_id`)
+  `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Category Linkage Table';
 
 --
@@ -2510,10 +2368,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index` (
   `position` int(11) DEFAULT NULL COMMENT 'Position',
   `is_parent` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Parent',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility',
-  PRIMARY KEY (`category_id`,`product_id`,`store_id`),
-  KEY `IDX_CAT_CTGR_PRD_IDX_PRD_ID_STORE_ID_CTGR_ID_VISIBILITY` (`product_id`,`store_id`,`category_id`,`visibility`),
-  KEY `15D3C269665C74C2219037D534F4B0DC` (`store_id`,`category_id`,`visibility`,`is_parent`,`position`)
+  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Index';
 
 --
@@ -2835,8 +2690,7 @@ INSERT INTO `catalog_category_product_index` (`category_id`, `product_id`, `posi
 
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_enbl_idx` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility',
-  KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_IDX_PRD_ID_VISIBILITY` (`product_id`,`visibility`)
+  `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Enabled Indexer Index Table';
 
 -- --------------------------------------------------------
@@ -2847,8 +2701,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_enbl_idx` (
 
 CREATE TABLE IF NOT EXISTS `catalog_category_product_index_enbl_tmp` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility',
-  KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_TMP_PRD_ID_VISIBILITY` (`product_id`,`visibility`)
+  `visibility` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Enabled Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -2863,8 +2716,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_idx` (
   `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position',
   `is_parent` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Parent',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility',
-  KEY `IDX_CAT_CTGR_PRD_IDX_IDX_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`)
+  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Indexer Index Table';
 
 -- --------------------------------------------------------
@@ -2879,8 +2731,7 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_tmp` (
   `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position',
   `is_parent` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Parent',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility',
-  KEY `IDX_CAT_CTGR_PRD_IDX_TMP_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`)
+  `visibility` smallint(5) unsigned NOT NULL COMMENT 'Visibility'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Category Product Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -2890,18 +2741,12 @@ CREATE TABLE IF NOT EXISTS `catalog_category_product_index_tmp` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_compare_item` (
-  `catalog_compare_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Compare Item ID',
+  `catalog_compare_item_id` int(10) unsigned NOT NULL COMMENT 'Compare Item ID',
   `visitor_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Visitor ID',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store ID',
-  PRIMARY KEY (`catalog_compare_item_id`),
-  KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_CATALOG_COMPARE_ITEM_PRODUCT_ID` (`product_id`),
-  KEY `IDX_CATALOG_COMPARE_ITEM_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
-  KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
-  KEY `IDX_CATALOG_COMPARE_ITEM_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Compare Table' AUTO_INCREMENT=49 ;
+  `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store ID'
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COMMENT='Catalog Compare Table';
 
 --
 -- Dumping data for table `catalog_compare_item`
@@ -2947,10 +2792,7 @@ CREATE TABLE IF NOT EXISTS `catalog_eav_attribute` (
   `is_visible_in_advanced_search` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible In Advanced Search',
   `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position',
   `is_wysiwyg_enabled` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is WYSIWYG Enabled',
-  `is_used_for_promo_rules` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Used For Promo Rules',
-  PRIMARY KEY (`attribute_id`),
-  KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_FOR_SORT_BY` (`used_for_sort_by`),
-  KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_IN_PRODUCT_LISTING` (`used_in_product_listing`)
+  `is_used_for_promo_rules` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Used For Promo Rules'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog EAV Attribute Table';
 
 --
@@ -3069,14 +2911,12 @@ INSERT INTO `catalog_eav_attribute` (`attribute_id`, `frontend_input_renderer`, 
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `required` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Required',
   `position` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Position',
-  `type` varchar(255) DEFAULT NULL COMMENT 'Type',
-  PRIMARY KEY (`option_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_OPTION_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option' AUTO_INCREMENT=4 ;
+  `type` varchar(255) DEFAULT NULL COMMENT 'Type'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option';
 
 --
 -- Dumping data for table `catalog_product_bundle_option`
@@ -3094,13 +2934,11 @@ INSERT INTO `catalog_product_bundle_option` (`option_id`, `parent_id`, `required
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_option_value` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value Id',
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  `title` varchar(255) DEFAULT NULL COMMENT 'Title',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_BUNDLE_OPTION_VALUE_OPTION_ID_STORE_ID` (`option_id`,`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option Value' AUTO_INCREMENT=10 ;
+  `title` varchar(255) DEFAULT NULL COMMENT 'Title'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Option Value';
 
 --
 -- Dumping data for table `catalog_product_bundle_option_value`
@@ -3122,10 +2960,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_price_index` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
   `min_price` decimal(12,4) NOT NULL COMMENT 'Min Price',
-  `max_price` decimal(12,4) NOT NULL COMMENT 'Max Price',
-  PRIMARY KEY (`entity_id`,`website_id`,`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_CUSTOMER_GROUP_ID` (`customer_group_id`)
+  `max_price` decimal(12,4) NOT NULL COMMENT 'Max Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Price Index';
 
 -- --------------------------------------------------------
@@ -3135,7 +2970,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_price_index` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection` (
-  `selection_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Selection Id',
+  `selection_id` int(10) unsigned NOT NULL COMMENT 'Selection Id',
   `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `parent_product_id` int(10) unsigned NOT NULL COMMENT 'Parent Product Id',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
@@ -3144,11 +2979,8 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection` (
   `selection_price_type` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Selection Price Type',
   `selection_price_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Selection Price Value',
   `selection_qty` decimal(12,4) DEFAULT NULL COMMENT 'Selection Qty',
-  `selection_can_change_qty` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Selection Can Change Qty',
-  PRIMARY KEY (`selection_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_OPTION_ID` (`option_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection' AUTO_INCREMENT=10 ;
+  `selection_can_change_qty` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Selection Can Change Qty'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection';
 
 --
 -- Dumping data for table `catalog_product_bundle_selection`
@@ -3169,9 +3001,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_selection_price` (
   `selection_id` int(10) unsigned NOT NULL COMMENT 'Selection Id',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `selection_price_type` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Selection Price Type',
-  `selection_price_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Selection Price Value',
-  PRIMARY KEY (`selection_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRICE_WEBSITE_ID` (`website_id`)
+  `selection_price_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Selection Price Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Selection Price';
 
 -- --------------------------------------------------------
@@ -3185,8 +3015,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_stock_index` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `stock_id` smallint(5) unsigned NOT NULL COMMENT 'Stock Id',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Id',
-  `stock_status` smallint(6) DEFAULT '0' COMMENT 'Stock Status',
-  PRIMARY KEY (`entity_id`,`website_id`,`stock_id`,`option_id`)
+  `stock_status` smallint(6) DEFAULT '0' COMMENT 'Stock Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Bundle Stock Index';
 
 -- --------------------------------------------------------
@@ -3198,9 +3027,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_bundle_stock_index` (
 CREATE TABLE IF NOT EXISTS `catalog_product_enabled_index` (
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `visibility` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility',
-  PRIMARY KEY (`product_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENABLED_INDEX_STORE_ID` (`store_id`)
+  `visibility` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Visibility'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Visibility Index Table';
 
 -- --------------------------------------------------------
@@ -3210,7 +3037,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_enabled_index` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set ID',
   `type_id` varchar(32) NOT NULL DEFAULT 'simple' COMMENT 'Type ID',
@@ -3218,12 +3045,8 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity` (
   `has_options` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Has Options',
   `required_options` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Required Options',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Creation Time',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_SKU` (`sku`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Table' AUTO_INCREMENT=90 ;
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Update Time'
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Table';
 
 --
 -- Dumping data for table `catalog_product_entity`
@@ -3262,18 +3085,13 @@ INSERT INTO `catalog_product_entity` (`entity_id`, `entity_type_id`, `attribute_
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` datetime DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_ENTT_DTIME_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table' AUTO_INCREMENT=2331 ;
+  `value` datetime DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=2331 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Datetime Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_datetime`
@@ -3430,18 +3248,13 @@ INSERT INTO `catalog_product_entity_datetime` (`value_id`, `entity_type_id`, `at
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_decimal` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` decimal(12,4) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_ENTT_DEC_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table' AUTO_INCREMENT=1254 ;
+  `value` decimal(12,4) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=1254 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Decimal Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_decimal`
@@ -3541,19 +3354,14 @@ INSERT INTO `catalog_product_entity_decimal` (`value_id`, `entity_type_id`, `att
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_gallery` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `position` int(11) NOT NULL DEFAULT '0' COMMENT 'Position',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_ENTT_GLR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Gallery Attribute Backend Table' AUTO_INCREMENT=1 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Gallery Attribute Backend Table';
 
 -- --------------------------------------------------------
 
@@ -3562,18 +3370,13 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_gallery` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_group_price` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `all_groups` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Applicable To All Customer Groups',
   `customer_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Group ID',
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `CC12C83765B562314470A24F2BDD0F36` (`entity_id`,`all_groups`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Group Price Attribute Backend Table' AUTO_INCREMENT=1 ;
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Group Price Attribute Backend Table';
 
 -- --------------------------------------------------------
 
@@ -3582,18 +3385,13 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_group_price` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` int(11) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Integer Attribute Backend Table' AUTO_INCREMENT=860 ;
+  `value` int(11) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=860 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Integer Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_int`
@@ -3781,14 +3579,11 @@ INSERT INTO `catalog_product_entity_int` (`value_id`, `entity_type_id`, `attribu
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Backend Table' AUTO_INCREMENT=475 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=475 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_media_gallery`
@@ -3879,9 +3674,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_entity_media_gallery_value` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `label` varchar(255) DEFAULT NULL COMMENT 'Label',
   `position` int(10) unsigned DEFAULT NULL COMMENT 'Position',
-  `disabled` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Disabled',
-  PRIMARY KEY (`value_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE_STORE_ID` (`store_id`)
+  `disabled` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Disabled'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Media Gallery Attribute Value Table';
 
 --
@@ -3969,18 +3762,13 @@ INSERT INTO `catalog_product_entity_media_gallery_value` (`value_id`, `store_id`
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` text COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table' AUTO_INCREMENT=1002 ;
+  `value` text COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Text Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_text`
@@ -4095,19 +3883,14 @@ INSERT INTO `catalog_product_entity_text` (`value_id`, `entity_type_id`, `attrib
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_tier_price` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
   `all_groups` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Applicable To All Customer Groups',
   `customer_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Group ID',
   `qty` decimal(12,4) NOT NULL DEFAULT '1.0000' COMMENT 'QTY',
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `E8AB433B9ACB00343ABB312AD2FAB087` (`entity_id`,`all_groups`,`customer_group_id`,`qty`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Tier Price Attribute Backend Table' AUTO_INCREMENT=38 ;
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Tier Price Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_tier_price`
@@ -4137,18 +3920,13 @@ INSERT INTO `catalog_product_entity_tier_price` (`value_id`, `entity_id`, `all_g
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(11) NOT NULL COMMENT 'Value ID',
   `entity_type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_ENTT_VCHR_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table' AUTO_INCREMENT=5542 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=5542 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Varchar Attribute Backend Table';
 
 --
 -- Dumping data for table `catalog_product_entity_varchar`
@@ -4645,12 +4423,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_1` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_1_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_1_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_1_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_1_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 1)';
 
 --
@@ -4729,12 +4502,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_2` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_2_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_2_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_2_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_2_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 2)';
 
 --
@@ -4813,12 +4581,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_3` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_3_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_3_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_3_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_3_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 3)';
 
 --
@@ -4897,12 +4660,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_4` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_4_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_4_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_4_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_4_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 4)';
 
 --
@@ -4981,12 +4739,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_5` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_5_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_5_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_5_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_5_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 5)';
 
 --
@@ -5065,12 +4818,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_6` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_6_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_6_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_6_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_6_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 6)';
 
 --
@@ -5140,12 +4888,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_7` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_7_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_7_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_7_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_7_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 7)';
 
 --
@@ -5215,12 +4958,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_8` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_8_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_8_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_8_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_8_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 8)';
 
 --
@@ -5290,12 +5028,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_flat_9` (
   `url_path` varchar(255) DEFAULT NULL COMMENT 'Url Path',
   `visibility` smallint(5) unsigned DEFAULT NULL COMMENT 'Visibility',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
-  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_9_TYPE_ID` (`type_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_9_ATTRIBUTE_SET_ID` (`attribute_set_id`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_9_NAME` (`name`),
-  KEY `IDX_CATALOG_PRODUCT_FLAT_9_PRICE` (`price`)
+  `weight_type` int(11) DEFAULT NULL COMMENT 'Weight Type'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Flat (Store 9)';
 
 --
@@ -5327,12 +5060,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` int(10) unsigned NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_VALUE` (`value`)
+  `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Index Table';
 
 --
@@ -5711,12 +5439,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` decimal(12,4) NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_VALUE` (`value`)
+  `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Index Table';
 
 -- --------------------------------------------------------
@@ -5729,12 +5452,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` decimal(12,4) NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_VALUE` (`value`)
+  `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Indexer Index Table';
 
 -- --------------------------------------------------------
@@ -5747,12 +5465,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_decimal_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` decimal(12,4) NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_VALUE` (`value`)
+  `value` decimal(12,4) NOT NULL COMMENT 'Value'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Decimal Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -5765,12 +5478,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_idx` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` int(10) unsigned NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_VALUE` (`value`)
+  `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Indexer Index Table';
 
 --
@@ -6149,12 +5857,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_eav_tmp` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  `value` int(10) unsigned NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_STORE_ID` (`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_VALUE` (`value`)
+  `value` int(10) unsigned NOT NULL COMMENT 'Value'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product EAV Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -6167,10 +5870,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_group_price` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group ID',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
-  `price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_WEBSITE_ID` (`website_id`)
+  `price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Group Price Index Table';
 
 -- --------------------------------------------------------
@@ -6189,12 +5889,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_MIN_PRICE` (`min_price`),
-  KEY `IDX_CAT_PRD_IDX_PRICE_WS_ID_CSTR_GROUP_ID_MIN_PRICE` (`website_id`,`customer_group_id`,`min_price`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Index Table';
 
 --
@@ -6313,8 +6008,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_idx` (
   `base_tier` decimal(12,4) DEFAULT NULL COMMENT 'Base Tier',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
   `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price',
-  `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Idx';
 
 -- --------------------------------------------------------
@@ -6334,8 +6028,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_idx` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `alt_tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`)
+  `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Opt Idx';
 
 -- --------------------------------------------------------
@@ -6355,8 +6048,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_opt_tmp` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `alt_tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Tier Price',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`)
+  `alt_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Alt Group Price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Opt Tmp';
 
 -- --------------------------------------------------------
@@ -6375,8 +6067,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_idx` (
   `is_required` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Required',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Idx';
 
 -- --------------------------------------------------------
@@ -6395,8 +6086,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_sel_tmp` (
   `is_required` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Required',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Sel Tmp';
 
 -- --------------------------------------------------------
@@ -6421,8 +6111,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_bundle_tmp` (
   `base_tier` decimal(12,4) DEFAULT NULL COMMENT 'Base Tier',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
   `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price',
-  `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price_percent` decimal(12,4) DEFAULT NULL COMMENT 'Group Price Percent'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Index Price Bundle Tmp';
 
 -- --------------------------------------------------------
@@ -6438,8 +6127,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_idx` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Aggregate Index ';
 
 -- --------------------------------------------------------
@@ -6455,8 +6143,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_agr_tmp` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Aggregate Temp T';
 
 -- --------------------------------------------------------
@@ -6472,8 +6159,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_idx` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Index Table';
 
 -- --------------------------------------------------------
@@ -6489,8 +6175,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_cfg_opt_tmp` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Config Option Temp Table';
 
 -- --------------------------------------------------------
@@ -6504,8 +6189,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_idx` (
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group ID',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `min_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Minimum price',
-  `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Indexer Table for price of downloadable products';
 
 -- --------------------------------------------------------
@@ -6519,8 +6203,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_downlod_tmp` (
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group ID',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `min_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Minimum price',
-  `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `max_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Maximum price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Temporary Indexer Table for price of downloadable products';
 
 -- --------------------------------------------------------
@@ -6541,8 +6224,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_idx` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `base_tier` decimal(12,4) DEFAULT NULL COMMENT 'Base Tier',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Final Index Table';
 
 -- --------------------------------------------------------
@@ -6563,8 +6245,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_final_tmp` (
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
   `base_tier` decimal(12,4) DEFAULT NULL COMMENT 'Base Tier',
   `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `base_group_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Group Price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Final Temp Table';
 
 -- --------------------------------------------------------
@@ -6583,11 +6264,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_idx` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_MIN_PRICE` (`min_price`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Index Table';
 
 --
@@ -6698,8 +6375,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_idx` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Aggregate Index Table';
 
 -- --------------------------------------------------------
@@ -6716,8 +6392,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_agr_tmp` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Aggregate Temp Table';
 
 -- --------------------------------------------------------
@@ -6733,8 +6408,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_idx` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Index Table';
 
 -- --------------------------------------------------------
@@ -6750,8 +6424,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_opt_tmp` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Option Temp Table';
 
 -- --------------------------------------------------------
@@ -6770,11 +6443,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_price_tmp` (
   `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
   `max_price` decimal(12,4) DEFAULT NULL COMMENT 'Max Price',
   `tier_price` decimal(12,4) DEFAULT NULL COMMENT 'Tier Price',
-  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_MIN_PRICE` (`min_price`)
+  `group_price` decimal(12,4) DEFAULT NULL COMMENT 'Group price'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8 COMMENT='Catalog Product Price Indexer Temp Table';
 
 -- --------------------------------------------------------
@@ -6787,10 +6456,7 @@ CREATE TABLE IF NOT EXISTS `catalog_product_index_tier_price` (
   `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group ID',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
-  `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price',
-  PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_WEBSITE_ID` (`website_id`)
+  `min_price` decimal(12,4) DEFAULT NULL COMMENT 'Min Price'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Tier Price Index Table';
 
 --
@@ -6840,9 +6506,7 @@ INSERT INTO `catalog_product_index_tier_price` (`entity_id`, `customer_group_id`
 CREATE TABLE IF NOT EXISTS `catalog_product_index_website` (
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
   `website_date` date DEFAULT NULL COMMENT 'Website Date',
-  `rate` float DEFAULT '1' COMMENT 'Rate',
-  PRIMARY KEY (`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_INDEX_WEBSITE_WEBSITE_DATE` (`website_date`)
+  `rate` float DEFAULT '1' COMMENT 'Rate'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Website Index Table';
 
 --
@@ -6859,16 +6523,11 @@ INSERT INTO `catalog_product_index_website` (`website_id`, `website_date`, `rate
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link` (
-  `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',
+  `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `linked_product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Linked Product ID',
-  `link_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Link Type ID',
-  PRIMARY KEY (`link_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_LNK_LNK_TYPE_ID_PRD_ID_LNKED_PRD_ID` (`link_type_id`,`product_id`,`linked_product_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_PRODUCT_ID` (`product_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_LINKED_PRODUCT_ID` (`linked_product_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_LINK_TYPE_ID` (`link_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Product Linkage Table' AUTO_INCREMENT=532 ;
+  `link_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Link Type ID'
+) ENGINE=InnoDB AUTO_INCREMENT=532 DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Product Linkage Table';
 
 --
 -- Dumping data for table `catalog_product_link`
@@ -6916,13 +6575,11 @@ INSERT INTO `catalog_product_link` (`link_id`, `product_id`, `linked_product_id`
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute` (
-  `product_link_attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Link Attribute ID',
+  `product_link_attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Product Link Attribute ID',
   `link_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Link Type ID',
   `product_link_attribute_code` varchar(32) DEFAULT NULL COMMENT 'Product Link Attribute Code',
-  `data_type` varchar(32) DEFAULT NULL COMMENT 'Data Type',
-  PRIMARY KEY (`product_link_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_LINK_TYPE_ID` (`link_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Attribute Table' AUTO_INCREMENT=6 ;
+  `data_type` varchar(32) DEFAULT NULL COMMENT 'Data Type'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Attribute Table';
 
 --
 -- Dumping data for table `catalog_product_link_attribute`
@@ -6942,15 +6599,11 @@ INSERT INTO `catalog_product_link_attribute` (`product_link_attribute_id`, `link
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_decimal` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `product_link_attribute_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Product Link Attribute ID',
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
-  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
-  KEY `IDX_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID` (`product_link_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_DECIMAL_LINK_ID` (`link_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Decimal Attribute Table' AUTO_INCREMENT=6 ;
+  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Decimal Attribute Table';
 
 --
 -- Dumping data for table `catalog_product_link_attribute_decimal`
@@ -6968,15 +6621,11 @@ INSERT INTO `catalog_product_link_attribute_decimal` (`value_id`, `product_link_
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_int` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `product_link_attribute_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Product Link Attribute ID',
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_INT_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_PRODUCT_LINK_ATTRIBUTE_ID` (`product_link_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_LINK_ID` (`link_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Integer Attribute Table' AUTO_INCREMENT=807 ;
+  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=807 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Integer Attribute Table';
 
 --
 -- Dumping data for table `catalog_product_link_attribute_int`
@@ -7024,15 +6673,11 @@ INSERT INTO `catalog_product_link_attribute_int` (`value_id`, `product_link_attr
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_varchar` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `product_link_attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Link Attribute ID',
   `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
-  KEY `IDX_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID` (`product_link_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_VARCHAR_LINK_ID` (`link_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Varchar Attribute Table' AUTO_INCREMENT=1 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Varchar Attribute Table';
 
 -- --------------------------------------------------------
 
@@ -7041,10 +6686,9 @@ CREATE TABLE IF NOT EXISTS `catalog_product_link_attribute_varchar` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_link_type` (
-  `link_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Type ID',
-  `code` varchar(32) DEFAULT NULL COMMENT 'Code',
-  PRIMARY KEY (`link_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Type Table' AUTO_INCREMENT=6 ;
+  `link_type_id` smallint(5) unsigned NOT NULL COMMENT 'Link Type ID',
+  `code` varchar(32) DEFAULT NULL COMMENT 'Code'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Link Type Table';
 
 --
 -- Dumping data for table `catalog_product_link_type`
@@ -7063,7 +6707,7 @@ INSERT INTO `catalog_product_link_type` (`link_type_id`, `code`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option ID',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Option ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `type` varchar(50) DEFAULT NULL COMMENT 'Type',
   `is_require` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Is Required',
@@ -7072,10 +6716,8 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option` (
   `file_extension` varchar(50) DEFAULT NULL COMMENT 'File Extension',
   `image_size_x` smallint(5) unsigned DEFAULT NULL COMMENT 'Image Size X',
   `image_size_y` smallint(5) unsigned DEFAULT NULL COMMENT 'Image Size Y',
-  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`option_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Table' AUTO_INCREMENT=56 ;
+  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Table';
 
 --
 -- Dumping data for table `catalog_product_option`
@@ -7110,16 +6752,12 @@ INSERT INTO `catalog_product_option` (`option_id`, `product_id`, `type`, `is_req
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option_price` (
-  `option_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Price ID',
+  `option_price_id` int(10) unsigned NOT NULL COMMENT 'Option Price ID',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
-  `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type',
-  PRIMARY KEY (`option_price_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID_STORE_ID` (`option_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID` (`option_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Price Table' AUTO_INCREMENT=1 ;
+  `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Price Table';
 
 -- --------------------------------------------------------
 
@@ -7128,15 +6766,11 @@ CREATE TABLE IF NOT EXISTS `catalog_product_option_price` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option_title` (
-  `option_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Title ID',
+  `option_title_id` int(10) unsigned NOT NULL COMMENT 'Option Title ID',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `title` varchar(255) DEFAULT NULL COMMENT 'Title',
-  PRIMARY KEY (`option_title_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID_STORE_ID` (`option_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID` (`option_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Title Table' AUTO_INCREMENT=56 ;
+  `title` varchar(255) DEFAULT NULL COMMENT 'Title'
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Title Table';
 
 --
 -- Dumping data for table `catalog_product_option_title`
@@ -7171,16 +6805,12 @@ INSERT INTO `catalog_product_option_title` (`option_title_id`, `option_id`, `sto
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_price` (
-  `option_type_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Price ID',
+  `option_type_price_id` int(10) unsigned NOT NULL COMMENT 'Option Type Price ID',
   `option_type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Type ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
-  `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type',
-  PRIMARY KEY (`option_type_price_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID` (`option_type_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Price Table' AUTO_INCREMENT=132 ;
+  `price_type` varchar(7) NOT NULL DEFAULT 'fixed' COMMENT 'Price Type'
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Price Table';
 
 --
 -- Dumping data for table `catalog_product_option_type_price`
@@ -7246,15 +6876,11 @@ INSERT INTO `catalog_product_option_type_price` (`option_type_price_id`, `option
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_title` (
-  `option_type_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Title ID',
+  `option_type_title_id` int(10) unsigned NOT NULL COMMENT 'Option Type Title ID',
   `option_type_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Type ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `title` varchar(255) DEFAULT NULL COMMENT 'Title',
-  PRIMARY KEY (`option_type_title_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID` (`option_type_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Title Table' AUTO_INCREMENT=132 ;
+  `title` varchar(255) DEFAULT NULL COMMENT 'Title'
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Title Table';
 
 --
 -- Dumping data for table `catalog_product_option_type_title`
@@ -7320,13 +6946,11 @@ INSERT INTO `catalog_product_option_type_title` (`option_type_title_id`, `option
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_option_type_value` (
-  `option_type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type ID',
+  `option_type_id` int(10) unsigned NOT NULL COMMENT 'Option Type ID',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option ID',
   `sku` varchar(64) DEFAULT NULL COMMENT 'SKU',
-  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`option_type_id`),
-  KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_VALUE_OPTION_ID` (`option_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Value Table' AUTO_INCREMENT=132 ;
+  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Option Type Value Table';
 
 --
 -- Dumping data for table `catalog_product_option_type_value`
@@ -7393,9 +7017,7 @@ INSERT INTO `catalog_product_option_type_value` (`option_type_id`, `option_id`, 
 
 CREATE TABLE IF NOT EXISTS `catalog_product_relation` (
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent ID',
-  `child_id` int(10) unsigned NOT NULL COMMENT 'Child ID',
-  PRIMARY KEY (`parent_id`,`child_id`),
-  KEY `IDX_CATALOG_PRODUCT_RELATION_CHILD_ID` (`child_id`)
+  `child_id` int(10) unsigned NOT NULL COMMENT 'Child ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Relation Table';
 
 --
@@ -7421,14 +7043,11 @@ INSERT INTO `catalog_product_relation` (`parent_id`, `child_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute` (
-  `product_super_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Super Attribute ID',
+  `product_super_attribute_id` int(10) unsigned NOT NULL COMMENT 'Product Super Attribute ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute ID',
-  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Position',
-  PRIMARY KEY (`product_super_attribute_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID_ATTRIBUTE_ID` (`product_id`,`attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Table' AUTO_INCREMENT=8 ;
+  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Position'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Table';
 
 --
 -- Dumping data for table `catalog_product_super_attribute`
@@ -7444,16 +7063,12 @@ INSERT INTO `catalog_product_super_attribute` (`product_super_attribute_id`, `pr
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_label` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `product_super_attribute_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Super Attribute ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
   `use_default` smallint(5) unsigned DEFAULT '0' COMMENT 'Use Default Value',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID_STORE_ID` (`product_super_attribute_id`,`store_id`),
-  KEY `IDX_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID` (`product_super_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_LABEL_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Label Table' AUTO_INCREMENT=8 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Label Table';
 
 --
 -- Dumping data for table `catalog_product_super_attribute_label`
@@ -7469,17 +7084,13 @@ INSERT INTO `catalog_product_super_attribute_label` (`value_id`, `product_super_
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_pricing` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value ID',
   `product_super_attribute_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Super Attribute ID',
   `value_index` varchar(255) DEFAULT NULL COMMENT 'Value Index',
   `is_percent` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Percent',
   `pricing_value` decimal(12,4) DEFAULT NULL COMMENT 'Pricing Value',
-  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID_VAL_IDX_WS_ID` (`product_super_attribute_id`,`value_index`,`website_id`),
-  KEY `IDX_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID` (`product_super_attribute_id`),
-  KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRICING_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Pricing Table' AUTO_INCREMENT=1 ;
+  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Attribute Pricing Table';
 
 -- --------------------------------------------------------
 
@@ -7488,14 +7099,10 @@ CREATE TABLE IF NOT EXISTS `catalog_product_super_attribute_pricing` (
 --
 
 CREATE TABLE IF NOT EXISTS `catalog_product_super_link` (
-  `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',
+  `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
-  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent ID',
-  PRIMARY KEY (`link_id`),
-  UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID_PARENT_ID` (`product_id`,`parent_id`),
-  KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PARENT_ID` (`parent_id`),
-  KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Link Table' AUTO_INCREMENT=18 ;
+  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Parent ID'
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='Catalog Product Super Link Table';
 
 --
 -- Dumping data for table `catalog_product_super_link`
@@ -7515,9 +7122,7 @@ INSERT INTO `catalog_product_super_link` (`link_id`, `product_id`, `parent_id`) 
 
 CREATE TABLE IF NOT EXISTS `catalog_product_website` (
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product ID',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID',
-  PRIMARY KEY (`product_id`,`website_id`),
-  KEY `IDX_CATALOG_PRODUCT_WEBSITE_WEBSITE_ID` (`website_id`)
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Product To Website Linkage Table';
 
 --
@@ -7557,15 +7162,14 @@ INSERT INTO `catalog_product_website` (`product_id`, `website_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `checkout_agreement` (
-  `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id',
+  `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `content` text COMMENT 'Content',
   `content_height` varchar(25) DEFAULT NULL COMMENT 'Content Height',
   `checkbox_text` text COMMENT 'Checkbox Text',
   `is_active` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Active',
-  `is_html` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Html',
-  PRIMARY KEY (`agreement_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement' AUTO_INCREMENT=2 ;
+  `is_html` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Html'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
 
 --
 -- Dumping data for table `checkout_agreement`
@@ -7582,9 +7186,7 @@ INSERT INTO `checkout_agreement` (`agreement_id`, `name`, `content`, `content_he
 
 CREATE TABLE IF NOT EXISTS `checkout_agreement_store` (
   `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  PRIMARY KEY (`agreement_id`,`store_id`),
-  KEY `FK_CHECKOUT_AGREEMENT_STORE_STORE_ID_CORE_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement Store';
 
 --
@@ -7601,15 +7203,14 @@ INSERT INTO `checkout_agreement_store` (`agreement_id`, `store_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cms_block` (
-  `block_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Block ID',
+  `block_id` smallint(6) NOT NULL COMMENT 'Block ID',
   `title` varchar(255) NOT NULL COMMENT 'Block Title',
   `identifier` varchar(255) NOT NULL COMMENT 'Block String Identifier',
   `content` mediumtext COMMENT 'Block Content',
   `creation_time` timestamp NULL DEFAULT NULL COMMENT 'Block Creation Time',
   `update_time` timestamp NULL DEFAULT NULL COMMENT 'Block Modification Time',
-  `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Is Block Active',
-  PRIMARY KEY (`block_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='CMS Block Table' AUTO_INCREMENT=86 ;
+  `is_active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Is Block Active'
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COMMENT='CMS Block Table';
 
 --
 -- Dumping data for table `cms_block`
@@ -7693,7 +7294,8 @@ INSERT INTO `cms_block` (`block_id`, `title`, `identifier`, `content`, `creation
 (82, 'Main menu - custom links', 'block_nav_links', '	<li class="level0 level-top right">\r\n		<a class="level-top" href="{{store direct_url=''about-magento-demo-store''}}" title="About Us">\r\n			<span>About Us</span>\r\n		</a>\r\n	</li>', '2013-05-31 19:05:26', '2014-02-08 23:46:02', 1),
 (83, 'Home page - right 1 (demo3)', 'block_home_right1', '{{block type="ultramegamenu/navigation" parent="root" depth="2" block_name="Main Categories" template="infortis/ultramegamenu/categories.phtml"}}\r\n\r\n{{block type="brands/brands" show_items="1" block_name="Brands" template="infortis/brands/brand_slider.phtml"}}', '2013-08-16 13:49:30', '2013-09-19 21:56:09', 1),
 (84, 'Home page - right 1 (de)', 'block_home_right1', '{{block type="ultramegamenu/navigation" parent="root" depth="2" block_name="All Categories" template="infortis/ultramegamenu/categories.phtml"}}\r\n', '2013-09-03 19:49:36', '2013-09-03 20:13:09', 1),
-(85, 'Demo slide - s1 wide - 2', 'demo_slide_s1-wide_2', '<a href="{{store url=''ultimo-responsive-magento-theme''}}">\r\n   <img src="{{media url="wysiwyg/demo/infortis/ultimo/slideshow/all_2.jpg"}}" alt="Sample slide" />\r\n\r\n		<div class="caption light1 bottom-right">\r\n			<h2 class="heading permanent">Configure Product Grid</h2>\r\n			<p>Customize the display of category grid</p>\r\n			<p>Show products in columns: from 2 to 8</p>\r\n		</div>\r\n\r\n</a>', '2013-09-03 20:00:03', '2013-09-03 20:00:03', 1);
+(85, 'Demo slide - s1 wide - 2', 'demo_slide_s1-wide_2', '<a href="{{store url=''ultimo-responsive-magento-theme''}}">\r\n   <img src="{{media url="wysiwyg/demo/infortis/ultimo/slideshow/all_2.jpg"}}" alt="Sample slide" />\r\n\r\n		<div class="caption light1 bottom-right">\r\n			<h2 class="heading permanent">Configure Product Grid</h2>\r\n			<p>Customize the display of category grid</p>\r\n			<p>Show products in columns: from 2 to 8</p>\r\n		</div>\r\n\r\n</a>', '2013-09-03 20:00:03', '2013-09-03 20:00:03', 1),
+(86, 'Cookie restriction notice', 'cookie_restriction_notice_block', '<p>This website requires cookies to provide all of its features. For more information on what data is contained in the cookies, please see our <a href="{{store direct_url="privacy-policy-cookie-restriction-mode"}}">Privacy Policy page</a>. To accept cookies from this site, please click the Allow button below.</p>', '2015-07-31 04:32:45', '2015-07-31 04:32:45', 1);
 
 -- --------------------------------------------------------
 
@@ -7703,9 +7305,7 @@ INSERT INTO `cms_block` (`block_id`, `title`, `identifier`, `content`, `creation
 
 CREATE TABLE IF NOT EXISTS `cms_block_store` (
   `block_id` smallint(6) NOT NULL COMMENT 'Block ID',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  PRIMARY KEY (`block_id`,`store_id`),
-  KEY `IDX_CMS_BLOCK_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CMS Block To Store Linkage Table';
 
 --
@@ -7775,6 +7375,7 @@ INSERT INTO `cms_block_store` (`block_id`, `store_id`) VALUES
 (78, 0),
 (81, 0),
 (82, 0),
+(86, 0),
 (6, 1),
 (39, 1),
 (40, 1),
@@ -7814,7 +7415,7 @@ INSERT INTO `cms_block_store` (`block_id`, `store_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cms_page` (
-  `page_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Page ID',
+  `page_id` smallint(6) NOT NULL COMMENT 'Page ID',
   `title` varchar(255) DEFAULT NULL COMMENT 'Page Title',
   `root_template` varchar(255) DEFAULT NULL COMMENT 'Page Template',
   `meta_keywords` text COMMENT 'Page Meta Keywords',
@@ -7831,10 +7432,8 @@ CREATE TABLE IF NOT EXISTS `cms_page` (
   `custom_root_template` varchar(255) DEFAULT NULL COMMENT 'Page Custom Template',
   `custom_layout_update_xml` text COMMENT 'Page Custom Layout Update Content',
   `custom_theme_from` date DEFAULT NULL COMMENT 'Page Custom Theme Active From Date',
-  `custom_theme_to` date DEFAULT NULL COMMENT 'Page Custom Theme Active To Date',
-  PRIMARY KEY (`page_id`),
-  KEY `IDX_CMS_PAGE_IDENTIFIER` (`identifier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='CMS Page Table' AUTO_INCREMENT=24 ;
+  `custom_theme_to` date DEFAULT NULL COMMENT 'Page Custom Theme Active To Date'
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='CMS Page Table';
 
 --
 -- Dumping data for table `cms_page`
@@ -7842,7 +7441,7 @@ CREATE TABLE IF NOT EXISTS `cms_page` (
 
 INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `meta_description`, `identifier`, `content_heading`, `content`, `creation_time`, `update_time`, `is_active`, `sort_order`, `layout_update_xml`, `custom_theme`, `custom_root_template`, `custom_layout_update_xml`, `custom_theme_from`, `custom_theme_to`) VALUES
 (1, '404 Not Found', 'two_columns_right', 'Page keywords', 'Page description', 'no-route', NULL, '<div class="grid12-4">\r\n\r\n<img src="{{media url=''wysiwyg/infortis/ultimo/custom/404.jpg''}}" alt="404 not found" />\r\n\r\n</div>\r\n\r\n\r\n<div class="grid12-8">\r\n\r\n	<div class="page-title"><h1>Whoops, our bad...</h1></div>\r\n	<dl>\r\n	<dt>The page you requested was not found, and we have a fine guess why.</dt>\r\n	<dd>\r\n	<ul class="disc">\r\n	<li>If you typed the URL directly, please make sure the spelling is correct.</li>\r\n	<li>If you clicked on a link to get here, the link is outdated.</li>\r\n	</ul></dd>\r\n	</dl>\r\n	<dl>\r\n	<dt>What can you do?</dt>\r\n	<dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd>\r\n	<dd>\r\n	<ul class="disc">\r\n	<li><a href="#" onclick="history.go(-1); return false;">Go back</a> to the previous page.</li>\r\n	<li>Use the search bar at the top of the page to search for your products.</li>\r\n	<li>Follow these links to get you back on track!<br /><a href="{{store url=""}}">Store Home</a> <span class="separator">|</span> <a href="{{store url="customer/account"}}">My Account</a></li>\r\n	</ul>\r\n	</dd>\r\n	</dl>\r\n\r\n</div>', '2012-09-18 17:34:21', '2013-08-08 21:01:04', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'Ultimo - Responsive Magento Theme', 'one_column', NULL, NULL, 'home', NULL, '<span class="section-line"></span>\r\n<br/>\r\n\r\n\r\n<div class="clearer"></div>\r\n\r\n\r\n<br/>\r\n<br/>\r\n{{block type="ultimo/product_list_featured" category_id="87" product_count="16" show_items="5" is_responsive="1" centered="1" move="2" hide_button="1" block_name="Our Featured Products" template="catalog/product/list_featured_slider.phtml"}}\r\n\r\n{{block type="brands/brands" show_items="4" is_responsive="1" timeout="3000" init_delay="3000" move="1" block_name="Product Brands" template="infortis/brands/brand_slider.phtml"}}\r\n\r\n<!--\r\nblock type="catalog/product_new" products_count="10" show_items="5" is_responsive="1" centered="1" block_name="New Products in our Store" hide_button="1" template="catalog/product/new.phtml"}}\r\n-->\r\n\r\n\r\n\r\n<span class="section-title">Sample Custom Banners</span>\r\n<br />\r\n<div class="nested-container">\r\n\r\n	<div class="page-banners grid-row">\r\n		<div class="grid12-6 banner fade-on-hover">\r\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\r\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\r\n			</a>\r\n		</div>\r\n	</div>\r\n\r\n	<div class="page-banners grid-row">\r\n		<div class="grid12-6 banner">\r\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\r\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\r\n			</a>\r\n		</div>\r\n	</div>\r\n\r\n</div>\r\n\r\n\r\n\r\n\r\n<br/>\r\n<br/>\r\n<div class="grid12-3">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-twitter-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Sample Heading</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit rory solare de equis.</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-vimeo-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Feature Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-wordpress-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Sample Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-envato-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Feature Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="http://themeforest.net/item/fortis-flexible-magento-theme/1744309?ref=infortis" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="clearer"></div>\r\n<br/>\r\n<br/>\r\n', '2012-09-18 17:34:21', '2014-02-13 23:53:16', 1, 0, '<!--<reference name="content">\r\n        <block type="catalog/product_new" name="home.catalog.product.new" alias="product_new" template="catalog/product/new.phtml" after="cms_page">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n        <block type="reports/product_viewed" name="home.reports.product.viewed" alias="product_viewed" template="reports/home_product_viewed.phtml" after="product_new">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n        <block type="reports/product_compared" name="home.reports.product.compared" template="reports/home_product_compared.phtml" after="product_viewed">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n    </reference>\r\n    <reference name="right">\r\n        <action method="unsetChild"><alias>right.reports.product.viewed</alias></action>\r\n        <action method="unsetChild"><alias>right.reports.product.compared</alias></action>\r\n    </reference>-->', NULL, NULL, NULL, NULL, NULL),
+(2, 'Ultimo - Responsive Magento Theme', 'one_column', NULL, NULL, 'home', NULL, '<span class="section-line"></span>\r\n<br/>\r\n\r\n\r\n<div class="clearer"></div>\r\n\r\n\r\n<br/>\r\n<br/>\r\n{{block type="ultimo/product_list_featured" category_id="87" product_count="16" show_items="5" is_responsive="1" centered="1" move="2" hide_button="1" block_name="Our Featured Products" template="catalog/product/list_featured_slider.phtml"}}\r\n\r\n{{block type="brands/brands" show_items="4" is_responsive="1" timeout="3000" init_delay="3000" move="1" block_name="Product Brands" template="infortis/brands/brand_slider.phtml"}}\r\n\r\n<!--\r\nblock type="catalog/product_new" products_count="10" show_items="5" is_responsive="1" centered="1" block_name="New Products in our Store" hide_button="1" template="catalog/product/new.phtml"}}\r\n-->\r\n\r\n\r\n\r\n<span class="section-title">Sample Custom Banners</span>\r\n<br />\r\n<div class="nested-container">\r\n\r\n	<div class="page-banners grid-row">\r\n		<div class="grid12-6 banner fade-on-hover">\r\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\r\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\r\n			</a>\r\n		</div>\r\n	</div>\r\n\r\n	<div class="page-banners grid-row">\r\n		<div class="grid12-6 banner">\r\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\r\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\r\n			</a>\r\n		</div>\r\n	</div>\r\n\r\n</div>\r\n\r\n\r\n<!--\r\n<div class="grid12-3">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-twitter-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Sample Heading</h4>\r\n		<p>testingeojsfldhinwetesting</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-vimeo-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Feature Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-wordpress-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Sample Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="#" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n<div class="grid12-3 hide-below-768">\r\n\r\n	<div class="feature feature-icon-hover">\r\n		<span class="icon i-envato-w">&nbsp;</span>\r\n		<h6 class="above-heading">Secondary Heading</h6>\r\n		<h4>Feature Title</h4>\r\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\r\n		<a href="http://themeforest.net/item/fortis-flexible-magento-theme/1744309?ref=infortis" class="go">Read more</a>\r\n	</div>\r\n\r\n</div>\r\n-->\r\n<div class="clearer"></div>\r\n<br/>\r\n<br/>\r\n', '2012-09-18 17:34:21', '2015-07-31 05:34:41', 1, 0, '<!--<reference name="content">\r\n        <block type="catalog/product_new" name="home.catalog.product.new" alias="product_new" template="catalog/product/new.phtml" after="cms_page">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n        <block type="reports/product_viewed" name="home.reports.product.viewed" alias="product_viewed" template="reports/home_product_viewed.phtml" after="product_new">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n        <block type="reports/product_compared" name="home.reports.product.compared" template="reports/home_product_compared.phtml" after="product_viewed">\r\n            <action method="addPriceBlockType">\r\n                <type>bundle</type>\r\n                <block>bundle/catalog_product_price</block>\r\n                <template>bundle/catalog/product/price.phtml</template>\r\n            </action>\r\n        </block>\r\n    </reference>\r\n    <reference name="right">\r\n        <action method="unsetChild"><alias>right.reports.product.viewed</alias></action>\r\n        <action method="unsetChild"><alias>right.reports.product.compared</alias></action>\r\n    </reference>-->', NULL, NULL, NULL, NULL, NULL),
 (3, 'About Us', 'one_column', NULL, NULL, 'about-magento-demo-store', NULL, '<div class="page-title grid12-12">\r\n<h1><span style="font-family: arial, helvetica, sans-serif;">About&nbsp;</span></h1>\r\n</div>\r\n<div class="grid12-12">\r\n<h3 style="margin-bottom: 20px;"><span style="font-family: arial, helvetica, sans-serif; font-size: small;">Madiwin&nbsp;is an electronic cigarette company specializing in offering premium cartridges and e-liquids of the top name brands such as Blu, NJOY, Green Smoke, Logic, and many more. &nbsp;We are based out of Delray Beach, Florida, but 100% of our sales are through ecommerce. &nbsp;We take pride in conducting indepth research to bring our value customers the industry''s "Gold Standard" of ecigarette cartridges such as NJOY and Blu. &nbsp;Our brands must meet our high standard for quality, testing, financial health, and industry experience. &nbsp;Our philosophy is to keep our overhead down and pass the saving to our value customers. &nbsp;You can shop with confidence with our guarantee of satisfaction on every product with a full refund!</span></h3>\r\n</div>\r\n<div class="grid12-4">\r\n<p>&nbsp;</p>\r\n</div>', '2012-09-18 17:34:21', '2014-02-14 02:04:01', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'Customer Service', 'one_column', NULL, NULL, 'customer-service', NULL, '<div class="page-title grid12-12">\r\n	<h1>Customer Service</h1>\r\n</div>\r\n\r\n<div class="grid12-12">\r\n	<h3 style="margin-bottom: 20px; color: #999;">Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus. Lorem ipsum dolor sit amet.</h3>\r\n</div>\r\n<div class="clearer"></div>\r\n\r\n<div class="grid12-12">\r\n	<ul class="bullet">\r\n		<li><a href="#answer1">Shipping &amp; Delivery</a></li>\r\n		<li><a href="#answer2">Privacy &amp; Security</a></li>\r\n		<li><a href="#answer3">Returns &amp; Replacements</a></li>\r\n		<li><a href="#answer4">Ordering</a></li>\r\n		<li><a href="#answer5">Payment, Pricing &amp; Promotions</a></li>\r\n		<li><a href="#answer6">Viewing Orders</a></li>\r\n		<li><a href="#answer7">Updating Account Information</a></li>\r\n	</ul>\r\n</div>\r\n<div class="clearer"></div><br>\r\n\r\n\r\n<h2 id="answer1" class="grid12-12">Shipping &amp; Delivery</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. senectus et netus et Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte senectus et netus et.</p>\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lot intecis, faucibus etri.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, orbi luctus. Duis lobortis. Nulla nec velit. Suspendisse Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lot intecis, faucibus etri.</p>\r\n	<p>Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer2" class="grid12-12">Privacy &amp; Security</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus id massa. Pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo. </p>\r\n	<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus. Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi. Vestibulum sapien dolor, aliquet nec, porta ac, malesuada a, libero. Praesent feugiat purus eget est. Nulla facilisi. Vestibulum tincidunt sapien eu velit. Mauris purus. Maecenas eget mauris eu orci accumsan feugiat. Pellentesque eget velit. Nunc tincidunt.</p>\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper </p>\r\n	<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus.</p>\r\n	<p>Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer3" class="grid12-12">Returns &amp; Replacements</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lot intecis, faucibus etri.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer4" class="grid12-12">Ordering</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus.</p>\r\n	<p>Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede otis intecis, faucibus etri.</p>\r\n	<p>Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer5" class="grid12-12">Payment, Pricing &amp; Promotions</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Aenean sed nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>De lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lot intecis, faucibus etrisitissi.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer6" class="grid12-12">Viewing Orders</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta.</p>\r\n	<p>Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper </p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus.</p>\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Mauris pulvinar erat non massa. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lobortis in, faucibus et, tempus at, dui. Nunc risus. Proin scelerisque augue. Nam ullamcorper </p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n<h2 id="answer7" class="grid12-12">Updating Account Information</h2>\r\n\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Nunc risus. Proin scelerisque augue. Nam ullamcorper. Phasellus ido pellentesque nisl. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc augue. Aenean sed justo non leo vehicula laoreet. Praesent ipsum libero, auctor ac, tempus nec, tempor nec, justo caretes lorte.</p>\r\n	<p>Maecenas ullamcorper, odio vel tempus egestas, dui orci faucibus orci, sit amet aliquet lectus dolor et quam. Pellentesque consequat luctus purus.</p>\r\n</div>\r\n<div class="grid12-6 mobile-grid-half">\r\n	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi luctus. Duis lobortis. Nulla nec velit. Suspendisse tortor turpis, porta nec, tempus vitae, iaculis semper, pede. Cras vel libero id lectus rhoncus porta. Suspendisse convallis felis ac enim. Vivamus tortor nisl, lot intecis, faucibus etri.</p>\r\n	<p>Nunc et risus. Etiam a nibh. Phasellus dignissim metus eget nisi.</p>\r\n</div>\r\n<span class="section-line"></span>\r\n<br>\r\n\r\n\r\n', '2012-09-18 17:34:21', '2014-02-13 22:03:21', 1, 0, '<!--\r\n{{block type="ultraslideshow/slideshow" block_name="Slajders"  template="infortis/ultraslideshow/slideshow.phtml"}}\r\n{{block type="ultraslideshow/config" template="infortis/ultraslideshow/config.phtml"}}\r\n-->', NULL, NULL, NULL, NULL, NULL),
 (5, 'Enable Cookies', 'two_columns_right', NULL, NULL, 'enable-cookies', NULL, '<div class="std">\r\n    <ul class="messages">\r\n        <li class="notice-msg">\r\n            <ul>\r\n                <li>Please enable cookies in your web browser to continue.</li>\r\n            </ul>\r\n        </li>\r\n    </ul>\r\n    <div class="page-title">\r\n        <h1><a name="top"></a>What are Cookies?</h1>\r\n    </div>\r\n    <p>Cookies are short pieces of data that are sent to your computer when you visit a website. On later visits, this data is then returned to that website. Cookies allow us to recognize you automatically whenever you visit our site so that we can personalize your experience and provide you with better service. We also use cookies (and similar browser data, such as Flash cookies) for fraud prevention and other purposes. If your web browser is set to refuse cookies from our website, you will not be able to complete a purchase or take advantage of certain features of our website, such as storing items in your Shopping Cart or receiving personalized recommendations. As a result, we strongly encourage you to configure your web browser to accept cookies from our website.</p>\r\n    <h2 class="subtitle">Enabling Cookies</h2>\r\n    <ul class="disc">\r\n        <li><a href="#ie7">Internet Explorer 7.x</a></li>\r\n        <li><a href="#ie6">Internet Explorer 6.x</a></li>\r\n        <li><a href="#firefox">Mozilla/Firefox</a></li>\r\n        <li><a href="#opera">Opera 7.x</a></li>\r\n    </ul>\r\n    <h3><a name="ie7"></a>Internet Explorer 7.x</h3>\r\n    <ol>\r\n        <li>\r\n            <p>Start Internet Explorer</p>\r\n        </li>\r\n        <li>\r\n            <p>Under the <strong>Tools</strong> menu, click <strong>Internet Options</strong></p>\r\n            <p><img src="{{skin url="images/cookies/ie7-1.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Click the <strong>Privacy</strong> tab</p>\r\n            <p><img src="{{skin url="images/cookies/ie7-2.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Click the <strong>Advanced</strong> button</p>\r\n            <p><img src="{{skin url="images/cookies/ie7-3.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Put a check mark in the box for <strong>Override Automatic Cookie Handling</strong>, put another check mark in the <strong>Always accept session cookies </strong>box</p>\r\n            <p><img src="{{skin url="images/cookies/ie7-4.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Click <strong>OK</strong></p>\r\n            <p><img src="{{skin url="images/cookies/ie7-5.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Click <strong>OK</strong></p>\r\n            <p><img src="{{skin url="images/cookies/ie7-6.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Restart Internet Explore</p>\r\n        </li>\r\n    </ol>\r\n    <p class="a-top"><a href="#top">Back to Top</a></p>\r\n    <h3><a name="ie6"></a>Internet Explorer 6.x</h3>\r\n    <ol>\r\n        <li>\r\n            <p>Select <strong>Internet Options</strong> from the Tools menu</p>\r\n            <p><img src="{{skin url="images/cookies/ie6-1.gif"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Click on the <strong>Privacy</strong> tab</p>\r\n        </li>\r\n        <li>\r\n            <p>Click the <strong>Default</strong> button (or manually slide the bar down to <strong>Medium</strong>) under <strong>Settings</strong>. Click <strong>OK</strong></p>\r\n            <p><img src="{{skin url="images/cookies/ie6-2.gif"}}" alt="" /></p>\r\n        </li>\r\n    </ol>\r\n    <p class="a-top"><a href="#top">Back to Top</a></p>\r\n    <h3><a name="firefox"></a>Mozilla/Firefox</h3>\r\n    <ol>\r\n        <li>\r\n            <p>Click on the <strong>Tools</strong>-menu in Mozilla</p>\r\n        </li>\r\n        <li>\r\n            <p>Click on the <strong>Options...</strong> item in the menu - a new window open</p>\r\n        </li>\r\n        <li>\r\n            <p>Click on the <strong>Privacy</strong> selection in the left part of the window. (See image below)</p>\r\n            <p><img src="{{skin url="images/cookies/firefox.png"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>Expand the <strong>Cookies</strong> section</p>\r\n        </li>\r\n        <li>\r\n            <p>Check the <strong>Enable cookies</strong> and <strong>Accept cookies normally</strong> checkboxes</p>\r\n        </li>\r\n        <li>\r\n            <p>Save changes by clicking <strong>Ok</strong>.</p>\r\n        </li>\r\n    </ol>\r\n    <p class="a-top"><a href="#top">Back to Top</a></p>\r\n    <h3><a name="opera"></a>Opera 7.x</h3>\r\n    <ol>\r\n        <li>\r\n            <p>Click on the <strong>Tools</strong> menu in Opera</p>\r\n        </li>\r\n        <li>\r\n            <p>Click on the <strong>Preferences...</strong> item in the menu - a new window open</p>\r\n        </li>\r\n        <li>\r\n            <p>Click on the <strong>Privacy</strong> selection near the bottom left of the window. (See image below)</p>\r\n            <p><img src="{{skin url="images/cookies/opera.png"}}" alt="" /></p>\r\n        </li>\r\n        <li>\r\n            <p>The <strong>Enable cookies</strong> checkbox must be checked, and <strong>Accept all cookies</strong> should be selected in the &quot;<strong>Normal cookies</strong>&quot; drop-down</p>\r\n        </li>\r\n        <li>\r\n            <p>Save changes by clicking <strong>Ok</strong></p>\r\n        </li>\r\n    </ol>\r\n    <p class="a-top"><a href="#top">Back to Top</a></p>\r\n</div>\r\n', '2012-09-18 17:34:21', '2012-10-22 14:55:16', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -7863,6 +7462,8 @@ INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `m
 (21, 'Private Policy', 'two_columns_right', NULL, NULL, 'private-policy', 'Private Policy', '<p><strong>Madiwin</strong>&nbsp;has created this privacy policy in order to demonstrate our firm commitment to privacy. The following discloses our information gathering practices for all of&nbsp;<strong>Madiwin</strong>&nbsp;websites.</p>\r\n<p><strong>Madiwin</strong>&nbsp;has established a privacy policy with the mission of building member trust and confidence by promoting the use of fair information practices. If you have questions or concerns regarding this statement, you should first contact&nbsp;<a href="mailto:support@blucigs.com">support@madiwin.com</a>.</p>\r\n<p>This site is owned and operated by Madiwin</p>\r\n<p>Madiwin<br /> 502 Osprey Dr. 18-D<br /> Delray Beach, Florida 33444<br /> <br /> Customer Service Department: 1-561-265-5329<br /> <br /> <a href="mailto:support@blucigs.com">support@madiwin.com</a></p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Cookies</strong></span></p>\r\n<p><strong>Madiwin</strong>&nbsp;uses session cookies to make it easier for you to navigate our site. A cookie is a small text file that is stored on a user''s computer for record-keeping purposes. We use cookies on this site. We do not link the information we store in cookies to any personally identifiable information you submit while on our site.</p>\r\n<p>We use both session ID cookies and persistent cookies. A session ID cookie expires when you close your browser. A persistent cookie remains on your hard drive for an extended period of time. You can remove persistent cookies by following directions provided in your Internet browser''s "help" file. For more information on cookies click here.</p>\r\n<p>If you reject cookies, you may still use our site, but your ability to use some areas of our site, such as contests or surveys, will be limited.</p>\r\n<p>Some of our business partners (e.g., advertisers) use cookies on our site. We have no access to or control over these cookies.</p>\r\n<p>Our site''s registration form requires users to give us contact information (such as username and email address). We use customer contact information from the registration form to send the user special offers and updates from&nbsp;<strong>Madiwin</strong>. The customer''s contact information is also used to contact the person when necessary.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Choice/Opt-out</strong></span></p>\r\n<p>As an individual, you have the opportunity to limit the personal information you provide. We provide you with the opportunity to ''opt out'' of having your personally identifiable information used for certain purposes when we ask for this information. If you no longer wish to receive our newsletter and promotional communications, you may opt out of receiving them by contacting us at&nbsp;<span style="text-decoration: underline;"><a href="mailto:support@madiwin.com">support@madiwin.com</a></span>.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;">Information Collection &amp; Use</span></p>\r\n<p><span style="font-size: medium;"><strong>Registration</strong></span></p>\r\n<p>In order to use this Web site, you must first complete the registration form and create a user name and password. During registration you are required to give contact information including your name and email address. We use this information to contact you about the services on our site in which you have expressed interest.</p>\r\n<p><strong>Madiwin</strong>&nbsp;is the sole owner of the information collected on www.Madiwincigs.com.&nbsp;<strong>Madiwin</strong>&nbsp;collects personally identifiable information from our users at several different points on our Web site.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Access to Personally Identifiable Information</strong></span></p>\r\n<p>If your personally identifiable information changes, or if you no longer desire our service, you may correct, update, or deactivate it by making the change on our member information page, emailing our Customer Support at&nbsp;<a href="mailto:support@blucigs.com">suppport@madiwin.com</a><a href="mailto:support@blucigs.com">suppport@madiwin.com</a>, or contacting us by telephone or postal mail using the information located at the top of this page.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Surveys or Contests</strong></span></p>\r\n<p>From time to time, we may provide you the opportunity to participate in contests or surveys on our site. If you participate, we will request certain personally identifiable information from you. Participation in these surveys or contests is completely voluntary, and you therefore have a choice whether or not to disclose this information. The requested information typically includes contact information (such as name and shipping address) and demographic information (such as zip code). We may request other information, in our sole discretion, which we consider important to the administration and promotion of the survey or contest</p>\r\n<p>We use this information to notify contest winners and award prizes, monitor site traffic, personalize the site (in the case of anonymous information collected in surveys), and send participants an email newsletter. We may also use this information for publicity or marketing purposes. We may publish this information in our sole discretion. The rules applicable to any individual survey or contest will be published prior to the collection of any personally identifiable information and you agree to such use by submitting any information.</p>\r\n<p>We may use a third party service provider to conduct these surveys or contests; that company is prohibited from using our users'' personally identifiable information for any other purpose. We will not share the personally identifiable information you provide through a contest or survey with other third parties unless we give you prior notice and choice.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;">Uses of Information</span></p>\r\n<p><span style="font-size: medium;"><strong>Email</strong></span></p>\r\n<p><strong>Madiwin</strong>&nbsp;members and affiliates receive periodic email notices that include exclusive special offers and information about sales, promotions, new releases, and other relevant information. If you no longer wish to receive these emails, you may opt out by contacting us at<a href="mailto:support@blucigs.com"> suppport@madiwin.com</a>.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Non-personal information</strong></span></p>\r\n<p>Like many web sites, we collect and analyze standard log file information and Session ID information to analyze site traffic, improve site performance, and prevent fraud. Session IDs are bits of code on your computer that assist your browser in navigating our site. We do not associate personal information with log file information or cookies, except when needed to prevent fraud.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Affiliate and Webmaster sign-up</strong></span></p>\r\n<p><strong>Madiwin</strong>&nbsp;collects prospective affiliate and webmaster contact information to process applications and conduct business. This information includes: name, checks payable, address, city, state/province, country, minimum payout, password, source of referral, tax ID (EIN or social security number for U.S. residents), and date of birth.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Legal Disclaimer</strong></span></p>\r\n<p><strong>Madiwin</strong>&nbsp;reserves the right to disclose your personally identifiable information as required by law and when we believe that disclosure is necessary to protect our rights and/or to comply with a judicial proceeding, court order, or legal process served on our web site.</p>\r\n<p>The&nbsp;<strong>Madiwin</strong>&nbsp;web site(s) contains links to other sites.&nbsp;<strong>Madiwin</strong>&nbsp;is not responsible for the privacy practices or the content of such web sites. Our site uses a secure online ordering system that enables clients to purchase products online.&nbsp;<strong>Madiwin</strong>&nbsp;collects users'' financial information, such as account and credit card numbers, for verification purposes only. Financial information that is collected is used to bill the user for products and services, and never for any other reason.</p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Security</strong></span></p>\r\n<p>The security of your personal information is important to us. When you enter sensitive information (such as credit card number and/or social security number) on our registration or order forms, we encrypt that information using secure socket layer technology (SSL). To learn more about SSL, follow this link: Verisign.</p>\r\n<p>We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. No method of online transmission or electronic storage is 100% secure, however. Therefore, while we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>\r\n<p>If you have any questions about security on our web site, you can email us at&nbsp;<a href="mailto:support@blucigs.com">suppport@madiwin.com</a></p>\r\n<p>&nbsp;</p>\r\n<p><span style="font-size: medium;"><strong>Changes in this Privacy Statement</strong></span></p>\r\n<p>If we decide to change our privacy policy, we will post those changes to this privacy statement, the homepage, and other places we deem appropriate, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we disclose it.</p>\r\n<p>We reserve the right to modify this privacy statement at any time, so please review it frequently. If we make material changes to this policy, we will notify you here, by email, or by means of a notice on our home page.</p>\r\n<p><strong>&nbsp;</strong><strong></strong></p>\r\n<p><sub>&nbsp;</sub></p>', '2014-02-12 00:49:55', '2014-02-12 01:16:45', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (22, 'ULTIMO Home Page', NULL, NULL, NULL, 'ultimo-home-page', NULL, '<span class="section-line"></span>\n<br/>\n<div class="grid12-4">\n\n	<div class="feature feature-icon-hover indent large">\n		<span class="icon large">\n			<img src="{{media url=''wysiwyg/infortis/ultimo/icons/large/paintbrush.png''}}" alt="Customizable design" />\n		</span>\n		<h6 class="above-heading">Customizable design</h6>\n		<h3>Unlimited Colors</h3>\n		<p>You have never seen so many options! Change colors of dozens of elements, apply textures, upload background images...</p>\n		<a href="{{store url=''ultimo-responsive-magento-theme''}}" class="go">See all features</a>\n	</div>\n\n</div>\n<div class="grid12-4">\n\n	<div class="feature feature-icon-hover indent large">\n		<span class="icon large">\n			<img src="{{media url=''wysiwyg/infortis/ultimo/icons/large/responsive.png''}}" alt="Responsive Layout" />\n		</span>\n		<h6 class="above-heading">12-column grid</h6>\n		<h3>Responsive Layout</h3>\n		<p>Ultimo can be displayed on any screen. It is based on fluid grid system. If screen is resized, layout will be automatically adjusted...</p>\n		<a href="{{store url=''ultimo-responsive-magento-theme''}}" class="go">See all features</a>\n	</div>\n\n</div>\n<div class="grid12-4">\n\n	<div class="feature feature-icon-hover indent large">\n		<span class="icon large">\n			<img src="{{media url=''wysiwyg/infortis/ultimo/icons/large/menu.png''}}" alt="Mega Menu" />\n		</span>\n		<h6 class="above-heading">Customizable drop-down menu</h6>\n		<h3>Mega Menu</h3>\n		<p>Two styles: wide mega menu or classic drop-down menu. You can add any custom content (images, text, HTML) to any category in the catalog...</p>\n		<a href="{{store url=''ultimo-responsive-magento-theme''}}" class="go">See all features</a>\n	</div>\n\n</div>\n<div class="clearer"></div>\n\n\n\n<br/>\n<br/>\n{{block type="ultimo/product_list_featured" category_id="37" product_count="16" show_items="5" is_responsive="1" centered="1" move="2" hide_button="1" block_name="See Our Featured Products" template="catalog/product/list_featured_slider.phtml"}}\n\n{{block type="brands/brands" show_items="4" is_responsive="1" timeout="3000" init_delay="3000" move="1" block_name="Product Brands" template="infortis/brands/brand_slider.phtml"}}\n\n{{block type="ultimo/product_list_featured" category_id="15" product_count="16" show_items="5" is_responsive="1" centered="1"  move="2" hide_button="1" block_name="See Our Featured Products" template="catalog/product/list_featured_slider.phtml"}}\n\n<!--\nblock type="catalog/product_new" products_count="10" show_items="5" is_responsive="1" centered="1" block_name="New Products in our Store" hide_button="1" template="catalog/product/new.phtml"}}\n-->\n\n\n\n<span class="section-title">Sample Custom Banners</span>\n<br />\n<div class="nested-container">\n\n	<div class="page-banners grid-row">\n		<div class="grid12-3 banner">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/11.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n		<div class="grid12-3 banner">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/11.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n		<div class="grid12-6 banner fade-on-hover">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n	</div>\n\n	<div class="page-banners grid-row">\n		<div class="grid12-6 banner">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/03.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n		<div class="grid12-3 banner">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/11.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n		<div class="grid12-3 banner">\n			<a href="{{store direct_url=''typography#banners''}}" title="Click to see more exemples of banners">\n				<img src="{{media url="wysiwyg/infortis/ultimo/custom/banners/11.png"}}" alt="Sample banner" />\n			</a>\n		</div>\n	</div>\n\n</div>\n\n\n\n\n<br/>\n<br/>\n<div class="grid12-3">\n\n	<div class="feature feature-icon-hover">\n		<span class="icon i-twitter-w"></span>\n		<h6 class="above-heading">Secondary Heading</h6>\n		<h4>Sample Heading</h4>\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit rory solare de equis.</p>\n		<a href="#" class="go">Read more</a>\n	</div>\n\n</div>\n<div class="grid12-3 hide-below-768">\n\n	<div class="feature feature-icon-hover">\n		<span class="icon i-vimeo-w"></span>\n		<h6 class="above-heading">Secondary Heading</h6>\n		<h4>Feature Title</h4>\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\n		<a href="#" class="go">Read more</a>\n	</div>\n\n</div>\n<div class="grid12-3 hide-below-768">\n\n	<div class="feature feature-icon-hover">\n		<span class="icon i-wordpress-w"></span>\n		<h6 class="above-heading">Secondary Heading</h6>\n		<h4>Sample Title</h4>\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\n		<a href="#" class="go">Read more</a>\n	</div>\n\n</div>\n<div class="grid12-3 hide-below-768">\n\n	<div class="feature feature-icon-hover">\n		<span class="icon i-envato-w"></span>\n		<h6 class="above-heading">Secondary Heading</h6>\n		<h4>Feature Title</h4>\n		<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque quis.</p>\n		<a href="http://themeforest.net/item/fortis-flexible-magento-theme/1744309?ref=infortis" class="go">Read more</a>\n	</div>\n\n</div>\n<div class="clearer"></div>\n<br/>\n<br/>\n', '2014-02-13 21:51:38', '2014-02-13 21:51:38', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL),
 (23, 'FAQ', 'one_column', NULL, NULL, 'faq', 'FAQ', '<h2>FAQs</h2>\r\n<div class="BlockContent">\r\n<p><em>Please consult the warnings on this page.</em><br /><br /><strong>1. How does NJOY work?</strong><br /><br />When using NJOY, the act of inhaling (smoking) triggers a vaporizing process that releases simulated smoke which is actually a vapor mist that evaporates into the air within a few seconds.<br /><br /><strong>2. What are the leading reasons people use NJOY?</strong></p>\r\n<p>The leading reasons people use NJOY include:<br />&bull;&nbsp;&nbsp; &nbsp;No ashes<br />&bull;&nbsp;&nbsp; &nbsp;Virtually odorless<br />&bull;&nbsp;&nbsp; &nbsp;Battery heated vapor<br />&bull;&nbsp;&nbsp; &nbsp;Rich Tobacco Flavor<br /><br /><strong>3. How do the ingredients compare to those in tobacco smoking products?</strong></p>\r\n<p>The primary ingredients are glycerin and propylene glycol, and the secondary ingredients are nicotine and flavors to replicate the taste of traditional smoking.</p>\r\n<p>Propylene Glycol - The Food and Drug Administration (FDA) has determined propylene glycol to be "generally recognized as safe" for use in food, and propylene glycol is used in cosmetics and medicines. It is used in food coloring and flavoring, as an additive to keep food, medicines and cosmetics moist, and in machines that simulate smoke, although usage in simulating smoking devices is not currently included in the list of uses recognized by the FDA. In NJOY, propylene glycol functions to provide the vapor mist that looks like smoke and to suspend flavor.</p>\r\n<p>Glycerin - The FDA has determined glycerin to be "generally recognized as safe" for use in food, and glycerin is commonly used in foods, beverages, medical and pharmaceutical applications, such as cough drops, although usage in simulating smoking devices is not currently included in the list of uses recognized by the FDA.</p>\r\n<p>Nicotine - is an alkaloid found in certain plants, predominately tobacco, and in lower quantities, tomatoes, potatoes, eggplants, cauliflower, bell-peppers, and some teas.<br />Natural and Artificial Flavors - determined to be safe for use in food products.<br /><br /><strong>4. What does NJOY taste and smell like?</strong></p>\r\n<p>Most users of NJOY will tell you the flavor or taste of our products closely replicate cigarettes. NJOY products are available in popular smoking flavors - traditional "tobacco" and menthol flavors.</p>\r\n<p>NJOY&rsquo;s vapor is virtually odorless and does not linger, unlike traditional smoking products that create lasting, difficult-to-neutralize smells in rooms, cars, and clothing. NJOY provides smokers an alternative in places where smoking is regulated. Use of NJOY depends on your location - it may or may not be prohibited by statutes or ordinances that otherwise prohibit smoking.<br /><br /><strong>5. Are there aspects about NJOY I should be aware of before using it?</strong></p>\r\n<p>NJOY products are not a smoking cessation product and have not been tested as such.&nbsp; This product and the statements made within have not been evaluated by the US Food and Drug Administration or any other international health or regulatory authority, unless otherwise noted in NJOY&rsquo;s materials. These statements and NJOY products are not intended to diagnose, treat, cure, or prevent any condition, disorder, disease or physical or mental conditions and should not be used as a substitute for your own physician&rsquo;s advice.</p>\r\n<p>KEEP OUT OF REACH OF CHILDREN: Choking and ingestion hazard<br /><br /><strong>6. What is the shelf life of an NJOY electronic cigarette?</strong></p>\r\n<p>Shelf life is 24 months from the manufacturing date.<br /><br /><strong>7. If I am using a rechargeable NJOY product with replaceable cartridges, how often should I replace the cartridge?</strong></p>\r\n<p>If you are using a rechargeable NJOY product and the vapor volume is reduced below a satisfactory level or is no longer visible, immediately discontinue use of that cartridge and replace it with a new NJOY cartridge.&nbsp; Failure to do so will VOID THE PRODUCT WARRANTY.<br />Store cartridges in a cool and dry place. You should never place other liquids into an NJOY cartridge and doing so will VOID THE PRODUCT WARRANTY.<br /><br /><strong>8. For a rechargeable NJOY product, how long does the battery charge last?</strong></p>\r\n<p>An NJOY battery will last 1-3 days before needing re-charging, depending on the intensity and quantity of puffs. The indicator light tip will blink multiple times when the battery is getting low on power. We encourage you to carry with you an extra, charged battery.<br />Charge a new battery initially for about 3-4 hours. Subsequent recharges should take about 3-4 hours. A battery can be recharged in excess of 300 times before reaching its useful life.</p>\r\n<p>NJOY uses a 3.6V special lithium battery and charger, which cannot be replaced by other lithium batteries or chargers. The input supply voltage of the charger is AC100-240V, 50/60Hz, or DC 12-24V. When traveling, ensure that the local electrical supply is in accordance with these specifications.<br /><br /><strong>9. Does NJOY cost more or less than traditional smoking products?</strong></p>\r\n<p>With ever-increasing taxes and price hikes on tobacco products, NJOY can save you money and can be more affordable than traditional tobacco smoking, depending on where you live and your individual pattern of usage.<br /><br /><strong>10. Can I smoke NJOY anywhere?</strong></p>\r\n<p>In various locations, use of NJOY may or may not be prohibited by statutes or ordinances that otherwise prohibit smoking.</p>\r\n<p>Still, do not be surprised when people ask about your smoking NJOY. After all, to the casual observer, using NJOY creates the appearance of tobacco smoking. Customers report that simply explaining to others how NJOY works usually creates acceptance for using the product.<br /><br /><strong>11. Is there a limited warranty?</strong></p>\r\n<p>Subject to the conditions and limitations set forth on our warranty page, NJOY products are guaranteed against defects in workmanship and materials if purchased from NJOY or an authorized NJOY dealer, for a period of 12 months from the date of purchase. Click here to see our warranty. If the product fails to operate satisfactorily, return to:</p>\r\n<p>NJOY<br />15211 N. Kierland Blvd,&nbsp;<br />Suite 200<br />Scottsdale, AZ 85254<br /><br />Remember to pack the unit securely and obtain appropriate shipping insurance. Include a full description of the defect or particulars of the claim, along with your return address, telephone number, and legible proof of purchase. The place of purchase, manufacturer or importer is not responsible for damage or loss incurred as a result of postal handling or damage caused during transit. Whenever possible send only the component in question, not the Starter Kit as a whole.<br /><br /><strong>12. Is NJOY a smoking cessation product?</strong></p>\r\n<p>NJOY products are not a smoking cessation product and have not been tested as such.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</p>\r\n<p>NJOY electronic cigarettes are alternative products that offer social inclusion versus isolation, pleasing vapor, virtually odor-free smoking, non-flammability, convenience, and depending on the price of cigarettes where you live, a lower cost than traditional smoking.<br /><br /><strong>13. Are there any maintenance issues with NJOY?</strong></p>\r\n<p>NJOY is very easy to use. NJOY&rsquo;s disposable products, the King and the OneJoy, require no maintenance at all.&nbsp; With respect to NJOY&rsquo;s rechargeable product, the only maintenance required is charging and replacing batteries as well as attaching fresh cartridges. Here are other NJOY maintenance tips:</p>\r\n<p>When removing the original cartridge, grasp the cartridge toward the tip, twist and pull off.</p>\r\n<p>Keep NJOY away from extreme high and low temperature environments while in use or storage.</p>\r\n<p>Keep NJOY out of reach of children.</p>\r\n<p>WARNING:&nbsp; NJOY products are not smoking cessation products and have not been tested as such. The U.S. FDA has not approved NJOY products for any use and they are not intended to diagnose, cure, mitigate, treat, or prevent any disorder, disease, or physical or mental condition. NJOY products contain nicotine, a chemical known to the State of California to cause birth defects or other reproductive harm. Nicotine is addictive and habit forming, and it is very toxic by inhalation, in contact with the skin, or if swallowed. Ingestion of the non-vaporized concentrated ingredients in the cartridges can be poisonous. Physical effects of nicotine may include increased heart rate and accelerated blood pressure. If the cartridge is swallowed, seek medical assistance immediately. NJOY products are intended for use by adults of legal smoking age (18 or older in California), and not by children, women who are pregnant or breast feeding, or persons with or at risk of heart disease, high blood pressure, diabetes or taking medicine for depression or asthma. NJOY products may not be sold to minors. Identification of all persons under 26 will be required before purchase. Keep out of reach of children.</p>\r\n</div>', '2014-02-14 02:19:24', '2014-02-14 02:19:24', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `meta_description`, `identifier`, `content_heading`, `content`, `creation_time`, `update_time`, `is_active`, `sort_order`, `layout_update_xml`, `custom_theme`, `custom_root_template`, `custom_layout_update_xml`, `custom_theme_from`, `custom_theme_to`) VALUES
+(24, 'Benefits Over Cigarette', 'one_column', NULL, NULL, 'benefits-over-cigarette', NULL, '<h1>5 Leading Benefits Electronic Smoking Has Over Traditional Cigarettes</h1>\r\n<p>In order for someone to switch brands or consider alternatives, they need to clearly see the benefits of the new approach. E-cigarettes are no different.</p>\r\n<p>Many, if not the vast majority of those interested in electronic smoking, are current smokers. Chances are you&rsquo;re one of them &ndash; searching for an alternative but wanting to understand the benefits of switching from your current brand.</p>\r\n<p>E-cigarettes are indeed an alternative to traditional cigarettes. They&rsquo;re a suitable alternative for many because of the benefits they have over &ldquo;smoking.&rdquo;</p>\r\n<p>We invite you to continue reading for 5 of the leading benefits <a href="http://www.eversmoke.com/electronic-smoking.html">electronic smoking</a> has over traditional cigarettes&hellip;these benefits were discovered from customer feedback as well as numerous scientific studies examining both traditional and <a href="http://www.eversmoke.com/e-cigarettes.html">e-cigarettes</a>.</p>\r\n<h2>Reason #1 &ndash; E-cigarettes do NOT have that distinctive odor</h2>\r\n<p>Just about anyone knows &ndash; cigarettes smell!! It&rsquo;s their hallmark.</p>\r\n<p>Scent from cigarette smoke gets into, and clings, to just about anything it comes in contact with &ndash; hair, clothes, your car &ndash; anything. Not only does the odor cling, many consider cigarette smell offensive and avoid close contact. If you&rsquo;re a smoker, you don&rsquo;t notice it so much since you&rsquo;re immersed in it all of the time. To non-smokers, and <em>especially</em> ex-smokers, this smell is very noticeable.</p>\r\n<p>One reason cigarette smoke smells so bad is because you&rsquo;re burning tar and chemicals in addition to the tobacco itself. Properties from burning these substances make them cling to clothing, hair, walls, furniture, etc.</p>\r\n<p>E-cigarettes on the other hand do not have this ominous odor because instead of exhaling smoke, you&rsquo;re exhaling a vapor that evaporates almost immediately. Customers and non-smokers/vapers report the smell from an e-cigarette to be either nonexistent or reminiscent of cotton candy or even pop tarts!!</p>\r\n<p>Whatever it is, e-cigarettes certainly smell a whole lot better than traditional cigarettes.</p>\r\n<h2>Reason #2 &ndash; Electronic smoking is MUCH cheaper than traditional cigarettes</h2>\r\n<p>If you&rsquo;re a smoker reading this, you can certainly relate to this point &ndash; cigarettes are expensive these days.</p>\r\n<p>In 1980, you could buy a good quality pack of cigarettes for $1. By the 90s, the cost had risen to $2, on average. Today, a good quality pack of cigarettes will cost you anywhere from $7 to $12 depending on which state you&rsquo;re in.</p>\r\n<p>Some of this increase in cost can be attributed to regular inflation or rising prices of production (tobacco) and even distribution (fuel).</p>\r\n<p>Taxes however play a big role too. In 2009 for example, the federal tax was raised from $0.39 to $1.01 per pack. Add state taxes, which vary, and taxes end being around 20% of the cost of a pack of traditional cigarettes.</p>\r\n<p>Between all of this, a pack-a-day smoker can spend upwards of $300 each month! And this doesn&rsquo;t include the cost of other incidentals such as lighters, ash trays and much more.</p>\r\n<p>E-cigarettes do not share this dilemma. While some of the entry costs of a starter kit may be a little bit higher, the month-to-month cost of electronic smoking is typically about half when compared to traditional cigarettes. Cartomizers and batteries constitute the bulk of this expense, which can range anywhere between $20 and $40 depending on how much you vape.</p>\r\n<p>Currently, e-cigarettes are not subject to any sort of taxes like traditional smokes are. Also, as the technology develops and becomes more mainstream, the cost will continue to decline (&hellip;think cell phones, DVD players, etc.).</p>\r\n<h2>Reason #3 &ndash; E-cigarettes are much safer</h2>\r\n<p>Since you&rsquo;re &ldquo;burning&rdquo; tobacco, not to mention using an open flame to light it, traditional cigarettes by default pose serious fire hazards. Cigarettes are in fact the #1 cause of fire-related death in the United States and 7 other countries. Worldwide, fires started by lit cigarettes constitute 10% of all fire-related deaths.</p>\r\n<p>With e-cigarettes, you&rsquo;re not burning an open flame and don&rsquo;t have a hot cherry that can burn you, your clothes, your furniture, and so on.</p>\r\n<p>There was an incident where an e-cigarette exploded in the user&rsquo;s face in early 2012. It was determined though that the particular unit the person was using was a &ldquo;mod,&rdquo; which is a way vapers can alter their devices for more power that involves stacking the batteries. When used as intended, there have been no reports of an e-cigarette exploding.</p>\r\n<h2>Reason #4 &ndash; Health</h2>\r\n<p>While we can&rsquo;t make the claim that e-cigarettes are healthier, we can point out how traditional cigarettes are harmful to your health.</p>\r\n<p>You don&rsquo;t have to take our word for it &ndash; there are countless studies out there showing how smoking traditional cigarettes can put you at a higher risk of a whole host of conditions, including (but not limited to) &ndash; stroke, heart attack, lung cancer, throat cancer, pneumonia, osteoporosis, Alzheimer&rsquo;s, and countless others.</p>\r\n<p>Traditional cigarettes contain a litany of chemicals as well, many of which are considered carcinogenic, or cancer causing.</p>\r\n<p>Many of our customers have reported feeling better physically after switching to electronic smoking.</p>\r\n<h2>Reason #5 &ndash; Social</h2>\r\n<p>Last but not least are the social impacts of traditional cigarettes, which is in a way related to reasons one through four. Over the years, smoking has increasingly been viewed negatively by society at-large for a variety of reasons.</p>\r\n<p>The smell, the health consequences, and even the healthcare costs all combine to give traditional cigarettes a bad name these days. If you&rsquo;re a smoker, you&rsquo;ve certainly noticed an increasing amount of restrictions around where you can light up, even at private parties where the host is a nonsmoker.</p>\r\n<p>Also, traditional cigarettes can have impacts on your social life, literally. Take dating for an example - it&rsquo;s pretty rare for a nonsmoker to be with a smoker. Also, smoking can also impact job prospects since more employers are taking a more critical eye toward traditional cigarettes.</p>\r\n<p>As you can see, e-cigarettes and electronic smoking carry many benefits over traditional smoking. Many have discovered how they can still enjoy smoking and get the nicotine they crave without using methods that are increasingly seen as intrusive and irresponsible.</p>\r\n<p>E-cigarettes from Eversmoke provide this alternative in a cost-effective, easy way. If you&rsquo;re searching for that alternative, consider trying an <a href="http://www.eversmoke.com/electronic-cigarettes/disposables/">individual e-cigarette</a> or take a look at our selection of <a href="http://www.eversmoke.com/e-cig-starter-kits.html">e-cigarette starter kits</a> today.</p>', '2015-07-31 05:37:07', '2015-07-31 05:37:07', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -7872,9 +7473,7 @@ INSERT INTO `cms_page` (`page_id`, `title`, `root_template`, `meta_keywords`, `m
 
 CREATE TABLE IF NOT EXISTS `cms_page_store` (
   `page_id` smallint(6) NOT NULL COMMENT 'Page ID',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  PRIMARY KEY (`page_id`,`store_id`),
-  KEY `IDX_CMS_PAGE_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='CMS Page To Store Linkage Table';
 
 --
@@ -7898,6 +7497,7 @@ INSERT INTO `cms_page_store` (`page_id`, `store_id`) VALUES
 (21, 0),
 (22, 0),
 (23, 0),
+(24, 0),
 (15, 2),
 (11, 3),
 (14, 4),
@@ -7914,9 +7514,7 @@ CREATE TABLE IF NOT EXISTS `core_cache` (
   `data` mediumblob COMMENT 'Cache Data',
   `create_time` int(11) DEFAULT NULL COMMENT 'Cache Creation Time',
   `update_time` int(11) DEFAULT NULL COMMENT 'Time of Cache Updating',
-  `expire_time` int(11) DEFAULT NULL COMMENT 'Cache Expiration Time',
-  PRIMARY KEY (`id`),
-  KEY `IDX_CORE_CACHE_EXPIRE_TIME` (`expire_time`)
+  `expire_time` int(11) DEFAULT NULL COMMENT 'Cache Expiration Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Caches';
 
 -- --------------------------------------------------------
@@ -7927,8 +7525,7 @@ CREATE TABLE IF NOT EXISTS `core_cache` (
 
 CREATE TABLE IF NOT EXISTS `core_cache_option` (
   `code` varchar(32) NOT NULL COMMENT 'Code',
-  `value` smallint(6) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`code`)
+  `value` smallint(6) DEFAULT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cache Options';
 
 --
@@ -7953,9 +7550,7 @@ INSERT INTO `core_cache_option` (`code`, `value`) VALUES
 
 CREATE TABLE IF NOT EXISTS `core_cache_tag` (
   `tag` varchar(100) NOT NULL COMMENT 'Tag',
-  `cache_id` varchar(200) NOT NULL COMMENT 'Cache Id',
-  PRIMARY KEY (`tag`,`cache_id`),
-  KEY `IDX_CORE_CACHE_TAG_CACHE_ID` (`cache_id`)
+  `cache_id` varchar(200) NOT NULL COMMENT 'Cache Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Caches';
 
 -- --------------------------------------------------------
@@ -7965,14 +7560,12 @@ CREATE TABLE IF NOT EXISTS `core_cache_tag` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_config_data` (
-  `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Config Id',
+  `config_id` int(10) unsigned NOT NULL COMMENT 'Config Id',
   `scope` varchar(8) NOT NULL DEFAULT 'default' COMMENT 'Config Scope',
   `scope_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Config Scope Id',
   `path` varchar(255) NOT NULL DEFAULT 'general' COMMENT 'Config Path',
-  `value` text COMMENT 'Config Value',
-  PRIMARY KEY (`config_id`),
-  UNIQUE KEY `UNQ_CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH` (`scope`,`scope_id`,`path`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Config Data' AUTO_INCREMENT=2078 ;
+  `value` text COMMENT 'Config Value'
+) ENGINE=InnoDB AUTO_INCREMENT=2078 DEFAULT CHARSET=utf8 COMMENT='Config Data';
 
 --
 -- Dumping data for table `core_config_data`
@@ -7984,8 +7577,8 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (3, 'default', 0, 'catalog/category/root_id', '2'),
 (4, 'default', 0, 'web/seo/use_rewrites', '1'),
 (5, 'default', 0, 'admin/dashboard/enable_charts', '1'),
-(6, 'default', 0, 'web/unsecure/base_url', 'http://madiwin.site/'),
-(7, 'default', 0, 'web/secure/base_url', 'http://madiwin.site/'),
+(6, 'default', 0, 'web/unsecure/base_url', 'http://127.0.0.1:8080/magento/'),
+(7, 'default', 0, 'web/secure/base_url', 'https://127.0.0.1:8443/magento/'),
 (8, 'default', 0, 'general/locale/code', 'en_US'),
 (9, 'default', 0, 'general/locale/timezone', 'America/New_York'),
 (10, 'default', 0, 'currency/options/base', 'USD'),
@@ -8176,7 +7769,7 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (195, 'default', 0, 'carriers/usps/handling_type', 'F'),
 (196, 'default', 0, 'carriers/usps/handling_action', 'O'),
 (197, 'default', 0, 'carriers/usps/handling_fee', NULL),
-(198, 'default', 0, 'carriers/usps/allowed_methods', 'Bound Printed Matter,Express Mail,Express Mail Flat Rate Envelope,Express Mail Flat Rate Envelope Hold For Pickup,Express Mail Flat-Rate Envelope Sunday/Holiday Guarantee,Express Mail Hold For Pickup,Express Mail International,Express Mail International Flat Rate Envelope,Express Mail PO to PO,Express Mail Sunday/Holiday Guarantee,First-Class Mail International Large Envelope,First-Class Mail International Letters,First-Class Mail International Package,First-Class Mail International Parcel,First-Class,First-Class Mail,First-Class Mail Flat,First-Class Mail Large Envelope,First-Class Mail International,First-Class Mail Letter,First-Class Mail Parcel,First-Class Mail Package,Global Express Guaranteed (GXG),Global Express Guaranteed Non-Document Non-Rectangular,Global Express Guaranteed Non-Document Rectangular,Library Mail,Media Mail,Parcel Post,Priority Mail,Priority Mail Small Flat Rate Box,Priority Mail Medium Flat Rate Box,Priority Mail Large Flat Rate Box,Priority Mail Flat Rate Box,Priority Mail Flat Rate Envelope,Priority Mail International,Priority Mail International Flat Rate Box,Priority Mail International Flat Rate Envelope,Priority Mail International Small Flat Rate Box,Priority Mail International Medium Flat Rate Box,Priority Mail International Large Flat Rate Box,USPS GXG Envelopes'),
+(198, 'default', 0, 'carriers/usps/allowed_methods', '3,13,27,25,2,INT_1,INT_10,3,23,INT_14,INT_13,INT_15,INT_13,0_FCLE,0_FCLE,0_FCLE,0_FCLE,INT_14,0_FCL,0_FCP,0_FCP,INT_4,INT_7,INT_6,7,6,4,1,28,17,22,16,INT_2,INT_8,INT_16,INT_9,INT_11,INT_12'),
 (199, 'default', 0, 'carriers/usps/free_method', NULL),
 (200, 'default', 0, 'carriers/usps/free_shipping_subtotal', NULL),
 (201, 'default', 0, 'carriers/usps/specificerrmsg', 'This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.'),
@@ -8243,8 +7836,8 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (262, 'default', 0, 'carriers/dhl/default_length', NULL),
 (263, 'default', 0, 'carriers/dhl/default_width', NULL),
 (264, 'default', 0, 'carriers/dhl/default_height', NULL),
-(265, 'default', 0, 'carriers/dhl/shipment_days', '1,2,3,4,5,6'),
-(266, 'default', 0, 'carriers/dhl/intl_shipment_days', '1,2,3,4,5'),
+(265, 'default', 0, 'carriers/dhl/shipment_days', 'Mon,Tue,Wed,Thu,Fri,Sat'),
+(266, 'default', 0, 'carriers/dhl/intl_shipment_days', 'Mon,Tue,Wed,Thu,Fri'),
 (267, 'default', 0, 'carriers/dhl/sallowspecific', '0'),
 (268, 'default', 0, 'carriers/dhl/specificcountry', NULL),
 (269, 'default', 0, 'carriers/dhl/showmethod', '0'),
@@ -8684,8 +8277,7 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (703, 'default', 0, 'ultimo_design/footer/tex', '1'),
 (704, 'default', 0, 'ultimo_design/footer/inner_bg_color', NULL),
 (705, 'default', 0, 'ultimo_design/footer/color', NULL),
-(706, 'default', 0, 'ultimo_design/footer/link_color', NULL);
-INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
+(706, 'default', 0, 'ultimo_design/footer/link_color', NULL),
 (707, 'default', 0, 'ultimo_design/footer/link_hover_color', NULL),
 (708, 'default', 0, 'ultimo_design/footer_top/bg_color', '#ffffff'),
 (709, 'default', 0, 'ultimo_design/footer_top/inner_bg_color', NULL),
@@ -8701,7 +8293,8 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (719, 'default', 0, 'ultimo_design/footer_primary/padding_bottom', '30'),
 (722, 'stores', 3, 'ultimo_design/header/tex', '1'),
 (723, 'stores', 3, 'ultimo_design/footer/bg_color', '#eee'),
-(725, 'stores', 3, 'ultimo_design/footer_primary/padding_top', '20'),
+(725, 'stores', 3, 'ultimo_design/footer_primary/padding_top', '20');
+INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
 (731, 'default', 0, 'ultimo/category/aspect_ratio', '1'),
 (733, 'default', 0, 'ultimo/category_grid/column_count', '3'),
 (734, 'default', 0, 'ultimo/category_grid/addtolinks_simple', '1'),
@@ -9079,44 +8672,6 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (1210, 'stores', 2, 'ultimo_layout/responsive/max_width', '1440'),
 (1211, 'default', 0, 'google/analytics/active', '0'),
 (1212, 'default', 0, 'google/analytics/account', 'UA-29740436-2'),
-(1213, 'default', 0, 'google/checkout/active', '0'),
-(1214, 'default', 0, 'google/checkout/title', 'Google Checkout'),
-(1215, 'default', 0, 'google/checkout/sandbox', '0'),
-(1216, 'default', 0, 'google/checkout/use_secure_callback_url', '0'),
-(1217, 'default', 0, 'google/checkout/debug', '0'),
-(1218, 'default', 0, 'google/checkout/merchant_id', NULL),
-(1219, 'default', 0, 'google/checkout/merchant_key', NULL),
-(1220, 'default', 0, 'google/checkout/checkout_image', '180/46/trans'),
-(1221, 'default', 0, 'google/checkout/locale', 'en_US'),
-(1222, 'default', 0, 'google/checkout/order_status', NULL),
-(1223, 'default', 0, 'google/checkout/continue_shopping_url', NULL),
-(1224, 'default', 0, 'google/checkout/hide_cart_contents', '1'),
-(1225, 'default', 0, 'google/checkout/disable_default_tax_tables', '0'),
-(1226, 'default', 0, 'google/checkout_shipping_merchant/active', '0'),
-(1227, 'default', 0, 'google/checkout_shipping_merchant/allowed_methods', 'a:2:{s:6:"method";a:1:{i:0;s:0:"";}s:5:"price";a:1:{i:0;s:0:"";}}'),
-(1228, 'default', 0, 'google/checkout_shipping_carrier/active', '0'),
-(1229, 'default', 0, 'google/checkout_shipping_carrier/methods', NULL),
-(1230, 'default', 0, 'google/checkout_shipping_carrier/address_category', 'COMMERCIAL'),
-(1231, 'default', 0, 'google/checkout_shipping_carrier/default_price', '0'),
-(1232, 'default', 0, 'google/checkout_shipping_carrier/default_width', '10'),
-(1233, 'default', 0, 'google/checkout_shipping_carrier/default_height', '10'),
-(1234, 'default', 0, 'google/checkout_shipping_carrier/default_length', '10'),
-(1235, 'default', 0, 'google/checkout_shipping_flatrate/active', '0'),
-(1236, 'default', 0, 'google/checkout_shipping_flatrate/title_1', NULL),
-(1237, 'default', 0, 'google/checkout_shipping_flatrate/price_1', NULL),
-(1238, 'default', 0, 'google/checkout_shipping_flatrate/sallowspecific_1', '0'),
-(1239, 'default', 0, 'google/checkout_shipping_flatrate/specificcountry_1', NULL),
-(1240, 'default', 0, 'google/checkout_shipping_flatrate/title_2', NULL),
-(1241, 'default', 0, 'google/checkout_shipping_flatrate/price_2', NULL),
-(1242, 'default', 0, 'google/checkout_shipping_flatrate/sallowspecific_2', '0'),
-(1243, 'default', 0, 'google/checkout_shipping_flatrate/specificcountry_2', NULL),
-(1244, 'default', 0, 'google/checkout_shipping_flatrate/title_3', NULL),
-(1245, 'default', 0, 'google/checkout_shipping_flatrate/price_3', NULL),
-(1246, 'default', 0, 'google/checkout_shipping_flatrate/sallowspecific_3', '0'),
-(1247, 'default', 0, 'google/checkout_shipping_flatrate/specificcountry_3', NULL),
-(1248, 'default', 0, 'google/checkout_shipping_virtual/active', '1'),
-(1249, 'default', 0, 'google/checkout_shipping_virtual/schedule', 'OPTIMISTIC'),
-(1250, 'default', 0, 'google/checkout_shipping_virtual/method', 'email'),
 (1251, 'default', 0, 'ultimo_design/colors/social_icon_bg_color', '#bbbbbb'),
 (1252, 'default', 0, 'ultimo_design/colors/social_icon_hover_bg_color', '#d52462'),
 (1253, 'stores', 4, 'ultimo_design/colors/social_icon_bg_color', '#5b514a'),
@@ -9228,10 +8783,10 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (1450, 'default', 0, 'ultramegamenu/mainmenu/enable', '1'),
 (1451, 'default', 0, 'ultramegamenu/mainmenu/home', '1'),
 (1452, 'default', 0, 'ultramegamenu/mainmenu/custom_block_floating', '1'),
-(1454, 'default', 0, 'ultramegamenu/mainmenu/wide_menu', '1'),
+(1454, 'default', 0, 'ultramegamenu/mainmenu/wide_menu', '0'),
 (1456, 'default', 0, 'ultramegamenu/sidemenu/enable', '1'),
 (1457, 'default', 0, 'ultramegamenu/sidemenu/hide_on_mobile', '1'),
-(1458, 'default', 0, 'ultramegamenu/mainmenu/classic_menu', '0'),
+(1458, 'default', 0, 'ultramegamenu/mainmenu/classic_menu', '1'),
 (1459, 'stores', 4, 'ultramegamenu/mainmenu/classic_menu', '1'),
 (1460, 'stores', 4, 'ultramegamenu/mainmenu/wide_menu', '0'),
 (1461, 'default', 0, 'ultimo_design/font/primary_char_latin_ext', '0'),
@@ -9421,8 +8976,7 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (1729, 'default', 0, 'ultimo_design/header/bg_attachment', 'scroll'),
 (1730, 'default', 0, 'ultimo_design/header/bg_positionx', 'center'),
 (1731, 'default', 0, 'ultimo_design/header/bg_positiony', 'top'),
-(1732, 'default', 0, 'ultimo_design/header/icon_color', 'b');
-INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
+(1732, 'default', 0, 'ultimo_design/header/icon_color', 'b'),
 (1734, 'default', 0, 'ultimo_design/header/search_bg_color', '#ffffff'),
 (1735, 'default', 0, 'ultimo_design/header/search_hover_bg_color', '#ffffff'),
 (1737, 'stores', 3, 'ultimo_design/header/icon_color', 'b'),
@@ -9478,7 +9032,8 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 (1884, 'stores', 4, 'ultimo_layout/responsive/fluid_width', '1'),
 (1885, 'stores', 4, 'ultimo_design/colors/tool_icon_bg_color', '#e5e5e5'),
 (1886, 'stores', 4, 'ultimo_design/colors/tool_icon_hover_bg_color', '#d03074'),
-(1887, 'stores', 4, 'ultimo_design/colors/tool_icon_active_bg_color', '#e5e5e5'),
+(1887, 'stores', 4, 'ultimo_design/colors/tool_icon_active_bg_color', '#e5e5e5');
+INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value`) VALUES
 (1888, 'stores', 4, 'ultimo_design/colors/additional_bg_color', '#f5f5f5'),
 (1889, 'stores', 4, 'ultimo_design/footer/tool_icon_bg_color', '#f89b5d'),
 (1890, 'stores', 4, 'ultimo_design/footer/tool_icon_hover_bg_color', '#d03074'),
@@ -9658,7 +9213,7 @@ INSERT INTO `core_config_data` (`config_id`, `scope`, `scope_id`, `path`, `value
 --
 
 CREATE TABLE IF NOT EXISTS `core_email_template` (
-  `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id',
+  `template_id` int(10) unsigned NOT NULL COMMENT 'Template Id',
   `template_code` varchar(150) NOT NULL COMMENT 'Template Name',
   `template_text` text NOT NULL COMMENT 'Template Content',
   `template_styles` text COMMENT 'Templste Styles',
@@ -9669,12 +9224,8 @@ CREATE TABLE IF NOT EXISTS `core_email_template` (
   `added_at` timestamp NULL DEFAULT NULL COMMENT 'Date of Template Creation',
   `modified_at` timestamp NULL DEFAULT NULL COMMENT 'Date of Template Modification',
   `orig_template_code` varchar(200) DEFAULT NULL COMMENT 'Original Template Code',
-  `orig_template_variables` text COMMENT 'Original Template Variables',
-  PRIMARY KEY (`template_id`),
-  UNIQUE KEY `UNQ_CORE_EMAIL_TEMPLATE_TEMPLATE_CODE` (`template_code`),
-  KEY `IDX_CORE_EMAIL_TEMPLATE_ADDED_AT` (`added_at`),
-  KEY `IDX_CORE_EMAIL_TEMPLATE_MODIFIED_AT` (`modified_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Email Templates' AUTO_INCREMENT=1 ;
+  `orig_template_variables` text COMMENT 'Original Template Variables'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Email Templates';
 
 -- --------------------------------------------------------
 
@@ -9683,14 +9234,12 @@ CREATE TABLE IF NOT EXISTS `core_email_template` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_flag` (
-  `flag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Flag Id',
+  `flag_id` int(10) unsigned NOT NULL COMMENT 'Flag Id',
   `flag_code` varchar(255) NOT NULL COMMENT 'Flag Code',
   `state` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Flag State',
   `flag_data` text COMMENT 'Flag Data',
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of Last Flag Update',
-  PRIMARY KEY (`flag_id`),
-  KEY `IDX_CORE_FLAG_LAST_UPDATE` (`last_update`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Flag' AUTO_INCREMENT=3 ;
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of Last Flag Update'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Flag';
 
 --
 -- Dumping data for table `core_flag`
@@ -9707,16 +9256,13 @@ INSERT INTO `core_flag` (`flag_id`, `flag_code`, `state`, `flag_data`, `last_upd
 --
 
 CREATE TABLE IF NOT EXISTS `core_layout_link` (
-  `layout_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id',
+  `layout_link_id` int(10) unsigned NOT NULL COMMENT 'Link Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `area` varchar(64) DEFAULT NULL COMMENT 'Area',
   `package` varchar(64) DEFAULT NULL COMMENT 'Package',
   `theme` varchar(64) DEFAULT NULL COMMENT 'Theme',
-  `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id',
-  PRIMARY KEY (`layout_link_id`),
-  UNIQUE KEY `UNQ_CORE_LAYOUT_LINK_STORE_ID_PACKAGE_THEME_LAYOUT_UPDATE_ID` (`store_id`,`package`,`theme`,`layout_update_id`),
-  KEY `IDX_CORE_LAYOUT_LINK_LAYOUT_UPDATE_ID` (`layout_update_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Link' AUTO_INCREMENT=1 ;
+  `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Link';
 
 -- --------------------------------------------------------
 
@@ -9725,13 +9271,11 @@ CREATE TABLE IF NOT EXISTS `core_layout_link` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_layout_update` (
-  `layout_update_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Layout Update Id',
+  `layout_update_id` int(10) unsigned NOT NULL COMMENT 'Layout Update Id',
   `handle` varchar(255) DEFAULT NULL COMMENT 'Handle',
   `xml` text COMMENT 'Xml',
-  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`layout_update_id`),
-  KEY `IDX_CORE_LAYOUT_UPDATE_HANDLE` (`handle`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Updates' AUTO_INCREMENT=1 ;
+  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout Updates';
 
 -- --------------------------------------------------------
 
@@ -9742,8 +9286,7 @@ CREATE TABLE IF NOT EXISTS `core_layout_update` (
 CREATE TABLE IF NOT EXISTS `core_resource` (
   `code` varchar(50) NOT NULL COMMENT 'Resource Code',
   `version` varchar(50) DEFAULT NULL COMMENT 'Resource Version',
-  `data_version` varchar(50) DEFAULT NULL COMMENT 'Data Version',
-  PRIMARY KEY (`code`)
+  `data_version` varchar(50) DEFAULT NULL COMMENT 'Data Version'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Resources';
 
 --
@@ -9752,9 +9295,9 @@ CREATE TABLE IF NOT EXISTS `core_resource` (
 
 INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('adminnotification_setup', '1.6.0.0', '1.6.0.0'),
-('admin_setup', '1.6.1.0', '1.6.1.0'),
+('admin_setup', '1.6.1.1', '1.6.1.1'),
 ('api2_setup', '1.0.0.0', '1.0.0.0'),
-('api_setup', '1.6.0.0', '1.6.0.0'),
+('api_setup', '1.6.0.1', '1.6.0.1'),
 ('backup_setup', '1.6.0.0', '1.6.0.0'),
 ('bundle_setup', '1.6.0.0.1', '1.6.0.0.1'),
 ('captcha_setup', '1.7.0.0.0', '1.7.0.0.0'),
@@ -9762,18 +9305,18 @@ INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('cataloginventory_setup', '1.6.0.0.2', '1.6.0.0.2'),
 ('catalogrule_setup', '1.6.0.3', '1.6.0.3'),
 ('catalogsearch_setup', '1.6.0.0', '1.6.0.0'),
-('catalog_setup', '1.6.0.0.14', '1.6.0.0.14'),
+('catalog_setup', '1.6.0.0.18', '1.6.0.0.18'),
 ('checkout_setup', '1.6.0.0', '1.6.0.0'),
-('cms_setup', '1.6.0.0.1', '1.6.0.0.1'),
+('cms_setup', '1.6.0.0.2', '1.6.0.0.2'),
 ('compiler_setup', '1.6.0.0', '1.6.0.0'),
 ('contacts_setup', '1.6.0.0', '1.6.0.0'),
-('core_setup', '1.6.0.2', '1.6.0.2'),
+('core_setup', '1.6.0.4', '1.6.0.4'),
 ('cron_setup', '1.6.0.0', '1.6.0.0'),
-('customer_setup', '1.6.2.0.1', '1.6.2.0.1'),
+('customer_setup', '1.6.2.0.3', '1.6.2.0.3'),
 ('dataflow_setup', '1.6.0.0', '1.6.0.0'),
-('directory_setup', '1.6.0.1', '1.6.0.1'),
+('directory_setup', '1.6.0.2', '1.6.0.2'),
 ('downloadable_setup', '1.6.0.0.2', '1.6.0.0.2'),
-('eav_setup', '1.6.0.0', '1.6.0.0'),
+('eav_setup', '1.6.0.1', '1.6.0.1'),
 ('giftmessage_setup', '1.6.0.0', '1.6.0.0'),
 ('googlecheckout_setup', '1.6.0.1', '1.6.0.1'),
 ('importexport_setup', '1.6.0.2', '1.6.0.2'),
@@ -9785,7 +9328,7 @@ INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('paygate_setup', '1.6.0.0', '1.6.0.0'),
 ('payment_setup', '1.6.0.0', '1.6.0.0'),
 ('paypaluk_setup', '1.6.0.0', '1.6.0.0'),
-('paypal_setup', '1.6.0.2', '1.6.0.2'),
+('paypal_setup', '1.6.0.4', '1.6.0.4'),
 ('persistent_setup', '1.0.0.0', '1.0.0.0'),
 ('poll_setup', '1.6.0.0', '1.6.0.0'),
 ('productalert_setup', '1.6.0.0', '1.6.0.0'),
@@ -9793,19 +9336,19 @@ INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 ('reports_setup', '1.6.0.0.1', '1.6.0.0.1'),
 ('review_setup', '1.6.0.0', '1.6.0.0'),
 ('salesrule_setup', '1.6.0.3', '1.6.0.3'),
-('sales_setup', '1.6.0.7', '1.6.0.7'),
+('sales_setup', '1.6.0.8', '1.6.0.8'),
 ('sendfriend_setup', '1.6.0.0', '1.6.0.0'),
 ('shipping_setup', '1.6.0.0', '1.6.0.0'),
 ('sitemap_setup', '1.6.0.0', '1.6.0.0'),
 ('tag_setup', '1.6.0.0', '1.6.0.0'),
-('tax_setup', '1.6.0.3', '1.6.0.3'),
-('ultimo_setup', '1.5.9', '1.5.9'),
+('tax_setup', '1.6.0.4', '1.6.0.4'),
+('ultimo_setup', '1.6.1', '1.6.1'),
 ('ultramegamenu_setup', '1.0.0', '1.0.0'),
-('usa_setup', '1.6.0.1', '1.6.0.1'),
+('usa_setup', '1.6.0.3', '1.6.0.3'),
 ('weee_setup', '1.6.0.0', '1.6.0.0'),
 ('widget_setup', '1.6.0.0', '1.6.0.0'),
 ('wishlist_setup', '1.6.0.0', '1.6.0.0'),
-('xmlconnect_setup', '1.6.0.0', '1.6.0.0');
+('xmlconnect_setup', '1.6.0.0.1', '1.6.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -9816,8 +9359,7 @@ INSERT INTO `core_resource` (`code`, `version`, `data_version`) VALUES
 CREATE TABLE IF NOT EXISTS `core_session` (
   `session_id` varchar(255) NOT NULL COMMENT 'Session Id',
   `session_expires` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Date of Session Expiration',
-  `session_data` mediumblob NOT NULL COMMENT 'Session Data',
-  PRIMARY KEY (`session_id`)
+  `session_data` mediumblob NOT NULL COMMENT 'Session Data'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Database Sessions Storage';
 
 -- --------------------------------------------------------
@@ -9827,19 +9369,14 @@ CREATE TABLE IF NOT EXISTS `core_session` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_store` (
-  `store_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Store Id',
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
   `code` varchar(32) DEFAULT NULL COMMENT 'Code',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Group Id',
   `name` varchar(255) NOT NULL COMMENT 'Store Name',
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Sort Order',
-  `is_active` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Activity',
-  PRIMARY KEY (`store_id`),
-  UNIQUE KEY `UNQ_CORE_STORE_CODE` (`code`),
-  KEY `IDX_CORE_STORE_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CORE_STORE_IS_ACTIVE_SORT_ORDER` (`is_active`,`sort_order`),
-  KEY `IDX_CORE_STORE_GROUP_ID` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Stores' AUTO_INCREMENT=6 ;
+  `is_active` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Activity'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Stores';
 
 --
 -- Dumping data for table `core_store`
@@ -9860,15 +9397,12 @@ INSERT INTO `core_store` (`store_id`, `code`, `website_id`, `group_id`, `name`, 
 --
 
 CREATE TABLE IF NOT EXISTS `core_store_group` (
-  `group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Group Id',
+  `group_id` smallint(5) unsigned NOT NULL COMMENT 'Group Id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `name` varchar(255) NOT NULL COMMENT 'Store Group Name',
   `root_category_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Root Category Id',
-  `default_store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Default Store Id',
-  PRIMARY KEY (`group_id`),
-  KEY `IDX_CORE_STORE_GROUP_WEBSITE_ID` (`website_id`),
-  KEY `IDX_CORE_STORE_GROUP_DEFAULT_STORE_ID` (`default_store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Store Groups' AUTO_INCREMENT=5 ;
+  `default_store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Default Store Id'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Store Groups';
 
 --
 -- Dumping data for table `core_store_group`
@@ -9888,15 +9422,13 @@ INSERT INTO `core_store_group` (`group_id`, `website_id`, `name`, `root_category
 --
 
 CREATE TABLE IF NOT EXISTS `core_translate` (
-  `key_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Key Id of Translation',
+  `key_id` int(10) unsigned NOT NULL COMMENT 'Key Id of Translation',
   `string` varchar(255) NOT NULL DEFAULT 'Translate String' COMMENT 'Translation String',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `translate` varchar(255) DEFAULT NULL COMMENT 'Translate',
   `locale` varchar(20) NOT NULL DEFAULT 'en_US' COMMENT 'Locale',
-  PRIMARY KEY (`key_id`),
-  UNIQUE KEY `UNQ_CORE_TRANSLATE_STORE_ID_LOCALE_STRING` (`store_id`,`locale`,`string`),
-  KEY `IDX_CORE_TRANSLATE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Translations' AUTO_INCREMENT=1 ;
+  `crc_string` bigint(20) NOT NULL DEFAULT '1591228201' COMMENT 'Translation String CRC32 Hash'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Translations';
 
 -- --------------------------------------------------------
 
@@ -9905,7 +9437,7 @@ CREATE TABLE IF NOT EXISTS `core_translate` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_url_rewrite` (
-  `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',
+  `url_rewrite_id` int(10) unsigned NOT NULL COMMENT 'Rewrite Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `id_path` varchar(255) DEFAULT NULL COMMENT 'Id Path',
   `request_path` varchar(255) DEFAULT NULL COMMENT 'Request Path',
@@ -9914,16 +9446,8 @@ CREATE TABLE IF NOT EXISTS `core_url_rewrite` (
   `options` varchar(255) DEFAULT NULL COMMENT 'Options',
   `description` varchar(255) DEFAULT NULL COMMENT 'Deascription',
   `category_id` int(10) unsigned DEFAULT NULL COMMENT 'Category Id',
-  `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
-  PRIMARY KEY (`url_rewrite_id`),
-  UNIQUE KEY `UNQ_CORE_URL_REWRITE_REQUEST_PATH_STORE_ID` (`request_path`,`store_id`),
-  UNIQUE KEY `UNQ_CORE_URL_REWRITE_ID_PATH_IS_SYSTEM_STORE_ID` (`id_path`,`is_system`,`store_id`),
-  KEY `IDX_CORE_URL_REWRITE_TARGET_PATH_STORE_ID` (`target_path`,`store_id`),
-  KEY `IDX_CORE_URL_REWRITE_ID_PATH` (`id_path`),
-  KEY `IDX_CORE_URL_REWRITE_STORE_ID` (`store_id`),
-  KEY `FK_CORE_URL_REWRITE_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` (`category_id`),
-  KEY `FK_CORE_URL_REWRITE_PRODUCT_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Url Rewrites' AUTO_INCREMENT=12398 ;
+  `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id'
+) ENGINE=InnoDB AUTO_INCREMENT=12398 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
 
 --
 -- Dumping data for table `core_url_rewrite`
@@ -10268,12 +9792,10 @@ INSERT INTO `core_url_rewrite` (`url_rewrite_id`, `store_id`, `id_path`, `reques
 --
 
 CREATE TABLE IF NOT EXISTS `core_variable` (
-  `variable_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Id',
+  `variable_id` int(10) unsigned NOT NULL COMMENT 'Variable Id',
   `code` varchar(255) DEFAULT NULL COMMENT 'Variable Code',
-  `name` varchar(255) DEFAULT NULL COMMENT 'Variable Name',
-  PRIMARY KEY (`variable_id`),
-  UNIQUE KEY `UNQ_CORE_VARIABLE_CODE` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Variables' AUTO_INCREMENT=1 ;
+  `name` varchar(255) DEFAULT NULL COMMENT 'Variable Name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Variables';
 
 -- --------------------------------------------------------
 
@@ -10282,16 +9804,12 @@ CREATE TABLE IF NOT EXISTS `core_variable` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_variable_value` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Value Id',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Variable Value Id',
   `variable_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Variable Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `plain_value` text COMMENT 'Plain Text Value',
-  `html_value` text COMMENT 'Html Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CORE_VARIABLE_VALUE_VARIABLE_ID_STORE_ID` (`variable_id`,`store_id`),
-  KEY `IDX_CORE_VARIABLE_VALUE_VARIABLE_ID` (`variable_id`),
-  KEY `IDX_CORE_VARIABLE_VALUE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Variable Value' AUTO_INCREMENT=1 ;
+  `html_value` text COMMENT 'Html Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Variable Value';
 
 -- --------------------------------------------------------
 
@@ -10300,17 +9818,13 @@ CREATE TABLE IF NOT EXISTS `core_variable_value` (
 --
 
 CREATE TABLE IF NOT EXISTS `core_website` (
-  `website_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Website Id',
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `code` varchar(32) DEFAULT NULL COMMENT 'Code',
   `name` varchar(64) DEFAULT NULL COMMENT 'Website Name',
   `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
   `default_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Default Group Id',
-  `is_default` smallint(5) unsigned DEFAULT '0' COMMENT 'Defines Is Website Default',
-  PRIMARY KEY (`website_id`),
-  UNIQUE KEY `UNQ_CORE_WEBSITE_CODE` (`code`),
-  KEY `IDX_CORE_WEBSITE_SORT_ORDER` (`sort_order`),
-  KEY `IDX_CORE_WEBSITE_DEFAULT_GROUP_ID` (`default_group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Websites' AUTO_INCREMENT=2 ;
+  `is_default` smallint(5) unsigned DEFAULT '0' COMMENT 'Defines Is Website Default'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Websites';
 
 --
 -- Dumping data for table `core_website`
@@ -10327,7 +9841,7 @@ INSERT INTO `core_website` (`website_id`, `code`, `name`, `sort_order`, `default
 --
 
 CREATE TABLE IF NOT EXISTS `coupon_aggregated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date NOT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
@@ -10339,12 +9853,8 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated` (
   `subtotal_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Subtotal Amount Actual',
   `discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount Actual',
   `total_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Amount Actual',
-  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_COUPON_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
-  KEY `IDX_COUPON_AGGREGATED_STORE_ID` (`store_id`),
-  KEY `IDX_COUPON_AGGREGATED_RULE_NAME` (`rule_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated' AUTO_INCREMENT=1 ;
+  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated';
 
 -- --------------------------------------------------------
 
@@ -10353,7 +9863,7 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated` (
 --
 
 CREATE TABLE IF NOT EXISTS `coupon_aggregated_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date NOT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
@@ -10362,12 +9872,8 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_order` (
   `subtotal_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Subtotal Amount',
   `discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount',
   `total_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Amount',
-  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_COUPON_AGGRED_ORDER_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
-  KEY `IDX_COUPON_AGGREGATED_ORDER_STORE_ID` (`store_id`),
-  KEY `IDX_COUPON_AGGREGATED_ORDER_RULE_NAME` (`rule_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Order' AUTO_INCREMENT=1 ;
+  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Order';
 
 -- --------------------------------------------------------
 
@@ -10376,7 +9882,7 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `coupon_aggregated_updated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date NOT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
@@ -10388,12 +9894,8 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_updated` (
   `subtotal_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Subtotal Amount Actual',
   `discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Discount Amount Actual',
   `total_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Amount Actual',
-  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_COUPON_AGGRED_UPDATED_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
-  KEY `IDX_COUPON_AGGREGATED_UPDATED_STORE_ID` (`store_id`),
-  KEY `IDX_COUPON_AGGREGATED_UPDATED_RULE_NAME` (`rule_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Updated' AUTO_INCREMENT=1 ;
+  `rule_name` varchar(255) DEFAULT NULL COMMENT 'Rule Name'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Coupon Aggregated Updated';
 
 -- --------------------------------------------------------
 
@@ -10402,18 +9904,15 @@ CREATE TABLE IF NOT EXISTS `coupon_aggregated_updated` (
 --
 
 CREATE TABLE IF NOT EXISTS `cron_schedule` (
-  `schedule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Schedule Id',
+  `schedule_id` int(10) unsigned NOT NULL COMMENT 'Schedule Id',
   `job_code` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Job Code',
   `status` varchar(7) NOT NULL DEFAULT 'pending' COMMENT 'Status',
   `messages` text COMMENT 'Messages',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `scheduled_at` timestamp NULL DEFAULT NULL COMMENT 'Scheduled At',
   `executed_at` timestamp NULL DEFAULT NULL COMMENT 'Executed At',
-  `finished_at` timestamp NULL DEFAULT NULL COMMENT 'Finished At',
-  PRIMARY KEY (`schedule_id`),
-  KEY `IDX_CRON_SCHEDULE_JOB_CODE` (`job_code`),
-  KEY `IDX_CRON_SCHEDULE_SCHEDULED_AT_STATUS` (`scheduled_at`,`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cron Schedule' AUTO_INCREMENT=1 ;
+  `finished_at` timestamp NULL DEFAULT NULL COMMENT 'Finished At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cron Schedule';
 
 -- --------------------------------------------------------
 
@@ -10422,17 +9921,15 @@ CREATE TABLE IF NOT EXISTS `cron_schedule` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
   `increment_id` varchar(50) DEFAULT NULL COMMENT 'Increment Id',
   `parent_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
-  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity' AUTO_INCREMENT=1 ;
+  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity';
 
 -- --------------------------------------------------------
 
@@ -10441,18 +9938,12 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CSTR_ADDR_ENTT_DTIME_ENTT_ID_ATTR_ID_VAL` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Datetime' AUTO_INCREMENT=1 ;
+  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Datetime';
 
 -- --------------------------------------------------------
 
@@ -10461,18 +9952,12 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_datetime` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity_decimal` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Decimal' AUTO_INCREMENT=1 ;
+  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Decimal';
 
 -- --------------------------------------------------------
 
@@ -10481,18 +9966,12 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_decimal` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Int' AUTO_INCREMENT=1 ;
+  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Int';
 
 -- --------------------------------------------------------
 
@@ -10501,17 +9980,12 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_int` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` text NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Text' AUTO_INCREMENT=1 ;
+  `value` text NOT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Text';
 
 -- --------------------------------------------------------
 
@@ -10520,18 +9994,12 @@ CREATE TABLE IF NOT EXISTS `customer_address_entity_text` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_address_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Varchar' AUTO_INCREMENT=1 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Address Entity Varchar';
 
 -- --------------------------------------------------------
 
@@ -10547,8 +10015,7 @@ CREATE TABLE IF NOT EXISTS `customer_eav_attribute` (
   `validate_rules` text COMMENT 'Validate Rules',
   `is_system` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is System',
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  `data_model` varchar(255) DEFAULT NULL COMMENT 'Data Model',
-  PRIMARY KEY (`attribute_id`)
+  `data_model` varchar(255) DEFAULT NULL COMMENT 'Data Model'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute';
 
 --
@@ -10572,7 +10039,7 @@ INSERT INTO `customer_eav_attribute` (`attribute_id`, `is_visible`, `input_filte
 (14, 0, NULL, 0, NULL, 1, 0, NULL),
 (15, 0, NULL, 0, 'a:1:{s:15:"max_text_length";i:255;}', 0, 100, NULL),
 (16, 0, NULL, 0, NULL, 1, 0, NULL),
-(17, 0, NULL, 0, NULL, 0, 0, NULL),
+(17, 0, 'datetime', 0, NULL, 0, 0, NULL),
 (18, 0, NULL, 0, 'a:0:{}', 0, 110, NULL),
 (19, 0, NULL, 0, NULL, 0, 10, NULL),
 (20, 1, NULL, 0, 'a:2:{s:15:"max_text_length";i:255;s:15:"min_text_length";i:1;}', 1, 20, NULL),
@@ -10609,9 +10076,7 @@ CREATE TABLE IF NOT EXISTS `customer_eav_attribute_website` (
   `is_visible` smallint(5) unsigned DEFAULT NULL COMMENT 'Is Visible',
   `is_required` smallint(5) unsigned DEFAULT NULL COMMENT 'Is Required',
   `default_value` text COMMENT 'Default Value',
-  `multiline_count` smallint(5) unsigned DEFAULT NULL COMMENT 'Multiline Count',
-  PRIMARY KEY (`attribute_id`,`website_id`),
-  KEY `IDX_CUSTOMER_EAV_ATTRIBUTE_WEBSITE_WEBSITE_ID` (`website_id`)
+  `multiline_count` smallint(5) unsigned DEFAULT NULL COMMENT 'Multiline Count'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Eav Attribute Website';
 
 -- --------------------------------------------------------
@@ -10621,7 +10086,7 @@ CREATE TABLE IF NOT EXISTS `customer_eav_attribute_website` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
   `website_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Website Id',
@@ -10632,13 +10097,8 @@ CREATE TABLE IF NOT EXISTS `customer_entity` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
   `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Active',
-  `disable_auto_group_change` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Disable automatic group change based on VAT ID',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_STORE_ID` (`store_id`),
-  KEY `IDX_CUSTOMER_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`),
-  KEY `IDX_CUSTOMER_ENTITY_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity' AUTO_INCREMENT=1 ;
+  `disable_auto_group_change` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Disable automatic group change based on VAT ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity';
 
 -- --------------------------------------------------------
 
@@ -10647,18 +10107,12 @@ CREATE TABLE IF NOT EXISTS `customer_entity` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Datetime' AUTO_INCREMENT=1 ;
+  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Datetime';
 
 -- --------------------------------------------------------
 
@@ -10667,18 +10121,12 @@ CREATE TABLE IF NOT EXISTS `customer_entity_datetime` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity_decimal` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Decimal' AUTO_INCREMENT=1 ;
+  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Decimal';
 
 -- --------------------------------------------------------
 
@@ -10687,18 +10135,12 @@ CREATE TABLE IF NOT EXISTS `customer_entity_decimal` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Int' AUTO_INCREMENT=1 ;
+  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Int';
 
 -- --------------------------------------------------------
 
@@ -10707,17 +10149,12 @@ CREATE TABLE IF NOT EXISTS `customer_entity_int` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` text NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Text' AUTO_INCREMENT=1 ;
+  `value` text NOT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Text';
 
 -- --------------------------------------------------------
 
@@ -10726,18 +10163,12 @@ CREATE TABLE IF NOT EXISTS `customer_entity_text` (
 --
 
 CREATE TABLE IF NOT EXISTS `customer_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Varchar' AUTO_INCREMENT=1 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Entity Varchar';
 
 -- --------------------------------------------------------
 
@@ -10747,9 +10178,7 @@ CREATE TABLE IF NOT EXISTS `customer_entity_varchar` (
 
 CREATE TABLE IF NOT EXISTS `customer_form_attribute` (
   `form_code` varchar(32) NOT NULL COMMENT 'Form Code',
-  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  PRIMARY KEY (`form_code`,`attribute_id`),
-  KEY `IDX_CUSTOMER_FORM_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`)
+  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Customer Form Attribute';
 
 --
@@ -10859,11 +10288,10 @@ INSERT INTO `customer_form_attribute` (`form_code`, `attribute_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `customer_group` (
-  `customer_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Customer Group Id',
+  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
   `customer_group_code` varchar(32) NOT NULL COMMENT 'Customer Group Code',
-  `tax_class_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tax Class Id',
-  PRIMARY KEY (`customer_group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Customer Group' AUTO_INCREMENT=4 ;
+  `tax_class_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tax Class Id'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Customer Group';
 
 --
 -- Dumping data for table `customer_group`
@@ -10882,17 +10310,13 @@ INSERT INTO `customer_group` (`customer_group_id`, `customer_group_code`, `tax_c
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_batch` (
-  `batch_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Id',
+  `batch_id` int(10) unsigned NOT NULL COMMENT 'Batch Id',
   `profile_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Profile ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `adapter` varchar(128) DEFAULT NULL COMMENT 'Adapter',
   `params` text COMMENT 'Parameters',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`batch_id`),
-  KEY `IDX_DATAFLOW_BATCH_PROFILE_ID` (`profile_id`),
-  KEY `IDX_DATAFLOW_BATCH_STORE_ID` (`store_id`),
-  KEY `IDX_DATAFLOW_BATCH_CREATED_AT` (`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch';
 
 -- --------------------------------------------------------
 
@@ -10901,13 +10325,11 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch` (
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_batch_export` (
-  `batch_export_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Export Id',
+  `batch_export_id` bigint(20) unsigned NOT NULL COMMENT 'Batch Export Id',
   `batch_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Batch Id',
   `batch_data` longtext COMMENT 'Batch Data',
-  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status',
-  PRIMARY KEY (`batch_export_id`),
-  KEY `IDX_DATAFLOW_BATCH_EXPORT_BATCH_ID` (`batch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Export' AUTO_INCREMENT=1 ;
+  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Export';
 
 -- --------------------------------------------------------
 
@@ -10916,13 +10338,11 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch_export` (
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_batch_import` (
-  `batch_import_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Import Id',
+  `batch_import_id` bigint(20) unsigned NOT NULL COMMENT 'Batch Import Id',
   `batch_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Batch Id',
   `batch_data` longtext COMMENT 'Batch Data',
-  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status',
-  PRIMARY KEY (`batch_import_id`),
-  KEY `IDX_DATAFLOW_BATCH_IMPORT_BATCH_ID` (`batch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Import' AUTO_INCREMENT=1 ;
+  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Batch Import';
 
 -- --------------------------------------------------------
 
@@ -10931,14 +10351,12 @@ CREATE TABLE IF NOT EXISTS `dataflow_batch_import` (
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_import_data` (
-  `import_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Import Id',
+  `import_id` int(11) NOT NULL COMMENT 'Import Id',
   `session_id` int(11) DEFAULT NULL COMMENT 'Session Id',
   `serial_number` int(11) NOT NULL DEFAULT '0' COMMENT 'Serial Number',
   `value` text COMMENT 'Value',
-  `status` int(11) NOT NULL DEFAULT '0' COMMENT 'Status',
-  PRIMARY KEY (`import_id`),
-  KEY `IDX_DATAFLOW_IMPORT_DATA_SESSION_ID` (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Import Data' AUTO_INCREMENT=1 ;
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT 'Status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Import Data';
 
 -- --------------------------------------------------------
 
@@ -10947,7 +10365,7 @@ CREATE TABLE IF NOT EXISTS `dataflow_import_data` (
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_profile` (
-  `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id',
+  `profile_id` int(10) unsigned NOT NULL COMMENT 'Profile Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
@@ -10956,9 +10374,8 @@ CREATE TABLE IF NOT EXISTS `dataflow_profile` (
   `direction` varchar(6) DEFAULT NULL COMMENT 'Direction',
   `entity_type` varchar(64) DEFAULT NULL COMMENT 'Entity Type',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  `data_transfer` varchar(11) DEFAULT NULL COMMENT 'Data Transfer',
-  PRIMARY KEY (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile' AUTO_INCREMENT=7 ;
+  `data_transfer` varchar(11) DEFAULT NULL COMMENT 'Data Transfer'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile';
 
 --
 -- Dumping data for table `dataflow_profile`
@@ -10979,14 +10396,12 @@ INSERT INTO `dataflow_profile` (`profile_id`, `name`, `created_at`, `updated_at`
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_profile_history` (
-  `history_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'History Id',
+  `history_id` int(10) unsigned NOT NULL COMMENT 'History Id',
   `profile_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Profile Id',
   `action_code` varchar(64) DEFAULT NULL COMMENT 'Action Code',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'User Id',
-  `performed_at` timestamp NULL DEFAULT NULL COMMENT 'Performed At',
-  PRIMARY KEY (`history_id`),
-  KEY `IDX_DATAFLOW_PROFILE_HISTORY_PROFILE_ID` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile History' AUTO_INCREMENT=10 ;
+  `performed_at` timestamp NULL DEFAULT NULL COMMENT 'Performed At'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Dataflow Profile History';
 
 --
 -- Dumping data for table `dataflow_profile_history`
@@ -11010,15 +10425,14 @@ INSERT INTO `dataflow_profile_history` (`history_id`, `profile_id`, `action_code
 --
 
 CREATE TABLE IF NOT EXISTS `dataflow_session` (
-  `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session Id',
+  `session_id` int(11) NOT NULL COMMENT 'Session Id',
   `user_id` int(11) NOT NULL COMMENT 'User Id',
   `created_date` timestamp NULL DEFAULT NULL COMMENT 'Created Date',
   `file` varchar(255) DEFAULT NULL COMMENT 'File',
   `type` varchar(32) DEFAULT NULL COMMENT 'Type',
   `direction` varchar(32) DEFAULT NULL COMMENT 'Direction',
-  `comment` varchar(255) DEFAULT NULL COMMENT 'Comment',
-  PRIMARY KEY (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Session' AUTO_INCREMENT=1 ;
+  `comment` varchar(255) DEFAULT NULL COMMENT 'Comment'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dataflow Session';
 
 -- --------------------------------------------------------
 
@@ -11027,14 +10441,12 @@ CREATE TABLE IF NOT EXISTS `dataflow_session` (
 --
 
 CREATE TABLE IF NOT EXISTS `design_change` (
-  `design_change_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Design Change Id',
+  `design_change_id` int(11) NOT NULL COMMENT 'Design Change Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `design` varchar(255) DEFAULT NULL COMMENT 'Design',
   `date_from` date DEFAULT NULL COMMENT 'First Date of Design Activity',
-  `date_to` date DEFAULT NULL COMMENT 'Last Date of Design Activity',
-  PRIMARY KEY (`design_change_id`),
-  KEY `IDX_DESIGN_CHANGE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Design Changes' AUTO_INCREMENT=1 ;
+  `date_to` date DEFAULT NULL COMMENT 'Last Date of Design Activity'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Design Changes';
 
 -- --------------------------------------------------------
 
@@ -11045,8 +10457,7 @@ CREATE TABLE IF NOT EXISTS `design_change` (
 CREATE TABLE IF NOT EXISTS `directory_country` (
   `country_id` varchar(2) NOT NULL DEFAULT '' COMMENT 'Country Id in ISO-2',
   `iso2_code` varchar(2) DEFAULT NULL COMMENT 'Country ISO-2 format',
-  `iso3_code` varchar(3) DEFAULT NULL COMMENT 'Country ISO-3',
-  PRIMARY KEY (`country_id`)
+  `iso3_code` varchar(3) DEFAULT NULL COMMENT 'Country ISO-3'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country';
 
 --
@@ -11308,13 +10719,11 @@ INSERT INTO `directory_country` (`country_id`, `iso2_code`, `iso3_code`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `directory_country_format` (
-  `country_format_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Country Format Id',
+  `country_format_id` int(10) unsigned NOT NULL COMMENT 'Country Format Id',
   `country_id` varchar(2) DEFAULT NULL COMMENT 'Country Id in ISO-2',
   `type` varchar(30) DEFAULT NULL COMMENT 'Country Format Type',
-  `format` text NOT NULL COMMENT 'Country Format',
-  PRIMARY KEY (`country_format_id`),
-  UNIQUE KEY `UNQ_DIRECTORY_COUNTRY_FORMAT_COUNTRY_ID_TYPE` (`country_id`,`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country Format' AUTO_INCREMENT=1 ;
+  `format` text NOT NULL COMMENT 'Country Format'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country Format';
 
 -- --------------------------------------------------------
 
@@ -11323,13 +10732,11 @@ CREATE TABLE IF NOT EXISTS `directory_country_format` (
 --
 
 CREATE TABLE IF NOT EXISTS `directory_country_region` (
-  `region_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Region Id',
+  `region_id` int(10) unsigned NOT NULL COMMENT 'Region Id',
   `country_id` varchar(4) NOT NULL DEFAULT '0' COMMENT 'Country Id in ISO-2',
   `code` varchar(32) DEFAULT NULL COMMENT 'Region code',
-  `default_name` varchar(255) DEFAULT NULL COMMENT 'Region Name',
-  PRIMARY KEY (`region_id`),
-  KEY `IDX_DIRECTORY_COUNTRY_REGION_COUNTRY_ID` (`country_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Directory Country Region' AUTO_INCREMENT=485 ;
+  `default_name` varchar(255) DEFAULT NULL COMMENT 'Region Name'
+) ENGINE=InnoDB AUTO_INCREMENT=485 DEFAULT CHARSET=utf8 COMMENT='Directory Country Region';
 
 --
 -- Dumping data for table `directory_country_region`
@@ -11341,11 +10748,11 @@ INSERT INTO `directory_country_region` (`region_id`, `country_id`, `code`, `defa
 (3, 'US', 'AS', 'American Samoa'),
 (4, 'US', 'AZ', 'Arizona'),
 (5, 'US', 'AR', 'Arkansas'),
-(6, 'US', 'AF', 'Armed Forces Africa'),
+(6, 'US', 'AE', 'Armed Forces Africa'),
 (7, 'US', 'AA', 'Armed Forces Americas'),
-(8, 'US', 'AC', 'Armed Forces Canada'),
+(8, 'US', 'AE', 'Armed Forces Canada'),
 (9, 'US', 'AE', 'Armed Forces Europe'),
-(10, 'US', 'AM', 'Armed Forces Middle East'),
+(10, 'US', 'AE', 'Armed Forces Middle East'),
 (11, 'US', 'AP', 'Armed Forces Pacific'),
 (12, 'US', 'CA', 'California'),
 (13, 'US', 'CO', 'Colorado'),
@@ -11830,9 +11237,7 @@ INSERT INTO `directory_country_region` (`region_id`, `country_id`, `code`, `defa
 CREATE TABLE IF NOT EXISTS `directory_country_region_name` (
   `locale` varchar(8) NOT NULL DEFAULT '' COMMENT 'Locale',
   `region_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Region Id',
-  `name` varchar(255) DEFAULT NULL COMMENT 'Region Name',
-  PRIMARY KEY (`locale`,`region_id`),
-  KEY `IDX_DIRECTORY_COUNTRY_REGION_NAME_REGION_ID` (`region_id`)
+  `name` varchar(255) DEFAULT NULL COMMENT 'Region Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Country Region Name';
 
 --
@@ -12334,9 +11739,7 @@ INSERT INTO `directory_country_region_name` (`locale`, `region_id`, `name`) VALU
 CREATE TABLE IF NOT EXISTS `directory_currency_rate` (
   `currency_from` varchar(3) NOT NULL DEFAULT '' COMMENT 'Currency Code Convert From',
   `currency_to` varchar(3) NOT NULL DEFAULT '' COMMENT 'Currency Code Convert To',
-  `rate` decimal(24,12) NOT NULL DEFAULT '0.000000000000' COMMENT 'Currency Conversion Rate',
-  PRIMARY KEY (`currency_from`,`currency_to`),
-  KEY `IDX_DIRECTORY_CURRENCY_RATE_CURRENCY_TO` (`currency_to`)
+  `rate` decimal(24,12) NOT NULL DEFAULT '0.000000000000' COMMENT 'Currency Conversion Rate'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Directory Currency Rate';
 
 --
@@ -12360,7 +11763,7 @@ INSERT INTO `directory_currency_rate` (`currency_from`, `currency_to`, `rate`) V
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_link` (
-  `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',
+  `link_id` int(10) unsigned NOT NULL COMMENT 'Link ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order',
   `number_of_downloads` int(11) DEFAULT NULL COMMENT 'Number of downloads',
@@ -12370,11 +11773,8 @@ CREATE TABLE IF NOT EXISTS `downloadable_link` (
   `link_type` varchar(20) DEFAULT NULL COMMENT 'Link Type',
   `sample_url` varchar(255) DEFAULT NULL COMMENT 'Sample Url',
   `sample_file` varchar(255) DEFAULT NULL COMMENT 'Sample File',
-  `sample_type` varchar(20) DEFAULT NULL COMMENT 'Sample Type',
-  PRIMARY KEY (`link_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID` (`product_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID_SORT_ORDER` (`product_id`,`sort_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Table' AUTO_INCREMENT=3 ;
+  `sample_type` varchar(20) DEFAULT NULL COMMENT 'Sample Type'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Table';
 
 --
 -- Dumping data for table `downloadable_link`
@@ -12391,14 +11791,11 @@ INSERT INTO `downloadable_link` (`link_id`, `product_id`, `sort_order`, `number_
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_link_price` (
-  `price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Price ID',
+  `price_id` int(10) unsigned NOT NULL COMMENT 'Price ID',
   `link_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Link ID',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID',
-  `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
-  PRIMARY KEY (`price_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PRICE_LINK_ID` (`link_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Price Table' AUTO_INCREMENT=3 ;
+  `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Price Table';
 
 --
 -- Dumping data for table `downloadable_link_price`
@@ -12415,7 +11812,7 @@ INSERT INTO `downloadable_link_price` (`price_id`, `link_id`, `website_id`, `pri
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_link_purchased` (
-  `purchased_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchased ID',
+  `purchased_id` int(10) unsigned NOT NULL COMMENT 'Purchased ID',
   `order_id` int(10) unsigned DEFAULT '0' COMMENT 'Order ID',
   `order_increment_id` varchar(50) DEFAULT NULL COMMENT 'Order Increment ID',
   `order_item_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Item ID',
@@ -12424,12 +11821,8 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased` (
   `customer_id` int(10) unsigned DEFAULT '0' COMMENT 'Customer ID',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product name',
   `product_sku` varchar(255) DEFAULT NULL COMMENT 'Product sku',
-  `link_section_title` varchar(255) DEFAULT NULL COMMENT 'Link_section_title',
-  PRIMARY KEY (`purchased_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ID` (`order_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ITEM_ID` (`order_item_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_CUSTOMER_ID` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Table' AUTO_INCREMENT=1 ;
+  `link_section_title` varchar(255) DEFAULT NULL COMMENT 'Link_section_title'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Table';
 
 -- --------------------------------------------------------
 
@@ -12438,7 +11831,7 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased` (
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_link_purchased_item` (
-  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item ID',
+  `item_id` int(10) unsigned NOT NULL COMMENT 'Item ID',
   `purchased_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Purchased ID',
   `order_item_id` int(10) unsigned DEFAULT '0' COMMENT 'Order Item ID',
   `product_id` int(10) unsigned DEFAULT '0' COMMENT 'Product ID',
@@ -12453,12 +11846,8 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased_item` (
   `link_type` varchar(255) DEFAULT NULL COMMENT 'Link Type',
   `status` varchar(50) DEFAULT NULL COMMENT 'Status',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Creation Time',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Update Time',
-  PRIMARY KEY (`item_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_LINK_HASH` (`link_hash`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_ORDER_ITEM_ID` (`order_item_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_PURCHASED_ID` (`purchased_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Item Table' AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Update Time'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Downloadable Link Purchased Item Table';
 
 -- --------------------------------------------------------
 
@@ -12467,15 +11856,11 @@ CREATE TABLE IF NOT EXISTS `downloadable_link_purchased_item` (
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_link_title` (
-  `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID',
+  `title_id` int(10) unsigned NOT NULL COMMENT 'Title ID',
   `link_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Link ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `title` varchar(255) DEFAULT NULL COMMENT 'Title',
-  PRIMARY KEY (`title_id`),
-  UNIQUE KEY `UNQ_DOWNLOADABLE_LINK_TITLE_LINK_ID_STORE_ID` (`link_id`,`store_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_TITLE_LINK_ID` (`link_id`),
-  KEY `IDX_DOWNLOADABLE_LINK_TITLE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Link Title Table' AUTO_INCREMENT=3 ;
+  `title` varchar(255) DEFAULT NULL COMMENT 'Title'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Link Title Table';
 
 --
 -- Dumping data for table `downloadable_link_title`
@@ -12492,15 +11877,13 @@ INSERT INTO `downloadable_link_title` (`title_id`, `link_id`, `store_id`, `title
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_sample` (
-  `sample_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sample ID',
+  `sample_id` int(10) unsigned NOT NULL COMMENT 'Sample ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `sample_url` varchar(255) DEFAULT NULL COMMENT 'Sample URL',
   `sample_file` varchar(255) DEFAULT NULL COMMENT 'Sample file',
   `sample_type` varchar(20) DEFAULT NULL COMMENT 'Sample Type',
-  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`sample_id`),
-  KEY `IDX_DOWNLOADABLE_SAMPLE_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Table' AUTO_INCREMENT=3 ;
+  `sort_order` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Table';
 
 --
 -- Dumping data for table `downloadable_sample`
@@ -12517,15 +11900,11 @@ INSERT INTO `downloadable_sample` (`sample_id`, `product_id`, `sample_url`, `sam
 --
 
 CREATE TABLE IF NOT EXISTS `downloadable_sample_title` (
-  `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID',
+  `title_id` int(10) unsigned NOT NULL COMMENT 'Title ID',
   `sample_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Sample ID',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store ID',
-  `title` varchar(255) DEFAULT NULL COMMENT 'Title',
-  PRIMARY KEY (`title_id`),
-  UNIQUE KEY `UNQ_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID_STORE_ID` (`sample_id`,`store_id`),
-  KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID` (`sample_id`),
-  KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Title Table' AUTO_INCREMENT=3 ;
+  `title` varchar(255) DEFAULT NULL COMMENT 'Title'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Downloadable Sample Title Table';
 
 --
 -- Dumping data for table `downloadable_sample_title`
@@ -12542,7 +11921,7 @@ INSERT INTO `downloadable_sample_title` (`title_id`, `sample_id`, `store_id`, `t
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute` (
-  `attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Id',
+  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_code` varchar(255) DEFAULT NULL COMMENT 'Attribute Code',
   `attribute_model` varchar(255) DEFAULT NULL COMMENT 'Attribute Model',
@@ -12558,11 +11937,8 @@ CREATE TABLE IF NOT EXISTS `eav_attribute` (
   `is_user_defined` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Defines Is User Defined',
   `default_value` text COMMENT 'Default Value',
   `is_unique` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Defines Is Unique',
-  `note` varchar(255) DEFAULT NULL COMMENT 'Note',
-  PRIMARY KEY (`attribute_id`),
-  UNIQUE KEY `UNQ_EAV_ATTRIBUTE_ENTITY_TYPE_ID_ATTRIBUTE_CODE` (`entity_type_id`,`attribute_code`),
-  KEY `IDX_EAV_ATTRIBUTE_ENTITY_TYPE_ID` (`entity_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute' AUTO_INCREMENT=145 ;
+  `note` varchar(255) DEFAULT NULL COMMENT 'Note'
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute';
 
 --
 -- Dumping data for table `eav_attribute`
@@ -12585,7 +11961,7 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 (14, 1, 'default_shipping', NULL, 'customer/customer_attribute_backend_shipping', 'int', NULL, NULL, 'text', 'Default Shipping Address', NULL, NULL, 0, 0, NULL, 0, NULL),
 (15, 1, 'taxvat', NULL, NULL, 'varchar', NULL, NULL, 'text', 'Tax/VAT Number', NULL, NULL, 0, 0, NULL, 0, NULL),
 (16, 1, 'confirmation', NULL, NULL, 'varchar', NULL, NULL, 'text', 'Is Confirmed', NULL, NULL, 0, 0, NULL, 0, NULL),
-(17, 1, 'created_at', NULL, NULL, 'static', NULL, NULL, 'date', 'Created At', NULL, NULL, 0, 0, NULL, 0, NULL),
+(17, 1, 'created_at', NULL, NULL, 'static', NULL, NULL, 'datetime', 'Created At', NULL, NULL, 0, 0, NULL, 0, NULL),
 (18, 1, 'gender', NULL, NULL, 'int', NULL, NULL, 'select', 'Gender', NULL, 'eav/entity_attribute_source_table', 0, 0, NULL, 0, NULL),
 (19, 2, 'prefix', NULL, NULL, 'varchar', NULL, NULL, 'text', 'Prefix', NULL, NULL, 0, 0, NULL, 0, NULL),
 (20, 2, 'firstname', NULL, NULL, 'varchar', NULL, NULL, 'text', 'First Name', NULL, NULL, 1, 0, NULL, 0, NULL),
@@ -12661,7 +12037,7 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 (90, 4, 'group_price', NULL, 'catalog/product_attribute_backend_groupprice', 'decimal', NULL, NULL, 'text', 'Group Price', NULL, NULL, 0, 0, NULL, 0, NULL),
 (91, 4, 'tier_price', NULL, 'catalog/product_attribute_backend_tierprice', 'decimal', NULL, NULL, 'text', 'Tier Price', NULL, NULL, 0, 0, NULL, 0, NULL),
 (92, 4, 'color', NULL, NULL, 'int', NULL, NULL, 'select', 'Color', NULL, NULL, 0, 1, '', 0, NULL),
-(93, 4, 'news_from_date', NULL, 'eav/entity_attribute_backend_datetime', 'datetime', NULL, NULL, 'date', 'Set Product as New from Date', NULL, NULL, 0, 0, NULL, 0, NULL),
+(93, 4, 'news_from_date', NULL, 'catalog/product_attribute_backend_startdate', 'datetime', NULL, NULL, 'date', 'Set Product as New from Date', NULL, NULL, 0, 0, NULL, 0, NULL),
 (94, 4, 'news_to_date', NULL, 'eav/entity_attribute_backend_datetime', 'datetime', NULL, NULL, 'date', 'Set Product as New to Date', NULL, NULL, 0, 0, NULL, 0, NULL),
 (95, 4, 'gallery', NULL, NULL, 'varchar', NULL, NULL, 'gallery', 'Image Gallery', NULL, NULL, 0, 0, NULL, 0, NULL),
 (96, 4, 'status', NULL, NULL, 'int', NULL, NULL, 'select', 'Status', NULL, 'catalog/product_status', 1, 0, NULL, 0, NULL),
@@ -12672,7 +12048,7 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 (101, 4, 'recurring_profile', NULL, 'catalog/product_attribute_backend_recurring', 'text', NULL, NULL, 'text', 'Recurring Payment Profile', NULL, NULL, 0, 0, NULL, 0, NULL),
 (102, 4, 'visibility', NULL, NULL, 'int', NULL, NULL, 'select', 'Visibility', NULL, 'catalog/product_visibility', 1, 0, '4', 0, NULL),
 (103, 4, 'custom_design', NULL, NULL, 'varchar', NULL, NULL, 'select', 'Custom Design', NULL, 'core/design_source_design', 0, 0, NULL, 0, NULL),
-(104, 4, 'custom_design_from', NULL, 'eav/entity_attribute_backend_datetime', 'datetime', NULL, NULL, 'date', 'Active From', NULL, NULL, 0, 0, NULL, 0, NULL),
+(104, 4, 'custom_design_from', NULL, 'catalog/product_attribute_backend_startdate', 'datetime', NULL, NULL, 'date', 'Active From', NULL, NULL, 0, 0, NULL, 0, NULL),
 (105, 4, 'custom_design_to', NULL, 'eav/entity_attribute_backend_datetime', 'datetime', NULL, NULL, 'date', 'Active To', NULL, NULL, 0, 0, NULL, 0, NULL),
 (106, 4, 'custom_layout_update', NULL, 'catalog/attribute_backend_customlayoutupdate', 'text', NULL, NULL, 'textarea', 'Custom Layout Update', NULL, NULL, 0, 0, NULL, 0, NULL),
 (107, 4, 'page_layout', NULL, NULL, 'varchar', NULL, NULL, 'select', 'Page Layout', NULL, 'catalog/product_attribute_source_layout', 0, 0, NULL, 0, NULL),
@@ -12689,7 +12065,6 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 (118, 4, 'msrp_enabled', NULL, 'catalog/product_attribute_backend_msrp', 'varchar', NULL, NULL, 'select', 'Apply MAP', NULL, 'catalog/product_attribute_source_msrp_type_enabled', 0, 0, '2', 0, NULL),
 (119, 4, 'msrp_display_actual_price_type', NULL, 'catalog/product_attribute_backend_boolean', 'varchar', NULL, NULL, 'select', 'Display Actual Price', NULL, 'catalog/product_attribute_source_msrp_type_price', 0, 0, '4', 0, NULL),
 (120, 4, 'msrp', NULL, 'catalog/product_attribute_backend_price', 'decimal', NULL, NULL, 'price', 'Manufacturer''s Suggested Retail Price', NULL, NULL, 0, 0, NULL, 0, NULL),
-(121, 4, 'enable_googlecheckout', NULL, NULL, 'int', NULL, NULL, 'select', 'Is Product Available for Purchase with Google Checkout', NULL, 'eav/entity_attribute_source_boolean', 0, 0, '1', 0, NULL),
 (122, 4, 'tax_class_id', NULL, NULL, 'int', NULL, NULL, 'select', 'Tax Class', NULL, 'tax/class_source_product', 1, 0, NULL, 0, NULL),
 (123, 4, 'gift_message_available', NULL, 'catalog/product_attribute_backend_boolean', 'varchar', NULL, NULL, 'select', 'Allow Gift Message', NULL, 'eav/entity_attribute_source_boolean', 0, 0, NULL, 0, NULL),
 (124, 4, 'price_type', NULL, NULL, 'int', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, 0, NULL),
@@ -12720,15 +12095,12 @@ INSERT INTO `eav_attribute` (`attribute_id`, `entity_type_id`, `attribute_code`,
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute_group` (
-  `attribute_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Group Id',
+  `attribute_group_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Group Id',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
   `attribute_group_name` varchar(255) DEFAULT NULL COMMENT 'Attribute Group Name',
   `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  `default_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Default Id',
-  PRIMARY KEY (`attribute_group_id`),
-  UNIQUE KEY `UNQ_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_ATTRIBUTE_GROUP_NAME` (`attribute_set_id`,`attribute_group_name`),
-  KEY `IDX_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Group' AUTO_INCREMENT=153 ;
+  `default_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Default Id'
+) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Group';
 
 --
 -- Dumping data for table `eav_attribute_group`
@@ -12831,15 +12203,11 @@ INSERT INTO `eav_attribute_group` (`attribute_group_id`, `attribute_set_id`, `at
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute_label` (
-  `attribute_label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Label Id',
+  `attribute_label_id` int(10) unsigned NOT NULL COMMENT 'Attribute Label Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`attribute_label_id`),
-  KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ATTRIBUTE_LABEL_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID_STORE_ID` (`attribute_id`,`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Label' AUTO_INCREMENT=78 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Label';
 
 --
 -- Dumping data for table `eav_attribute_label`
@@ -12855,12 +12223,10 @@ INSERT INTO `eav_attribute_label` (`attribute_label_id`, `attribute_id`, `store_
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`option_id`),
-  KEY `IDX_EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID` (`attribute_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option' AUTO_INCREMENT=62 ;
+  `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option';
 
 --
 -- Dumping data for table `eav_attribute_option`
@@ -12921,14 +12287,11 @@ INSERT INTO `eav_attribute_option` (`option_id`, `attribute_id`, `sort_order`) V
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute_option_value` (
-  `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(10) unsigned NOT NULL COMMENT 'Value Id',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Option Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Value',
-  PRIMARY KEY (`value_id`),
-  KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_OPTION_ID` (`option_id`),
-  KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value' AUTO_INCREMENT=473 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=473 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
 
 --
 -- Dumping data for table `eav_attribute_option_value`
@@ -12989,14 +12352,11 @@ INSERT INTO `eav_attribute_option_value` (`value_id`, `option_id`, `store_id`, `
 --
 
 CREATE TABLE IF NOT EXISTS `eav_attribute_set` (
-  `attribute_set_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Set Id',
+  `attribute_set_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Set Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_set_name` varchar(255) DEFAULT NULL COMMENT 'Attribute Set Name',
-  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`attribute_set_id`),
-  UNIQUE KEY `UNQ_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_ATTRIBUTE_SET_NAME` (`entity_type_id`,`attribute_set_name`),
-  KEY `IDX_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_SORT_ORDER` (`entity_type_id`,`sort_order`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Set' AUTO_INCREMENT=25 ;
+  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Set';
 
 --
 -- Dumping data for table `eav_attribute_set`
@@ -13028,7 +12388,7 @@ INSERT INTO `eav_attribute_set` (`attribute_set_id`, `entity_type_id`, `attribut
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
   `increment_id` varchar(50) DEFAULT NULL COMMENT 'Increment Id',
@@ -13036,11 +12396,8 @@ CREATE TABLE IF NOT EXISTS `eav_entity` (
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
-  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Defines Is Entity Active',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_EAV_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity' AUTO_INCREMENT=1 ;
+  `is_active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Defines Is Entity Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity';
 
 -- --------------------------------------------------------
 
@@ -13049,18 +12406,13 @@ CREATE TABLE IF NOT EXISTS `eav_entity` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_attribute` (
-  `entity_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Attribute Id',
+  `entity_attribute_id` int(10) unsigned NOT NULL COMMENT 'Entity Attribute Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_set_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Set Id',
   `attribute_group_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Group Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
-  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`entity_attribute_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_ATTRIBUTE_ID` (`attribute_set_id`,`attribute_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_GROUP_ID_ATTRIBUTE_ID` (`attribute_group_id`,`attribute_id`),
-  KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`),
-  KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Entity Attributes' AUTO_INCREMENT=4647 ;
+  `sort_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=4647 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Attributes';
 
 --
 -- Dumping data for table `eav_entity_attribute`
@@ -13775,21 +13127,13 @@ INSERT INTO `eav_entity_attribute` (`entity_attribute_id`, `entity_type_id`, `at
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_datetime` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Attribute Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ENTITY_DATETIME_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
-  KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
-  KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix' AUTO_INCREMENT=1 ;
+  `value` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Attribute Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
 -- --------------------------------------------------------
 
@@ -13798,21 +13142,13 @@ CREATE TABLE IF NOT EXISTS `eav_entity_datetime` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_decimal` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Attribute Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
-  KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix' AUTO_INCREMENT=1 ;
+  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Attribute Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
 -- --------------------------------------------------------
 
@@ -13821,21 +13157,13 @@ CREATE TABLE IF NOT EXISTS `eav_entity_decimal` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_int` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Attribute Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ENTITY_INT_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ENTITY_INT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
-  KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix' AUTO_INCREMENT=1 ;
+  `value` int(11) NOT NULL DEFAULT '0' COMMENT 'Attribute Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
 -- --------------------------------------------------------
 
@@ -13844,15 +13172,12 @@ CREATE TABLE IF NOT EXISTS `eav_entity_int` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_store` (
-  `entity_store_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Store Id',
+  `entity_store_id` int(10) unsigned NOT NULL COMMENT 'Entity Store Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `increment_prefix` varchar(20) DEFAULT NULL COMMENT 'Increment Prefix',
-  `increment_last_id` varchar(50) DEFAULT NULL COMMENT 'Last Incremented Id',
-  PRIMARY KEY (`entity_store_id`),
-  KEY `IDX_EAV_ENTITY_STORE_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_STORE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Entity Store' AUTO_INCREMENT=5 ;
+  `increment_last_id` varchar(50) DEFAULT NULL COMMENT 'Last Incremented Id'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Store';
 
 --
 -- Dumping data for table `eav_entity_store`
@@ -13871,19 +13196,13 @@ INSERT INTO `eav_entity_store` (`entity_store_id`, `entity_type_id`, `store_id`,
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_text` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` text NOT NULL COMMENT 'Attribute Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_EAV_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ENTITY_TEXT_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ENTITY_TEXT_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix' AUTO_INCREMENT=1 ;
+  `value` text NOT NULL COMMENT 'Attribute Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
 -- --------------------------------------------------------
 
@@ -13892,7 +13211,7 @@ CREATE TABLE IF NOT EXISTS `eav_entity_text` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_type` (
-  `entity_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Type Id',
+  `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id',
   `entity_type_code` varchar(50) NOT NULL COMMENT 'Entity Type Code',
   `entity_model` varchar(255) NOT NULL COMMENT 'Entity Model',
   `attribute_model` varchar(255) DEFAULT NULL COMMENT 'Attribute Model',
@@ -13907,10 +13226,8 @@ CREATE TABLE IF NOT EXISTS `eav_entity_type` (
   `increment_pad_length` smallint(5) unsigned NOT NULL DEFAULT '8' COMMENT 'Increment Pad Length',
   `increment_pad_char` varchar(1) NOT NULL DEFAULT '0' COMMENT 'Increment Pad Char',
   `additional_attribute_table` varchar(255) DEFAULT '' COMMENT 'Additional Attribute Table',
-  `entity_attribute_collection` varchar(255) DEFAULT NULL COMMENT 'Entity Attribute Collection',
-  PRIMARY KEY (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_TYPE_ENTITY_TYPE_CODE` (`entity_type_code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Entity Type' AUTO_INCREMENT=9 ;
+  `entity_attribute_collection` varchar(255) DEFAULT NULL COMMENT 'Entity Attribute Collection'
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Type';
 
 --
 -- Dumping data for table `eav_entity_type`
@@ -13933,21 +13250,13 @@ INSERT INTO `eav_entity_type` (`entity_type_id`, `entity_type_code`, `entity_mod
 --
 
 CREATE TABLE IF NOT EXISTS `eav_entity_varchar` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `entity_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Type Id',
   `attribute_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Attribute Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
-  `value` varchar(255) DEFAULT NULL COMMENT 'Attribute Value',
-  PRIMARY KEY (`value_id`),
-  UNIQUE KEY `UNQ_EAV_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_STORE_ID` (`store_id`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
-  KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix' AUTO_INCREMENT=1 ;
+  `value` varchar(255) DEFAULT NULL COMMENT 'Attribute Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Entity Value Prefix';
 
 -- --------------------------------------------------------
 
@@ -13956,17 +13265,12 @@ CREATE TABLE IF NOT EXISTS `eav_entity_varchar` (
 --
 
 CREATE TABLE IF NOT EXISTS `eav_form_element` (
-  `element_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Element Id',
+  `element_id` int(10) unsigned NOT NULL COMMENT 'Element Id',
   `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type Id',
   `fieldset_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Fieldset Id',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`element_id`),
-  UNIQUE KEY `UNQ_EAV_FORM_ELEMENT_TYPE_ID_ATTRIBUTE_ID` (`type_id`,`attribute_id`),
-  KEY `IDX_EAV_FORM_ELEMENT_TYPE_ID` (`type_id`),
-  KEY `IDX_EAV_FORM_ELEMENT_FIELDSET_ID` (`fieldset_id`),
-  KEY `IDX_EAV_FORM_ELEMENT_ATTRIBUTE_ID` (`attribute_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Form Element' AUTO_INCREMENT=53 ;
+  `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COMMENT='Eav Form Element';
 
 --
 -- Dumping data for table `eav_form_element`
@@ -14033,14 +13337,11 @@ INSERT INTO `eav_form_element` (`element_id`, `type_id`, `fieldset_id`, `attribu
 --
 
 CREATE TABLE IF NOT EXISTS `eav_form_fieldset` (
-  `fieldset_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Fieldset Id',
+  `fieldset_id` smallint(5) unsigned NOT NULL COMMENT 'Fieldset Id',
   `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type Id',
   `code` varchar(64) NOT NULL COMMENT 'Code',
-  `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order',
-  PRIMARY KEY (`fieldset_id`),
-  UNIQUE KEY `UNQ_EAV_FORM_FIELDSET_TYPE_ID_CODE` (`type_id`,`code`),
-  KEY `IDX_EAV_FORM_FIELDSET_TYPE_ID` (`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Form Fieldset' AUTO_INCREMENT=3 ;
+  `sort_order` int(11) NOT NULL DEFAULT '0' COMMENT 'Sort Order'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Eav Form Fieldset';
 
 --
 -- Dumping data for table `eav_form_fieldset`
@@ -14059,10 +13360,7 @@ INSERT INTO `eav_form_fieldset` (`fieldset_id`, `type_id`, `code`, `sort_order`)
 CREATE TABLE IF NOT EXISTS `eav_form_fieldset_label` (
   `fieldset_id` smallint(5) unsigned NOT NULL COMMENT 'Fieldset Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  `label` varchar(255) NOT NULL COMMENT 'Label',
-  PRIMARY KEY (`fieldset_id`,`store_id`),
-  KEY `IDX_EAV_FORM_FIELDSET_LABEL_FIELDSET_ID` (`fieldset_id`),
-  KEY `IDX_EAV_FORM_FIELDSET_LABEL_STORE_ID` (`store_id`)
+  `label` varchar(255) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Form Fieldset Label';
 
 --
@@ -14080,16 +13378,13 @@ INSERT INTO `eav_form_fieldset_label` (`fieldset_id`, `store_id`, `label`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `eav_form_type` (
-  `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type Id',
+  `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type Id',
   `code` varchar(64) NOT NULL COMMENT 'Code',
   `label` varchar(255) NOT NULL COMMENT 'Label',
   `is_system` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is System',
   `theme` varchar(64) DEFAULT NULL COMMENT 'Theme',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  PRIMARY KEY (`type_id`),
-  UNIQUE KEY `UNQ_EAV_FORM_TYPE_CODE_THEME_STORE_ID` (`code`,`theme`,`store_id`),
-  KEY `IDX_EAV_FORM_TYPE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Eav Form Type' AUTO_INCREMENT=6 ;
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Eav Form Type';
 
 --
 -- Dumping data for table `eav_form_type`
@@ -14110,9 +13405,7 @@ INSERT INTO `eav_form_type` (`type_id`, `code`, `label`, `is_system`, `theme`, `
 
 CREATE TABLE IF NOT EXISTS `eav_form_type_entity` (
   `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id',
-  PRIMARY KEY (`type_id`,`entity_type_id`),
-  KEY `IDX_EAV_FORM_TYPE_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`)
+  `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Eav Form Type Entity';
 
 --
@@ -14136,13 +13429,12 @@ INSERT INTO `eav_form_type_entity` (`type_id`, `entity_type_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `gift_message` (
-  `gift_message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'GiftMessage Id',
+  `gift_message_id` int(10) unsigned NOT NULL COMMENT 'GiftMessage Id',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer id',
   `sender` varchar(255) DEFAULT NULL COMMENT 'Sender',
   `recipient` varchar(255) DEFAULT NULL COMMENT 'Recipient',
-  `message` text COMMENT 'Message',
-  PRIMARY KEY (`gift_message_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Gift Message' AUTO_INCREMENT=1 ;
+  `message` text COMMENT 'Message'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Gift Message';
 
 -- --------------------------------------------------------
 
@@ -14153,8 +13445,7 @@ CREATE TABLE IF NOT EXISTS `gift_message` (
 CREATE TABLE IF NOT EXISTS `googlecheckout_notification` (
   `serial_number` varchar(64) NOT NULL COMMENT 'Serial Number',
   `started_at` timestamp NULL DEFAULT NULL COMMENT 'Started At',
-  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status',
-  PRIMARY KEY (`serial_number`)
+  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Google Checkout Notification Table';
 
 -- --------------------------------------------------------
@@ -14164,12 +13455,11 @@ CREATE TABLE IF NOT EXISTS `googlecheckout_notification` (
 --
 
 CREATE TABLE IF NOT EXISTS `importexport_importdata` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `entity` varchar(50) NOT NULL COMMENT 'Entity',
   `behavior` varchar(10) NOT NULL DEFAULT 'append' COMMENT 'Behavior',
-  `data` longtext COMMENT 'Data',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Import Data Table' AUTO_INCREMENT=1 ;
+  `data` longtext COMMENT 'Data'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Import Data Table';
 
 -- --------------------------------------------------------
 
@@ -14178,16 +13468,14 @@ CREATE TABLE IF NOT EXISTS `importexport_importdata` (
 --
 
 CREATE TABLE IF NOT EXISTS `index_event` (
-  `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',
+  `event_id` bigint(20) unsigned NOT NULL COMMENT 'Event Id',
   `type` varchar(64) NOT NULL COMMENT 'Type',
   `entity` varchar(64) NOT NULL COMMENT 'Entity',
   `entity_pk` bigint(20) DEFAULT NULL COMMENT 'Entity Primary Key',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Creation Time',
   `old_data` mediumtext COMMENT 'Old Data',
-  `new_data` mediumtext COMMENT 'New Data',
-  PRIMARY KEY (`event_id`),
-  UNIQUE KEY `UNQ_INDEX_EVENT_TYPE_ENTITY_ENTITY_PK` (`type`,`entity`,`entity_pk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Index Event' AUTO_INCREMENT=419 ;
+  `new_data` mediumtext COMMENT 'New Data'
+) ENGINE=InnoDB AUTO_INCREMENT=419 DEFAULT CHARSET=utf8 COMMENT='Index Event';
 
 --
 -- Dumping data for table `index_event`
@@ -14622,15 +13910,13 @@ INSERT INTO `index_event` (`event_id`, `type`, `entity`, `entity_pk`, `created_a
 --
 
 CREATE TABLE IF NOT EXISTS `index_process` (
-  `process_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Process Id',
+  `process_id` int(10) unsigned NOT NULL COMMENT 'Process Id',
   `indexer_code` varchar(32) NOT NULL COMMENT 'Indexer Code',
   `status` varchar(15) NOT NULL DEFAULT 'pending' COMMENT 'Status',
   `started_at` timestamp NULL DEFAULT NULL COMMENT 'Started At',
   `ended_at` timestamp NULL DEFAULT NULL COMMENT 'Ended At',
-  `mode` varchar(9) NOT NULL DEFAULT 'real_time' COMMENT 'Mode',
-  PRIMARY KEY (`process_id`),
-  UNIQUE KEY `UNQ_INDEX_PROCESS_INDEXER_CODE` (`indexer_code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Index Process' AUTO_INCREMENT=10 ;
+  `mode` varchar(9) NOT NULL DEFAULT 'real_time' COMMENT 'Mode'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Index Process';
 
 --
 -- Dumping data for table `index_process`
@@ -14656,9 +13942,7 @@ INSERT INTO `index_process` (`process_id`, `indexer_code`, `status`, `started_at
 CREATE TABLE IF NOT EXISTS `index_process_event` (
   `process_id` int(10) unsigned NOT NULL COMMENT 'Process Id',
   `event_id` bigint(20) unsigned NOT NULL COMMENT 'Event Id',
-  `status` varchar(7) NOT NULL DEFAULT 'new' COMMENT 'Status',
-  PRIMARY KEY (`process_id`,`event_id`),
-  KEY `IDX_INDEX_PROCESS_EVENT_EVENT_ID` (`event_id`)
+  `status` varchar(7) NOT NULL DEFAULT 'new' COMMENT 'Status'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Index Process Event';
 
 -- --------------------------------------------------------
@@ -14668,15 +13952,13 @@ CREATE TABLE IF NOT EXISTS `index_process_event` (
 --
 
 CREATE TABLE IF NOT EXISTS `log_customer` (
-  `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID',
+  `log_id` int(10) unsigned NOT NULL COMMENT 'Log ID',
   `visitor_id` bigint(20) unsigned DEFAULT NULL COMMENT 'Visitor ID',
   `customer_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Customer ID',
   `login_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Login Time',
   `logout_at` timestamp NULL DEFAULT NULL COMMENT 'Logout Time',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  PRIMARY KEY (`log_id`),
-  KEY `IDX_LOG_CUSTOMER_VISITOR_ID` (`visitor_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Log Customers Table' AUTO_INCREMENT=24 ;
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='Log Customers Table';
 
 --
 -- Dumping data for table `log_customer`
@@ -14717,8 +13999,7 @@ CREATE TABLE IF NOT EXISTS `log_quote` (
   `quote_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote ID',
   `visitor_id` bigint(20) unsigned DEFAULT NULL COMMENT 'Visitor ID',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Creation Time',
-  `deleted_at` timestamp NULL DEFAULT NULL COMMENT 'Deletion Time',
-  PRIMARY KEY (`quote_id`)
+  `deleted_at` timestamp NULL DEFAULT NULL COMMENT 'Deletion Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Quotes Table';
 
 --
@@ -14762,14 +14043,13 @@ INSERT INTO `log_quote` (`quote_id`, `visitor_id`, `created_at`, `deleted_at`) V
 --
 
 CREATE TABLE IF NOT EXISTS `log_summary` (
-  `summary_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Summary ID',
+  `summary_id` bigint(20) unsigned NOT NULL COMMENT 'Summary ID',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
   `type_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Type ID',
   `visitor_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Visitor Count',
   `customer_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Customer Count',
-  `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date',
-  PRIMARY KEY (`summary_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Summary Table' AUTO_INCREMENT=1 ;
+  `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Summary Table';
 
 -- --------------------------------------------------------
 
@@ -14778,12 +14058,11 @@ CREATE TABLE IF NOT EXISTS `log_summary` (
 --
 
 CREATE TABLE IF NOT EXISTS `log_summary_type` (
-  `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type ID',
+  `type_id` smallint(5) unsigned NOT NULL COMMENT 'Type ID',
   `type_code` varchar(64) DEFAULT NULL COMMENT 'Type Code',
   `period` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Period',
-  `period_type` varchar(6) NOT NULL DEFAULT 'MINUTE' COMMENT 'Period Type',
-  PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Summary Types Table' AUTO_INCREMENT=1 ;
+  `period_type` varchar(6) NOT NULL DEFAULT 'MINUTE' COMMENT 'Period Type'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Summary Types Table';
 
 -- --------------------------------------------------------
 
@@ -14794,9 +14073,7 @@ CREATE TABLE IF NOT EXISTS `log_summary_type` (
 CREATE TABLE IF NOT EXISTS `log_url` (
   `url_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'URL ID',
   `visitor_id` bigint(20) unsigned DEFAULT NULL COMMENT 'Visitor ID',
-  `visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Visit Time',
-  PRIMARY KEY (`url_id`),
-  KEY `IDX_LOG_URL_VISITOR_ID` (`visitor_id`)
+  `visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Visit Time'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log URL Table';
 
 --
@@ -22320,7 +21597,13 @@ INSERT INTO `log_url` (`url_id`, `visitor_id`, `visit_time`) VALUES
 (7513, 461, '2014-02-15 04:18:30'),
 (7514, 461, '2014-02-15 04:22:35'),
 (7515, 461, '2014-02-15 04:24:56'),
-(7516, 462, '2014-02-15 23:09:45');
+(7516, 462, '2014-02-15 23:09:45'),
+(7517, 463, '2015-07-31 04:32:48'),
+(7518, 463, '2015-07-31 05:22:05'),
+(7519, 463, '2015-07-31 05:24:34'),
+(7520, 463, '2015-07-31 05:24:37'),
+(7521, 463, '2015-07-31 05:30:44'),
+(7522, 463, '2015-07-31 05:33:59');
 
 -- --------------------------------------------------------
 
@@ -22329,11 +21612,10 @@ INSERT INTO `log_url` (`url_id`, `visitor_id`, `visit_time`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `log_url_info` (
-  `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',
+  `url_id` bigint(20) unsigned NOT NULL COMMENT 'URL ID',
   `url` varchar(255) DEFAULT NULL COMMENT 'URL',
-  `referer` varchar(255) DEFAULT NULL COMMENT 'Referrer',
-  PRIMARY KEY (`url_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table' AUTO_INCREMENT=7517 ;
+  `referer` varchar(255) DEFAULT NULL COMMENT 'Referrer'
+) ENGINE=InnoDB AUTO_INCREMENT=7523 DEFAULT CHARSET=utf8 COMMENT='Log URL Info Table';
 
 --
 -- Dumping data for table `log_url_info`
@@ -29868,7 +29150,13 @@ INSERT INTO `log_url_info` (`url_id`, `url`, `referer`) VALUES
 (7513, 'http://madiwin.site/', NULL),
 (7514, 'http://madiwin.site/', NULL),
 (7515, 'http://madiwin.site/', NULL),
-(7516, 'http://madiwin.site/', NULL);
+(7516, 'http://madiwin.site/', NULL),
+(7517, 'http://127.0.0.1:8080/magento/', 'http://localhost:8080/'),
+(7518, 'http://127.0.0.1:8080/magento/', 'http://localhost:8080/'),
+(7519, 'http://127.0.0.1:8080/magento/default/typography', 'http://127.0.0.1:8080/magento/'),
+(7520, 'http://127.0.0.1:8080/magento/', 'http://localhost:8080/'),
+(7521, 'http://127.0.0.1:8080/magento/', 'http://localhost:8080/'),
+(7522, 'http://127.0.0.1:8080/magento/', 'http://localhost:8080/');
 
 -- --------------------------------------------------------
 
@@ -29877,14 +29165,13 @@ INSERT INTO `log_url_info` (`url_id`, `url`, `referer`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `log_visitor` (
-  `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',
+  `visitor_id` bigint(20) unsigned NOT NULL COMMENT 'Visitor ID',
   `session_id` varchar(64) DEFAULT NULL COMMENT 'Session ID',
   `first_visit_at` timestamp NULL DEFAULT NULL COMMENT 'First Visit Time',
   `last_visit_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Last Visit Time',
   `last_url_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Last URL ID',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID',
-  PRIMARY KEY (`visitor_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table' AUTO_INCREMENT=463 ;
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store ID'
+) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8 COMMENT='Log Visitors Table';
 
 --
 -- Dumping data for table `log_visitor`
@@ -30352,7 +29639,8 @@ INSERT INTO `log_visitor` (`visitor_id`, `session_id`, `first_visit_at`, `last_v
 (459, 'p63emj8jp7klg9tvmggg7s03s7', '2014-02-14 17:08:09', '2014-02-14 17:08:16', 7504, 1),
 (460, 'jqg44am0m7ive0k30o0nhogg43', '2014-02-15 02:24:01', '2014-02-15 02:46:50', 7509, 1),
 (461, 's84ffb9f55f88ruvuibe3opu24', '2014-02-15 03:52:50', '2014-02-15 04:24:56', 7515, 1),
-(462, 'a2h9v2b79mfr6055s9oh27chd2', '2014-02-15 23:09:40', '2014-02-15 23:09:45', 7516, 1);
+(462, 'a2h9v2b79mfr6055s9oh27chd2', '2014-02-15 23:09:40', '2014-02-15 23:09:45', 7516, 1),
+(463, 'bq3gd61p9p06fhv2sq0c64jnn1', '2015-07-31 04:32:46', '2015-07-31 05:33:59', 7522, 1);
 
 -- --------------------------------------------------------
 
@@ -30367,8 +29655,7 @@ CREATE TABLE IF NOT EXISTS `log_visitor_info` (
   `http_accept_charset` varchar(255) DEFAULT NULL COMMENT 'HTTP Accept-Charset',
   `http_accept_language` varchar(255) DEFAULT NULL COMMENT 'HTTP Accept-Language',
   `server_addr` bigint(20) DEFAULT NULL COMMENT 'Server Address',
-  `remote_addr` bigint(20) DEFAULT NULL COMMENT 'Remote Address',
-  PRIMARY KEY (`visitor_id`)
+  `remote_addr` bigint(20) DEFAULT NULL COMMENT 'Remote Address'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Visitor Info Table';
 
 --
@@ -30838,7 +30125,8 @@ INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`,
 (459, NULL, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', NULL, 'en-US,en;q=0.8', 2130706433, 2130706433),
 (460, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', NULL, 'en-US,en;q=0.8', 2130706433, 2130706433),
 (461, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', NULL, 'en-US,en;q=0.8', 2130706433, 2130706433),
-(462, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', NULL, 'en-US,en;q=0.8', 2130706433, 2130706433);
+(462, NULL, 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', NULL, 'en-US,en;q=0.8', 2130706433, 2130706433),
+(463, 'http://localhost:8080/', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:41.0) Gecko/20100101 Firefox/41.0', NULL, 'en-US,en;q=0.5', 2130706433, 2130706433);
 
 -- --------------------------------------------------------
 
@@ -30847,18 +30135,14 @@ INSERT INTO `log_visitor_info` (`visitor_id`, `http_referer`, `http_user_agent`,
 --
 
 CREATE TABLE IF NOT EXISTS `log_visitor_online` (
-  `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',
+  `visitor_id` bigint(20) unsigned NOT NULL COMMENT 'Visitor ID',
   `visitor_type` varchar(1) NOT NULL COMMENT 'Visitor Type',
   `remote_addr` bigint(20) NOT NULL COMMENT 'Remote Address',
   `first_visit_at` timestamp NULL DEFAULT NULL COMMENT 'First Visit Time',
   `last_visit_at` timestamp NULL DEFAULT NULL COMMENT 'Last Visit Time',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer ID',
-  `last_url` varchar(255) DEFAULT NULL COMMENT 'Last URL',
-  PRIMARY KEY (`visitor_id`),
-  KEY `IDX_LOG_VISITOR_ONLINE_VISITOR_TYPE` (`visitor_type`),
-  KEY `IDX_LOG_VISITOR_ONLINE_FIRST_VISIT_AT_LAST_VISIT_AT` (`first_visit_at`,`last_visit_at`),
-  KEY `IDX_LOG_VISITOR_ONLINE_CUSTOMER_ID` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Visitor Online Table' AUTO_INCREMENT=1 ;
+  `last_url` varchar(255) DEFAULT NULL COMMENT 'Last URL'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log Visitor Online Table';
 
 -- --------------------------------------------------------
 
@@ -30867,15 +30151,12 @@ CREATE TABLE IF NOT EXISTS `log_visitor_online` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsletter_problem` (
-  `problem_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Problem Id',
+  `problem_id` int(10) unsigned NOT NULL COMMENT 'Problem Id',
   `subscriber_id` int(10) unsigned DEFAULT NULL COMMENT 'Subscriber Id',
   `queue_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Queue Id',
   `problem_error_code` int(10) unsigned DEFAULT '0' COMMENT 'Problem Error Code',
-  `problem_error_text` varchar(200) DEFAULT NULL COMMENT 'Problem Error Text',
-  PRIMARY KEY (`problem_id`),
-  KEY `IDX_NEWSLETTER_PROBLEM_SUBSCRIBER_ID` (`subscriber_id`),
-  KEY `IDX_NEWSLETTER_PROBLEM_QUEUE_ID` (`queue_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Problems' AUTO_INCREMENT=1 ;
+  `problem_error_text` varchar(200) DEFAULT NULL COMMENT 'Problem Error Text'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Problems';
 
 -- --------------------------------------------------------
 
@@ -30884,7 +30165,7 @@ CREATE TABLE IF NOT EXISTS `newsletter_problem` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsletter_queue` (
-  `queue_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Id',
+  `queue_id` int(10) unsigned NOT NULL COMMENT 'Queue Id',
   `template_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Template Id',
   `newsletter_type` int(11) DEFAULT NULL COMMENT 'Newsletter Type',
   `newsletter_text` text COMMENT 'Newsletter Text',
@@ -30894,10 +30175,8 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue` (
   `newsletter_sender_email` varchar(200) DEFAULT NULL COMMENT 'Newsletter Sender Email',
   `queue_status` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Queue Status',
   `queue_start_at` timestamp NULL DEFAULT NULL COMMENT 'Queue Start At',
-  `queue_finish_at` timestamp NULL DEFAULT NULL COMMENT 'Queue Finish At',
-  PRIMARY KEY (`queue_id`),
-  KEY `IDX_NEWSLETTER_QUEUE_TEMPLATE_ID` (`template_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue' AUTO_INCREMENT=1 ;
+  `queue_finish_at` timestamp NULL DEFAULT NULL COMMENT 'Queue Finish At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue';
 
 -- --------------------------------------------------------
 
@@ -30906,15 +30185,11 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsletter_queue_link` (
-  `queue_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Link Id',
+  `queue_link_id` int(10) unsigned NOT NULL COMMENT 'Queue Link Id',
   `queue_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Queue Id',
   `subscriber_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Subscriber Id',
-  `letter_sent_at` timestamp NULL DEFAULT NULL COMMENT 'Letter Sent At',
-  PRIMARY KEY (`queue_link_id`),
-  KEY `IDX_NEWSLETTER_QUEUE_LINK_SUBSCRIBER_ID` (`subscriber_id`),
-  KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID` (`queue_id`),
-  KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID_LETTER_SENT_AT` (`queue_id`,`letter_sent_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue Link' AUTO_INCREMENT=1 ;
+  `letter_sent_at` timestamp NULL DEFAULT NULL COMMENT 'Letter Sent At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue Link';
 
 -- --------------------------------------------------------
 
@@ -30924,9 +30199,7 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue_link` (
 
 CREATE TABLE IF NOT EXISTS `newsletter_queue_store_link` (
   `queue_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Queue Id',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  PRIMARY KEY (`queue_id`,`store_id`),
-  KEY `IDX_NEWSLETTER_QUEUE_STORE_LINK_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Queue Store Link';
 
 -- --------------------------------------------------------
@@ -30936,17 +30209,14 @@ CREATE TABLE IF NOT EXISTS `newsletter_queue_store_link` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsletter_subscriber` (
-  `subscriber_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Subscriber Id',
+  `subscriber_id` int(10) unsigned NOT NULL COMMENT 'Subscriber Id',
   `store_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Store Id',
   `change_status_at` timestamp NULL DEFAULT NULL COMMENT 'Change Status At',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Id',
   `subscriber_email` varchar(150) DEFAULT NULL COMMENT 'Subscriber Email',
   `subscriber_status` int(11) NOT NULL DEFAULT '0' COMMENT 'Subscriber Status',
-  `subscriber_confirm_code` varchar(32) DEFAULT 'NULL' COMMENT 'Subscriber Confirm Code',
-  PRIMARY KEY (`subscriber_id`),
-  KEY `IDX_NEWSLETTER_SUBSCRIBER_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_NEWSLETTER_SUBSCRIBER_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Subscriber' AUTO_INCREMENT=1 ;
+  `subscriber_confirm_code` varchar(32) DEFAULT 'NULL' COMMENT 'Subscriber Confirm Code'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Subscriber';
 
 -- --------------------------------------------------------
 
@@ -30955,7 +30225,7 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscriber` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsletter_template` (
-  `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id',
+  `template_id` int(10) unsigned NOT NULL COMMENT 'Template Id',
   `template_code` varchar(150) DEFAULT NULL COMMENT 'Template Code',
   `template_text` text COMMENT 'Template Text',
   `template_text_preprocessed` text COMMENT 'Template Text Preprocessed',
@@ -30966,12 +30236,8 @@ CREATE TABLE IF NOT EXISTS `newsletter_template` (
   `template_sender_email` varchar(200) DEFAULT NULL COMMENT 'Template Sender Email',
   `template_actual` smallint(5) unsigned DEFAULT '1' COMMENT 'Template Actual',
   `added_at` timestamp NULL DEFAULT NULL COMMENT 'Added At',
-  `modified_at` timestamp NULL DEFAULT NULL COMMENT 'Modified At',
-  PRIMARY KEY (`template_id`),
-  KEY `IDX_NEWSLETTER_TEMPLATE_TEMPLATE_ACTUAL` (`template_actual`),
-  KEY `IDX_NEWSLETTER_TEMPLATE_ADDED_AT` (`added_at`),
-  KEY `IDX_NEWSLETTER_TEMPLATE_MODIFIED_AT` (`modified_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Template' AUTO_INCREMENT=1 ;
+  `modified_at` timestamp NULL DEFAULT NULL COMMENT 'Modified At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Newsletter Template';
 
 -- --------------------------------------------------------
 
@@ -30980,20 +30246,15 @@ CREATE TABLE IF NOT EXISTS `newsletter_template` (
 --
 
 CREATE TABLE IF NOT EXISTS `oauth_consumer` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
   `name` varchar(255) NOT NULL COMMENT 'Name of consumer',
   `key` varchar(32) NOT NULL COMMENT 'Key code',
   `secret` varchar(32) NOT NULL COMMENT 'Secret code',
   `callback_url` varchar(255) DEFAULT NULL COMMENT 'Callback URL',
-  `rejected_callback_url` varchar(255) NOT NULL COMMENT 'Rejected callback URL',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_OAUTH_CONSUMER_KEY` (`key`),
-  UNIQUE KEY `UNQ_OAUTH_CONSUMER_SECRET` (`secret`),
-  KEY `IDX_OAUTH_CONSUMER_CREATED_AT` (`created_at`),
-  KEY `IDX_OAUTH_CONSUMER_UPDATED_AT` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Consumers' AUTO_INCREMENT=1 ;
+  `rejected_callback_url` varchar(255) NOT NULL COMMENT 'Rejected callback URL'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Consumers';
 
 -- --------------------------------------------------------
 
@@ -31003,8 +30264,7 @@ CREATE TABLE IF NOT EXISTS `oauth_consumer` (
 
 CREATE TABLE IF NOT EXISTS `oauth_nonce` (
   `nonce` varchar(32) NOT NULL COMMENT 'Nonce String',
-  `timestamp` int(10) unsigned NOT NULL COMMENT 'Nonce Timestamp',
-  UNIQUE KEY `UNQ_OAUTH_NONCE_NONCE` (`nonce`)
+  `timestamp` int(10) unsigned NOT NULL COMMENT 'Nonce Timestamp'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='oauth_nonce';
 
 -- --------------------------------------------------------
@@ -31014,7 +30274,7 @@ CREATE TABLE IF NOT EXISTS `oauth_nonce` (
 --
 
 CREATE TABLE IF NOT EXISTS `oauth_token` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity ID',
   `consumer_id` int(10) unsigned NOT NULL COMMENT 'Consumer ID',
   `admin_id` int(10) unsigned DEFAULT NULL COMMENT 'Admin user ID',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer user ID',
@@ -31025,13 +30285,8 @@ CREATE TABLE IF NOT EXISTS `oauth_token` (
   `callback_url` varchar(255) NOT NULL COMMENT 'Token Callback URL',
   `revoked` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Token revoked',
   `authorized` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Token authorized',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Token creation timestamp',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_OAUTH_TOKEN_TOKEN` (`token`),
-  KEY `IDX_OAUTH_TOKEN_CONSUMER_ID` (`consumer_id`),
-  KEY `FK_OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID` (`admin_id`),
-  KEY `FK_OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Tokens' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Token creation timestamp'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='OAuth Tokens';
 
 -- --------------------------------------------------------
 
@@ -31040,13 +30295,11 @@ CREATE TABLE IF NOT EXISTS `oauth_token` (
 --
 
 CREATE TABLE IF NOT EXISTS `paypal_cert` (
-  `cert_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Cert Id',
+  `cert_id` smallint(5) unsigned NOT NULL COMMENT 'Cert Id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `content` text COMMENT 'Content',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
-  PRIMARY KEY (`cert_id`),
-  KEY `IDX_PAYPAL_CERT_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Certificate Table' AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Certificate Table';
 
 -- --------------------------------------------------------
 
@@ -31055,13 +30308,11 @@ CREATE TABLE IF NOT EXISTS `paypal_cert` (
 --
 
 CREATE TABLE IF NOT EXISTS `paypal_payment_transaction` (
-  `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `transaction_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `txn_id` varchar(100) DEFAULT NULL COMMENT 'Txn Id',
   `additional_information` blob COMMENT 'Additional Information',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`transaction_id`),
-  UNIQUE KEY `UNQ_PAYPAL_PAYMENT_TRANSACTION_TXN_ID` (`txn_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='PayPal Payflow Link Payment Transaction' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='PayPal Payflow Link Payment Transaction';
 
 -- --------------------------------------------------------
 
@@ -31070,14 +30321,12 @@ CREATE TABLE IF NOT EXISTS `paypal_payment_transaction` (
 --
 
 CREATE TABLE IF NOT EXISTS `paypal_settlement_report` (
-  `report_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Report Id',
+  `report_id` int(10) unsigned NOT NULL COMMENT 'Report Id',
   `report_date` timestamp NULL DEFAULT NULL COMMENT 'Report Date',
   `account_id` varchar(64) DEFAULT NULL COMMENT 'Account Id',
   `filename` varchar(24) DEFAULT NULL COMMENT 'Filename',
-  `last_modified` timestamp NULL DEFAULT NULL COMMENT 'Last Modified',
-  PRIMARY KEY (`report_id`),
-  UNIQUE KEY `UNQ_PAYPAL_SETTLEMENT_REPORT_REPORT_DATE_ACCOUNT_ID` (`report_date`,`account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Table' AUTO_INCREMENT=1 ;
+  `last_modified` timestamp NULL DEFAULT NULL COMMENT 'Last Modified'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Table';
 
 -- --------------------------------------------------------
 
@@ -31086,7 +30335,7 @@ CREATE TABLE IF NOT EXISTS `paypal_settlement_report` (
 --
 
 CREATE TABLE IF NOT EXISTS `paypal_settlement_report_row` (
-  `row_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Row Id',
+  `row_id` int(10) unsigned NOT NULL COMMENT 'Row Id',
   `report_id` int(10) unsigned NOT NULL COMMENT 'Report Id',
   `transaction_id` varchar(19) DEFAULT NULL COMMENT 'Transaction Id',
   `invoice_id` varchar(127) DEFAULT NULL COMMENT 'Invoice Id',
@@ -31104,9 +30353,8 @@ CREATE TABLE IF NOT EXISTS `paypal_settlement_report_row` (
   `custom_field` varchar(255) DEFAULT NULL COMMENT 'Custom Field',
   `consumer_id` varchar(127) DEFAULT NULL COMMENT 'Consumer Id',
   `payment_tracking_id` varchar(255) DEFAULT NULL COMMENT 'Payment Tracking ID',
-  PRIMARY KEY (`row_id`),
-  KEY `IDX_PAYPAL_SETTLEMENT_REPORT_ROW_REPORT_ID` (`report_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Row Table' AUTO_INCREMENT=1 ;
+  `store_id` varchar(50) DEFAULT NULL COMMENT 'Store ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Paypal Settlement Report Row Table';
 
 -- --------------------------------------------------------
 
@@ -31115,18 +30363,13 @@ CREATE TABLE IF NOT EXISTS `paypal_settlement_report_row` (
 --
 
 CREATE TABLE IF NOT EXISTS `persistent_session` (
-  `persistent_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Session id',
+  `persistent_id` int(10) unsigned NOT NULL COMMENT 'Session id',
   `key` varchar(50) NOT NULL COMMENT 'Unique cookie key',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID',
   `info` text COMMENT 'Session Data',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
-  PRIMARY KEY (`persistent_id`),
-  UNIQUE KEY `IDX_PERSISTENT_SESSION_KEY` (`key`),
-  UNIQUE KEY `IDX_PERSISTENT_SESSION_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_PERSISTENT_SESSION_UPDATED_AT` (`updated_at`),
-  KEY `FK_PERSISTENT_SESSION_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Persistent Session' AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Persistent Session';
 
 -- --------------------------------------------------------
 
@@ -31135,7 +30378,7 @@ CREATE TABLE IF NOT EXISTS `persistent_session` (
 --
 
 CREATE TABLE IF NOT EXISTS `poll` (
-  `poll_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Poll Id',
+  `poll_id` int(10) unsigned NOT NULL COMMENT 'Poll Id',
   `poll_title` varchar(255) DEFAULT NULL COMMENT 'Poll title',
   `votes_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Votes Count',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id',
@@ -31143,10 +30386,8 @@ CREATE TABLE IF NOT EXISTS `poll` (
   `date_closed` timestamp NULL DEFAULT NULL COMMENT 'Date closed',
   `active` smallint(6) NOT NULL DEFAULT '1' COMMENT 'Is active',
   `closed` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is closed',
-  `answers_display` smallint(6) DEFAULT NULL COMMENT 'Answers display',
-  PRIMARY KEY (`poll_id`),
-  KEY `IDX_POLL_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Poll' AUTO_INCREMENT=2 ;
+  `answers_display` smallint(6) DEFAULT NULL COMMENT 'Answers display'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Poll';
 
 --
 -- Dumping data for table `poll`
@@ -31162,14 +30403,12 @@ INSERT INTO `poll` (`poll_id`, `poll_title`, `votes_count`, `store_id`, `date_po
 --
 
 CREATE TABLE IF NOT EXISTS `poll_answer` (
-  `answer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Answer Id',
+  `answer_id` int(10) unsigned NOT NULL COMMENT 'Answer Id',
   `poll_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Poll Id',
   `answer_title` varchar(255) DEFAULT NULL COMMENT 'Answer title',
   `votes_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Votes Count',
-  `answer_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Answers display',
-  PRIMARY KEY (`answer_id`),
-  KEY `IDX_POLL_ANSWER_POLL_ID` (`poll_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Poll Answers' AUTO_INCREMENT=6 ;
+  `answer_order` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Answers display'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Poll Answers';
 
 --
 -- Dumping data for table `poll_answer`
@@ -31190,9 +30429,7 @@ INSERT INTO `poll_answer` (`answer_id`, `poll_id`, `answer_title`, `votes_count`
 
 CREATE TABLE IF NOT EXISTS `poll_store` (
   `poll_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Poll Id',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id',
-  PRIMARY KEY (`poll_id`,`store_id`),
-  KEY `IDX_POLL_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Poll Store';
 
 --
@@ -31210,15 +30447,13 @@ INSERT INTO `poll_store` (`poll_id`, `store_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `poll_vote` (
-  `vote_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote Id',
+  `vote_id` int(10) unsigned NOT NULL COMMENT 'Vote Id',
   `poll_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Poll Id',
   `poll_answer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Poll answer id',
   `ip_address` bigint(20) DEFAULT NULL COMMENT 'Poll answer id',
   `customer_id` int(11) DEFAULT NULL COMMENT 'Customer id',
-  `vote_time` timestamp NULL DEFAULT NULL COMMENT 'Date closed',
-  PRIMARY KEY (`vote_id`),
-  KEY `IDX_POLL_VOTE_POLL_ANSWER_ID` (`poll_answer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Poll Vote' AUTO_INCREMENT=1 ;
+  `vote_time` timestamp NULL DEFAULT NULL COMMENT 'Date closed'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Poll Vote';
 
 -- --------------------------------------------------------
 
@@ -31227,7 +30462,7 @@ CREATE TABLE IF NOT EXISTS `poll_vote` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_alert_price` (
-  `alert_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert price id',
+  `alert_price_id` int(10) unsigned NOT NULL COMMENT 'Product alert price id',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer id',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product id',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price amount',
@@ -31235,12 +30470,8 @@ CREATE TABLE IF NOT EXISTS `product_alert_price` (
   `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Product alert add date',
   `last_send_date` timestamp NULL DEFAULT NULL COMMENT 'Product alert last send date',
   `send_count` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert send count',
-  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status',
-  PRIMARY KEY (`alert_price_id`),
-  KEY `IDX_PRODUCT_ALERT_PRICE_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_PRODUCT_ALERT_PRICE_PRODUCT_ID` (`product_id`),
-  KEY `IDX_PRODUCT_ALERT_PRICE_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Price' AUTO_INCREMENT=1 ;
+  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Price';
 
 -- --------------------------------------------------------
 
@@ -31249,19 +30480,15 @@ CREATE TABLE IF NOT EXISTS `product_alert_price` (
 --
 
 CREATE TABLE IF NOT EXISTS `product_alert_stock` (
-  `alert_stock_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert stock id',
+  `alert_stock_id` int(10) unsigned NOT NULL COMMENT 'Product alert stock id',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer id',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website id',
   `add_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Product alert add date',
   `send_date` timestamp NULL DEFAULT NULL COMMENT 'Product alert send date',
   `send_count` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Send Count',
-  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status',
-  PRIMARY KEY (`alert_stock_id`),
-  KEY `IDX_PRODUCT_ALERT_STOCK_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_PRODUCT_ALERT_STOCK_PRODUCT_ID` (`product_id`),
-  KEY `IDX_PRODUCT_ALERT_STOCK_WEBSITE_ID` (`website_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Stock' AUTO_INCREMENT=1 ;
+  `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Product alert status'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Product Alert Stock';
 
 -- --------------------------------------------------------
 
@@ -31270,14 +30497,11 @@ CREATE TABLE IF NOT EXISTS `product_alert_stock` (
 --
 
 CREATE TABLE IF NOT EXISTS `rating` (
-  `rating_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Id',
+  `rating_id` smallint(5) unsigned NOT NULL COMMENT 'Rating Id',
   `entity_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `rating_code` varchar(64) NOT NULL COMMENT 'Rating Code',
-  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Position On Frontend',
-  PRIMARY KEY (`rating_id`),
-  UNIQUE KEY `UNQ_RATING_RATING_CODE` (`rating_code`),
-  KEY `IDX_RATING_ENTITY_ID` (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Ratings' AUTO_INCREMENT=4 ;
+  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Position On Frontend'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Ratings';
 
 --
 -- Dumping data for table `rating`
@@ -31295,11 +30519,9 @@ INSERT INTO `rating` (`rating_id`, `entity_id`, `rating_code`, `position`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `rating_entity` (
-  `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
-  `entity_code` varchar(64) NOT NULL COMMENT 'Entity Code',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_RATING_ENTITY_ENTITY_CODE` (`entity_code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Rating entities' AUTO_INCREMENT=4 ;
+  `entity_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Id',
+  `entity_code` varchar(64) NOT NULL COMMENT 'Entity Code'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Rating entities';
 
 --
 -- Dumping data for table `rating_entity`
@@ -31317,14 +30539,12 @@ INSERT INTO `rating_entity` (`entity_id`, `entity_code`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `rating_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Option Id',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Rating Option Id',
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Id',
   `code` varchar(32) NOT NULL COMMENT 'Rating Option Code',
   `value` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Option Value',
-  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Ration option position on frontend',
-  PRIMARY KEY (`option_id`),
-  KEY `IDX_RATING_OPTION_RATING_ID` (`rating_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Rating options' AUTO_INCREMENT=16 ;
+  `position` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Ration option position on frontend'
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='Rating options';
 
 --
 -- Dumping data for table `rating_option`
@@ -31354,7 +30574,7 @@ INSERT INTO `rating_option` (`option_id`, `rating_id`, `code`, `value`, `positio
 --
 
 CREATE TABLE IF NOT EXISTS `rating_option_vote` (
-  `vote_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote id',
+  `vote_id` bigint(20) unsigned NOT NULL COMMENT 'Vote id',
   `option_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Vote option id',
   `remote_ip` varchar(16) NOT NULL COMMENT 'Customer IP',
   `remote_ip_long` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Customer IP converted to long integer format',
@@ -31363,11 +30583,8 @@ CREATE TABLE IF NOT EXISTS `rating_option_vote` (
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating id',
   `review_id` bigint(20) unsigned DEFAULT NULL COMMENT 'Review id',
   `percent` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Percent amount',
-  `value` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Vote option value',
-  PRIMARY KEY (`vote_id`),
-  KEY `IDX_RATING_OPTION_VOTE_OPTION_ID` (`option_id`),
-  KEY `FK_RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID` (`review_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Rating option values' AUTO_INCREMENT=47 ;
+  `value` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Vote option value'
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COMMENT='Rating option values';
 
 --
 -- Dumping data for table `rating_option_vote`
@@ -31426,18 +30643,15 @@ INSERT INTO `rating_option_vote` (`vote_id`, `option_id`, `remote_ip`, `remote_i
 --
 
 CREATE TABLE IF NOT EXISTS `rating_option_vote_aggregated` (
-  `primary_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Vote aggregation id',
+  `primary_id` int(11) NOT NULL COMMENT 'Vote aggregation id',
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating id',
   `entity_pk_value` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Product id',
   `vote_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Vote dty',
   `vote_value_sum` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'General vote sum',
   `percent` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Vote percent',
   `percent_approved` smallint(6) DEFAULT '0' COMMENT 'Vote percent approved by admin',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  PRIMARY KEY (`primary_id`),
-  KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_RATING_ID` (`rating_id`),
-  KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Rating vote aggregated' AUTO_INCREMENT=369 ;
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id'
+) ENGINE=InnoDB AUTO_INCREMENT=369 DEFAULT CHARSET=utf8 COMMENT='Rating vote aggregated';
 
 --
 -- Dumping data for table `rating_option_vote_aggregated`
@@ -31673,9 +30887,7 @@ INSERT INTO `rating_option_vote_aggregated` (`primary_id`, `rating_id`, `entity_
 
 CREATE TABLE IF NOT EXISTS `rating_store` (
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating id',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id',
-  PRIMARY KEY (`rating_id`,`store_id`),
-  KEY `IDX_RATING_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating Store';
 
 --
@@ -31706,9 +30918,7 @@ INSERT INTO `rating_store` (`rating_id`, `store_id`) VALUES
 CREATE TABLE IF NOT EXISTS `rating_title` (
   `rating_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  `value` varchar(255) NOT NULL COMMENT 'Rating Label',
-  PRIMARY KEY (`rating_id`,`store_id`),
-  KEY `IDX_RATING_TITLE_STORE_ID` (`store_id`)
+  `value` varchar(255) NOT NULL COMMENT 'Rating Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Rating Title';
 
 -- --------------------------------------------------------
@@ -31718,19 +30928,13 @@ CREATE TABLE IF NOT EXISTS `rating_title` (
 --
 
 CREATE TABLE IF NOT EXISTS `report_compared_product_index` (
-  `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',
+  `index_id` bigint(20) unsigned NOT NULL COMMENT 'Index Id',
   `visitor_id` int(10) unsigned DEFAULT NULL COMMENT 'Visitor Id',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
-  `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Added At',
-  PRIMARY KEY (`index_id`),
-  UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
-  UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
-  KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_STORE_ID` (`store_id`),
-  KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_ADDED_AT` (`added_at`),
-  KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Reports Compared Product Index Table' AUTO_INCREMENT=50 ;
+  `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Added At'
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COMMENT='Reports Compared Product Index Table';
 
 --
 -- Dumping data for table `report_compared_product_index`
@@ -31758,20 +30962,14 @@ INSERT INTO `report_compared_product_index` (`index_id`, `visitor_id`, `customer
 --
 
 CREATE TABLE IF NOT EXISTS `report_event` (
-  `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',
+  `event_id` bigint(20) unsigned NOT NULL COMMENT 'Event Id',
   `logged_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Logged At',
   `event_type_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Event Type Id',
   `object_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Object Id',
   `subject_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Subject Id',
   `subtype` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Subtype',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  PRIMARY KEY (`event_id`),
-  KEY `IDX_REPORT_EVENT_EVENT_TYPE_ID` (`event_type_id`),
-  KEY `IDX_REPORT_EVENT_SUBJECT_ID` (`subject_id`),
-  KEY `IDX_REPORT_EVENT_OBJECT_ID` (`object_id`),
-  KEY `IDX_REPORT_EVENT_SUBTYPE` (`subtype`),
-  KEY `IDX_REPORT_EVENT_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Reports Event Table' AUTO_INCREMENT=5025 ;
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
+) ENGINE=InnoDB AUTO_INCREMENT=5025 DEFAULT CHARSET=utf8 COMMENT='Reports Event Table';
 
 --
 -- Dumping data for table `report_event`
@@ -36013,11 +35211,10 @@ INSERT INTO `report_event` (`event_id`, `logged_at`, `event_type_id`, `object_id
 --
 
 CREATE TABLE IF NOT EXISTS `report_event_types` (
-  `event_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Type Id',
+  `event_type_id` smallint(5) unsigned NOT NULL COMMENT 'Event Type Id',
   `event_name` varchar(64) NOT NULL COMMENT 'Event Name',
-  `customer_login` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Login',
-  PRIMARY KEY (`event_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Reports Event Type Table' AUTO_INCREMENT=7 ;
+  `customer_login` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Login'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Reports Event Type Table';
 
 --
 -- Dumping data for table `report_event_types`
@@ -36038,19 +35235,15 @@ INSERT INTO `report_event_types` (`event_type_id`, `event_name`, `customer_login
 --
 
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_daily` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `views_num` int(11) NOT NULL DEFAULT '0' COMMENT 'Number of Views',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_STORE_ID` (`store_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Daily' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Daily';
 
 -- --------------------------------------------------------
 
@@ -36059,19 +35252,15 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_daily` (
 --
 
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_monthly` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `views_num` int(11) NOT NULL DEFAULT '0' COMMENT 'Number of Views',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_STORE_ID` (`store_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Monthly' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Monthly';
 
 -- --------------------------------------------------------
 
@@ -36080,19 +35269,15 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_monthly` (
 --
 
 CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_yearly` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `views_num` int(11) NOT NULL DEFAULT '0' COMMENT 'Number of Views',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_STORE_ID` (`store_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Yearly' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Most Viewed Products Aggregated Yearly';
 
 -- --------------------------------------------------------
 
@@ -36101,19 +35286,13 @@ CREATE TABLE IF NOT EXISTS `report_viewed_product_aggregated_yearly` (
 --
 
 CREATE TABLE IF NOT EXISTS `report_viewed_product_index` (
-  `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',
+  `index_id` bigint(20) unsigned NOT NULL COMMENT 'Index Id',
   `visitor_id` int(10) unsigned DEFAULT NULL COMMENT 'Visitor Id',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
-  `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Added At',
-  PRIMARY KEY (`index_id`),
-  UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
-  UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_STORE_ID` (`store_id`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_ADDED_AT` (`added_at`),
-  KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Reports Viewed Product Index Table' AUTO_INCREMENT=3983 ;
+  `added_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Added At'
+) ENGINE=InnoDB AUTO_INCREMENT=3983 DEFAULT CHARSET=utf8 COMMENT='Reports Viewed Product Index Table';
 
 --
 -- Dumping data for table `report_viewed_product_index`
@@ -36301,16 +35480,12 @@ INSERT INTO `report_viewed_product_index` (`index_id`, `visitor_id`, `customer_i
 --
 
 CREATE TABLE IF NOT EXISTS `review` (
-  `review_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review id',
+  `review_id` bigint(20) unsigned NOT NULL COMMENT 'Review id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Review create date',
   `entity_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity id',
   `entity_pk_value` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product id',
-  `status_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status code',
-  PRIMARY KEY (`review_id`),
-  KEY `IDX_REVIEW_ENTITY_ID` (`entity_id`),
-  KEY `IDX_REVIEW_STATUS_ID` (`status_id`),
-  KEY `IDX_REVIEW_ENTITY_PK_VALUE` (`entity_pk_value`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Review base information' AUTO_INCREMENT=24 ;
+  `status_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status code'
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='Review base information';
 
 --
 -- Dumping data for table `review`
@@ -36347,18 +35522,14 @@ INSERT INTO `review` (`review_id`, `created_at`, `entity_id`, `entity_pk_value`,
 --
 
 CREATE TABLE IF NOT EXISTS `review_detail` (
-  `detail_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review detail id',
+  `detail_id` bigint(20) unsigned NOT NULL COMMENT 'Review detail id',
   `review_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Review id',
   `store_id` smallint(5) unsigned DEFAULT '0' COMMENT 'Store id',
   `title` varchar(255) NOT NULL COMMENT 'Title',
   `detail` text NOT NULL COMMENT 'Detail description',
   `nickname` varchar(128) NOT NULL COMMENT 'User nickname',
-  `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id',
-  PRIMARY KEY (`detail_id`),
-  KEY `IDX_REVIEW_DETAIL_REVIEW_ID` (`review_id`),
-  KEY `IDX_REVIEW_DETAIL_STORE_ID` (`store_id`),
-  KEY `IDX_REVIEW_DETAIL_CUSTOMER_ID` (`customer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Review detail information' AUTO_INCREMENT=24 ;
+  `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id'
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='Review detail information';
 
 --
 -- Dumping data for table `review_detail`
@@ -36395,10 +35566,9 @@ INSERT INTO `review_detail` (`detail_id`, `review_id`, `store_id`, `title`, `det
 --
 
 CREATE TABLE IF NOT EXISTS `review_entity` (
-  `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review entity id',
-  `entity_code` varchar(32) NOT NULL COMMENT 'Review entity code',
-  PRIMARY KEY (`entity_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Review entities' AUTO_INCREMENT=4 ;
+  `entity_id` smallint(5) unsigned NOT NULL COMMENT 'Review entity id',
+  `entity_code` varchar(32) NOT NULL COMMENT 'Review entity code'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Review entities';
 
 --
 -- Dumping data for table `review_entity`
@@ -36416,15 +35586,13 @@ INSERT INTO `review_entity` (`entity_id`, `entity_code`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `review_entity_summary` (
-  `primary_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Summary review entity id',
+  `primary_id` bigint(20) NOT NULL COMMENT 'Summary review entity id',
   `entity_pk_value` bigint(20) NOT NULL DEFAULT '0' COMMENT 'Product id',
   `entity_type` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Entity type id',
   `reviews_count` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Qty of reviews',
   `rating_summary` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Summarized rating',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id',
-  PRIMARY KEY (`primary_id`),
-  KEY `IDX_REVIEW_ENTITY_SUMMARY_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Review aggregates' AUTO_INCREMENT=201 ;
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8 COMMENT='Review aggregates';
 
 --
 -- Dumping data for table `review_entity_summary`
@@ -36553,10 +35721,9 @@ INSERT INTO `review_entity_summary` (`primary_id`, `entity_pk_value`, `entity_ty
 --
 
 CREATE TABLE IF NOT EXISTS `review_status` (
-  `status_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Status id',
-  `status_code` varchar(32) NOT NULL COMMENT 'Status code',
-  PRIMARY KEY (`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Review statuses' AUTO_INCREMENT=4 ;
+  `status_id` smallint(5) unsigned NOT NULL COMMENT 'Status id',
+  `status_code` varchar(32) NOT NULL COMMENT 'Status code'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Review statuses';
 
 --
 -- Dumping data for table `review_status`
@@ -36575,9 +35742,7 @@ INSERT INTO `review_status` (`status_id`, `status_code`) VALUES
 
 CREATE TABLE IF NOT EXISTS `review_store` (
   `review_id` bigint(20) unsigned NOT NULL COMMENT 'Review Id',
-  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  PRIMARY KEY (`review_id`,`store_id`),
-  KEY `IDX_REVIEW_STORE_STORE_ID` (`store_id`)
+  `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Review Store';
 
 --
@@ -36717,7 +35882,7 @@ INSERT INTO `review_store` (`review_id`, `store_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `salesrule` (
-  `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id',
+  `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `description` text COMMENT 'Description',
   `from_date` date DEFAULT NULL,
@@ -36740,10 +35905,8 @@ CREATE TABLE IF NOT EXISTS `salesrule` (
   `is_rss` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Rss',
   `coupon_type` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Coupon Type',
   `use_auto_generation` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Use Auto Generation',
-  `uses_per_coupon` int(11) NOT NULL DEFAULT '0' COMMENT 'Uses Per Coupon',
-  PRIMARY KEY (`rule_id`),
-  KEY `IDX_SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Salesrule' AUTO_INCREMENT=2 ;
+  `uses_per_coupon` int(11) NOT NULL DEFAULT '0' COMMENT 'Uses Per Coupon'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Salesrule';
 
 --
 -- Dumping data for table `salesrule`
@@ -36759,7 +35922,7 @@ INSERT INTO `salesrule` (`rule_id`, `name`, `description`, `from_date`, `to_date
 --
 
 CREATE TABLE IF NOT EXISTS `salesrule_coupon` (
-  `coupon_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Coupon Id',
+  `coupon_id` int(10) unsigned NOT NULL COMMENT 'Coupon Id',
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `code` varchar(255) DEFAULT NULL COMMENT 'Code',
   `usage_limit` int(10) unsigned DEFAULT NULL COMMENT 'Usage Limit',
@@ -36768,12 +35931,8 @@ CREATE TABLE IF NOT EXISTS `salesrule_coupon` (
   `expiration_date` timestamp NULL DEFAULT NULL COMMENT 'Expiration Date',
   `is_primary` smallint(5) unsigned DEFAULT NULL COMMENT 'Is Primary',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Coupon Code Creation Date',
-  `type` smallint(6) DEFAULT '0' COMMENT 'Coupon Code Type',
-  PRIMARY KEY (`coupon_id`),
-  UNIQUE KEY `UNQ_SALESRULE_COUPON_CODE` (`code`),
-  UNIQUE KEY `UNQ_SALESRULE_COUPON_RULE_ID_IS_PRIMARY` (`rule_id`,`is_primary`),
-  KEY `IDX_SALESRULE_COUPON_RULE_ID` (`rule_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon' AUTO_INCREMENT=2 ;
+  `type` smallint(6) DEFAULT '0' COMMENT 'Coupon Code Type'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon';
 
 --
 -- Dumping data for table `salesrule_coupon`
@@ -36791,10 +35950,7 @@ INSERT INTO `salesrule_coupon` (`coupon_id`, `rule_id`, `code`, `usage_limit`, `
 CREATE TABLE IF NOT EXISTS `salesrule_coupon_usage` (
   `coupon_id` int(10) unsigned NOT NULL COMMENT 'Coupon Id',
   `customer_id` int(10) unsigned NOT NULL COMMENT 'Customer Id',
-  `times_used` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used',
-  PRIMARY KEY (`coupon_id`,`customer_id`),
-  KEY `IDX_SALESRULE_COUPON_USAGE_COUPON_ID` (`coupon_id`),
-  KEY `IDX_SALESRULE_COUPON_USAGE_CUSTOMER_ID` (`customer_id`)
+  `times_used` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon Usage';
 
 -- --------------------------------------------------------
@@ -36804,14 +35960,11 @@ CREATE TABLE IF NOT EXISTS `salesrule_coupon_usage` (
 --
 
 CREATE TABLE IF NOT EXISTS `salesrule_customer` (
-  `rule_customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Customer Id',
+  `rule_customer_id` int(10) unsigned NOT NULL COMMENT 'Rule Customer Id',
   `rule_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Rule Id',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer Id',
-  `times_used` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used',
-  PRIMARY KEY (`rule_customer_id`),
-  KEY `IDX_SALESRULE_CUSTOMER_RULE_ID_CUSTOMER_ID` (`rule_id`,`customer_id`),
-  KEY `IDX_SALESRULE_CUSTOMER_CUSTOMER_ID_RULE_ID` (`customer_id`,`rule_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Customer' AUTO_INCREMENT=1 ;
+  `times_used` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Times Used'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Customer';
 
 -- --------------------------------------------------------
 
@@ -36821,10 +35974,7 @@ CREATE TABLE IF NOT EXISTS `salesrule_customer` (
 
 CREATE TABLE IF NOT EXISTS `salesrule_customer_group` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
-  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
-  PRIMARY KEY (`rule_id`,`customer_group_id`),
-  KEY `IDX_SALESRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`),
-  KEY `IDX_SALESRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`)
+  `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Rules To Customer Groups Relations';
 
 --
@@ -36841,15 +35991,11 @@ INSERT INTO `salesrule_customer_group` (`rule_id`, `customer_group_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `salesrule_label` (
-  `label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Label Id',
+  `label_id` int(10) unsigned NOT NULL COMMENT 'Label Id',
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  `label` varchar(255) DEFAULT NULL COMMENT 'Label',
-  PRIMARY KEY (`label_id`),
-  UNIQUE KEY `UNQ_SALESRULE_LABEL_RULE_ID_STORE_ID` (`rule_id`,`store_id`),
-  KEY `IDX_SALESRULE_LABEL_STORE_ID` (`store_id`),
-  KEY `IDX_SALESRULE_LABEL_RULE_ID` (`rule_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Salesrule Label' AUTO_INCREMENT=2 ;
+  `label` varchar(255) DEFAULT NULL COMMENT 'Label'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Salesrule Label';
 
 --
 -- Dumping data for table `salesrule_label`
@@ -36868,11 +36014,7 @@ CREATE TABLE IF NOT EXISTS `salesrule_product_attribute` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
   `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
-  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  PRIMARY KEY (`rule_id`,`website_id`,`customer_group_id`,`attribute_id`),
-  KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID` (`website_id`),
-  KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_CUSTOMER_GROUP_ID` (`customer_group_id`),
-  KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`)
+  `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Product Attribute';
 
 -- --------------------------------------------------------
@@ -36883,10 +36025,7 @@ CREATE TABLE IF NOT EXISTS `salesrule_product_attribute` (
 
 CREATE TABLE IF NOT EXISTS `salesrule_website` (
   `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule Id',
-  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id',
-  PRIMARY KEY (`rule_id`,`website_id`),
-  KEY `IDX_SALESRULE_WEBSITE_RULE_ID` (`rule_id`),
-  KEY `IDX_SALESRULE_WEBSITE_WEBSITE_ID` (`website_id`)
+  `website_id` smallint(5) unsigned NOT NULL COMMENT 'Website Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Rules To Websites Relations';
 
 --
@@ -36903,19 +36042,15 @@ INSERT INTO `salesrule_website` (`rule_id`, `website_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_daily` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `qty_ordered` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty Ordered',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Daily' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Daily';
 
 -- --------------------------------------------------------
 
@@ -36924,19 +36059,15 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_daily` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_monthly` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `qty_ordered` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty Ordered',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Monthly' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Monthly';
 
 -- --------------------------------------------------------
 
@@ -36945,19 +36076,15 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_monthly` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_yearly` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `product_id` int(10) unsigned DEFAULT NULL COMMENT 'Product Id',
   `product_name` varchar(255) DEFAULT NULL COMMENT 'Product Name',
   `product_price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Product Price',
   `qty_ordered` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Qty Ordered',
-  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Yearly' AUTO_INCREMENT=1 ;
+  `rating_pos` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Rating Pos'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Bestsellers Aggregated Yearly';
 
 -- --------------------------------------------------------
 
@@ -36966,7 +36093,7 @@ CREATE TABLE IF NOT EXISTS `sales_bestsellers_aggregated_yearly` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_billing_agreement` (
-  `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id',
+  `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
   `customer_id` int(10) unsigned NOT NULL COMMENT 'Customer Id',
   `method_code` varchar(32) NOT NULL COMMENT 'Method Code',
   `reference_id` varchar(32) NOT NULL COMMENT 'Reference Id',
@@ -36974,11 +36101,8 @@ CREATE TABLE IF NOT EXISTS `sales_billing_agreement` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
-  `agreement_label` varchar(255) DEFAULT NULL COMMENT 'Agreement Label',
-  PRIMARY KEY (`agreement_id`),
-  KEY `IDX_SALES_BILLING_AGREEMENT_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_SALES_BILLING_AGREEMENT_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Billing Agreement' AUTO_INCREMENT=1 ;
+  `agreement_label` varchar(255) DEFAULT NULL COMMENT 'Agreement Label'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Billing Agreement';
 
 -- --------------------------------------------------------
 
@@ -36988,9 +36112,7 @@ CREATE TABLE IF NOT EXISTS `sales_billing_agreement` (
 
 CREATE TABLE IF NOT EXISTS `sales_billing_agreement_order` (
   `agreement_id` int(10) unsigned NOT NULL COMMENT 'Agreement Id',
-  `order_id` int(10) unsigned NOT NULL COMMENT 'Order Id',
-  PRIMARY KEY (`agreement_id`,`order_id`),
-  KEY `IDX_SALES_BILLING_AGREEMENT_ORDER_ORDER_ID` (`order_id`)
+  `order_id` int(10) unsigned NOT NULL COMMENT 'Order Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Billing Agreement Order';
 
 -- --------------------------------------------------------
@@ -37000,7 +36122,7 @@ CREATE TABLE IF NOT EXISTS `sales_billing_agreement_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `adjustment_positive` decimal(12,4) DEFAULT NULL COMMENT 'Adjustment Positive',
   `base_shipping_tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Tax Amount',
@@ -37047,14 +36169,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo` (
   `base_shipping_hidden_tax_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Hidden Tax Amount',
   `shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Shipping Incl Tax',
   `base_shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Incl Tax',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_CREDITMEMO_STATUS` (`creditmemo_status`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_STATE` (`state`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_CREATED_AT` (`created_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo' AUTO_INCREMENT=1 ;
+  `discount_description` varchar(255) DEFAULT NULL COMMENT 'Discount Description'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo';
 
 -- --------------------------------------------------------
 
@@ -37063,16 +36179,13 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_comment` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `is_customer_notified` int(11) DEFAULT NULL COMMENT 'Is Customer Notified',
   `is_visible_on_front` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible On Front',
   `comment` text COMMENT 'Comment',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Comment' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Comment';
 
 -- --------------------------------------------------------
 
@@ -37101,19 +36214,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_grid` (
   `order_increment_id` varchar(50) DEFAULT NULL COMMENT 'Order Increment Id',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `order_created_at` timestamp NULL DEFAULT NULL COMMENT 'Order Created At',
-  `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_GRID_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_GRAND_TOTAL` (`grand_total`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BASE_GRAND_TOTAL` (`base_grand_total`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREDITMEMO_STATUS` (`creditmemo_status`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STATE` (`state`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_CREATED_AT` (`order_created_at`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BILLING_NAME` (`billing_name`)
+  `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Grid';
 
 -- --------------------------------------------------------
@@ -37123,7 +36224,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_grid` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_item` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `base_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Price',
   `tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Tax Amount',
@@ -37155,10 +36256,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_item` (
   `base_weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Amount',
   `base_weee_tax_applied_row_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Row Amnt',
   `weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Amount',
-  `weee_tax_applied_row_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Row Amount',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_CREDITMEMO_ITEM_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Item' AUTO_INCREMENT=1 ;
+  `weee_tax_applied_row_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Row Amount'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Creditmemo Item';
 
 -- --------------------------------------------------------
 
@@ -37167,7 +36266,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_creditmemo_item` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `base_grand_total` decimal(12,4) DEFAULT NULL COMMENT 'Base Grand Total',
   `shipping_tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Shipping Tax Amount',
@@ -37210,22 +36309,16 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice` (
   `shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Shipping Incl Tax',
   `base_shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Incl Tax',
   `base_total_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Base Total Refunded',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRAND_TOTAL` (`grand_total`),
-  KEY `IDX_SALES_FLAT_INVOICE_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_STATE` (`state`),
-  KEY `IDX_SALES_FLAT_INVOICE_CREATED_AT` (`created_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice' AUTO_INCREMENT=3 ;
+  `discount_description` varchar(255) DEFAULT NULL COMMENT 'Discount Description'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice';
 
 --
 -- Dumping data for table `sales_flat_invoice`
 --
 
-INSERT INTO `sales_flat_invoice` (`entity_id`, `store_id`, `base_grand_total`, `shipping_tax_amount`, `tax_amount`, `base_tax_amount`, `store_to_order_rate`, `base_shipping_tax_amount`, `base_discount_amount`, `base_to_order_rate`, `grand_total`, `shipping_amount`, `subtotal_incl_tax`, `base_subtotal_incl_tax`, `store_to_base_rate`, `base_shipping_amount`, `total_qty`, `base_to_global_rate`, `subtotal`, `base_subtotal`, `discount_amount`, `billing_address_id`, `is_used_for_refund`, `order_id`, `email_sent`, `can_void_flag`, `state`, `shipping_address_id`, `store_currency_code`, `transaction_id`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `created_at`, `updated_at`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `shipping_incl_tax`, `base_shipping_incl_tax`, `base_total_refunded`) VALUES
-(1, 1, '293.0200', '0.0000', '22.6400', '22.6400', '1.0000', '0.0000', '0.0000', '1.0000', '293.0200', '0.0000', '293.0200', '293.0200', '1.0000', '0.0000', '4.0000', '1.0000', '270.3800', '270.3800', '0.0000', 3, NULL, 2, NULL, 0, 2, 4, 'USD', NULL, 'USD', 'USD', 'USD', '100000001', '2012-11-11 02:43:47', '2012-11-11 02:43:47', '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL),
-(2, 1, '298.0200', '0.0000', '22.6400', '22.6400', '1.0000', '0.0000', '0.0000', '1.0000', '298.0200', '5.0000', '293.0200', '293.0200', '1.0000', '5.0000', '4.0000', '1.0000', '270.3800', '270.3800', '0.0000', 1, NULL, 1, NULL, 0, 2, 2, 'USD', NULL, 'USD', 'USD', 'USD', '100000002', '2012-11-11 02:46:52', '2012-11-11 02:46:52', '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL);
+INSERT INTO `sales_flat_invoice` (`entity_id`, `store_id`, `base_grand_total`, `shipping_tax_amount`, `tax_amount`, `base_tax_amount`, `store_to_order_rate`, `base_shipping_tax_amount`, `base_discount_amount`, `base_to_order_rate`, `grand_total`, `shipping_amount`, `subtotal_incl_tax`, `base_subtotal_incl_tax`, `store_to_base_rate`, `base_shipping_amount`, `total_qty`, `base_to_global_rate`, `subtotal`, `base_subtotal`, `discount_amount`, `billing_address_id`, `is_used_for_refund`, `order_id`, `email_sent`, `can_void_flag`, `state`, `shipping_address_id`, `store_currency_code`, `transaction_id`, `order_currency_code`, `base_currency_code`, `global_currency_code`, `increment_id`, `created_at`, `updated_at`, `hidden_tax_amount`, `base_hidden_tax_amount`, `shipping_hidden_tax_amount`, `base_shipping_hidden_tax_amnt`, `shipping_incl_tax`, `base_shipping_incl_tax`, `base_total_refunded`, `discount_description`) VALUES
+(1, 1, '293.0200', '0.0000', '22.6400', '22.6400', '1.0000', '0.0000', '0.0000', '1.0000', '293.0200', '0.0000', '293.0200', '293.0200', '1.0000', '0.0000', '4.0000', '1.0000', '270.3800', '270.3800', '0.0000', 3, NULL, 2, NULL, 0, 2, 4, 'USD', NULL, 'USD', 'USD', 'USD', '100000001', '2012-11-11 02:43:47', '2012-11-11 02:43:47', '0.0000', '0.0000', '0.0000', NULL, '0.0000', '0.0000', NULL, NULL),
+(2, 1, '298.0200', '0.0000', '22.6400', '22.6400', '1.0000', '0.0000', '0.0000', '1.0000', '298.0200', '5.0000', '293.0200', '293.0200', '1.0000', '5.0000', '4.0000', '1.0000', '270.3800', '270.3800', '0.0000', 1, NULL, 1, NULL, 0, 2, 2, 'USD', NULL, 'USD', 'USD', 'USD', '100000002', '2012-11-11 02:46:52', '2012-11-11 02:46:52', '0.0000', '0.0000', '0.0000', NULL, '5.0000', '5.0000', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -37234,16 +36327,13 @@ INSERT INTO `sales_flat_invoice` (`entity_id`, `store_id`, `base_grand_total`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice_comment` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `is_customer_notified` smallint(5) unsigned DEFAULT NULL COMMENT 'Is Customer Notified',
   `is_visible_on_front` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible On Front',
   `comment` text COMMENT 'Comment',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_COMMENT_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_INVOICE_COMMENT_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Comment' AUTO_INCREMENT=2 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Comment';
 
 --
 -- Dumping data for table `sales_flat_invoice_comment`
@@ -37273,17 +36363,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_grid` (
   `order_increment_id` varchar(50) DEFAULT NULL COMMENT 'Order Increment Id',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `order_created_at` timestamp NULL DEFAULT NULL COMMENT 'Order Created At',
-  `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_GRID_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_GRAND_TOTAL` (`grand_total`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_STATE` (`state`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_CREATED_AT` (`order_created_at`),
-  KEY `IDX_SALES_FLAT_INVOICE_GRID_BILLING_NAME` (`billing_name`)
+  `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Grid';
 
 --
@@ -37301,7 +36381,7 @@ INSERT INTO `sales_flat_invoice_grid` (`entity_id`, `store_id`, `base_grand_tota
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_invoice_item` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `base_price` decimal(12,4) DEFAULT NULL COMMENT 'Base Price',
   `tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Tax Amount',
@@ -37333,10 +36413,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_invoice_item` (
   `weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Disposition',
   `weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Row Disposition',
   `base_weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Disposition',
-  `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_INVOICE_ITEM_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Item' AUTO_INCREMENT=9 ;
+  `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Invoice Item';
 
 --
 -- Dumping data for table `sales_flat_invoice_item`
@@ -37359,7 +36437,7 @@ INSERT INTO `sales_flat_invoice_item` (`entity_id`, `parent_id`, `base_price`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_order` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `state` varchar(32) DEFAULT NULL COMMENT 'State',
   `status` varchar(32) DEFAULT NULL COMMENT 'Status',
   `coupon_code` varchar(255) DEFAULT NULL COMMENT 'Coupon Code',
@@ -37495,18 +36573,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order` (
   `base_shipping_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Incl Tax',
   `coupon_rule_name` varchar(255) DEFAULT NULL COMMENT 'Coupon Sales Rule Name',
   `paypal_ipn_customer_notified` int(11) DEFAULT '0' COMMENT 'Paypal Ipn Customer Notified',
-  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_ORDER_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_ORDER_STATUS` (`status`),
-  KEY `IDX_SALES_FLAT_ORDER_STATE` (`state`),
-  KEY `IDX_SALES_FLAT_ORDER_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_ORDER_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_ORDER_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_SALES_FLAT_ORDER_EXT_ORDER_ID` (`ext_order_id`),
-  KEY `IDX_SALES_FLAT_ORDER_QUOTE_ID` (`quote_id`),
-  KEY `IDX_SALES_FLAT_ORDER_UPDATED_AT` (`updated_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order' AUTO_INCREMENT=5 ;
+  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order';
 
 --
 -- Dumping data for table `sales_flat_order`
@@ -37525,7 +36593,7 @@ INSERT INTO `sales_flat_order` (`entity_id`, `state`, `status`, `coupon_code`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Id',
   `customer_address_id` int(11) DEFAULT NULL COMMENT 'Customer Address Id',
   `quote_address_id` int(11) DEFAULT NULL COMMENT 'Quote Address Id',
@@ -37550,10 +36618,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_address` (
   `vat_is_valid` smallint(6) DEFAULT NULL COMMENT 'Vat Is Valid',
   `vat_request_id` text COMMENT 'Vat Request Id',
   `vat_request_date` text COMMENT 'Vat Request Date',
-  `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_ORDER_ADDRESS_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address' AUTO_INCREMENT=9 ;
+  `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success'
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Address';
 
 --
 -- Dumping data for table `sales_flat_order_address`
@@ -37591,20 +36657,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_grid` (
   `shipping_name` varchar(255) DEFAULT NULL COMMENT 'Shipping Name',
   `billing_name` varchar(255) DEFAULT NULL COMMENT 'Billing Name',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_ORDER_GRID_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_STATUS` (`status`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_GRAND_TOTAL` (`base_grand_total`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_TOTAL_PAID` (`base_total_paid`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_GRAND_TOTAL` (`grand_total`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_TOTAL_PAID` (`total_paid`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_SHIPPING_NAME` (`shipping_name`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_BILLING_NAME` (`billing_name`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_SALES_FLAT_ORDER_GRID_UPDATED_AT` (`updated_at`)
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Grid';
 
 --
@@ -37624,7 +36677,7 @@ INSERT INTO `sales_flat_order_grid` (`entity_id`, `status`, `store_id`, `store_n
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_order_item` (
-  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',
+  `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
   `order_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Id',
   `parent_item_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Item Id',
   `quote_item_id` int(10) unsigned DEFAULT NULL COMMENT 'Quote Item Id',
@@ -37704,11 +36757,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_item` (
   `weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Disposition',
   `weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Row Disposition',
   `base_weee_tax_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Disposition',
-  `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition',
-  PRIMARY KEY (`item_id`),
-  KEY `IDX_SALES_FLAT_ORDER_ITEM_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_ORDER_ITEM_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Item' AUTO_INCREMENT=15 ;
+  `base_weee_tax_row_disposition` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Row Disposition'
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Item';
 
 --
 -- Dumping data for table `sales_flat_order_item`
@@ -37737,7 +36787,7 @@ INSERT INTO `sales_flat_order_item` (`item_id`, `order_id`, `parent_item_id`, `q
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_order_payment` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `base_shipping_captured` decimal(12,4) DEFAULT NULL COMMENT 'Base Shipping Captured',
   `shipping_captured` decimal(12,4) DEFAULT NULL COMMENT 'Shipping Captured',
@@ -37791,10 +36841,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_order_payment` (
   `cc_trans_id` varchar(255) DEFAULT NULL COMMENT 'Cc Trans Id',
   `paybox_request_number` varchar(255) DEFAULT NULL COMMENT 'Paybox Request Number',
   `address_status` varchar(255) DEFAULT NULL COMMENT 'Address Status',
-  `additional_information` text COMMENT 'Additional Information',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_ORDER_PAYMENT_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Payment' AUTO_INCREMENT=5 ;
+  `additional_information` text COMMENT 'Additional Information'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Payment';
 
 --
 -- Dumping data for table `sales_flat_order_payment`
@@ -37813,18 +36861,15 @@ INSERT INTO `sales_flat_order_payment` (`entity_id`, `parent_id`, `base_shipping
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_order_status_history` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `is_customer_notified` int(11) DEFAULT NULL COMMENT 'Is Customer Notified',
   `is_visible_on_front` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible On Front',
   `comment` text COMMENT 'Comment',
   `status` varchar(32) DEFAULT NULL COMMENT 'Status',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  `entity_name` varchar(32) DEFAULT NULL COMMENT 'Shows what entity history is bind to.',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_PARENT_ID` (`parent_id`),
-  KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_CREATED_AT` (`created_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Status History' AUTO_INCREMENT=11 ;
+  `entity_name` varchar(32) DEFAULT NULL COMMENT 'Shows what entity history is bind to.'
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Order Status History';
 
 --
 -- Dumping data for table `sales_flat_order_status_history`
@@ -37849,7 +36894,7 @@ INSERT INTO `sales_flat_order_status_history` (`entity_id`, `parent_id`, `is_cus
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
@@ -37899,11 +36944,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote` (
   `trigger_recollect` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Trigger Recollect',
   `ext_shipping_info` text COMMENT 'Ext Shipping Info',
   `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id',
-  `is_persistent` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Quote Persistent',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_CUSTOMER_ID_STORE_ID_IS_ACTIVE` (`customer_id`,`store_id`,`is_active`),
-  KEY `IDX_SALES_FLAT_QUOTE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote' AUTO_INCREMENT=115 ;
+  `is_persistent` smallint(5) unsigned DEFAULT '0' COMMENT 'Is Quote Persistent'
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote';
 
 --
 -- Dumping data for table `sales_flat_quote`
@@ -38014,7 +37056,7 @@ INSERT INTO `sales_flat_quote` (`entity_id`, `store_id`, `created_at`, `updated_
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_address` (
-  `address_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Id',
+  `address_id` int(10) unsigned NOT NULL COMMENT 'Address Id',
   `quote_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
@@ -38075,10 +37117,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_address` (
   `vat_request_id` text COMMENT 'Vat Request Id',
   `vat_request_date` text COMMENT 'Vat Request Date',
   `vat_request_success` smallint(6) DEFAULT NULL COMMENT 'Vat Request Success',
-  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id',
-  PRIMARY KEY (`address_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID` (`quote_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address' AUTO_INCREMENT=429 ;
+  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
+) ENGINE=InnoDB AUTO_INCREMENT=429 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address';
 
 --
 -- Dumping data for table `sales_flat_quote_address`
@@ -38286,7 +37326,7 @@ INSERT INTO `sales_flat_quote_address` (`address_id`, `quote_id`, `created_at`, 
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_address_item` (
-  `address_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Item Id',
+  `address_item_id` int(10) unsigned NOT NULL COMMENT 'Address Item Id',
   `parent_item_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Item Id',
   `quote_address_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote Address Id',
   `quote_item_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote Item Id',
@@ -38325,12 +37365,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_address_item` (
   `base_row_total_incl_tax` decimal(12,4) DEFAULT NULL COMMENT 'Base Row Total Incl Tax',
   `hidden_tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Hidden Tax Amount',
   `base_hidden_tax_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Hidden Tax Amount',
-  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id',
-  PRIMARY KEY (`address_item_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID` (`quote_address_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_PARENT_ITEM_ID` (`parent_item_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID` (`quote_item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address Item' AUTO_INCREMENT=9 ;
+  `gift_message_id` int(11) DEFAULT NULL COMMENT 'Gift Message Id'
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Address Item';
 
 --
 -- Dumping data for table `sales_flat_quote_address_item`
@@ -38347,7 +37383,7 @@ INSERT INTO `sales_flat_quote_address_item` (`address_item_id`, `parent_item_id`
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_item` (
-  `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',
+  `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
   `quote_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
@@ -38399,13 +37435,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_item` (
   `weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Amount',
   `weee_tax_applied_row_amount` decimal(12,4) DEFAULT NULL COMMENT 'Weee Tax Applied Row Amount',
   `base_weee_tax_applied_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Amount',
-  `base_weee_tax_applied_row_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Row Amnt',
-  PRIMARY KEY (`item_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ITEM_PARENT_ITEM_ID` (`parent_item_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ITEM_PRODUCT_ID` (`product_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ITEM_QUOTE_ID` (`quote_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ITEM_STORE_ID` (`store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item' AUTO_INCREMENT=203 ;
+  `base_weee_tax_applied_row_amnt` decimal(12,4) DEFAULT NULL COMMENT 'Base Weee Tax Applied Row Amnt'
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item';
 
 --
 -- Dumping data for table `sales_flat_quote_item`
@@ -38448,14 +37479,12 @@ INSERT INTO `sales_flat_quote_item` (`item_id`, `quote_id`, `created_at`, `updat
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_item_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
-  `value` text COMMENT 'Value',
-  PRIMARY KEY (`option_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_ITEM_OPTION_ITEM_ID` (`item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item Option' AUTO_INCREMENT=480 ;
+  `value` text COMMENT 'Value'
+) ENGINE=InnoDB AUTO_INCREMENT=480 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Item Option';
 
 --
 -- Dumping data for table `sales_flat_quote_item_option`
@@ -38540,7 +37569,7 @@ INSERT INTO `sales_flat_quote_item_option` (`option_id`, `item_id`, `product_id`
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_payment` (
-  `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Payment Id',
+  `payment_id` int(10) unsigned NOT NULL COMMENT 'Payment Id',
   `quote_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Quote Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
@@ -38561,10 +37590,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_payment` (
   `additional_information` text COMMENT 'Additional Information',
   `paypal_payer_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Payer Id',
   `paypal_payer_status` varchar(255) DEFAULT NULL COMMENT 'Paypal Payer Status',
-  `paypal_correlation_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Correlation Id',
-  PRIMARY KEY (`payment_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_PAYMENT_QUOTE_ID` (`quote_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Payment' AUTO_INCREMENT=20 ;
+  `paypal_correlation_id` varchar(255) DEFAULT NULL COMMENT 'Paypal Correlation Id'
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Payment';
 
 --
 -- Dumping data for table `sales_flat_quote_payment`
@@ -38592,7 +37619,7 @@ INSERT INTO `sales_flat_quote_payment` (`payment_id`, `quote_id`, `created_at`, 
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_quote_shipping_rate` (
-  `rate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rate Id',
+  `rate_id` int(10) unsigned NOT NULL COMMENT 'Rate Id',
   `address_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Address Id',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Created At',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Updated At',
@@ -38603,10 +37630,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_quote_shipping_rate` (
   `method_description` text COMMENT 'Method Description',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
   `error_message` text COMMENT 'Error Message',
-  `method_title` text COMMENT 'Method Title',
-  PRIMARY KEY (`rate_id`),
-  KEY `IDX_SALES_FLAT_QUOTE_SHIPPING_RATE_ADDRESS_ID` (`address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Shipping Rate' AUTO_INCREMENT=235 ;
+  `method_title` text COMMENT 'Method Title'
+) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Quote Shipping Rate';
 
 --
 -- Dumping data for table `sales_flat_quote_shipping_rate`
@@ -38637,7 +37662,7 @@ INSERT INTO `sales_flat_quote_shipping_rate` (`rate_id`, `address_id`, `created_
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `total_weight` decimal(12,4) DEFAULT NULL COMMENT 'Total Weight',
   `total_qty` decimal(12,4) DEFAULT NULL COMMENT 'Total Qty',
@@ -38651,15 +37676,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment` (
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
   `packages` text COMMENT 'Packed Products in Packages',
-  `shipping_label` mediumblob COMMENT 'Shipping Label Content',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_TOTAL_QTY` (`total_qty`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_UPDATED_AT` (`updated_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment' AUTO_INCREMENT=3 ;
+  `shipping_label` mediumblob COMMENT 'Shipping Label Content'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment';
 
 --
 -- Dumping data for table `sales_flat_shipment`
@@ -38676,16 +37694,13 @@ INSERT INTO `sales_flat_shipment` (`entity_id`, `store_id`, `total_weight`, `tot
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_comment` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `is_customer_notified` int(11) DEFAULT NULL COMMENT 'Is Customer Notified',
   `is_visible_on_front` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Visible On Front',
   `comment` text COMMENT 'Comment',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Comment' AUTO_INCREMENT=2 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Comment';
 
 --
 -- Dumping data for table `sales_flat_shipment_comment`
@@ -38710,17 +37725,7 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_grid` (
   `order_increment_id` varchar(50) DEFAULT NULL COMMENT 'Order Increment Id',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `order_created_at` timestamp NULL DEFAULT NULL COMMENT 'Order Created At',
-  `shipping_name` varchar(255) DEFAULT NULL COMMENT 'Shipping Name',
-  PRIMARY KEY (`entity_id`),
-  UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_GRID_INCREMENT_ID` (`increment_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_STORE_ID` (`store_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_TOTAL_QTY` (`total_qty`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPMENT_STATUS` (`shipment_status`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_CREATED_AT` (`created_at`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_CREATED_AT` (`order_created_at`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPPING_NAME` (`shipping_name`)
+  `shipping_name` varchar(255) DEFAULT NULL COMMENT 'Shipping Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Grid';
 
 --
@@ -38738,7 +37743,7 @@ INSERT INTO `sales_flat_shipment_grid` (`entity_id`, `store_id`, `total_qty`, `o
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_item` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `row_total` decimal(12,4) DEFAULT NULL COMMENT 'Row Total',
   `price` decimal(12,4) DEFAULT NULL COMMENT 'Price',
@@ -38749,10 +37754,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_item` (
   `additional_data` text COMMENT 'Additional Data',
   `description` text COMMENT 'Description',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
-  `sku` varchar(255) DEFAULT NULL COMMENT 'Sku',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_ITEM_PARENT_ID` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Item' AUTO_INCREMENT=7 ;
+  `sku` varchar(255) DEFAULT NULL COMMENT 'Sku'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Item';
 
 --
 -- Dumping data for table `sales_flat_shipment_item`
@@ -38773,7 +37776,7 @@ INSERT INTO `sales_flat_shipment_item` (`entity_id`, `parent_id`, `row_total`, `
 --
 
 CREATE TABLE IF NOT EXISTS `sales_flat_shipment_track` (
-  `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',
+  `entity_id` int(10) unsigned NOT NULL COMMENT 'Entity Id',
   `parent_id` int(10) unsigned NOT NULL COMMENT 'Parent Id',
   `weight` decimal(12,4) DEFAULT NULL COMMENT 'Weight',
   `qty` decimal(12,4) DEFAULT NULL COMMENT 'Qty',
@@ -38783,12 +37786,8 @@ CREATE TABLE IF NOT EXISTS `sales_flat_shipment_track` (
   `title` varchar(255) DEFAULT NULL COMMENT 'Title',
   `carrier_code` varchar(32) DEFAULT NULL COMMENT 'Carrier Code',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
-  PRIMARY KEY (`entity_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_PARENT_ID` (`parent_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_CREATED_AT` (`created_at`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Track' AUTO_INCREMENT=4 ;
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Sales Flat Shipment Track';
 
 --
 -- Dumping data for table `sales_flat_shipment_track`
@@ -38806,7 +37805,7 @@ INSERT INTO `sales_flat_shipment_track` (`entity_id`, `parent_id`, `weight`, `qt
 --
 
 CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
@@ -38814,11 +37813,8 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated` (
   `orders_invoiced` decimal(12,4) DEFAULT NULL COMMENT 'Orders Invoiced',
   `invoiced` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced',
   `invoiced_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Captured',
-  `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_INVOICED_AGGREGATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated' AUTO_INCREMENT=1 ;
+  `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated';
 
 -- --------------------------------------------------------
 
@@ -38827,7 +37823,7 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) NOT NULL DEFAULT '' COMMENT 'Order Status',
@@ -38835,11 +37831,8 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated_order` (
   `orders_invoiced` decimal(12,4) DEFAULT NULL COMMENT 'Orders Invoiced',
   `invoiced` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced',
   `invoiced_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Captured',
-  `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated Order' AUTO_INCREMENT=1 ;
+  `invoiced_not_captured` decimal(12,4) DEFAULT NULL COMMENT 'Invoiced Not Captured'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Invoiced Aggregated Order';
 
 -- --------------------------------------------------------
 
@@ -38848,7 +37841,7 @@ CREATE TABLE IF NOT EXISTS `sales_invoiced_aggregated_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_order_aggregated_created` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) NOT NULL DEFAULT '' COMMENT 'Order Status',
@@ -38867,11 +37860,8 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_created` (
   `total_shipping_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Shipping Amount',
   `total_shipping_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Shipping Amount Actual',
   `total_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount',
-  `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_CREATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Created' AUTO_INCREMENT=1 ;
+  `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Created';
 
 -- --------------------------------------------------------
 
@@ -38880,7 +37870,7 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_created` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_order_aggregated_updated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) NOT NULL COMMENT 'Order Status',
@@ -38899,11 +37889,8 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_updated` (
   `total_shipping_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Shipping Amount',
   `total_shipping_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Shipping Amount Actual',
   `total_discount_amount` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount',
-  `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_UPDATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Updated' AUTO_INCREMENT=1 ;
+  `total_discount_amount_actual` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Total Discount Amount Actual'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Aggregated Updated';
 
 -- --------------------------------------------------------
 
@@ -38913,8 +37900,7 @@ CREATE TABLE IF NOT EXISTS `sales_order_aggregated_updated` (
 
 CREATE TABLE IF NOT EXISTS `sales_order_status` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
-  `label` varchar(128) NOT NULL COMMENT 'Label',
-  PRIMARY KEY (`status`)
+  `label` varchar(128) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Table';
 
 --
@@ -38928,6 +37914,8 @@ INSERT INTO `sales_order_status` (`status`, `label`) VALUES
 ('fraud', 'Suspected Fraud'),
 ('holded', 'On Hold'),
 ('payment_review', 'Payment Review'),
+('paypal_canceled_reversal', 'PayPal Canceled Reversal'),
+('paypal_reversed', 'PayPal Reversed'),
 ('pending', 'Pending'),
 ('pending_payment', 'Pending Payment'),
 ('pending_paypal', 'Pending PayPal'),
@@ -38942,9 +37930,7 @@ INSERT INTO `sales_order_status` (`status`, `label`) VALUES
 CREATE TABLE IF NOT EXISTS `sales_order_status_label` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  `label` varchar(128) NOT NULL COMMENT 'Label',
-  PRIMARY KEY (`status`,`store_id`),
-  KEY `IDX_SALES_ORDER_STATUS_LABEL_STORE_ID` (`store_id`)
+  `label` varchar(128) NOT NULL COMMENT 'Label'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Label Table';
 
 -- --------------------------------------------------------
@@ -38956,8 +37942,7 @@ CREATE TABLE IF NOT EXISTS `sales_order_status_label` (
 CREATE TABLE IF NOT EXISTS `sales_order_status_state` (
   `status` varchar(32) NOT NULL COMMENT 'Status',
   `state` varchar(32) NOT NULL COMMENT 'Label',
-  `is_default` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Default',
-  PRIMARY KEY (`status`,`state`)
+  `is_default` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Is Default'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Order Status Table';
 
 --
@@ -38982,7 +37967,7 @@ INSERT INTO `sales_order_status_state` (`status`, `state`, `is_default`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sales_order_tax` (
-  `tax_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Id',
+  `tax_id` int(10) unsigned NOT NULL COMMENT 'Tax Id',
   `order_id` int(10) unsigned NOT NULL COMMENT 'Order Id',
   `code` varchar(255) DEFAULT NULL COMMENT 'Code',
   `title` varchar(255) DEFAULT NULL COMMENT 'Title',
@@ -38993,10 +37978,8 @@ CREATE TABLE IF NOT EXISTS `sales_order_tax` (
   `base_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Amount',
   `process` smallint(6) NOT NULL COMMENT 'Process',
   `base_real_amount` decimal(12,4) DEFAULT NULL COMMENT 'Base Real Amount',
-  `hidden` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Hidden',
-  PRIMARY KEY (`tax_id`),
-  KEY `IDX_SALES_ORDER_TAX_ORDER_ID_PRIORITY_POSITION` (`order_id`,`priority`,`position`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Table' AUTO_INCREMENT=4 ;
+  `hidden` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Hidden'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Table';
 
 --
 -- Dumping data for table `sales_order_tax`
@@ -39014,15 +37997,11 @@ INSERT INTO `sales_order_tax` (`tax_id`, `order_id`, `code`, `title`, `percent`,
 --
 
 CREATE TABLE IF NOT EXISTS `sales_order_tax_item` (
-  `tax_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Item Id',
+  `tax_item_id` int(10) unsigned NOT NULL COMMENT 'Tax Item Id',
   `tax_id` int(10) unsigned NOT NULL COMMENT 'Tax Id',
   `item_id` int(10) unsigned NOT NULL COMMENT 'Item Id',
-  `tax_percent` decimal(12,4) NOT NULL COMMENT 'Real Tax Percent For Item',
-  PRIMARY KEY (`tax_item_id`),
-  UNIQUE KEY `UNQ_SALES_ORDER_TAX_ITEM_TAX_ID_ITEM_ID` (`tax_id`,`item_id`),
-  KEY `IDX_SALES_ORDER_TAX_ITEM_TAX_ID` (`tax_id`),
-  KEY `IDX_SALES_ORDER_TAX_ITEM_ITEM_ID` (`item_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Item' AUTO_INCREMENT=12 ;
+  `tax_percent` decimal(12,4) NOT NULL COMMENT 'Real Tax Percent For Item'
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='Sales Order Tax Item';
 
 --
 -- Dumping data for table `sales_order_tax_item`
@@ -39048,7 +38027,7 @@ INSERT INTO `sales_order_tax_item` (`tax_item_id`, `tax_id`, `item_id`, `tax_per
 --
 
 CREATE TABLE IF NOT EXISTS `sales_payment_transaction` (
-  `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Transaction Id',
+  `transaction_id` int(10) unsigned NOT NULL COMMENT 'Transaction Id',
   `parent_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent Id',
   `order_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Id',
   `payment_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Payment Id',
@@ -39057,13 +38036,8 @@ CREATE TABLE IF NOT EXISTS `sales_payment_transaction` (
   `txn_type` varchar(15) DEFAULT NULL COMMENT 'Txn Type',
   `is_closed` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Is Closed',
   `additional_information` blob COMMENT 'Additional Information',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`transaction_id`),
-  UNIQUE KEY `UNQ_SALES_PAYMENT_TRANSACTION_ORDER_ID_PAYMENT_ID_TXN_ID` (`order_id`,`payment_id`,`txn_id`),
-  KEY `IDX_SALES_PAYMENT_TRANSACTION_ORDER_ID` (`order_id`),
-  KEY `IDX_SALES_PAYMENT_TRANSACTION_PARENT_ID` (`parent_id`),
-  KEY `IDX_SALES_PAYMENT_TRANSACTION_PAYMENT_ID` (`payment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Payment Transaction' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Payment Transaction';
 
 -- --------------------------------------------------------
 
@@ -39072,7 +38046,7 @@ CREATE TABLE IF NOT EXISTS `sales_payment_transaction` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_recurring_profile` (
-  `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id',
+  `profile_id` int(10) unsigned NOT NULL COMMENT 'Profile Id',
   `state` varchar(20) NOT NULL COMMENT 'State',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
@@ -39104,12 +38078,8 @@ CREATE TABLE IF NOT EXISTS `sales_recurring_profile` (
   `billing_address_info` text NOT NULL COMMENT 'Billing Address Info',
   `shipping_address_info` text COMMENT 'Shipping Address Info',
   `profile_vendor_info` text COMMENT 'Profile Vendor Info',
-  `additional_info` text COMMENT 'Additional Info',
-  PRIMARY KEY (`profile_id`),
-  UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_INTERNAL_REFERENCE_ID` (`internal_reference_id`),
-  KEY `IDX_SALES_RECURRING_PROFILE_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_SALES_RECURRING_PROFILE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile' AUTO_INCREMENT=1 ;
+  `additional_info` text COMMENT 'Additional Info'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile';
 
 -- --------------------------------------------------------
 
@@ -39118,13 +38088,10 @@ CREATE TABLE IF NOT EXISTS `sales_recurring_profile` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_recurring_profile_order` (
-  `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id',
+  `link_id` int(10) unsigned NOT NULL COMMENT 'Link Id',
   `profile_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Profile Id',
-  `order_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Id',
-  PRIMARY KEY (`link_id`),
-  UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_ORDER_PROFILE_ID_ORDER_ID` (`profile_id`,`order_id`),
-  KEY `IDX_SALES_RECURRING_PROFILE_ORDER_ORDER_ID` (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile Order' AUTO_INCREMENT=1 ;
+  `order_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Order Id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Recurring Profile Order';
 
 -- --------------------------------------------------------
 
@@ -39133,18 +38100,15 @@ CREATE TABLE IF NOT EXISTS `sales_recurring_profile_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) NOT NULL DEFAULT '' COMMENT 'Order Status',
   `orders_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Orders Count',
   `refunded` decimal(12,4) DEFAULT NULL COMMENT 'Refunded',
   `online_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Online Refunded',
-  `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_REFUNDED_AGGREGATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated' AUTO_INCREMENT=1 ;
+  `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated';
 
 -- --------------------------------------------------------
 
@@ -39153,18 +38117,15 @@ CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
   `orders_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Orders Count',
   `refunded` decimal(12,4) DEFAULT NULL COMMENT 'Refunded',
   `online_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Online Refunded',
-  `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
-  KEY `IDX_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated Order' AUTO_INCREMENT=1 ;
+  `offline_refunded` decimal(12,4) DEFAULT NULL COMMENT 'Offline Refunded'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Refunded Aggregated Order';
 
 -- --------------------------------------------------------
 
@@ -39173,18 +38134,15 @@ CREATE TABLE IF NOT EXISTS `sales_refunded_aggregated_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
   `shipping_description` varchar(255) DEFAULT NULL COMMENT 'Shipping Description',
   `orders_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Orders Count',
   `total_shipping` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping',
-  `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNQ_SALES_SHPP_AGGRED_PERIOD_STORE_ID_ORDER_STS_SHPP_DESCRIPTION` (`period`,`store_id`,`order_status`,`shipping_description`),
-  KEY `IDX_SALES_SHIPPING_AGGREGATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated' AUTO_INCREMENT=1 ;
+  `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated';
 
 -- --------------------------------------------------------
 
@@ -39193,18 +38151,15 @@ CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated_order` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `order_status` varchar(50) DEFAULT NULL COMMENT 'Order Status',
   `shipping_description` varchar(255) DEFAULT NULL COMMENT 'Shipping Description',
   `orders_count` int(11) NOT NULL DEFAULT '0' COMMENT 'Orders Count',
   `total_shipping` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping',
-  `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `C05FAE47282EEA68654D0924E946761F` (`period`,`store_id`,`order_status`,`shipping_description`),
-  KEY `IDX_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated Order' AUTO_INCREMENT=1 ;
+  `total_shipping_actual` decimal(12,4) DEFAULT NULL COMMENT 'Total Shipping Actual'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Sales Shipping Aggregated Order';
 
 -- --------------------------------------------------------
 
@@ -39213,14 +38168,11 @@ CREATE TABLE IF NOT EXISTS `sales_shipping_aggregated_order` (
 --
 
 CREATE TABLE IF NOT EXISTS `sendfriend_log` (
-  `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID',
+  `log_id` int(10) unsigned NOT NULL COMMENT 'Log ID',
   `ip` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer IP address',
   `time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Log time',
-  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID',
-  PRIMARY KEY (`log_id`),
-  KEY `IDX_SENDFRIEND_LOG_IP` (`ip`),
-  KEY `IDX_SENDFRIEND_LOG_TIME` (`time`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Send to friend function log storage table' AUTO_INCREMENT=1 ;
+  `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Send to friend function log storage table';
 
 -- --------------------------------------------------------
 
@@ -39229,7 +38181,7 @@ CREATE TABLE IF NOT EXISTS `sendfriend_log` (
 --
 
 CREATE TABLE IF NOT EXISTS `shipping_tablerate` (
-  `pk` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+  `pk` int(10) unsigned NOT NULL COMMENT 'Primary key',
   `website_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `dest_country_id` varchar(4) NOT NULL DEFAULT '0' COMMENT 'Destination coutry ISO/2 or ISO/3 code',
   `dest_region_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Destination Region Id',
@@ -39237,10 +38189,8 @@ CREATE TABLE IF NOT EXISTS `shipping_tablerate` (
   `condition_name` varchar(20) NOT NULL COMMENT 'Rate Condition name',
   `condition_value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Rate condition value',
   `price` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Price',
-  `cost` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Cost',
-  PRIMARY KEY (`pk`),
-  UNIQUE KEY `D60821CDB2AFACEE1566CFC02D0D4CAA` (`website_id`,`dest_country_id`,`dest_region_id`,`dest_zip`,`condition_name`,`condition_value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Shipping Tablerate' AUTO_INCREMENT=1 ;
+  `cost` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Cost'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Shipping Tablerate';
 
 -- --------------------------------------------------------
 
@@ -39249,15 +38199,13 @@ CREATE TABLE IF NOT EXISTS `shipping_tablerate` (
 --
 
 CREATE TABLE IF NOT EXISTS `sitemap` (
-  `sitemap_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sitemap Id',
+  `sitemap_id` int(10) unsigned NOT NULL COMMENT 'Sitemap Id',
   `sitemap_type` varchar(32) DEFAULT NULL COMMENT 'Sitemap Type',
   `sitemap_filename` varchar(32) DEFAULT NULL COMMENT 'Sitemap Filename',
   `sitemap_path` varchar(255) DEFAULT NULL COMMENT 'Sitemap Path',
   `sitemap_time` timestamp NULL DEFAULT NULL COMMENT 'Sitemap Time',
-  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id',
-  PRIMARY KEY (`sitemap_id`),
-  KEY `IDX_SITEMAP_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Google Sitemap' AUTO_INCREMENT=1 ;
+  `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Google Sitemap';
 
 -- --------------------------------------------------------
 
@@ -39266,15 +38214,12 @@ CREATE TABLE IF NOT EXISTS `sitemap` (
 --
 
 CREATE TABLE IF NOT EXISTS `tag` (
-  `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Id',
+  `tag_id` int(10) unsigned NOT NULL COMMENT 'Tag Id',
   `name` varchar(255) DEFAULT NULL COMMENT 'Name',
   `status` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Status',
   `first_customer_id` int(10) unsigned DEFAULT NULL COMMENT 'First Customer Id',
-  `first_store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'First Store Id',
-  PRIMARY KEY (`tag_id`),
-  KEY `FK_TAG_FIRST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`first_customer_id`),
-  KEY `FK_TAG_FIRST_STORE_ID_CORE_STORE_STORE_ID` (`first_store_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tag' AUTO_INCREMENT=8 ;
+  `first_store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'First Store Id'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Tag';
 
 --
 -- Dumping data for table `tag`
@@ -39296,9 +38241,7 @@ INSERT INTO `tag` (`tag_id`, `name`, `status`, `first_customer_id`, `first_store
 CREATE TABLE IF NOT EXISTS `tag_properties` (
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tag Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Store Id',
-  `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity',
-  PRIMARY KEY (`tag_id`,`store_id`),
-  KEY `IDX_TAG_PROPERTIES_STORE_ID` (`store_id`)
+  `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Properties';
 
 --
@@ -39315,20 +38258,14 @@ INSERT INTO `tag_properties` (`tag_id`, `store_id`, `base_popularity`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tag_relation` (
-  `tag_relation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Relation Id',
+  `tag_relation_id` int(10) unsigned NOT NULL COMMENT 'Tag Relation Id',
   `tag_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Tag Id',
   `customer_id` int(10) unsigned DEFAULT NULL COMMENT 'Customer Id',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product Id',
   `store_id` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Store Id',
   `active` smallint(5) unsigned NOT NULL DEFAULT '1' COMMENT 'Active',
-  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
-  PRIMARY KEY (`tag_relation_id`),
-  UNIQUE KEY `UNQ_TAG_RELATION_TAG_ID_CUSTOMER_ID_PRODUCT_ID_STORE_ID` (`tag_id`,`customer_id`,`product_id`,`store_id`),
-  KEY `IDX_TAG_RELATION_PRODUCT_ID` (`product_id`),
-  KEY `IDX_TAG_RELATION_TAG_ID` (`tag_id`),
-  KEY `IDX_TAG_RELATION_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_TAG_RELATION_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Relation' AUTO_INCREMENT=1 ;
+  `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Relation';
 
 -- --------------------------------------------------------
 
@@ -39344,10 +38281,7 @@ CREATE TABLE IF NOT EXISTS `tag_summary` (
   `uses` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Uses',
   `historical_uses` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Historical Uses',
   `popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Popularity',
-  `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity',
-  PRIMARY KEY (`tag_id`,`store_id`),
-  KEY `IDX_TAG_SUMMARY_STORE_ID` (`store_id`),
-  KEY `IDX_TAG_SUMMARY_TAG_ID` (`tag_id`)
+  `base_popularity` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Base Popularity'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tag Summary';
 
 -- --------------------------------------------------------
@@ -39357,18 +38291,12 @@ CREATE TABLE IF NOT EXISTS `tag_summary` (
 --
 
 CREATE TABLE IF NOT EXISTS `tax_calculation` (
-  `tax_calculation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Id',
+  `tax_calculation_id` int(11) NOT NULL COMMENT 'Tax Calculation Id',
   `tax_calculation_rate_id` int(11) NOT NULL COMMENT 'Tax Calculation Rate Id',
   `tax_calculation_rule_id` int(11) NOT NULL COMMENT 'Tax Calculation Rule Id',
   `customer_tax_class_id` smallint(6) NOT NULL COMMENT 'Customer Tax Class Id',
-  `product_tax_class_id` smallint(6) NOT NULL COMMENT 'Product Tax Class Id',
-  PRIMARY KEY (`tax_calculation_id`),
-  KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RULE_ID` (`tax_calculation_rule_id`),
-  KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`),
-  KEY `IDX_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID` (`customer_tax_class_id`),
-  KEY `IDX_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID` (`product_tax_class_id`),
-  KEY `IDX_TAX_CALC_TAX_CALC_RATE_ID_CSTR_TAX_CLASS_ID_PRD_TAX_CLASS_ID` (`tax_calculation_rate_id`,`customer_tax_class_id`,`product_tax_class_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tax Calculation' AUTO_INCREMENT=3 ;
+  `product_tax_class_id` smallint(6) NOT NULL COMMENT 'Product Tax Class Id'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation';
 
 --
 -- Dumping data for table `tax_calculation`
@@ -39385,7 +38313,7 @@ INSERT INTO `tax_calculation` (`tax_calculation_id`, `tax_calculation_rate_id`, 
 --
 
 CREATE TABLE IF NOT EXISTS `tax_calculation_rate` (
-  `tax_calculation_rate_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Id',
+  `tax_calculation_rate_id` int(11) NOT NULL COMMENT 'Tax Calculation Rate Id',
   `tax_country_id` varchar(2) NOT NULL COMMENT 'Tax Country Id',
   `tax_region_id` int(11) NOT NULL COMMENT 'Tax Region Id',
   `tax_postcode` varchar(21) DEFAULT NULL COMMENT 'Tax Postcode',
@@ -39393,12 +38321,8 @@ CREATE TABLE IF NOT EXISTS `tax_calculation_rate` (
   `rate` decimal(12,4) NOT NULL COMMENT 'Rate',
   `zip_is_range` smallint(6) DEFAULT NULL COMMENT 'Zip Is Range',
   `zip_from` int(10) unsigned DEFAULT NULL COMMENT 'Zip From',
-  `zip_to` int(10) unsigned DEFAULT NULL COMMENT 'Zip To',
-  PRIMARY KEY (`tax_calculation_rate_id`),
-  KEY `IDX_TAX_CALC_RATE_TAX_COUNTRY_ID_TAX_REGION_ID_TAX_POSTCODE` (`tax_country_id`,`tax_region_id`,`tax_postcode`),
-  KEY `IDX_TAX_CALCULATION_RATE_CODE` (`code`),
-  KEY `CA799F1E2CB843495F601E56C84A626D` (`tax_calculation_rate_id`,`tax_country_id`,`tax_region_id`,`zip_is_range`,`tax_postcode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate' AUTO_INCREMENT=3 ;
+  `zip_to` int(10) unsigned DEFAULT NULL COMMENT 'Zip To'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate';
 
 --
 -- Dumping data for table `tax_calculation_rate`
@@ -39415,15 +38339,11 @@ INSERT INTO `tax_calculation_rate` (`tax_calculation_rate_id`, `tax_country_id`,
 --
 
 CREATE TABLE IF NOT EXISTS `tax_calculation_rate_title` (
-  `tax_calculation_rate_title_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Title Id',
+  `tax_calculation_rate_title_id` int(11) NOT NULL COMMENT 'Tax Calculation Rate Title Id',
   `tax_calculation_rate_id` int(11) NOT NULL COMMENT 'Tax Calculation Rate Id',
   `store_id` smallint(5) unsigned NOT NULL COMMENT 'Store Id',
-  `value` varchar(255) NOT NULL COMMENT 'Value',
-  PRIMARY KEY (`tax_calculation_rate_title_id`),
-  KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID_STORE_ID` (`tax_calculation_rate_id`,`store_id`),
-  KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`),
-  KEY `IDX_TAX_CALCULATION_RATE_TITLE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate Title' AUTO_INCREMENT=1 ;
+  `value` varchar(255) NOT NULL COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rate Title';
 
 -- --------------------------------------------------------
 
@@ -39432,21 +38352,19 @@ CREATE TABLE IF NOT EXISTS `tax_calculation_rate_title` (
 --
 
 CREATE TABLE IF NOT EXISTS `tax_calculation_rule` (
-  `tax_calculation_rule_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rule Id',
+  `tax_calculation_rule_id` int(11) NOT NULL COMMENT 'Tax Calculation Rule Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
   `priority` int(11) NOT NULL COMMENT 'Priority',
   `position` int(11) NOT NULL COMMENT 'Position',
-  PRIMARY KEY (`tax_calculation_rule_id`),
-  KEY `IDX_TAX_CALC_RULE_PRIORITY_POSITION_TAX_CALC_RULE_ID` (`priority`,`position`,`tax_calculation_rule_id`),
-  KEY `IDX_TAX_CALCULATION_RULE_CODE` (`code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rule' AUTO_INCREMENT=2 ;
+  `calculate_subtotal` int(11) NOT NULL COMMENT 'Calculate off subtotal option'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Tax Calculation Rule';
 
 --
 -- Dumping data for table `tax_calculation_rule`
 --
 
-INSERT INTO `tax_calculation_rule` (`tax_calculation_rule_id`, `code`, `priority`, `position`) VALUES
-(1, 'Retail Customer-Taxable Goods-Rate 1', 1, 1);
+INSERT INTO `tax_calculation_rule` (`tax_calculation_rule_id`, `code`, `priority`, `position`, `calculate_subtotal`) VALUES
+(1, 'Retail Customer-Taxable Goods-Rate 1', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -39455,11 +38373,10 @@ INSERT INTO `tax_calculation_rule` (`tax_calculation_rule_id`, `code`, `priority
 --
 
 CREATE TABLE IF NOT EXISTS `tax_class` (
-  `class_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Class Id',
+  `class_id` smallint(6) NOT NULL COMMENT 'Class Id',
   `class_name` varchar(255) NOT NULL COMMENT 'Class Name',
-  `class_type` varchar(8) NOT NULL DEFAULT 'CUSTOMER' COMMENT 'Class Type',
-  PRIMARY KEY (`class_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Tax Class' AUTO_INCREMENT=5 ;
+  `class_type` varchar(8) NOT NULL DEFAULT 'CUSTOMER' COMMENT 'Class Type'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Tax Class';
 
 --
 -- Dumping data for table `tax_class`
@@ -39477,18 +38394,15 @@ INSERT INTO `tax_class` (`class_id`, `class_name`, `class_type`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tax_order_aggregated_created` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
   `order_status` varchar(50) NOT NULL COMMENT 'Order Status',
   `percent` float DEFAULT NULL COMMENT 'Percent',
   `orders_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Orders Count',
-  `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `FCA5E2C02689EB2641B30580D7AACF12` (`period`,`store_id`,`code`,`percent`,`order_status`),
-  KEY `IDX_TAX_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregation' AUTO_INCREMENT=1 ;
+  `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregation';
 
 -- --------------------------------------------------------
 
@@ -39497,18 +38411,15 @@ CREATE TABLE IF NOT EXISTS `tax_order_aggregated_created` (
 --
 
 CREATE TABLE IF NOT EXISTS `tax_order_aggregated_updated` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `id` int(10) unsigned NOT NULL COMMENT 'Id',
   `period` date DEFAULT NULL COMMENT 'Period',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
   `order_status` varchar(50) NOT NULL COMMENT 'Order Status',
   `percent` float DEFAULT NULL COMMENT 'Percent',
   `orders_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Orders Count',
-  `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `DB0AF14011199AA6CD31D5078B90AA8D` (`period`,`store_id`,`code`,`percent`,`order_status`),
-  KEY `IDX_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregated Updated' AUTO_INCREMENT=1 ;
+  `tax_base_amount_sum` float DEFAULT NULL COMMENT 'Tax Base Amount Sum'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tax Order Aggregated Updated';
 
 -- --------------------------------------------------------
 
@@ -39520,10 +38431,7 @@ CREATE TABLE IF NOT EXISTS `weee_discount` (
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `customer_group_id` smallint(5) unsigned NOT NULL COMMENT 'Customer Group Id',
-  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
-  KEY `IDX_WEEE_DISCOUNT_WEBSITE_ID` (`website_id`),
-  KEY `IDX_WEEE_DISCOUNT_ENTITY_ID` (`entity_id`),
-  KEY `IDX_WEEE_DISCOUNT_CUSTOMER_GROUP_ID` (`customer_group_id`)
+  `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Weee Discount';
 
 -- --------------------------------------------------------
@@ -39533,20 +38441,15 @@ CREATE TABLE IF NOT EXISTS `weee_discount` (
 --
 
 CREATE TABLE IF NOT EXISTS `weee_tax` (
-  `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id',
+  `value_id` int(11) NOT NULL COMMENT 'Value Id',
   `website_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Website Id',
   `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity Id',
   `country` varchar(2) DEFAULT NULL COMMENT 'Country',
   `value` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Value',
   `state` varchar(255) NOT NULL DEFAULT '*' COMMENT 'State',
   `attribute_id` smallint(5) unsigned NOT NULL COMMENT 'Attribute Id',
-  `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id',
-  PRIMARY KEY (`value_id`),
-  KEY `IDX_WEEE_TAX_WEBSITE_ID` (`website_id`),
-  KEY `IDX_WEEE_TAX_ENTITY_ID` (`entity_id`),
-  KEY `IDX_WEEE_TAX_COUNTRY` (`country`),
-  KEY `IDX_WEEE_TAX_ATTRIBUTE_ID` (`attribute_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Weee Tax' AUTO_INCREMENT=1 ;
+  `entity_type_id` smallint(5) unsigned NOT NULL COMMENT 'Entity Type Id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Weee Tax';
 
 -- --------------------------------------------------------
 
@@ -39555,13 +38458,11 @@ CREATE TABLE IF NOT EXISTS `weee_tax` (
 --
 
 CREATE TABLE IF NOT EXISTS `widget` (
-  `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Widget Id',
+  `widget_id` int(10) unsigned NOT NULL COMMENT 'Widget Id',
   `widget_code` varchar(255) DEFAULT NULL COMMENT 'Widget code for template directive',
   `widget_type` varchar(255) DEFAULT NULL COMMENT 'Widget Type',
-  `parameters` text COMMENT 'Parameters',
-  PRIMARY KEY (`widget_id`),
-  KEY `IDX_WIDGET_WIDGET_CODE` (`widget_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Preconfigured Widgets' AUTO_INCREMENT=1 ;
+  `parameters` text COMMENT 'Parameters'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Preconfigured Widgets';
 
 -- --------------------------------------------------------
 
@@ -39570,15 +38471,14 @@ CREATE TABLE IF NOT EXISTS `widget` (
 --
 
 CREATE TABLE IF NOT EXISTS `widget_instance` (
-  `instance_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Instance Id',
+  `instance_id` int(10) unsigned NOT NULL COMMENT 'Instance Id',
   `instance_type` varchar(255) DEFAULT NULL COMMENT 'Instance Type',
   `package_theme` varchar(255) DEFAULT NULL COMMENT 'Package Theme',
   `title` varchar(255) DEFAULT NULL COMMENT 'Widget Title',
   `store_ids` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Store ids',
   `widget_parameters` text COMMENT 'Widget parameters',
-  `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order',
-  PRIMARY KEY (`instance_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instances of Widget for Package Theme' AUTO_INCREMENT=1 ;
+  `sort_order` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sort order'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instances of Widget for Package Theme';
 
 -- --------------------------------------------------------
 
@@ -39587,17 +38487,15 @@ CREATE TABLE IF NOT EXISTS `widget_instance` (
 --
 
 CREATE TABLE IF NOT EXISTS `widget_instance_page` (
-  `page_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Page Id',
+  `page_id` int(10) unsigned NOT NULL COMMENT 'Page Id',
   `instance_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Instance Id',
   `page_group` varchar(25) DEFAULT NULL COMMENT 'Block Group Type',
   `layout_handle` varchar(255) DEFAULT NULL COMMENT 'Layout Handle',
   `block_reference` varchar(255) DEFAULT NULL COMMENT 'Block Reference',
   `page_for` varchar(25) DEFAULT NULL COMMENT 'For instance entities',
   `entities` text COMMENT 'Catalog entities (comma separated)',
-  `page_template` varchar(255) DEFAULT NULL COMMENT 'Path to widget template',
-  PRIMARY KEY (`page_id`),
-  KEY `IDX_WIDGET_INSTANCE_PAGE_INSTANCE_ID` (`instance_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instance of Widget on Page' AUTO_INCREMENT=1 ;
+  `page_template` varchar(255) DEFAULT NULL COMMENT 'Path to widget template'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Instance of Widget on Page';
 
 -- --------------------------------------------------------
 
@@ -39607,10 +38505,7 @@ CREATE TABLE IF NOT EXISTS `widget_instance_page` (
 
 CREATE TABLE IF NOT EXISTS `widget_instance_page_layout` (
   `page_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Page Id',
-  `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id',
-  UNIQUE KEY `UNQ_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID` (`layout_update_id`,`page_id`),
-  KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID` (`page_id`),
-  KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID` (`layout_update_id`)
+  `layout_update_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Layout Update Id'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Layout updates';
 
 -- --------------------------------------------------------
@@ -39620,15 +38515,12 @@ CREATE TABLE IF NOT EXISTS `widget_instance_page_layout` (
 --
 
 CREATE TABLE IF NOT EXISTS `wishlist` (
-  `wishlist_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist ID',
+  `wishlist_id` int(10) unsigned NOT NULL COMMENT 'Wishlist ID',
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Customer ID',
   `shared` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Sharing flag (0 or 1)',
   `sharing_code` varchar(32) DEFAULT NULL COMMENT 'Sharing encrypted code',
-  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Last updated date',
-  PRIMARY KEY (`wishlist_id`),
-  UNIQUE KEY `UNQ_WISHLIST_CUSTOMER_ID` (`customer_id`),
-  KEY `IDX_WISHLIST_SHARED` (`shared`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist main Table' AUTO_INCREMENT=1 ;
+  `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Last updated date'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist main Table';
 
 -- --------------------------------------------------------
 
@@ -39637,18 +38529,14 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
 --
 
 CREATE TABLE IF NOT EXISTS `wishlist_item` (
-  `wishlist_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist item ID',
+  `wishlist_item_id` int(10) unsigned NOT NULL COMMENT 'Wishlist item ID',
   `wishlist_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Wishlist ID',
   `product_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Product ID',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store ID',
   `added_at` timestamp NULL DEFAULT NULL COMMENT 'Add date and time',
   `description` text COMMENT 'Short description of wish list item',
-  `qty` decimal(12,4) NOT NULL COMMENT 'Qty',
-  PRIMARY KEY (`wishlist_item_id`),
-  KEY `IDX_WISHLIST_ITEM_WISHLIST_ID` (`wishlist_id`),
-  KEY `IDX_WISHLIST_ITEM_PRODUCT_ID` (`product_id`),
-  KEY `IDX_WISHLIST_ITEM_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist items' AUTO_INCREMENT=1 ;
+  `qty` decimal(12,4) NOT NULL COMMENT 'Qty'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist items';
 
 -- --------------------------------------------------------
 
@@ -39657,14 +38545,12 @@ CREATE TABLE IF NOT EXISTS `wishlist_item` (
 --
 
 CREATE TABLE IF NOT EXISTS `wishlist_item_option` (
-  `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',
+  `option_id` int(10) unsigned NOT NULL COMMENT 'Option Id',
   `wishlist_item_id` int(10) unsigned NOT NULL COMMENT 'Wishlist Item Id',
   `product_id` int(10) unsigned NOT NULL COMMENT 'Product Id',
   `code` varchar(255) NOT NULL COMMENT 'Code',
-  `value` text COMMENT 'Value',
-  PRIMARY KEY (`option_id`),
-  KEY `FK_A014B30B04B72DD0EAB3EECD779728D6` (`wishlist_item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist Item Option Table' AUTO_INCREMENT=1 ;
+  `value` text COMMENT 'Value'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist Item Option Table';
 
 -- --------------------------------------------------------
 
@@ -39673,7 +38559,7 @@ CREATE TABLE IF NOT EXISTS `wishlist_item_option` (
 --
 
 CREATE TABLE IF NOT EXISTS `xmlconnect_application` (
-  `application_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Application Id',
+  `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id',
   `name` varchar(255) NOT NULL COMMENT 'Application Name',
   `code` varchar(32) NOT NULL COMMENT 'Application Code',
   `type` varchar(32) NOT NULL COMMENT 'Device Type',
@@ -39682,11 +38568,8 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_application` (
   `active_to` date DEFAULT NULL COMMENT 'Active To',
   `updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated At',
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status',
-  `browsing_mode` smallint(5) unsigned DEFAULT '0' COMMENT 'Browsing Mode',
-  PRIMARY KEY (`application_id`),
-  UNIQUE KEY `UNQ_XMLCONNECT_APPLICATION_CODE` (`code`),
-  KEY `FK_XMLCONNECT_APPLICATION_STORE_ID_CORE_STORE_STORE_ID` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Application' AUTO_INCREMENT=1 ;
+  `browsing_mode` smallint(5) unsigned DEFAULT '0' COMMENT 'Browsing Mode'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Application';
 
 -- --------------------------------------------------------
 
@@ -39698,8 +38581,7 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_config_data` (
   `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id',
   `category` varchar(60) NOT NULL DEFAULT 'default' COMMENT 'Category',
   `path` varchar(250) NOT NULL COMMENT 'Path',
-  `value` text NOT NULL COMMENT 'Value',
-  UNIQUE KEY `UNQ_XMLCONNECT_CONFIG_DATA_APPLICATION_ID_CATEGORY_PATH` (`application_id`,`category`,`path`)
+  `value` text NOT NULL COMMENT 'Value'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Configuration Data';
 
 -- --------------------------------------------------------
@@ -39709,7 +38591,7 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_config_data` (
 --
 
 CREATE TABLE IF NOT EXISTS `xmlconnect_history` (
-  `history_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'History Id',
+  `history_id` int(10) unsigned NOT NULL COMMENT 'History Id',
   `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `store_id` smallint(5) unsigned DEFAULT NULL COMMENT 'Store Id',
@@ -39717,10 +38599,22 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_history` (
   `title` varchar(200) NOT NULL COMMENT 'Title',
   `activation_key` varchar(255) NOT NULL COMMENT 'Activation Key',
   `name` varchar(255) NOT NULL COMMENT 'Application Name',
-  `code` varchar(32) NOT NULL COMMENT 'Application Code',
-  PRIMARY KEY (`history_id`),
-  KEY `FK_8F08B9513373BC19F49EE3EF8340E270` (`application_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect History' AUTO_INCREMENT=1 ;
+  `code` varchar(32) NOT NULL COMMENT 'Application Code'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect History';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `xmlconnect_images`
+--
+
+CREATE TABLE IF NOT EXISTS `xmlconnect_images` (
+  `image_id` int(10) unsigned NOT NULL COMMENT 'Image Id',
+  `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id',
+  `image_file` varchar(255) NOT NULL COMMENT 'Image File',
+  `image_type` varchar(255) NOT NULL COMMENT 'Image Type',
+  `order` int(10) unsigned NOT NULL COMMENT 'Order'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Images';
 
 -- --------------------------------------------------------
 
@@ -39729,17 +38623,15 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `xmlconnect_notification_template` (
-  `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id',
+  `template_id` int(10) unsigned NOT NULL COMMENT 'Template Id',
   `name` varchar(255) NOT NULL COMMENT 'Template Name',
   `push_title` varchar(140) NOT NULL COMMENT 'Push Notification Title',
   `message_title` varchar(255) NOT NULL COMMENT 'Message Title',
   `content` text NOT NULL COMMENT 'Message Content',
   `created_at` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `modified_at` timestamp NULL DEFAULT NULL COMMENT 'Modified At',
-  `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id',
-  PRIMARY KEY (`template_id`),
-  KEY `FK_F9927C7518A907CF5C350942FD296DC3` (`application_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Notification Template' AUTO_INCREMENT=1 ;
+  `application_id` smallint(5) unsigned NOT NULL COMMENT 'Application Id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Notification Template';
 
 -- --------------------------------------------------------
 
@@ -39748,7 +38640,7 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_notification_template` (
 --
 
 CREATE TABLE IF NOT EXISTS `xmlconnect_queue` (
-  `queue_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Id',
+  `queue_id` int(10) unsigned NOT NULL COMMENT 'Queue Id',
   `create_time` timestamp NULL DEFAULT NULL COMMENT 'Created At',
   `exec_time` timestamp NULL DEFAULT NULL COMMENT 'Scheduled Execution Time',
   `template_id` int(10) unsigned NOT NULL COMMENT 'Template Id',
@@ -39756,11 +38648,4079 @@ CREATE TABLE IF NOT EXISTS `xmlconnect_queue` (
   `message_title` varchar(255) DEFAULT '' COMMENT 'Message Title',
   `content` text COMMENT 'Message Content',
   `status` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'Status',
-  `type` varchar(12) NOT NULL COMMENT 'Type of Notification',
-  PRIMARY KEY (`queue_id`),
-  KEY `FK_2019AEC5FC55A516965583447CA26B14` (`template_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Notification Queue' AUTO_INCREMENT=1 ;
+  `type` varchar(12) NOT NULL COMMENT 'Type of Notification'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Xmlconnect Notification Queue';
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `adminnotification_inbox`
+--
+ALTER TABLE `adminnotification_inbox`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `IDX_ADMINNOTIFICATION_INBOX_SEVERITY` (`severity`),
+  ADD KEY `IDX_ADMINNOTIFICATION_INBOX_IS_READ` (`is_read`),
+  ADD KEY `IDX_ADMINNOTIFICATION_INBOX_IS_REMOVE` (`is_remove`);
+
+--
+-- Indexes for table `admin_assert`
+--
+ALTER TABLE `admin_assert`
+  ADD PRIMARY KEY (`assert_id`);
+
+--
+-- Indexes for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  ADD PRIMARY KEY (`role_id`),
+  ADD KEY `IDX_ADMIN_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`),
+  ADD KEY `IDX_ADMIN_ROLE_TREE_LEVEL` (`tree_level`);
+
+--
+-- Indexes for table `admin_rule`
+--
+ALTER TABLE `admin_rule`
+  ADD PRIMARY KEY (`rule_id`),
+  ADD KEY `IDX_ADMIN_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`),
+  ADD KEY `IDX_ADMIN_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`);
+
+--
+-- Indexes for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `UNQ_ADMIN_USER_USERNAME` (`username`);
+
+--
+-- Indexes for table `api2_acl_attribute`
+--
+ALTER TABLE `api2_acl_attribute`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_API2_ACL_ATTRIBUTE_USER_TYPE_RESOURCE_ID_OPERATION` (`user_type`,`resource_id`,`operation`),
+  ADD KEY `IDX_API2_ACL_ATTRIBUTE_USER_TYPE` (`user_type`);
+
+--
+-- Indexes for table `api2_acl_role`
+--
+ALTER TABLE `api2_acl_role`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_API2_ACL_ROLE_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_API2_ACL_ROLE_UPDATED_AT` (`updated_at`);
+
+--
+-- Indexes for table `api2_acl_rule`
+--
+ALTER TABLE `api2_acl_rule`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_API2_ACL_RULE_ROLE_ID_RESOURCE_ID_PRIVILEGE` (`role_id`,`resource_id`,`privilege`);
+
+--
+-- Indexes for table `api2_acl_user`
+--
+ALTER TABLE `api2_acl_user`
+  ADD UNIQUE KEY `UNQ_API2_ACL_USER_ADMIN_ID` (`admin_id`),
+  ADD KEY `FK_API2_ACL_USER_ROLE_ID_API2_ACL_ROLE_ENTITY_ID` (`role_id`);
+
+--
+-- Indexes for table `api_assert`
+--
+ALTER TABLE `api_assert`
+  ADD PRIMARY KEY (`assert_id`);
+
+--
+-- Indexes for table `api_role`
+--
+ALTER TABLE `api_role`
+  ADD PRIMARY KEY (`role_id`),
+  ADD KEY `IDX_API_ROLE_PARENT_ID_SORT_ORDER` (`parent_id`,`sort_order`),
+  ADD KEY `IDX_API_ROLE_TREE_LEVEL` (`tree_level`);
+
+--
+-- Indexes for table `api_rule`
+--
+ALTER TABLE `api_rule`
+  ADD PRIMARY KEY (`rule_id`),
+  ADD KEY `IDX_API_RULE_RESOURCE_ID_ROLE_ID` (`resource_id`,`role_id`),
+  ADD KEY `IDX_API_RULE_ROLE_ID_RESOURCE_ID` (`role_id`,`resource_id`);
+
+--
+-- Indexes for table `api_session`
+--
+ALTER TABLE `api_session`
+  ADD KEY `IDX_API_SESSION_USER_ID` (`user_id`),
+  ADD KEY `IDX_API_SESSION_SESSID` (`sessid`);
+
+--
+-- Indexes for table `api_user`
+--
+ALTER TABLE `api_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `captcha_log`
+--
+ALTER TABLE `captcha_log`
+  ADD PRIMARY KEY (`type`,`value`);
+
+--
+-- Indexes for table `cataloginventory_stock`
+--
+ALTER TABLE `cataloginventory_stock`
+  ADD PRIMARY KEY (`stock_id`);
+
+--
+-- Indexes for table `cataloginventory_stock_item`
+--
+ALTER TABLE `cataloginventory_stock_item`
+  ADD PRIMARY KEY (`item_id`),
+  ADD UNIQUE KEY `UNQ_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID_STOCK_ID` (`product_id`,`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_ITEM_STOCK_ID` (`stock_id`);
+
+--
+-- Indexes for table `cataloginventory_stock_status`
+--
+ALTER TABLE `cataloginventory_stock_status`
+  ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_STOCK_ID` (`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `cataloginventory_stock_status_idx`
+--
+ALTER TABLE `cataloginventory_stock_status_idx`
+  ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_STOCK_ID` (`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_IDX_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `cataloginventory_stock_status_tmp`
+--
+ALTER TABLE `cataloginventory_stock_status_tmp`
+  ADD PRIMARY KEY (`product_id`,`website_id`,`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_STOCK_ID` (`stock_id`),
+  ADD KEY `IDX_CATALOGINVENTORY_STOCK_STATUS_TMP_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalogrule`
+--
+ALTER TABLE `catalogrule`
+  ADD PRIMARY KEY (`rule_id`),
+  ADD KEY `IDX_CATALOGRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`);
+
+--
+-- Indexes for table `catalogrule_affected_product`
+--
+ALTER TABLE `catalogrule_affected_product`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `catalogrule_customer_group`
+--
+ALTER TABLE `catalogrule_customer_group`
+  ADD PRIMARY KEY (`rule_id`,`customer_group_id`),
+  ADD KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_CATALOGRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`);
+
+--
+-- Indexes for table `catalogrule_group_website`
+--
+ALTER TABLE `catalogrule_group_website`
+  ADD PRIMARY KEY (`rule_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOGRULE_GROUP_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalogrule_product`
+--
+ALTER TABLE `catalogrule_product`
+  ADD PRIMARY KEY (`rule_product_id`),
+  ADD UNIQUE KEY `EAA51B56FF092A0DCB795D1CEF812B7B` (`rule_id`,`from_time`,`to_time`,`website_id`,`customer_group_id`,`product_id`,`sort_order`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_FROM_TIME` (`from_time`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_TO_TIME` (`to_time`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalogrule_product_price`
+--
+ALTER TABLE `catalogrule_product_price`
+  ADD PRIMARY KEY (`rule_product_price_id`),
+  ADD UNIQUE KEY `UNQ_CATRULE_PRD_PRICE_RULE_DATE_WS_ID_CSTR_GROUP_ID_PRD_ID` (`rule_date`,`website_id`,`customer_group_id`,`product_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOGRULE_PRODUCT_PRICE_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalogrule_website`
+--
+ALTER TABLE `catalogrule_website`
+  ADD PRIMARY KEY (`rule_id`,`website_id`),
+  ADD KEY `IDX_CATALOGRULE_WEBSITE_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_CATALOGRULE_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalogsearch_fulltext`
+--
+ALTER TABLE `catalogsearch_fulltext`
+  ADD PRIMARY KEY (`fulltext_id`),
+  ADD UNIQUE KEY `UNQ_CATALOGSEARCH_FULLTEXT_PRODUCT_ID_STORE_ID` (`product_id`,`store_id`),
+  ADD FULLTEXT KEY `FTI_CATALOGSEARCH_FULLTEXT_DATA_INDEX` (`data_index`);
+
+--
+-- Indexes for table `catalogsearch_query`
+--
+ALTER TABLE `catalogsearch_query`
+  ADD PRIMARY KEY (`query_id`),
+  ADD KEY `IDX_CATALOGSEARCH_QUERY_QUERY_TEXT_STORE_ID_POPULARITY` (`query_text`,`store_id`,`popularity`),
+  ADD KEY `IDX_CATALOGSEARCH_QUERY_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalogsearch_result`
+--
+ALTER TABLE `catalogsearch_result`
+  ADD PRIMARY KEY (`query_id`,`product_id`),
+  ADD KEY `IDX_CATALOGSEARCH_RESULT_QUERY_ID` (`query_id`),
+  ADD KEY `IDX_CATALOGSEARCH_RESULT_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_category_anc_categs_index_idx`
+--
+ALTER TABLE `catalog_category_anc_categs_index_idx`
+  ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_CATEGORY_ID` (`category_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_IDX_PATH_CATEGORY_ID` (`path`,`category_id`);
+
+--
+-- Indexes for table `catalog_category_anc_categs_index_tmp`
+--
+ALTER TABLE `catalog_category_anc_categs_index_tmp`
+  ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_CATEGORY_ID` (`category_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ANC_CATEGS_INDEX_TMP_PATH_CATEGORY_ID` (`path`,`category_id`);
+
+--
+-- Indexes for table `catalog_category_anc_products_index_idx`
+--
+ALTER TABLE `catalog_category_anc_products_index_idx`
+  ADD KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_IDX_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`);
+
+--
+-- Indexes for table `catalog_category_anc_products_index_tmp`
+--
+ALTER TABLE `catalog_category_anc_products_index_tmp`
+  ADD KEY `IDX_CAT_CTGR_ANC_PRDS_IDX_TMP_CTGR_ID_PRD_ID_POSITION` (`category_id`,`product_id`,`position`);
+
+--
+-- Indexes for table `catalog_category_entity`
+--
+ALTER TABLE `catalog_category_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_LEVEL` (`level`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_PATH_ENTITY_ID` (`path`,`entity_id`);
+
+--
+-- Indexes for table `catalog_category_entity_datetime`
+--
+ALTER TABLE `catalog_category_entity_datetime`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DTIME_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DATETIME_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_category_entity_decimal`
+--
+ALTER TABLE `catalog_category_entity_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_DEC_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_DECIMAL_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_category_entity_int`
+--
+ALTER TABLE `catalog_category_entity_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_INT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_INT_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_category_entity_text`
+--
+ALTER TABLE `catalog_category_entity_text`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_TEXT_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_TEXT_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_category_entity_varchar`
+--
+ALTER TABLE `catalog_category_entity_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_CTGR_ENTT_VCHR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_ENTITY_VARCHAR_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_category_flat_store_1`
+--
+ALTER TABLE `catalog_category_flat_store_1`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_1_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_2`
+--
+ALTER TABLE `catalog_category_flat_store_2`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_2_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_3`
+--
+ALTER TABLE `catalog_category_flat_store_3`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_3_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_4`
+--
+ALTER TABLE `catalog_category_flat_store_4`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_4_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_5`
+--
+ALTER TABLE `catalog_category_flat_store_5`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_5_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_6`
+--
+ALTER TABLE `catalog_category_flat_store_6`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_6_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_7`
+--
+ALTER TABLE `catalog_category_flat_store_7`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_7_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_8`
+--
+ALTER TABLE `catalog_category_flat_store_8`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_8_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_flat_store_9`
+--
+ALTER TABLE `catalog_category_flat_store_9`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_PATH` (`path`),
+  ADD KEY `IDX_CATALOG_CATEGORY_FLAT_STORE_9_LEVEL` (`level`);
+
+--
+-- Indexes for table `catalog_category_product`
+--
+ALTER TABLE `catalog_category_product`
+  ADD PRIMARY KEY (`category_id`,`product_id`),
+  ADD KEY `IDX_CATALOG_CATEGORY_PRODUCT_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_category_product_index`
+--
+ALTER TABLE `catalog_category_product_index`
+  ADD PRIMARY KEY (`category_id`,`product_id`,`store_id`),
+  ADD KEY `IDX_CAT_CTGR_PRD_IDX_PRD_ID_STORE_ID_CTGR_ID_VISIBILITY` (`product_id`,`store_id`,`category_id`,`visibility`),
+  ADD KEY `15D3C269665C74C2219037D534F4B0DC` (`store_id`,`category_id`,`visibility`,`is_parent`,`position`);
+
+--
+-- Indexes for table `catalog_category_product_index_enbl_idx`
+--
+ALTER TABLE `catalog_category_product_index_enbl_idx`
+  ADD KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_IDX_PRD_ID_VISIBILITY` (`product_id`,`visibility`);
+
+--
+-- Indexes for table `catalog_category_product_index_enbl_tmp`
+--
+ALTER TABLE `catalog_category_product_index_enbl_tmp`
+  ADD KEY `IDX_CAT_CTGR_PRD_IDX_ENBL_TMP_PRD_ID_VISIBILITY` (`product_id`,`visibility`);
+
+--
+-- Indexes for table `catalog_category_product_index_idx`
+--
+ALTER TABLE `catalog_category_product_index_idx`
+  ADD KEY `IDX_CAT_CTGR_PRD_IDX_IDX_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`);
+
+--
+-- Indexes for table `catalog_category_product_index_tmp`
+--
+ALTER TABLE `catalog_category_product_index_tmp`
+  ADD KEY `IDX_CAT_CTGR_PRD_IDX_TMP_PRD_ID_CTGR_ID_STORE_ID` (`product_id`,`category_id`,`store_id`);
+
+--
+-- Indexes for table `catalog_compare_item`
+--
+ALTER TABLE `catalog_compare_item`
+  ADD PRIMARY KEY (`catalog_compare_item_id`),
+  ADD KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_CATALOG_COMPARE_ITEM_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_CATALOG_COMPARE_ITEM_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
+  ADD KEY `IDX_CATALOG_COMPARE_ITEM_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
+  ADD KEY `IDX_CATALOG_COMPARE_ITEM_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_eav_attribute`
+--
+ALTER TABLE `catalog_eav_attribute`
+  ADD PRIMARY KEY (`attribute_id`),
+  ADD KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_FOR_SORT_BY` (`used_for_sort_by`),
+  ADD KEY `IDX_CATALOG_EAV_ATTRIBUTE_USED_IN_PRODUCT_LISTING` (`used_in_product_listing`);
+
+--
+-- Indexes for table `catalog_product_bundle_option`
+--
+ALTER TABLE `catalog_product_bundle_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_OPTION_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `catalog_product_bundle_option_value`
+--
+ALTER TABLE `catalog_product_bundle_option_value`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_BUNDLE_OPTION_VALUE_OPTION_ID_STORE_ID` (`option_id`,`store_id`);
+
+--
+-- Indexes for table `catalog_product_bundle_price_index`
+--
+ALTER TABLE `catalog_product_bundle_price_index`
+  ADD PRIMARY KEY (`entity_id`,`website_id`,`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_PRICE_INDEX_CUSTOMER_GROUP_ID` (`customer_group_id`);
+
+--
+-- Indexes for table `catalog_product_bundle_selection`
+--
+ALTER TABLE `catalog_product_bundle_selection`
+  ADD PRIMARY KEY (`selection_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_OPTION_ID` (`option_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_product_bundle_selection_price`
+--
+ALTER TABLE `catalog_product_bundle_selection_price`
+  ADD PRIMARY KEY (`selection_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_BUNDLE_SELECTION_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_bundle_stock_index`
+--
+ALTER TABLE `catalog_product_bundle_stock_index`
+  ADD PRIMARY KEY (`entity_id`,`website_id`,`stock_id`,`option_id`);
+
+--
+-- Indexes for table `catalog_product_enabled_index`
+--
+ALTER TABLE `catalog_product_enabled_index`
+  ADD PRIMARY KEY (`product_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENABLED_INDEX_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_entity`
+--
+ALTER TABLE `catalog_product_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_SKU` (`sku`);
+
+--
+-- Indexes for table `catalog_product_entity_datetime`
+--
+ALTER TABLE `catalog_product_entity_datetime`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_DTIME_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DATETIME_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `catalog_product_entity_decimal`
+--
+ALTER TABLE `catalog_product_entity_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_DEC_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `catalog_product_entity_gallery`
+--
+ALTER TABLE `catalog_product_entity_gallery`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_GLR_ENTT_TYPE_ID_ENTT_ID_ATTR_ID_STORE_ID` (`entity_type_id`,`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GALLERY_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_entity_group_price`
+--
+ALTER TABLE `catalog_product_entity_group_price`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `CC12C83765B562314470A24F2BDD0F36` (`entity_id`,`all_groups`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_GROUP_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_entity_int`
+--
+ALTER TABLE `catalog_product_entity_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `catalog_product_entity_media_gallery`
+--
+ALTER TABLE `catalog_product_entity_media_gallery`
+  ADD PRIMARY KEY (`value_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `catalog_product_entity_media_gallery_value`
+--
+ALTER TABLE `catalog_product_entity_media_gallery_value`
+  ADD PRIMARY KEY (`value_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_entity_text`
+--
+ALTER TABLE `catalog_product_entity_text`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `catalog_product_entity_tier_price`
+--
+ALTER TABLE `catalog_product_entity_tier_price`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `E8AB433B9ACB00343ABB312AD2FAB087` (`entity_id`,`all_groups`,`customer_group_id`,`qty`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_TIER_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_entity_varchar`
+--
+ALTER TABLE `catalog_product_entity_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_ENTT_VCHR_ENTT_ID_ATTR_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `catalog_product_flat_1`
+--
+ALTER TABLE `catalog_product_flat_1`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_1_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_2`
+--
+ALTER TABLE `catalog_product_flat_2`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_2_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_2_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_2_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_2_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_3`
+--
+ALTER TABLE `catalog_product_flat_3`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_3_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_3_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_3_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_3_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_4`
+--
+ALTER TABLE `catalog_product_flat_4`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_4_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_4_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_4_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_4_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_5`
+--
+ALTER TABLE `catalog_product_flat_5`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_5_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_5_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_5_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_5_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_6`
+--
+ALTER TABLE `catalog_product_flat_6`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_6_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_6_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_6_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_6_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_7`
+--
+ALTER TABLE `catalog_product_flat_7`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_7_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_7_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_7_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_7_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_8`
+--
+ALTER TABLE `catalog_product_flat_8`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_8_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_8_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_8_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_8_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_flat_9`
+--
+ALTER TABLE `catalog_product_flat_9`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_9_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_9_ATTRIBUTE_SET_ID` (`attribute_set_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_9_NAME` (`name`),
+  ADD KEY `IDX_CATALOG_PRODUCT_FLAT_9_PRICE` (`price`);
+
+--
+-- Indexes for table `catalog_product_index_eav`
+--
+ALTER TABLE `catalog_product_index_eav`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_eav_decimal`
+--
+ALTER TABLE `catalog_product_index_eav_decimal`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_eav_decimal_idx`
+--
+ALTER TABLE `catalog_product_index_eav_decimal_idx`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_IDX_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_eav_decimal_tmp`
+--
+ALTER TABLE `catalog_product_index_eav_decimal_tmp`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_DECIMAL_TMP_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_eav_idx`
+--
+ALTER TABLE `catalog_product_index_eav_idx`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_IDX_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_eav_tmp`
+--
+ALTER TABLE `catalog_product_index_eav_tmp`
+  ADD PRIMARY KEY (`entity_id`,`attribute_id`,`store_id`,`value`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_EAV_TMP_VALUE` (`value`);
+
+--
+-- Indexes for table `catalog_product_index_group_price`
+--
+ALTER TABLE `catalog_product_index_group_price`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_GROUP_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price`
+--
+ALTER TABLE `catalog_product_index_price`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_MIN_PRICE` (`min_price`),
+  ADD KEY `IDX_CAT_PRD_IDX_PRICE_WS_ID_CSTR_GROUP_ID_MIN_PRICE` (`website_id`,`customer_group_id`,`min_price`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_idx`
+--
+ALTER TABLE `catalog_product_index_price_bundle_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_opt_idx`
+--
+ALTER TABLE `catalog_product_index_price_bundle_opt_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_opt_tmp`
+--
+ALTER TABLE `catalog_product_index_price_bundle_opt_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_sel_idx`
+--
+ALTER TABLE `catalog_product_index_price_bundle_sel_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_sel_tmp`
+--
+ALTER TABLE `catalog_product_index_price_bundle_sel_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_bundle_tmp`
+--
+ALTER TABLE `catalog_product_index_price_bundle_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_cfg_opt_agr_idx`
+--
+ALTER TABLE `catalog_product_index_price_cfg_opt_agr_idx`
+  ADD PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_cfg_opt_agr_tmp`
+--
+ALTER TABLE `catalog_product_index_price_cfg_opt_agr_tmp`
+  ADD PRIMARY KEY (`parent_id`,`child_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_cfg_opt_idx`
+--
+ALTER TABLE `catalog_product_index_price_cfg_opt_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_cfg_opt_tmp`
+--
+ALTER TABLE `catalog_product_index_price_cfg_opt_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_downlod_idx`
+--
+ALTER TABLE `catalog_product_index_price_downlod_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_downlod_tmp`
+--
+ALTER TABLE `catalog_product_index_price_downlod_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_final_idx`
+--
+ALTER TABLE `catalog_product_index_price_final_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_final_tmp`
+--
+ALTER TABLE `catalog_product_index_price_final_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_idx`
+--
+ALTER TABLE `catalog_product_index_price_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_IDX_MIN_PRICE` (`min_price`);
+
+--
+-- Indexes for table `catalog_product_index_price_opt_agr_idx`
+--
+ALTER TABLE `catalog_product_index_price_opt_agr_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_opt_agr_tmp`
+--
+ALTER TABLE `catalog_product_index_price_opt_agr_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`,`option_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_opt_idx`
+--
+ALTER TABLE `catalog_product_index_price_opt_idx`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_opt_tmp`
+--
+ALTER TABLE `catalog_product_index_price_opt_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_price_tmp`
+--
+ALTER TABLE `catalog_product_index_price_tmp`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_PRICE_TMP_MIN_PRICE` (`min_price`);
+
+--
+-- Indexes for table `catalog_product_index_tier_price`
+--
+ALTER TABLE `catalog_product_index_tier_price`
+  ADD PRIMARY KEY (`entity_id`,`customer_group_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_TIER_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_index_website`
+--
+ALTER TABLE `catalog_product_index_website`
+  ADD PRIMARY KEY (`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_INDEX_WEBSITE_WEBSITE_DATE` (`website_date`);
+
+--
+-- Indexes for table `catalog_product_link`
+--
+ALTER TABLE `catalog_product_link`
+  ADD PRIMARY KEY (`link_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_LNK_TYPE_ID_PRD_ID_LNKED_PRD_ID` (`link_type_id`,`product_id`,`linked_product_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_LINKED_PRODUCT_ID` (`linked_product_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_LINK_TYPE_ID` (`link_type_id`);
+
+--
+-- Indexes for table `catalog_product_link_attribute`
+--
+ALTER TABLE `catalog_product_link_attribute`
+  ADD PRIMARY KEY (`product_link_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_LINK_TYPE_ID` (`link_type_id`);
+
+--
+-- Indexes for table `catalog_product_link_attribute_decimal`
+--
+ALTER TABLE `catalog_product_link_attribute_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
+  ADD KEY `IDX_CAT_PRD_LNK_ATTR_DEC_PRD_LNK_ATTR_ID` (`product_link_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_DECIMAL_LINK_ID` (`link_id`);
+
+--
+-- Indexes for table `catalog_product_link_attribute_int`
+--
+ALTER TABLE `catalog_product_link_attribute_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_INT_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_PRODUCT_LINK_ATTRIBUTE_ID` (`product_link_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_INT_LINK_ID` (`link_id`);
+
+--
+-- Indexes for table `catalog_product_link_attribute_varchar`
+--
+ALTER TABLE `catalog_product_link_attribute_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID_LNK_ID` (`product_link_attribute_id`,`link_id`),
+  ADD KEY `IDX_CAT_PRD_LNK_ATTR_VCHR_PRD_LNK_ATTR_ID` (`product_link_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_LINK_ATTRIBUTE_VARCHAR_LINK_ID` (`link_id`);
+
+--
+-- Indexes for table `catalog_product_link_type`
+--
+ALTER TABLE `catalog_product_link_type`
+  ADD PRIMARY KEY (`link_type_id`);
+
+--
+-- Indexes for table `catalog_product_option`
+--
+ALTER TABLE `catalog_product_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_product_option_price`
+--
+ALTER TABLE `catalog_product_option_price`
+  ADD PRIMARY KEY (`option_price_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID_STORE_ID` (`option_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_OPTION_ID` (`option_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_PRICE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_option_title`
+--
+ALTER TABLE `catalog_product_option_title`
+  ADD PRIMARY KEY (`option_title_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID_STORE_ID` (`option_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_OPTION_ID` (`option_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_option_type_price`
+--
+ALTER TABLE `catalog_product_option_type_price`
+  ADD PRIMARY KEY (`option_type_price_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_OPTION_TYPE_ID` (`option_type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_PRICE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_option_type_title`
+--
+ALTER TABLE `catalog_product_option_type_title`
+  ADD PRIMARY KEY (`option_type_title_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID_STORE_ID` (`option_type_id`,`store_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_OPTION_TYPE_ID` (`option_type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_option_type_value`
+--
+ALTER TABLE `catalog_product_option_type_value`
+  ADD PRIMARY KEY (`option_type_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_OPTION_TYPE_VALUE_OPTION_ID` (`option_id`);
+
+--
+-- Indexes for table `catalog_product_relation`
+--
+ALTER TABLE `catalog_product_relation`
+  ADD PRIMARY KEY (`parent_id`,`child_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_RELATION_CHILD_ID` (`child_id`);
+
+--
+-- Indexes for table `catalog_product_super_attribute`
+--
+ALTER TABLE `catalog_product_super_attribute`
+  ADD PRIMARY KEY (`product_super_attribute_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID_ATTRIBUTE_ID` (`product_id`,`attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_product_super_attribute_label`
+--
+ALTER TABLE `catalog_product_super_attribute_label`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID_STORE_ID` (`product_super_attribute_id`,`store_id`),
+  ADD KEY `IDX_CAT_PRD_SPR_ATTR_LBL_PRD_SPR_ATTR_ID` (`product_super_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_LABEL_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `catalog_product_super_attribute_pricing`
+--
+ALTER TABLE `catalog_product_super_attribute_pricing`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID_VAL_IDX_WS_ID` (`product_super_attribute_id`,`value_index`,`website_id`),
+  ADD KEY `IDX_CAT_PRD_SPR_ATTR_PRICING_PRD_SPR_ATTR_ID` (`product_super_attribute_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_SUPER_ATTRIBUTE_PRICING_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `catalog_product_super_link`
+--
+ALTER TABLE `catalog_product_super_link`
+  ADD PRIMARY KEY (`link_id`),
+  ADD UNIQUE KEY `UNQ_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID_PARENT_ID` (`product_id`,`parent_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PARENT_ID` (`parent_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_SUPER_LINK_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `catalog_product_website`
+--
+ALTER TABLE `catalog_product_website`
+  ADD PRIMARY KEY (`product_id`,`website_id`),
+  ADD KEY `IDX_CATALOG_PRODUCT_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `checkout_agreement`
+--
+ALTER TABLE `checkout_agreement`
+  ADD PRIMARY KEY (`agreement_id`);
+
+--
+-- Indexes for table `checkout_agreement_store`
+--
+ALTER TABLE `checkout_agreement_store`
+  ADD PRIMARY KEY (`agreement_id`,`store_id`),
+  ADD KEY `FK_CHECKOUT_AGREEMENT_STORE_STORE_ID_CORE_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `cms_block`
+--
+ALTER TABLE `cms_block`
+  ADD PRIMARY KEY (`block_id`);
+
+--
+-- Indexes for table `cms_block_store`
+--
+ALTER TABLE `cms_block_store`
+  ADD PRIMARY KEY (`block_id`,`store_id`),
+  ADD KEY `IDX_CMS_BLOCK_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `cms_page`
+--
+ALTER TABLE `cms_page`
+  ADD PRIMARY KEY (`page_id`),
+  ADD KEY `IDX_CMS_PAGE_IDENTIFIER` (`identifier`);
+
+--
+-- Indexes for table `cms_page_store`
+--
+ALTER TABLE `cms_page_store`
+  ADD PRIMARY KEY (`page_id`,`store_id`),
+  ADD KEY `IDX_CMS_PAGE_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `core_cache`
+--
+ALTER TABLE `core_cache`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_CORE_CACHE_EXPIRE_TIME` (`expire_time`);
+
+--
+-- Indexes for table `core_cache_option`
+--
+ALTER TABLE `core_cache_option`
+  ADD PRIMARY KEY (`code`);
+
+--
+-- Indexes for table `core_cache_tag`
+--
+ALTER TABLE `core_cache_tag`
+  ADD PRIMARY KEY (`tag`,`cache_id`),
+  ADD KEY `IDX_CORE_CACHE_TAG_CACHE_ID` (`cache_id`);
+
+--
+-- Indexes for table `core_config_data`
+--
+ALTER TABLE `core_config_data`
+  ADD PRIMARY KEY (`config_id`),
+  ADD UNIQUE KEY `UNQ_CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH` (`scope`,`scope_id`,`path`);
+
+--
+-- Indexes for table `core_email_template`
+--
+ALTER TABLE `core_email_template`
+  ADD PRIMARY KEY (`template_id`),
+  ADD UNIQUE KEY `UNQ_CORE_EMAIL_TEMPLATE_TEMPLATE_CODE` (`template_code`),
+  ADD KEY `IDX_CORE_EMAIL_TEMPLATE_ADDED_AT` (`added_at`),
+  ADD KEY `IDX_CORE_EMAIL_TEMPLATE_MODIFIED_AT` (`modified_at`);
+
+--
+-- Indexes for table `core_flag`
+--
+ALTER TABLE `core_flag`
+  ADD PRIMARY KEY (`flag_id`),
+  ADD KEY `IDX_CORE_FLAG_LAST_UPDATE` (`last_update`);
+
+--
+-- Indexes for table `core_layout_link`
+--
+ALTER TABLE `core_layout_link`
+  ADD PRIMARY KEY (`layout_link_id`),
+  ADD UNIQUE KEY `UNQ_CORE_LAYOUT_LINK_STORE_ID_PACKAGE_THEME_LAYOUT_UPDATE_ID` (`store_id`,`package`,`theme`,`layout_update_id`),
+  ADD KEY `IDX_CORE_LAYOUT_LINK_LAYOUT_UPDATE_ID` (`layout_update_id`);
+
+--
+-- Indexes for table `core_layout_update`
+--
+ALTER TABLE `core_layout_update`
+  ADD PRIMARY KEY (`layout_update_id`),
+  ADD KEY `IDX_CORE_LAYOUT_UPDATE_HANDLE` (`handle`);
+
+--
+-- Indexes for table `core_resource`
+--
+ALTER TABLE `core_resource`
+  ADD PRIMARY KEY (`code`);
+
+--
+-- Indexes for table `core_session`
+--
+ALTER TABLE `core_session`
+  ADD PRIMARY KEY (`session_id`);
+
+--
+-- Indexes for table `core_store`
+--
+ALTER TABLE `core_store`
+  ADD PRIMARY KEY (`store_id`),
+  ADD UNIQUE KEY `UNQ_CORE_STORE_CODE` (`code`),
+  ADD KEY `IDX_CORE_STORE_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CORE_STORE_IS_ACTIVE_SORT_ORDER` (`is_active`,`sort_order`),
+  ADD KEY `IDX_CORE_STORE_GROUP_ID` (`group_id`);
+
+--
+-- Indexes for table `core_store_group`
+--
+ALTER TABLE `core_store_group`
+  ADD PRIMARY KEY (`group_id`),
+  ADD KEY `IDX_CORE_STORE_GROUP_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_CORE_STORE_GROUP_DEFAULT_STORE_ID` (`default_store_id`);
+
+--
+-- Indexes for table `core_translate`
+--
+ALTER TABLE `core_translate`
+  ADD PRIMARY KEY (`key_id`),
+  ADD UNIQUE KEY `UNQ_CORE_TRANSLATE_STORE_ID_LOCALE_CRC_STRING_STRING` (`store_id`,`locale`,`crc_string`,`string`),
+  ADD KEY `IDX_CORE_TRANSLATE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `core_url_rewrite`
+--
+ALTER TABLE `core_url_rewrite`
+  ADD PRIMARY KEY (`url_rewrite_id`),
+  ADD UNIQUE KEY `UNQ_CORE_URL_REWRITE_REQUEST_PATH_STORE_ID` (`request_path`,`store_id`),
+  ADD UNIQUE KEY `UNQ_CORE_URL_REWRITE_ID_PATH_IS_SYSTEM_STORE_ID` (`id_path`,`is_system`,`store_id`),
+  ADD KEY `IDX_CORE_URL_REWRITE_TARGET_PATH_STORE_ID` (`target_path`,`store_id`),
+  ADD KEY `IDX_CORE_URL_REWRITE_ID_PATH` (`id_path`),
+  ADD KEY `IDX_CORE_URL_REWRITE_STORE_ID` (`store_id`),
+  ADD KEY `FK_CORE_URL_REWRITE_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID` (`category_id`),
+  ADD KEY `FK_CORE_URL_REWRITE_PRODUCT_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID` (`product_id`);
+
+--
+-- Indexes for table `core_variable`
+--
+ALTER TABLE `core_variable`
+  ADD PRIMARY KEY (`variable_id`),
+  ADD UNIQUE KEY `UNQ_CORE_VARIABLE_CODE` (`code`);
+
+--
+-- Indexes for table `core_variable_value`
+--
+ALTER TABLE `core_variable_value`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CORE_VARIABLE_VALUE_VARIABLE_ID_STORE_ID` (`variable_id`,`store_id`),
+  ADD KEY `IDX_CORE_VARIABLE_VALUE_VARIABLE_ID` (`variable_id`),
+  ADD KEY `IDX_CORE_VARIABLE_VALUE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `core_website`
+--
+ALTER TABLE `core_website`
+  ADD PRIMARY KEY (`website_id`),
+  ADD UNIQUE KEY `UNQ_CORE_WEBSITE_CODE` (`code`),
+  ADD KEY `IDX_CORE_WEBSITE_SORT_ORDER` (`sort_order`),
+  ADD KEY `IDX_CORE_WEBSITE_DEFAULT_GROUP_ID` (`default_group_id`);
+
+--
+-- Indexes for table `coupon_aggregated`
+--
+ALTER TABLE `coupon_aggregated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_COUPON_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
+  ADD KEY `IDX_COUPON_AGGREGATED_STORE_ID` (`store_id`),
+  ADD KEY `IDX_COUPON_AGGREGATED_RULE_NAME` (`rule_name`);
+
+--
+-- Indexes for table `coupon_aggregated_order`
+--
+ALTER TABLE `coupon_aggregated_order`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_COUPON_AGGRED_ORDER_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
+  ADD KEY `IDX_COUPON_AGGREGATED_ORDER_STORE_ID` (`store_id`),
+  ADD KEY `IDX_COUPON_AGGREGATED_ORDER_RULE_NAME` (`rule_name`);
+
+--
+-- Indexes for table `coupon_aggregated_updated`
+--
+ALTER TABLE `coupon_aggregated_updated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_COUPON_AGGRED_UPDATED_PERIOD_STORE_ID_ORDER_STS_COUPON_CODE` (`period`,`store_id`,`order_status`,`coupon_code`),
+  ADD KEY `IDX_COUPON_AGGREGATED_UPDATED_STORE_ID` (`store_id`),
+  ADD KEY `IDX_COUPON_AGGREGATED_UPDATED_RULE_NAME` (`rule_name`);
+
+--
+-- Indexes for table `cron_schedule`
+--
+ALTER TABLE `cron_schedule`
+  ADD PRIMARY KEY (`schedule_id`),
+  ADD KEY `IDX_CRON_SCHEDULE_JOB_CODE` (`job_code`),
+  ADD KEY `IDX_CRON_SCHEDULE_SCHEDULED_AT_STATUS` (`scheduled_at`,`status`);
+
+--
+-- Indexes for table `customer_address_entity`
+--
+ALTER TABLE `customer_address_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `customer_address_entity_datetime`
+--
+ALTER TABLE `customer_address_entity_datetime`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CSTR_ADDR_ENTT_DTIME_ENTT_ID_ATTR_ID_VAL` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_address_entity_decimal`
+--
+ALTER TABLE `customer_address_entity_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_address_entity_int`
+--
+ALTER TABLE `customer_address_entity_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_address_entity_text`
+--
+ALTER TABLE `customer_address_entity_text`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `customer_address_entity_varchar`
+--
+ALTER TABLE `customer_address_entity_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ADDRESS_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_eav_attribute`
+--
+ALTER TABLE `customer_eav_attribute`
+  ADD PRIMARY KEY (`attribute_id`);
+
+--
+-- Indexes for table `customer_eav_attribute_website`
+--
+ALTER TABLE `customer_eav_attribute_website`
+  ADD PRIMARY KEY (`attribute_id`,`website_id`),
+  ADD KEY `IDX_CUSTOMER_EAV_ATTRIBUTE_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `customer_entity`
+--
+ALTER TABLE `customer_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_EMAIL_WEBSITE_ID` (`email`,`website_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `customer_entity_datetime`
+--
+ALTER TABLE `customer_entity_datetime`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_entity_decimal`
+--
+ALTER TABLE `customer_entity_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_entity_int`
+--
+ALTER TABLE `customer_entity_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_entity_text`
+--
+ALTER TABLE `customer_entity_text`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `customer_entity_varchar`
+--
+ALTER TABLE `customer_entity_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID` (`entity_id`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_CUSTOMER_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE` (`entity_id`,`attribute_id`,`value`);
+
+--
+-- Indexes for table `customer_form_attribute`
+--
+ALTER TABLE `customer_form_attribute`
+  ADD PRIMARY KEY (`form_code`,`attribute_id`),
+  ADD KEY `IDX_CUSTOMER_FORM_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `customer_group`
+--
+ALTER TABLE `customer_group`
+  ADD PRIMARY KEY (`customer_group_id`);
+
+--
+-- Indexes for table `dataflow_batch`
+--
+ALTER TABLE `dataflow_batch`
+  ADD PRIMARY KEY (`batch_id`),
+  ADD KEY `IDX_DATAFLOW_BATCH_PROFILE_ID` (`profile_id`),
+  ADD KEY `IDX_DATAFLOW_BATCH_STORE_ID` (`store_id`),
+  ADD KEY `IDX_DATAFLOW_BATCH_CREATED_AT` (`created_at`);
+
+--
+-- Indexes for table `dataflow_batch_export`
+--
+ALTER TABLE `dataflow_batch_export`
+  ADD PRIMARY KEY (`batch_export_id`),
+  ADD KEY `IDX_DATAFLOW_BATCH_EXPORT_BATCH_ID` (`batch_id`);
+
+--
+-- Indexes for table `dataflow_batch_import`
+--
+ALTER TABLE `dataflow_batch_import`
+  ADD PRIMARY KEY (`batch_import_id`),
+  ADD KEY `IDX_DATAFLOW_BATCH_IMPORT_BATCH_ID` (`batch_id`);
+
+--
+-- Indexes for table `dataflow_import_data`
+--
+ALTER TABLE `dataflow_import_data`
+  ADD PRIMARY KEY (`import_id`),
+  ADD KEY `IDX_DATAFLOW_IMPORT_DATA_SESSION_ID` (`session_id`);
+
+--
+-- Indexes for table `dataflow_profile`
+--
+ALTER TABLE `dataflow_profile`
+  ADD PRIMARY KEY (`profile_id`);
+
+--
+-- Indexes for table `dataflow_profile_history`
+--
+ALTER TABLE `dataflow_profile_history`
+  ADD PRIMARY KEY (`history_id`),
+  ADD KEY `IDX_DATAFLOW_PROFILE_HISTORY_PROFILE_ID` (`profile_id`);
+
+--
+-- Indexes for table `dataflow_session`
+--
+ALTER TABLE `dataflow_session`
+  ADD PRIMARY KEY (`session_id`);
+
+--
+-- Indexes for table `design_change`
+--
+ALTER TABLE `design_change`
+  ADD PRIMARY KEY (`design_change_id`),
+  ADD KEY `IDX_DESIGN_CHANGE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `directory_country`
+--
+ALTER TABLE `directory_country`
+  ADD PRIMARY KEY (`country_id`);
+
+--
+-- Indexes for table `directory_country_format`
+--
+ALTER TABLE `directory_country_format`
+  ADD PRIMARY KEY (`country_format_id`),
+  ADD UNIQUE KEY `UNQ_DIRECTORY_COUNTRY_FORMAT_COUNTRY_ID_TYPE` (`country_id`,`type`);
+
+--
+-- Indexes for table `directory_country_region`
+--
+ALTER TABLE `directory_country_region`
+  ADD PRIMARY KEY (`region_id`),
+  ADD KEY `IDX_DIRECTORY_COUNTRY_REGION_COUNTRY_ID` (`country_id`);
+
+--
+-- Indexes for table `directory_country_region_name`
+--
+ALTER TABLE `directory_country_region_name`
+  ADD PRIMARY KEY (`locale`,`region_id`),
+  ADD KEY `IDX_DIRECTORY_COUNTRY_REGION_NAME_REGION_ID` (`region_id`);
+
+--
+-- Indexes for table `directory_currency_rate`
+--
+ALTER TABLE `directory_currency_rate`
+  ADD PRIMARY KEY (`currency_from`,`currency_to`),
+  ADD KEY `IDX_DIRECTORY_CURRENCY_RATE_CURRENCY_TO` (`currency_to`);
+
+--
+-- Indexes for table `downloadable_link`
+--
+ALTER TABLE `downloadable_link`
+  ADD PRIMARY KEY (`link_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PRODUCT_ID_SORT_ORDER` (`product_id`,`sort_order`);
+
+--
+-- Indexes for table `downloadable_link_price`
+--
+ALTER TABLE `downloadable_link_price`
+  ADD PRIMARY KEY (`price_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PRICE_LINK_ID` (`link_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `downloadable_link_purchased`
+--
+ALTER TABLE `downloadable_link_purchased`
+  ADD PRIMARY KEY (`purchased_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ORDER_ITEM_ID` (`order_item_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_CUSTOMER_ID` (`customer_id`);
+
+--
+-- Indexes for table `downloadable_link_purchased_item`
+--
+ALTER TABLE `downloadable_link_purchased_item`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_LINK_HASH` (`link_hash`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_ORDER_ITEM_ID` (`order_item_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_PURCHASED_ITEM_PURCHASED_ID` (`purchased_id`);
+
+--
+-- Indexes for table `downloadable_link_title`
+--
+ALTER TABLE `downloadable_link_title`
+  ADD PRIMARY KEY (`title_id`),
+  ADD UNIQUE KEY `UNQ_DOWNLOADABLE_LINK_TITLE_LINK_ID_STORE_ID` (`link_id`,`store_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_TITLE_LINK_ID` (`link_id`),
+  ADD KEY `IDX_DOWNLOADABLE_LINK_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `downloadable_sample`
+--
+ALTER TABLE `downloadable_sample`
+  ADD PRIMARY KEY (`sample_id`),
+  ADD KEY `IDX_DOWNLOADABLE_SAMPLE_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `downloadable_sample_title`
+--
+ALTER TABLE `downloadable_sample_title`
+  ADD PRIMARY KEY (`title_id`),
+  ADD UNIQUE KEY `UNQ_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID_STORE_ID` (`sample_id`,`store_id`),
+  ADD KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_SAMPLE_ID` (`sample_id`),
+  ADD KEY `IDX_DOWNLOADABLE_SAMPLE_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_attribute`
+--
+ALTER TABLE `eav_attribute`
+  ADD PRIMARY KEY (`attribute_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_ENTITY_TYPE_ID_ATTRIBUTE_CODE` (`entity_type_id`,`attribute_code`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_ENTITY_TYPE_ID` (`entity_type_id`);
+
+--
+-- Indexes for table `eav_attribute_group`
+--
+ALTER TABLE `eav_attribute_group`
+  ADD PRIMARY KEY (`attribute_group_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_ATTRIBUTE_GROUP_NAME` (`attribute_set_id`,`attribute_group_name`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_GROUP_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`);
+
+--
+-- Indexes for table `eav_attribute_label`
+--
+ALTER TABLE `eav_attribute_label`
+  ADD PRIMARY KEY (`attribute_label_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_LABEL_ATTRIBUTE_ID_STORE_ID` (`attribute_id`,`store_id`);
+
+--
+-- Indexes for table `eav_attribute_option`
+--
+ALTER TABLE `eav_attribute_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `eav_attribute_option_value`
+--
+ALTER TABLE `eav_attribute_option_value`
+  ADD PRIMARY KEY (`value_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_OPTION_ID` (`option_id`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_attribute_set`
+--
+ALTER TABLE `eav_attribute_set`
+  ADD PRIMARY KEY (`attribute_set_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_ATTRIBUTE_SET_NAME` (`entity_type_id`,`attribute_set_name`),
+  ADD KEY `IDX_EAV_ATTRIBUTE_SET_ENTITY_TYPE_ID_SORT_ORDER` (`entity_type_id`,`sort_order`);
+
+--
+-- Indexes for table `eav_entity`
+--
+ALTER TABLE `eav_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_EAV_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_entity_attribute`
+--
+ALTER TABLE `eav_entity_attribute`
+  ADD PRIMARY KEY (`entity_attribute_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_ATTRIBUTE_ID` (`attribute_set_id`,`attribute_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_GROUP_ID_ATTRIBUTE_ID` (`attribute_group_id`,`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_SET_ID_SORT_ORDER` (`attribute_set_id`,`sort_order`),
+  ADD KEY `IDX_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `eav_entity_datetime`
+--
+ALTER TABLE `eav_entity_datetime`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
+  ADD KEY `IDX_EAV_ENTITY_DATETIME_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
+
+--
+-- Indexes for table `eav_entity_decimal`
+--
+ALTER TABLE `eav_entity_decimal`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
+  ADD KEY `IDX_EAV_ENTITY_DECIMAL_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
+
+--
+-- Indexes for table `eav_entity_int`
+--
+ALTER TABLE `eav_entity_int`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_INT_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_EAV_ENTITY_INT_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
+  ADD KEY `IDX_EAV_ENTITY_INT_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
+
+--
+-- Indexes for table `eav_entity_store`
+--
+ALTER TABLE `eav_entity_store`
+  ADD PRIMARY KEY (`entity_store_id`),
+  ADD KEY `IDX_EAV_ENTITY_STORE_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_entity_text`
+--
+ALTER TABLE `eav_entity_text`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_TEXT_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_TEXT_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_TEXT_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_TEXT_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `eav_entity_type`
+--
+ALTER TABLE `eav_entity_type`
+  ADD PRIMARY KEY (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_TYPE_ENTITY_TYPE_CODE` (`entity_type_code`);
+
+--
+-- Indexes for table `eav_entity_varchar`
+--
+ALTER TABLE `eav_entity_varchar`
+  ADD PRIMARY KEY (`value_id`),
+  ADD UNIQUE KEY `UNQ_EAV_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID` (`entity_type_id`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID` (`attribute_id`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_STORE_ID` (`store_id`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_ATTRIBUTE_ID_VALUE` (`attribute_id`,`value`),
+  ADD KEY `IDX_EAV_ENTITY_VARCHAR_ENTITY_TYPE_ID_VALUE` (`entity_type_id`,`value`);
+
+--
+-- Indexes for table `eav_form_element`
+--
+ALTER TABLE `eav_form_element`
+  ADD PRIMARY KEY (`element_id`),
+  ADD UNIQUE KEY `UNQ_EAV_FORM_ELEMENT_TYPE_ID_ATTRIBUTE_ID` (`type_id`,`attribute_id`),
+  ADD KEY `IDX_EAV_FORM_ELEMENT_TYPE_ID` (`type_id`),
+  ADD KEY `IDX_EAV_FORM_ELEMENT_FIELDSET_ID` (`fieldset_id`),
+  ADD KEY `IDX_EAV_FORM_ELEMENT_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `eav_form_fieldset`
+--
+ALTER TABLE `eav_form_fieldset`
+  ADD PRIMARY KEY (`fieldset_id`),
+  ADD UNIQUE KEY `UNQ_EAV_FORM_FIELDSET_TYPE_ID_CODE` (`type_id`,`code`),
+  ADD KEY `IDX_EAV_FORM_FIELDSET_TYPE_ID` (`type_id`);
+
+--
+-- Indexes for table `eav_form_fieldset_label`
+--
+ALTER TABLE `eav_form_fieldset_label`
+  ADD PRIMARY KEY (`fieldset_id`,`store_id`),
+  ADD KEY `IDX_EAV_FORM_FIELDSET_LABEL_FIELDSET_ID` (`fieldset_id`),
+  ADD KEY `IDX_EAV_FORM_FIELDSET_LABEL_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_form_type`
+--
+ALTER TABLE `eav_form_type`
+  ADD PRIMARY KEY (`type_id`),
+  ADD UNIQUE KEY `UNQ_EAV_FORM_TYPE_CODE_THEME_STORE_ID` (`code`,`theme`,`store_id`),
+  ADD KEY `IDX_EAV_FORM_TYPE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `eav_form_type_entity`
+--
+ALTER TABLE `eav_form_type_entity`
+  ADD PRIMARY KEY (`type_id`,`entity_type_id`),
+  ADD KEY `IDX_EAV_FORM_TYPE_ENTITY_ENTITY_TYPE_ID` (`entity_type_id`);
+
+--
+-- Indexes for table `gift_message`
+--
+ALTER TABLE `gift_message`
+  ADD PRIMARY KEY (`gift_message_id`);
+
+--
+-- Indexes for table `googlecheckout_notification`
+--
+ALTER TABLE `googlecheckout_notification`
+  ADD PRIMARY KEY (`serial_number`);
+
+--
+-- Indexes for table `importexport_importdata`
+--
+ALTER TABLE `importexport_importdata`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `index_event`
+--
+ALTER TABLE `index_event`
+  ADD PRIMARY KEY (`event_id`),
+  ADD UNIQUE KEY `UNQ_INDEX_EVENT_TYPE_ENTITY_ENTITY_PK` (`type`,`entity`,`entity_pk`);
+
+--
+-- Indexes for table `index_process`
+--
+ALTER TABLE `index_process`
+  ADD PRIMARY KEY (`process_id`),
+  ADD UNIQUE KEY `UNQ_INDEX_PROCESS_INDEXER_CODE` (`indexer_code`);
+
+--
+-- Indexes for table `index_process_event`
+--
+ALTER TABLE `index_process_event`
+  ADD PRIMARY KEY (`process_id`,`event_id`),
+  ADD KEY `IDX_INDEX_PROCESS_EVENT_EVENT_ID` (`event_id`);
+
+--
+-- Indexes for table `log_customer`
+--
+ALTER TABLE `log_customer`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `IDX_LOG_CUSTOMER_VISITOR_ID` (`visitor_id`);
+
+--
+-- Indexes for table `log_quote`
+--
+ALTER TABLE `log_quote`
+  ADD PRIMARY KEY (`quote_id`);
+
+--
+-- Indexes for table `log_summary`
+--
+ALTER TABLE `log_summary`
+  ADD PRIMARY KEY (`summary_id`);
+
+--
+-- Indexes for table `log_summary_type`
+--
+ALTER TABLE `log_summary_type`
+  ADD PRIMARY KEY (`type_id`);
+
+--
+-- Indexes for table `log_url`
+--
+ALTER TABLE `log_url`
+  ADD PRIMARY KEY (`url_id`),
+  ADD KEY `IDX_LOG_URL_VISITOR_ID` (`visitor_id`);
+
+--
+-- Indexes for table `log_url_info`
+--
+ALTER TABLE `log_url_info`
+  ADD PRIMARY KEY (`url_id`);
+
+--
+-- Indexes for table `log_visitor`
+--
+ALTER TABLE `log_visitor`
+  ADD PRIMARY KEY (`visitor_id`);
+
+--
+-- Indexes for table `log_visitor_info`
+--
+ALTER TABLE `log_visitor_info`
+  ADD PRIMARY KEY (`visitor_id`);
+
+--
+-- Indexes for table `log_visitor_online`
+--
+ALTER TABLE `log_visitor_online`
+  ADD PRIMARY KEY (`visitor_id`),
+  ADD KEY `IDX_LOG_VISITOR_ONLINE_VISITOR_TYPE` (`visitor_type`),
+  ADD KEY `IDX_LOG_VISITOR_ONLINE_FIRST_VISIT_AT_LAST_VISIT_AT` (`first_visit_at`,`last_visit_at`),
+  ADD KEY `IDX_LOG_VISITOR_ONLINE_CUSTOMER_ID` (`customer_id`);
+
+--
+-- Indexes for table `newsletter_problem`
+--
+ALTER TABLE `newsletter_problem`
+  ADD PRIMARY KEY (`problem_id`),
+  ADD KEY `IDX_NEWSLETTER_PROBLEM_SUBSCRIBER_ID` (`subscriber_id`),
+  ADD KEY `IDX_NEWSLETTER_PROBLEM_QUEUE_ID` (`queue_id`);
+
+--
+-- Indexes for table `newsletter_queue`
+--
+ALTER TABLE `newsletter_queue`
+  ADD PRIMARY KEY (`queue_id`),
+  ADD KEY `IDX_NEWSLETTER_QUEUE_TEMPLATE_ID` (`template_id`);
+
+--
+-- Indexes for table `newsletter_queue_link`
+--
+ALTER TABLE `newsletter_queue_link`
+  ADD PRIMARY KEY (`queue_link_id`),
+  ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_SUBSCRIBER_ID` (`subscriber_id`),
+  ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID` (`queue_id`),
+  ADD KEY `IDX_NEWSLETTER_QUEUE_LINK_QUEUE_ID_LETTER_SENT_AT` (`queue_id`,`letter_sent_at`);
+
+--
+-- Indexes for table `newsletter_queue_store_link`
+--
+ALTER TABLE `newsletter_queue_store_link`
+  ADD PRIMARY KEY (`queue_id`,`store_id`),
+  ADD KEY `IDX_NEWSLETTER_QUEUE_STORE_LINK_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `newsletter_subscriber`
+--
+ALTER TABLE `newsletter_subscriber`
+  ADD PRIMARY KEY (`subscriber_id`),
+  ADD KEY `IDX_NEWSLETTER_SUBSCRIBER_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_NEWSLETTER_SUBSCRIBER_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `newsletter_template`
+--
+ALTER TABLE `newsletter_template`
+  ADD PRIMARY KEY (`template_id`),
+  ADD KEY `IDX_NEWSLETTER_TEMPLATE_TEMPLATE_ACTUAL` (`template_actual`),
+  ADD KEY `IDX_NEWSLETTER_TEMPLATE_ADDED_AT` (`added_at`),
+  ADD KEY `IDX_NEWSLETTER_TEMPLATE_MODIFIED_AT` (`modified_at`);
+
+--
+-- Indexes for table `oauth_consumer`
+--
+ALTER TABLE `oauth_consumer`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_OAUTH_CONSUMER_KEY` (`key`),
+  ADD UNIQUE KEY `UNQ_OAUTH_CONSUMER_SECRET` (`secret`),
+  ADD KEY `IDX_OAUTH_CONSUMER_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_OAUTH_CONSUMER_UPDATED_AT` (`updated_at`);
+
+--
+-- Indexes for table `oauth_nonce`
+--
+ALTER TABLE `oauth_nonce`
+  ADD UNIQUE KEY `UNQ_OAUTH_NONCE_NONCE` (`nonce`);
+
+--
+-- Indexes for table `oauth_token`
+--
+ALTER TABLE `oauth_token`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_OAUTH_TOKEN_TOKEN` (`token`),
+  ADD KEY `IDX_OAUTH_TOKEN_CONSUMER_ID` (`consumer_id`),
+  ADD KEY `FK_OAUTH_TOKEN_ADMIN_ID_ADMIN_USER_USER_ID` (`admin_id`),
+  ADD KEY `FK_OAUTH_TOKEN_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`customer_id`);
+
+--
+-- Indexes for table `paypal_cert`
+--
+ALTER TABLE `paypal_cert`
+  ADD PRIMARY KEY (`cert_id`),
+  ADD KEY `IDX_PAYPAL_CERT_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `paypal_payment_transaction`
+--
+ALTER TABLE `paypal_payment_transaction`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD UNIQUE KEY `UNQ_PAYPAL_PAYMENT_TRANSACTION_TXN_ID` (`txn_id`);
+
+--
+-- Indexes for table `paypal_settlement_report`
+--
+ALTER TABLE `paypal_settlement_report`
+  ADD PRIMARY KEY (`report_id`),
+  ADD UNIQUE KEY `UNQ_PAYPAL_SETTLEMENT_REPORT_REPORT_DATE_ACCOUNT_ID` (`report_date`,`account_id`);
+
+--
+-- Indexes for table `paypal_settlement_report_row`
+--
+ALTER TABLE `paypal_settlement_report_row`
+  ADD PRIMARY KEY (`row_id`),
+  ADD KEY `IDX_PAYPAL_SETTLEMENT_REPORT_ROW_REPORT_ID` (`report_id`);
+
+--
+-- Indexes for table `persistent_session`
+--
+ALTER TABLE `persistent_session`
+  ADD PRIMARY KEY (`persistent_id`),
+  ADD UNIQUE KEY `IDX_PERSISTENT_SESSION_KEY` (`key`),
+  ADD UNIQUE KEY `IDX_PERSISTENT_SESSION_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_PERSISTENT_SESSION_UPDATED_AT` (`updated_at`),
+  ADD KEY `FK_PERSISTENT_SESSION_WEBSITE_ID_CORE_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `poll`
+--
+ALTER TABLE `poll`
+  ADD PRIMARY KEY (`poll_id`),
+  ADD KEY `IDX_POLL_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `poll_answer`
+--
+ALTER TABLE `poll_answer`
+  ADD PRIMARY KEY (`answer_id`),
+  ADD KEY `IDX_POLL_ANSWER_POLL_ID` (`poll_id`);
+
+--
+-- Indexes for table `poll_store`
+--
+ALTER TABLE `poll_store`
+  ADD PRIMARY KEY (`poll_id`,`store_id`),
+  ADD KEY `IDX_POLL_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `poll_vote`
+--
+ALTER TABLE `poll_vote`
+  ADD PRIMARY KEY (`vote_id`),
+  ADD KEY `IDX_POLL_VOTE_POLL_ANSWER_ID` (`poll_answer_id`);
+
+--
+-- Indexes for table `product_alert_price`
+--
+ALTER TABLE `product_alert_price`
+  ADD PRIMARY KEY (`alert_price_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_PRICE_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_PRICE_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_PRICE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `product_alert_stock`
+--
+ALTER TABLE `product_alert_stock`
+  ADD PRIMARY KEY (`alert_stock_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_STOCK_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_STOCK_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_PRODUCT_ALERT_STOCK_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rating_id`),
+  ADD UNIQUE KEY `UNQ_RATING_RATING_CODE` (`rating_code`),
+  ADD KEY `IDX_RATING_ENTITY_ID` (`entity_id`);
+
+--
+-- Indexes for table `rating_entity`
+--
+ALTER TABLE `rating_entity`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_RATING_ENTITY_ENTITY_CODE` (`entity_code`);
+
+--
+-- Indexes for table `rating_option`
+--
+ALTER TABLE `rating_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `IDX_RATING_OPTION_RATING_ID` (`rating_id`);
+
+--
+-- Indexes for table `rating_option_vote`
+--
+ALTER TABLE `rating_option_vote`
+  ADD PRIMARY KEY (`vote_id`),
+  ADD KEY `IDX_RATING_OPTION_VOTE_OPTION_ID` (`option_id`),
+  ADD KEY `FK_RATING_OPTION_VOTE_REVIEW_ID_REVIEW_REVIEW_ID` (`review_id`);
+
+--
+-- Indexes for table `rating_option_vote_aggregated`
+--
+ALTER TABLE `rating_option_vote_aggregated`
+  ADD PRIMARY KEY (`primary_id`),
+  ADD KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_RATING_ID` (`rating_id`),
+  ADD KEY `IDX_RATING_OPTION_VOTE_AGGREGATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `rating_store`
+--
+ALTER TABLE `rating_store`
+  ADD PRIMARY KEY (`rating_id`,`store_id`),
+  ADD KEY `IDX_RATING_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `rating_title`
+--
+ALTER TABLE `rating_title`
+  ADD PRIMARY KEY (`rating_id`,`store_id`),
+  ADD KEY `IDX_RATING_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `report_compared_product_index`
+--
+ALTER TABLE `report_compared_product_index`
+  ADD PRIMARY KEY (`index_id`),
+  ADD UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
+  ADD UNIQUE KEY `UNQ_REPORT_COMPARED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
+  ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_ADDED_AT` (`added_at`),
+  ADD KEY `IDX_REPORT_COMPARED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `report_event`
+--
+ALTER TABLE `report_event`
+  ADD PRIMARY KEY (`event_id`),
+  ADD KEY `IDX_REPORT_EVENT_EVENT_TYPE_ID` (`event_type_id`),
+  ADD KEY `IDX_REPORT_EVENT_SUBJECT_ID` (`subject_id`),
+  ADD KEY `IDX_REPORT_EVENT_OBJECT_ID` (`object_id`),
+  ADD KEY `IDX_REPORT_EVENT_SUBTYPE` (`subtype`),
+  ADD KEY `IDX_REPORT_EVENT_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `report_event_types`
+--
+ALTER TABLE `report_event_types`
+  ADD PRIMARY KEY (`event_type_id`);
+
+--
+-- Indexes for table `report_viewed_product_aggregated_daily`
+--
+ALTER TABLE `report_viewed_product_aggregated_daily`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `report_viewed_product_aggregated_monthly`
+--
+ALTER TABLE `report_viewed_product_aggregated_monthly`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `report_viewed_product_aggregated_yearly`
+--
+ALTER TABLE `report_viewed_product_aggregated_yearly`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRD_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `report_viewed_product_index`
+--
+ALTER TABLE `report_viewed_product_index`
+  ADD PRIMARY KEY (`index_id`),
+  ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_VISITOR_ID_PRODUCT_ID` (`visitor_id`,`product_id`),
+  ADD UNIQUE KEY `UNQ_REPORT_VIEWED_PRODUCT_INDEX_CUSTOMER_ID_PRODUCT_ID` (`customer_id`,`product_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_ADDED_AT` (`added_at`),
+  ADD KEY `IDX_REPORT_VIEWED_PRODUCT_INDEX_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`review_id`),
+  ADD KEY `IDX_REVIEW_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_REVIEW_STATUS_ID` (`status_id`),
+  ADD KEY `IDX_REVIEW_ENTITY_PK_VALUE` (`entity_pk_value`);
+
+--
+-- Indexes for table `review_detail`
+--
+ALTER TABLE `review_detail`
+  ADD PRIMARY KEY (`detail_id`),
+  ADD KEY `IDX_REVIEW_DETAIL_REVIEW_ID` (`review_id`),
+  ADD KEY `IDX_REVIEW_DETAIL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_REVIEW_DETAIL_CUSTOMER_ID` (`customer_id`);
+
+--
+-- Indexes for table `review_entity`
+--
+ALTER TABLE `review_entity`
+  ADD PRIMARY KEY (`entity_id`);
+
+--
+-- Indexes for table `review_entity_summary`
+--
+ALTER TABLE `review_entity_summary`
+  ADD PRIMARY KEY (`primary_id`),
+  ADD KEY `IDX_REVIEW_ENTITY_SUMMARY_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `review_status`
+--
+ALTER TABLE `review_status`
+  ADD PRIMARY KEY (`status_id`);
+
+--
+-- Indexes for table `review_store`
+--
+ALTER TABLE `review_store`
+  ADD PRIMARY KEY (`review_id`,`store_id`),
+  ADD KEY `IDX_REVIEW_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `salesrule`
+--
+ALTER TABLE `salesrule`
+  ADD PRIMARY KEY (`rule_id`),
+  ADD KEY `IDX_SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`);
+
+--
+-- Indexes for table `salesrule_coupon`
+--
+ALTER TABLE `salesrule_coupon`
+  ADD PRIMARY KEY (`coupon_id`),
+  ADD UNIQUE KEY `UNQ_SALESRULE_COUPON_CODE` (`code`),
+  ADD UNIQUE KEY `UNQ_SALESRULE_COUPON_RULE_ID_IS_PRIMARY` (`rule_id`,`is_primary`),
+  ADD KEY `IDX_SALESRULE_COUPON_RULE_ID` (`rule_id`);
+
+--
+-- Indexes for table `salesrule_coupon_usage`
+--
+ALTER TABLE `salesrule_coupon_usage`
+  ADD PRIMARY KEY (`coupon_id`,`customer_id`),
+  ADD KEY `IDX_SALESRULE_COUPON_USAGE_COUPON_ID` (`coupon_id`),
+  ADD KEY `IDX_SALESRULE_COUPON_USAGE_CUSTOMER_ID` (`customer_id`);
+
+--
+-- Indexes for table `salesrule_customer`
+--
+ALTER TABLE `salesrule_customer`
+  ADD PRIMARY KEY (`rule_customer_id`),
+  ADD KEY `IDX_SALESRULE_CUSTOMER_RULE_ID_CUSTOMER_ID` (`rule_id`,`customer_id`),
+  ADD KEY `IDX_SALESRULE_CUSTOMER_CUSTOMER_ID_RULE_ID` (`customer_id`,`rule_id`);
+
+--
+-- Indexes for table `salesrule_customer_group`
+--
+ALTER TABLE `salesrule_customer_group`
+  ADD PRIMARY KEY (`rule_id`,`customer_group_id`),
+  ADD KEY `IDX_SALESRULE_CUSTOMER_GROUP_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_SALESRULE_CUSTOMER_GROUP_CUSTOMER_GROUP_ID` (`customer_group_id`);
+
+--
+-- Indexes for table `salesrule_label`
+--
+ALTER TABLE `salesrule_label`
+  ADD PRIMARY KEY (`label_id`),
+  ADD UNIQUE KEY `UNQ_SALESRULE_LABEL_RULE_ID_STORE_ID` (`rule_id`,`store_id`),
+  ADD KEY `IDX_SALESRULE_LABEL_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALESRULE_LABEL_RULE_ID` (`rule_id`);
+
+--
+-- Indexes for table `salesrule_product_attribute`
+--
+ALTER TABLE `salesrule_product_attribute`
+  ADD PRIMARY KEY (`rule_id`,`website_id`,`customer_group_id`,`attribute_id`),
+  ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_CUSTOMER_GROUP_ID` (`customer_group_id`),
+  ADD KEY `IDX_SALESRULE_PRODUCT_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `salesrule_website`
+--
+ALTER TABLE `salesrule_website`
+  ADD PRIMARY KEY (`rule_id`,`website_id`),
+  ADD KEY `IDX_SALESRULE_WEBSITE_RULE_ID` (`rule_id`),
+  ADD KEY `IDX_SALESRULE_WEBSITE_WEBSITE_ID` (`website_id`);
+
+--
+-- Indexes for table `sales_bestsellers_aggregated_daily`
+--
+ALTER TABLE `sales_bestsellers_aggregated_daily`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_DAILY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_DAILY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `sales_bestsellers_aggregated_monthly`
+--
+ALTER TABLE `sales_bestsellers_aggregated_monthly`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_MONTHLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_MONTHLY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `sales_bestsellers_aggregated_yearly`
+--
+ALTER TABLE `sales_bestsellers_aggregated_yearly`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_BESTSELLERS_AGGRED_YEARLY_PERIOD_STORE_ID_PRD_ID` (`period`,`store_id`,`product_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_BESTSELLERS_AGGREGATED_YEARLY_PRODUCT_ID` (`product_id`);
+
+--
+-- Indexes for table `sales_billing_agreement`
+--
+ALTER TABLE `sales_billing_agreement`
+  ADD PRIMARY KEY (`agreement_id`),
+  ADD KEY `IDX_SALES_BILLING_AGREEMENT_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_SALES_BILLING_AGREEMENT_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_billing_agreement_order`
+--
+ALTER TABLE `sales_billing_agreement_order`
+  ADD PRIMARY KEY (`agreement_id`,`order_id`),
+  ADD KEY `IDX_SALES_BILLING_AGREEMENT_ORDER_ORDER_ID` (`order_id`);
+
+--
+-- Indexes for table `sales_flat_creditmemo`
+--
+ALTER TABLE `sales_flat_creditmemo`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_CREDITMEMO_STATUS` (`creditmemo_status`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_STATE` (`state`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_CREATED_AT` (`created_at`);
+
+--
+-- Indexes for table `sales_flat_creditmemo_comment`
+--
+ALTER TABLE `sales_flat_creditmemo_comment`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_COMMENT_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_creditmemo_grid`
+--
+ALTER TABLE `sales_flat_creditmemo_grid`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_CREDITMEMO_GRID_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_GRAND_TOTAL` (`grand_total`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BASE_GRAND_TOTAL` (`base_grand_total`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREDITMEMO_STATUS` (`creditmemo_status`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_STATE` (`state`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_ORDER_CREATED_AT` (`order_created_at`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_GRID_BILLING_NAME` (`billing_name`);
+
+--
+-- Indexes for table `sales_flat_creditmemo_item`
+--
+ALTER TABLE `sales_flat_creditmemo_item`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_CREDITMEMO_ITEM_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_invoice`
+--
+ALTER TABLE `sales_flat_invoice`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRAND_TOTAL` (`grand_total`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_STATE` (`state`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_CREATED_AT` (`created_at`);
+
+--
+-- Indexes for table `sales_flat_invoice_comment`
+--
+ALTER TABLE `sales_flat_invoice_comment`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_COMMENT_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_COMMENT_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_invoice_grid`
+--
+ALTER TABLE `sales_flat_invoice_grid`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_INVOICE_GRID_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_GRAND_TOTAL` (`grand_total`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_STATE` (`state`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_ORDER_CREATED_AT` (`order_created_at`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_GRID_BILLING_NAME` (`billing_name`);
+
+--
+-- Indexes for table `sales_flat_invoice_item`
+--
+ALTER TABLE `sales_flat_invoice_item`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_INVOICE_ITEM_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_order`
+--
+ALTER TABLE `sales_flat_order`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_ORDER_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_STATUS` (`status`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_STATE` (`state`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_EXT_ORDER_ID` (`ext_order_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_QUOTE_ID` (`quote_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_UPDATED_AT` (`updated_at`);
+
+--
+-- Indexes for table `sales_flat_order_address`
+--
+ALTER TABLE `sales_flat_order_address`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_ADDRESS_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_order_grid`
+--
+ALTER TABLE `sales_flat_order_grid`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_ORDER_GRID_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_STATUS` (`status`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_GRAND_TOTAL` (`base_grand_total`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BASE_TOTAL_PAID` (`base_total_paid`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_GRAND_TOTAL` (`grand_total`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_TOTAL_PAID` (`total_paid`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_SHIPPING_NAME` (`shipping_name`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_BILLING_NAME` (`billing_name`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_GRID_UPDATED_AT` (`updated_at`);
+
+--
+-- Indexes for table `sales_flat_order_item`
+--
+ALTER TABLE `sales_flat_order_item`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_ITEM_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_ITEM_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_flat_order_payment`
+--
+ALTER TABLE `sales_flat_order_payment`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_PAYMENT_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_order_status_history`
+--
+ALTER TABLE `sales_flat_order_status_history`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_PARENT_ID` (`parent_id`),
+  ADD KEY `IDX_SALES_FLAT_ORDER_STATUS_HISTORY_CREATED_AT` (`created_at`);
+
+--
+-- Indexes for table `sales_flat_quote`
+--
+ALTER TABLE `sales_flat_quote`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_CUSTOMER_ID_STORE_ID_IS_ACTIVE` (`customer_id`,`store_id`,`is_active`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_flat_quote_address`
+--
+ALTER TABLE `sales_flat_quote_address`
+  ADD PRIMARY KEY (`address_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_QUOTE_ID` (`quote_id`);
+
+--
+-- Indexes for table `sales_flat_quote_address_item`
+--
+ALTER TABLE `sales_flat_quote_address_item`
+  ADD PRIMARY KEY (`address_item_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ADDRESS_ID` (`quote_address_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_PARENT_ITEM_ID` (`parent_item_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ADDRESS_ITEM_QUOTE_ITEM_ID` (`quote_item_id`);
+
+--
+-- Indexes for table `sales_flat_quote_item`
+--
+ALTER TABLE `sales_flat_quote_item`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_PARENT_ITEM_ID` (`parent_item_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_QUOTE_ID` (`quote_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_flat_quote_item_option`
+--
+ALTER TABLE `sales_flat_quote_item_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_ITEM_OPTION_ITEM_ID` (`item_id`);
+
+--
+-- Indexes for table `sales_flat_quote_payment`
+--
+ALTER TABLE `sales_flat_quote_payment`
+  ADD PRIMARY KEY (`payment_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_PAYMENT_QUOTE_ID` (`quote_id`);
+
+--
+-- Indexes for table `sales_flat_quote_shipping_rate`
+--
+ALTER TABLE `sales_flat_quote_shipping_rate`
+  ADD PRIMARY KEY (`rate_id`),
+  ADD KEY `IDX_SALES_FLAT_QUOTE_SHIPPING_RATE_ADDRESS_ID` (`address_id`);
+
+--
+-- Indexes for table `sales_flat_shipment`
+--
+ALTER TABLE `sales_flat_shipment`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_TOTAL_QTY` (`total_qty`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_UPDATED_AT` (`updated_at`);
+
+--
+-- Indexes for table `sales_flat_shipment_comment`
+--
+ALTER TABLE `sales_flat_shipment_comment`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_COMMENT_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_shipment_grid`
+--
+ALTER TABLE `sales_flat_shipment_grid`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD UNIQUE KEY `UNQ_SALES_FLAT_SHIPMENT_GRID_INCREMENT_ID` (`increment_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_STORE_ID` (`store_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_TOTAL_QTY` (`total_qty`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPMENT_STATUS` (`shipment_status`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_INCREMENT_ID` (`order_increment_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_CREATED_AT` (`created_at`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_ORDER_CREATED_AT` (`order_created_at`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_GRID_SHIPPING_NAME` (`shipping_name`);
+
+--
+-- Indexes for table `sales_flat_shipment_item`
+--
+ALTER TABLE `sales_flat_shipment_item`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_ITEM_PARENT_ID` (`parent_id`);
+
+--
+-- Indexes for table `sales_flat_shipment_track`
+--
+ALTER TABLE `sales_flat_shipment_track`
+  ADD PRIMARY KEY (`entity_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_PARENT_ID` (`parent_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_FLAT_SHIPMENT_TRACK_CREATED_AT` (`created_at`);
+
+--
+-- Indexes for table `sales_invoiced_aggregated`
+--
+ALTER TABLE `sales_invoiced_aggregated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_INVOICED_AGGREGATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_invoiced_aggregated_order`
+--
+ALTER TABLE `sales_invoiced_aggregated_order`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_INVOICED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_INVOICED_AGGREGATED_ORDER_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_order_aggregated_created`
+--
+ALTER TABLE `sales_order_aggregated_created`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_CREATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_order_aggregated_updated`
+--
+ALTER TABLE `sales_order_aggregated_updated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_ORDER_AGGREGATED_UPDATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_order_status`
+--
+ALTER TABLE `sales_order_status`
+  ADD PRIMARY KEY (`status`);
+
+--
+-- Indexes for table `sales_order_status_label`
+--
+ALTER TABLE `sales_order_status_label`
+  ADD PRIMARY KEY (`status`,`store_id`),
+  ADD KEY `IDX_SALES_ORDER_STATUS_LABEL_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_order_status_state`
+--
+ALTER TABLE `sales_order_status_state`
+  ADD PRIMARY KEY (`status`,`state`);
+
+--
+-- Indexes for table `sales_order_tax`
+--
+ALTER TABLE `sales_order_tax`
+  ADD PRIMARY KEY (`tax_id`),
+  ADD KEY `IDX_SALES_ORDER_TAX_ORDER_ID_PRIORITY_POSITION` (`order_id`,`priority`,`position`);
+
+--
+-- Indexes for table `sales_order_tax_item`
+--
+ALTER TABLE `sales_order_tax_item`
+  ADD PRIMARY KEY (`tax_item_id`),
+  ADD UNIQUE KEY `UNQ_SALES_ORDER_TAX_ITEM_TAX_ID_ITEM_ID` (`tax_id`,`item_id`),
+  ADD KEY `IDX_SALES_ORDER_TAX_ITEM_TAX_ID` (`tax_id`),
+  ADD KEY `IDX_SALES_ORDER_TAX_ITEM_ITEM_ID` (`item_id`);
+
+--
+-- Indexes for table `sales_payment_transaction`
+--
+ALTER TABLE `sales_payment_transaction`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD UNIQUE KEY `UNQ_SALES_PAYMENT_TRANSACTION_ORDER_ID_PAYMENT_ID_TXN_ID` (`order_id`,`payment_id`,`txn_id`),
+  ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_ORDER_ID` (`order_id`),
+  ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_PARENT_ID` (`parent_id`),
+  ADD KEY `IDX_SALES_PAYMENT_TRANSACTION_PAYMENT_ID` (`payment_id`);
+
+--
+-- Indexes for table `sales_recurring_profile`
+--
+ALTER TABLE `sales_recurring_profile`
+  ADD PRIMARY KEY (`profile_id`),
+  ADD UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_INTERNAL_REFERENCE_ID` (`internal_reference_id`),
+  ADD KEY `IDX_SALES_RECURRING_PROFILE_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_SALES_RECURRING_PROFILE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_recurring_profile_order`
+--
+ALTER TABLE `sales_recurring_profile_order`
+  ADD PRIMARY KEY (`link_id`),
+  ADD UNIQUE KEY `UNQ_SALES_RECURRING_PROFILE_ORDER_PROFILE_ID_ORDER_ID` (`profile_id`,`order_id`),
+  ADD KEY `IDX_SALES_RECURRING_PROFILE_ORDER_ORDER_ID` (`order_id`);
+
+--
+-- Indexes for table `sales_refunded_aggregated`
+--
+ALTER TABLE `sales_refunded_aggregated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_REFUNDED_AGGREGATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_refunded_aggregated_order`
+--
+ALTER TABLE `sales_refunded_aggregated_order`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_REFUNDED_AGGREGATED_ORDER_PERIOD_STORE_ID_ORDER_STATUS` (`period`,`store_id`,`order_status`),
+  ADD KEY `IDX_SALES_REFUNDED_AGGREGATED_ORDER_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_shipping_aggregated`
+--
+ALTER TABLE `sales_shipping_aggregated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNQ_SALES_SHPP_AGGRED_PERIOD_STORE_ID_ORDER_STS_SHPP_DESCRIPTION` (`period`,`store_id`,`order_status`,`shipping_description`),
+  ADD KEY `IDX_SALES_SHIPPING_AGGREGATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sales_shipping_aggregated_order`
+--
+ALTER TABLE `sales_shipping_aggregated_order`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `C05FAE47282EEA68654D0924E946761F` (`period`,`store_id`,`order_status`,`shipping_description`),
+  ADD KEY `IDX_SALES_SHIPPING_AGGREGATED_ORDER_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `sendfriend_log`
+--
+ALTER TABLE `sendfriend_log`
+  ADD PRIMARY KEY (`log_id`),
+  ADD KEY `IDX_SENDFRIEND_LOG_IP` (`ip`),
+  ADD KEY `IDX_SENDFRIEND_LOG_TIME` (`time`);
+
+--
+-- Indexes for table `shipping_tablerate`
+--
+ALTER TABLE `shipping_tablerate`
+  ADD PRIMARY KEY (`pk`),
+  ADD UNIQUE KEY `D60821CDB2AFACEE1566CFC02D0D4CAA` (`website_id`,`dest_country_id`,`dest_region_id`,`dest_zip`,`condition_name`,`condition_value`);
+
+--
+-- Indexes for table `sitemap`
+--
+ALTER TABLE `sitemap`
+  ADD PRIMARY KEY (`sitemap_id`),
+  ADD KEY `IDX_SITEMAP_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`tag_id`),
+  ADD KEY `FK_TAG_FIRST_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID` (`first_customer_id`),
+  ADD KEY `FK_TAG_FIRST_STORE_ID_CORE_STORE_STORE_ID` (`first_store_id`);
+
+--
+-- Indexes for table `tag_properties`
+--
+ALTER TABLE `tag_properties`
+  ADD PRIMARY KEY (`tag_id`,`store_id`),
+  ADD KEY `IDX_TAG_PROPERTIES_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `tag_relation`
+--
+ALTER TABLE `tag_relation`
+  ADD PRIMARY KEY (`tag_relation_id`),
+  ADD UNIQUE KEY `UNQ_TAG_RELATION_TAG_ID_CUSTOMER_ID_PRODUCT_ID_STORE_ID` (`tag_id`,`customer_id`,`product_id`,`store_id`),
+  ADD KEY `IDX_TAG_RELATION_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_TAG_RELATION_TAG_ID` (`tag_id`),
+  ADD KEY `IDX_TAG_RELATION_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_TAG_RELATION_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `tag_summary`
+--
+ALTER TABLE `tag_summary`
+  ADD PRIMARY KEY (`tag_id`,`store_id`),
+  ADD KEY `IDX_TAG_SUMMARY_STORE_ID` (`store_id`),
+  ADD KEY `IDX_TAG_SUMMARY_TAG_ID` (`tag_id`);
+
+--
+-- Indexes for table `tax_calculation`
+--
+ALTER TABLE `tax_calculation`
+  ADD PRIMARY KEY (`tax_calculation_id`),
+  ADD KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RULE_ID` (`tax_calculation_rule_id`),
+  ADD KEY `IDX_TAX_CALCULATION_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`),
+  ADD KEY `IDX_TAX_CALCULATION_CUSTOMER_TAX_CLASS_ID` (`customer_tax_class_id`),
+  ADD KEY `IDX_TAX_CALCULATION_PRODUCT_TAX_CLASS_ID` (`product_tax_class_id`),
+  ADD KEY `IDX_TAX_CALC_TAX_CALC_RATE_ID_CSTR_TAX_CLASS_ID_PRD_TAX_CLASS_ID` (`tax_calculation_rate_id`,`customer_tax_class_id`,`product_tax_class_id`);
+
+--
+-- Indexes for table `tax_calculation_rate`
+--
+ALTER TABLE `tax_calculation_rate`
+  ADD PRIMARY KEY (`tax_calculation_rate_id`),
+  ADD KEY `IDX_TAX_CALC_RATE_TAX_COUNTRY_ID_TAX_REGION_ID_TAX_POSTCODE` (`tax_country_id`,`tax_region_id`,`tax_postcode`),
+  ADD KEY `IDX_TAX_CALCULATION_RATE_CODE` (`code`),
+  ADD KEY `CA799F1E2CB843495F601E56C84A626D` (`tax_calculation_rate_id`,`tax_country_id`,`tax_region_id`,`zip_is_range`,`tax_postcode`);
+
+--
+-- Indexes for table `tax_calculation_rate_title`
+--
+ALTER TABLE `tax_calculation_rate_title`
+  ADD PRIMARY KEY (`tax_calculation_rate_title_id`),
+  ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID_STORE_ID` (`tax_calculation_rate_id`,`store_id`),
+  ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_TAX_CALCULATION_RATE_ID` (`tax_calculation_rate_id`),
+  ADD KEY `IDX_TAX_CALCULATION_RATE_TITLE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `tax_calculation_rule`
+--
+ALTER TABLE `tax_calculation_rule`
+  ADD PRIMARY KEY (`tax_calculation_rule_id`),
+  ADD KEY `IDX_TAX_CALC_RULE_PRIORITY_POSITION_TAX_CALC_RULE_ID` (`priority`,`position`,`tax_calculation_rule_id`),
+  ADD KEY `IDX_TAX_CALCULATION_RULE_CODE` (`code`);
+
+--
+-- Indexes for table `tax_class`
+--
+ALTER TABLE `tax_class`
+  ADD PRIMARY KEY (`class_id`);
+
+--
+-- Indexes for table `tax_order_aggregated_created`
+--
+ALTER TABLE `tax_order_aggregated_created`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `FCA5E2C02689EB2641B30580D7AACF12` (`period`,`store_id`,`code`,`percent`,`order_status`),
+  ADD KEY `IDX_TAX_ORDER_AGGREGATED_CREATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `tax_order_aggregated_updated`
+--
+ALTER TABLE `tax_order_aggregated_updated`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `DB0AF14011199AA6CD31D5078B90AA8D` (`period`,`store_id`,`code`,`percent`,`order_status`),
+  ADD KEY `IDX_TAX_ORDER_AGGREGATED_UPDATED_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `weee_discount`
+--
+ALTER TABLE `weee_discount`
+  ADD KEY `IDX_WEEE_DISCOUNT_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_WEEE_DISCOUNT_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_WEEE_DISCOUNT_CUSTOMER_GROUP_ID` (`customer_group_id`);
+
+--
+-- Indexes for table `weee_tax`
+--
+ALTER TABLE `weee_tax`
+  ADD PRIMARY KEY (`value_id`),
+  ADD KEY `IDX_WEEE_TAX_WEBSITE_ID` (`website_id`),
+  ADD KEY `IDX_WEEE_TAX_ENTITY_ID` (`entity_id`),
+  ADD KEY `IDX_WEEE_TAX_COUNTRY` (`country`),
+  ADD KEY `IDX_WEEE_TAX_ATTRIBUTE_ID` (`attribute_id`);
+
+--
+-- Indexes for table `widget`
+--
+ALTER TABLE `widget`
+  ADD PRIMARY KEY (`widget_id`),
+  ADD KEY `IDX_WIDGET_WIDGET_CODE` (`widget_code`);
+
+--
+-- Indexes for table `widget_instance`
+--
+ALTER TABLE `widget_instance`
+  ADD PRIMARY KEY (`instance_id`);
+
+--
+-- Indexes for table `widget_instance_page`
+--
+ALTER TABLE `widget_instance_page`
+  ADD PRIMARY KEY (`page_id`),
+  ADD KEY `IDX_WIDGET_INSTANCE_PAGE_INSTANCE_ID` (`instance_id`);
+
+--
+-- Indexes for table `widget_instance_page_layout`
+--
+ALTER TABLE `widget_instance_page_layout`
+  ADD UNIQUE KEY `UNQ_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID_PAGE_ID` (`layout_update_id`,`page_id`),
+  ADD KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_PAGE_ID` (`page_id`),
+  ADD KEY `IDX_WIDGET_INSTANCE_PAGE_LAYOUT_LAYOUT_UPDATE_ID` (`layout_update_id`);
+
+--
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`wishlist_id`),
+  ADD UNIQUE KEY `UNQ_WISHLIST_CUSTOMER_ID` (`customer_id`),
+  ADD KEY `IDX_WISHLIST_SHARED` (`shared`);
+
+--
+-- Indexes for table `wishlist_item`
+--
+ALTER TABLE `wishlist_item`
+  ADD PRIMARY KEY (`wishlist_item_id`),
+  ADD KEY `IDX_WISHLIST_ITEM_WISHLIST_ID` (`wishlist_id`),
+  ADD KEY `IDX_WISHLIST_ITEM_PRODUCT_ID` (`product_id`),
+  ADD KEY `IDX_WISHLIST_ITEM_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `wishlist_item_option`
+--
+ALTER TABLE `wishlist_item_option`
+  ADD PRIMARY KEY (`option_id`),
+  ADD KEY `FK_A014B30B04B72DD0EAB3EECD779728D6` (`wishlist_item_id`);
+
+--
+-- Indexes for table `xmlconnect_application`
+--
+ALTER TABLE `xmlconnect_application`
+  ADD PRIMARY KEY (`application_id`),
+  ADD UNIQUE KEY `UNQ_XMLCONNECT_APPLICATION_CODE` (`code`),
+  ADD KEY `FK_XMLCONNECT_APPLICATION_STORE_ID_CORE_STORE_STORE_ID` (`store_id`);
+
+--
+-- Indexes for table `xmlconnect_config_data`
+--
+ALTER TABLE `xmlconnect_config_data`
+  ADD UNIQUE KEY `UNQ_XMLCONNECT_CONFIG_DATA_APPLICATION_ID_CATEGORY_PATH` (`application_id`,`category`,`path`);
+
+--
+-- Indexes for table `xmlconnect_history`
+--
+ALTER TABLE `xmlconnect_history`
+  ADD PRIMARY KEY (`history_id`),
+  ADD KEY `FK_8F08B9513373BC19F49EE3EF8340E270` (`application_id`);
+
+--
+-- Indexes for table `xmlconnect_images`
+--
+ALTER TABLE `xmlconnect_images`
+  ADD PRIMARY KEY (`image_id`),
+  ADD KEY `FK_6C55A623A089E4FEA9201FFE01693167` (`application_id`);
+
+--
+-- Indexes for table `xmlconnect_notification_template`
+--
+ALTER TABLE `xmlconnect_notification_template`
+  ADD PRIMARY KEY (`template_id`),
+  ADD KEY `FK_F9927C7518A907CF5C350942FD296DC3` (`application_id`);
+
+--
+-- Indexes for table `xmlconnect_queue`
+--
+ALTER TABLE `xmlconnect_queue`
+  ADD PRIMARY KEY (`queue_id`),
+  ADD KEY `FK_2019AEC5FC55A516965583447CA26B14` (`template_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `adminnotification_inbox`
+--
+ALTER TABLE `adminnotification_inbox`
+  MODIFY `notification_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Notification id',AUTO_INCREMENT=92;
+--
+-- AUTO_INCREMENT for table `admin_assert`
+--
+ALTER TABLE `admin_assert`
+  MODIFY `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert ID';
+--
+-- AUTO_INCREMENT for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  MODIFY `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role ID',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `admin_rule`
+--
+ALTER TABLE `admin_rule`
+  MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule ID',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `admin_user`
+--
+ALTER TABLE `admin_user`
+  MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `api2_acl_attribute`
+--
+ALTER TABLE `api2_acl_attribute`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
+--
+-- AUTO_INCREMENT for table `api2_acl_role`
+--
+ALTER TABLE `api2_acl_role`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `api2_acl_rule`
+--
+ALTER TABLE `api2_acl_rule`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
+--
+-- AUTO_INCREMENT for table `api_assert`
+--
+ALTER TABLE `api_assert`
+  MODIFY `assert_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Assert id';
+--
+-- AUTO_INCREMENT for table `api_role`
+--
+ALTER TABLE `api_role`
+  MODIFY `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role id';
+--
+-- AUTO_INCREMENT for table `api_rule`
+--
+ALTER TABLE `api_rule`
+  MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Api rule Id';
+--
+-- AUTO_INCREMENT for table `api_user`
+--
+ALTER TABLE `api_user`
+  MODIFY `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'User id';
+--
+-- AUTO_INCREMENT for table `cataloginventory_stock`
+--
+ALTER TABLE `cataloginventory_stock`
+  MODIFY `stock_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Stock Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `cataloginventory_stock_item`
+--
+ALTER TABLE `cataloginventory_stock_item`
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=90;
+--
+-- AUTO_INCREMENT for table `catalogrule`
+--
+ALTER TABLE `catalogrule`
+  MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id';
+--
+-- AUTO_INCREMENT for table `catalogrule_product`
+--
+ALTER TABLE `catalogrule_product`
+  MODIFY `rule_product_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product Id';
+--
+-- AUTO_INCREMENT for table `catalogrule_product_price`
+--
+ALTER TABLE `catalogrule_product_price`
+  MODIFY `rule_product_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Product PriceId';
+--
+-- AUTO_INCREMENT for table `catalogsearch_fulltext`
+--
+ALTER TABLE `catalogsearch_fulltext`
+  MODIFY `fulltext_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=28281;
+--
+-- AUTO_INCREMENT for table `catalogsearch_query`
+--
+ALTER TABLE `catalogsearch_query`
+  MODIFY `query_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Query ID',AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity`
+--
+ALTER TABLE `catalog_category_entity`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=101;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity_datetime`
+--
+ALTER TABLE `catalog_category_entity_datetime`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=253;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity_decimal`
+--
+ALTER TABLE `catalog_category_entity_decimal`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=80;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity_int`
+--
+ALTER TABLE `catalog_category_entity_int`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=654;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity_text`
+--
+ALTER TABLE `catalog_category_entity_text`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=1242;
+--
+-- AUTO_INCREMENT for table `catalog_category_entity_varchar`
+--
+ALTER TABLE `catalog_category_entity_varchar`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=1393;
+--
+-- AUTO_INCREMENT for table `catalog_compare_item`
+--
+ALTER TABLE `catalog_compare_item`
+  MODIFY `catalog_compare_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Compare Item ID',AUTO_INCREMENT=49;
+--
+-- AUTO_INCREMENT for table `catalog_product_bundle_option`
+--
+ALTER TABLE `catalog_product_bundle_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `catalog_product_bundle_option_value`
+--
+ALTER TABLE `catalog_product_bundle_option_value`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `catalog_product_bundle_selection`
+--
+ALTER TABLE `catalog_product_bundle_selection`
+  MODIFY `selection_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Selection Id',AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity`
+--
+ALTER TABLE `catalog_product_entity`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',AUTO_INCREMENT=90;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_datetime`
+--
+ALTER TABLE `catalog_product_entity_datetime`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=2331;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_decimal`
+--
+ALTER TABLE `catalog_product_entity_decimal`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=1254;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_gallery`
+--
+ALTER TABLE `catalog_product_entity_gallery`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_group_price`
+--
+ALTER TABLE `catalog_product_entity_group_price`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_int`
+--
+ALTER TABLE `catalog_product_entity_int`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=860;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_media_gallery`
+--
+ALTER TABLE `catalog_product_entity_media_gallery`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=475;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_text`
+--
+ALTER TABLE `catalog_product_entity_text`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=1002;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_tier_price`
+--
+ALTER TABLE `catalog_product_entity_tier_price`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `catalog_product_entity_varchar`
+--
+ALTER TABLE `catalog_product_entity_varchar`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=5542;
+--
+-- AUTO_INCREMENT for table `catalog_product_link`
+--
+ALTER TABLE `catalog_product_link`
+  MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',AUTO_INCREMENT=532;
+--
+-- AUTO_INCREMENT for table `catalog_product_link_attribute`
+--
+ALTER TABLE `catalog_product_link_attribute`
+  MODIFY `product_link_attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Link Attribute ID',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `catalog_product_link_attribute_decimal`
+--
+ALTER TABLE `catalog_product_link_attribute_decimal`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `catalog_product_link_attribute_int`
+--
+ALTER TABLE `catalog_product_link_attribute_int`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=807;
+--
+-- AUTO_INCREMENT for table `catalog_product_link_attribute_varchar`
+--
+ALTER TABLE `catalog_product_link_attribute_varchar`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
+--
+-- AUTO_INCREMENT for table `catalog_product_link_type`
+--
+ALTER TABLE `catalog_product_link_type`
+  MODIFY `link_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Type ID',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `catalog_product_option`
+--
+ALTER TABLE `catalog_product_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option ID',AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `catalog_product_option_price`
+--
+ALTER TABLE `catalog_product_option_price`
+  MODIFY `option_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Price ID';
+--
+-- AUTO_INCREMENT for table `catalog_product_option_title`
+--
+ALTER TABLE `catalog_product_option_title`
+  MODIFY `option_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Title ID',AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `catalog_product_option_type_price`
+--
+ALTER TABLE `catalog_product_option_type_price`
+  MODIFY `option_type_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Price ID',AUTO_INCREMENT=132;
+--
+-- AUTO_INCREMENT for table `catalog_product_option_type_title`
+--
+ALTER TABLE `catalog_product_option_type_title`
+  MODIFY `option_type_title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type Title ID',AUTO_INCREMENT=132;
+--
+-- AUTO_INCREMENT for table `catalog_product_option_type_value`
+--
+ALTER TABLE `catalog_product_option_type_value`
+  MODIFY `option_type_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Type ID',AUTO_INCREMENT=132;
+--
+-- AUTO_INCREMENT for table `catalog_product_super_attribute`
+--
+ALTER TABLE `catalog_product_super_attribute`
+  MODIFY `product_super_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product Super Attribute ID',AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `catalog_product_super_attribute_label`
+--
+ALTER TABLE `catalog_product_super_attribute_label`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID',AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `catalog_product_super_attribute_pricing`
+--
+ALTER TABLE `catalog_product_super_attribute_pricing`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value ID';
+--
+-- AUTO_INCREMENT for table `catalog_product_super_link`
+--
+ALTER TABLE `catalog_product_super_link`
+  MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `checkout_agreement`
+--
+ALTER TABLE `checkout_agreement`
+  MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `cms_block`
+--
+ALTER TABLE `cms_block`
+  MODIFY `block_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Block ID',AUTO_INCREMENT=87;
+--
+-- AUTO_INCREMENT for table `cms_page`
+--
+ALTER TABLE `cms_page`
+  MODIFY `page_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Page ID',AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `core_config_data`
+--
+ALTER TABLE `core_config_data`
+  MODIFY `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Config Id',AUTO_INCREMENT=2078;
+--
+-- AUTO_INCREMENT for table `core_email_template`
+--
+ALTER TABLE `core_email_template`
+  MODIFY `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id';
+--
+-- AUTO_INCREMENT for table `core_flag`
+--
+ALTER TABLE `core_flag`
+  MODIFY `flag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Flag Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `core_layout_link`
+--
+ALTER TABLE `core_layout_link`
+  MODIFY `layout_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id';
+--
+-- AUTO_INCREMENT for table `core_layout_update`
+--
+ALTER TABLE `core_layout_update`
+  MODIFY `layout_update_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Layout Update Id';
+--
+-- AUTO_INCREMENT for table `core_store`
+--
+ALTER TABLE `core_store`
+  MODIFY `store_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Store Id',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `core_store_group`
+--
+ALTER TABLE `core_store_group`
+  MODIFY `group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Group Id',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `core_translate`
+--
+ALTER TABLE `core_translate`
+  MODIFY `key_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Key Id of Translation';
+--
+-- AUTO_INCREMENT for table `core_url_rewrite`
+--
+ALTER TABLE `core_url_rewrite`
+  MODIFY `url_rewrite_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rewrite Id',AUTO_INCREMENT=12398;
+--
+-- AUTO_INCREMENT for table `core_variable`
+--
+ALTER TABLE `core_variable`
+  MODIFY `variable_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Id';
+--
+-- AUTO_INCREMENT for table `core_variable_value`
+--
+ALTER TABLE `core_variable_value`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Variable Value Id';
+--
+-- AUTO_INCREMENT for table `core_website`
+--
+ALTER TABLE `core_website`
+  MODIFY `website_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Website Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `coupon_aggregated`
+--
+ALTER TABLE `coupon_aggregated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `coupon_aggregated_order`
+--
+ALTER TABLE `coupon_aggregated_order`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `coupon_aggregated_updated`
+--
+ALTER TABLE `coupon_aggregated_updated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `cron_schedule`
+--
+ALTER TABLE `cron_schedule`
+  MODIFY `schedule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Schedule Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity`
+--
+ALTER TABLE `customer_address_entity`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity_datetime`
+--
+ALTER TABLE `customer_address_entity_datetime`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity_decimal`
+--
+ALTER TABLE `customer_address_entity_decimal`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity_int`
+--
+ALTER TABLE `customer_address_entity_int`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity_text`
+--
+ALTER TABLE `customer_address_entity_text`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_address_entity_varchar`
+--
+ALTER TABLE `customer_address_entity_varchar`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_entity`
+--
+ALTER TABLE `customer_entity`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `customer_entity_datetime`
+--
+ALTER TABLE `customer_entity_datetime`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_entity_decimal`
+--
+ALTER TABLE `customer_entity_decimal`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_entity_int`
+--
+ALTER TABLE `customer_entity_int`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_entity_text`
+--
+ALTER TABLE `customer_entity_text`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_entity_varchar`
+--
+ALTER TABLE `customer_entity_varchar`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `customer_group`
+--
+ALTER TABLE `customer_group`
+  MODIFY `customer_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Customer Group Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `dataflow_batch`
+--
+ALTER TABLE `dataflow_batch`
+  MODIFY `batch_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Id';
+--
+-- AUTO_INCREMENT for table `dataflow_batch_export`
+--
+ALTER TABLE `dataflow_batch_export`
+  MODIFY `batch_export_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Export Id';
+--
+-- AUTO_INCREMENT for table `dataflow_batch_import`
+--
+ALTER TABLE `dataflow_batch_import`
+  MODIFY `batch_import_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Batch Import Id';
+--
+-- AUTO_INCREMENT for table `dataflow_import_data`
+--
+ALTER TABLE `dataflow_import_data`
+  MODIFY `import_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Import Id';
+--
+-- AUTO_INCREMENT for table `dataflow_profile`
+--
+ALTER TABLE `dataflow_profile`
+  MODIFY `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id',AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `dataflow_profile_history`
+--
+ALTER TABLE `dataflow_profile_history`
+  MODIFY `history_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'History Id',AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `dataflow_session`
+--
+ALTER TABLE `dataflow_session`
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session Id';
+--
+-- AUTO_INCREMENT for table `design_change`
+--
+ALTER TABLE `design_change`
+  MODIFY `design_change_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Design Change Id';
+--
+-- AUTO_INCREMENT for table `directory_country_format`
+--
+ALTER TABLE `directory_country_format`
+  MODIFY `country_format_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Country Format Id';
+--
+-- AUTO_INCREMENT for table `directory_country_region`
+--
+ALTER TABLE `directory_country_region`
+  MODIFY `region_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Region Id',AUTO_INCREMENT=485;
+--
+-- AUTO_INCREMENT for table `downloadable_link`
+--
+ALTER TABLE `downloadable_link`
+  MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `downloadable_link_price`
+--
+ALTER TABLE `downloadable_link_price`
+  MODIFY `price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Price ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `downloadable_link_purchased`
+--
+ALTER TABLE `downloadable_link_purchased`
+  MODIFY `purchased_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchased ID';
+--
+-- AUTO_INCREMENT for table `downloadable_link_purchased_item`
+--
+ALTER TABLE `downloadable_link_purchased_item`
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item ID';
+--
+-- AUTO_INCREMENT for table `downloadable_link_title`
+--
+ALTER TABLE `downloadable_link_title`
+  MODIFY `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `downloadable_sample`
+--
+ALTER TABLE `downloadable_sample`
+  MODIFY `sample_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sample ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `downloadable_sample_title`
+--
+ALTER TABLE `downloadable_sample_title`
+  MODIFY `title_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Title ID',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `eav_attribute`
+--
+ALTER TABLE `eav_attribute`
+  MODIFY `attribute_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Id',AUTO_INCREMENT=145;
+--
+-- AUTO_INCREMENT for table `eav_attribute_group`
+--
+ALTER TABLE `eav_attribute_group`
+  MODIFY `attribute_group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Group Id',AUTO_INCREMENT=153;
+--
+-- AUTO_INCREMENT for table `eav_attribute_label`
+--
+ALTER TABLE `eav_attribute_label`
+  MODIFY `attribute_label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Label Id',AUTO_INCREMENT=78;
+--
+-- AUTO_INCREMENT for table `eav_attribute_option`
+--
+ALTER TABLE `eav_attribute_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=62;
+--
+-- AUTO_INCREMENT for table `eav_attribute_option_value`
+--
+ALTER TABLE `eav_attribute_option_value`
+  MODIFY `value_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Value Id',AUTO_INCREMENT=473;
+--
+-- AUTO_INCREMENT for table `eav_attribute_set`
+--
+ALTER TABLE `eav_attribute_set`
+  MODIFY `attribute_set_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Attribute Set Id',AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `eav_entity`
+--
+ALTER TABLE `eav_entity`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `eav_entity_attribute`
+--
+ALTER TABLE `eav_entity_attribute`
+  MODIFY `entity_attribute_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Attribute Id',AUTO_INCREMENT=4647;
+--
+-- AUTO_INCREMENT for table `eav_entity_datetime`
+--
+ALTER TABLE `eav_entity_datetime`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `eav_entity_decimal`
+--
+ALTER TABLE `eav_entity_decimal`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `eav_entity_int`
+--
+ALTER TABLE `eav_entity_int`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `eav_entity_store`
+--
+ALTER TABLE `eav_entity_store`
+  MODIFY `entity_store_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Store Id',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `eav_entity_text`
+--
+ALTER TABLE `eav_entity_text`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `eav_entity_type`
+--
+ALTER TABLE `eav_entity_type`
+  MODIFY `entity_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Type Id',AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `eav_entity_varchar`
+--
+ALTER TABLE `eav_entity_varchar`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `eav_form_element`
+--
+ALTER TABLE `eav_form_element`
+  MODIFY `element_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Element Id',AUTO_INCREMENT=53;
+--
+-- AUTO_INCREMENT for table `eav_form_fieldset`
+--
+ALTER TABLE `eav_form_fieldset`
+  MODIFY `fieldset_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Fieldset Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `eav_form_type`
+--
+ALTER TABLE `eav_form_type`
+  MODIFY `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type Id',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `gift_message`
+--
+ALTER TABLE `gift_message`
+  MODIFY `gift_message_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'GiftMessage Id';
+--
+-- AUTO_INCREMENT for table `importexport_importdata`
+--
+ALTER TABLE `importexport_importdata`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `index_event`
+--
+ALTER TABLE `index_event`
+  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=419;
+--
+-- AUTO_INCREMENT for table `index_process`
+--
+ALTER TABLE `index_process`
+  MODIFY `process_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Process Id',AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `log_customer`
+--
+ALTER TABLE `log_customer`
+  MODIFY `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID',AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `log_summary`
+--
+ALTER TABLE `log_summary`
+  MODIFY `summary_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Summary ID';
+--
+-- AUTO_INCREMENT for table `log_summary_type`
+--
+ALTER TABLE `log_summary_type`
+  MODIFY `type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Type ID';
+--
+-- AUTO_INCREMENT for table `log_url_info`
+--
+ALTER TABLE `log_url_info`
+  MODIFY `url_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'URL ID',AUTO_INCREMENT=7523;
+--
+-- AUTO_INCREMENT for table `log_visitor`
+--
+ALTER TABLE `log_visitor`
+  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID',AUTO_INCREMENT=464;
+--
+-- AUTO_INCREMENT for table `log_visitor_online`
+--
+ALTER TABLE `log_visitor_online`
+  MODIFY `visitor_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Visitor ID';
+--
+-- AUTO_INCREMENT for table `newsletter_problem`
+--
+ALTER TABLE `newsletter_problem`
+  MODIFY `problem_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Problem Id';
+--
+-- AUTO_INCREMENT for table `newsletter_queue`
+--
+ALTER TABLE `newsletter_queue`
+  MODIFY `queue_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Id';
+--
+-- AUTO_INCREMENT for table `newsletter_queue_link`
+--
+ALTER TABLE `newsletter_queue_link`
+  MODIFY `queue_link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Link Id';
+--
+-- AUTO_INCREMENT for table `newsletter_subscriber`
+--
+ALTER TABLE `newsletter_subscriber`
+  MODIFY `subscriber_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Subscriber Id';
+--
+-- AUTO_INCREMENT for table `newsletter_template`
+--
+ALTER TABLE `newsletter_template`
+  MODIFY `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id';
+--
+-- AUTO_INCREMENT for table `oauth_consumer`
+--
+ALTER TABLE `oauth_consumer`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `oauth_token`
+--
+ALTER TABLE `oauth_token`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID';
+--
+-- AUTO_INCREMENT for table `paypal_cert`
+--
+ALTER TABLE `paypal_cert`
+  MODIFY `cert_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Cert Id';
+--
+-- AUTO_INCREMENT for table `paypal_payment_transaction`
+--
+ALTER TABLE `paypal_payment_transaction`
+  MODIFY `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `paypal_settlement_report`
+--
+ALTER TABLE `paypal_settlement_report`
+  MODIFY `report_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Report Id';
+--
+-- AUTO_INCREMENT for table `paypal_settlement_report_row`
+--
+ALTER TABLE `paypal_settlement_report_row`
+  MODIFY `row_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Row Id';
+--
+-- AUTO_INCREMENT for table `persistent_session`
+--
+ALTER TABLE `persistent_session`
+  MODIFY `persistent_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Session id';
+--
+-- AUTO_INCREMENT for table `poll`
+--
+ALTER TABLE `poll`
+  MODIFY `poll_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Poll Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `poll_answer`
+--
+ALTER TABLE `poll_answer`
+  MODIFY `answer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Answer Id',AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `poll_vote`
+--
+ALTER TABLE `poll_vote`
+  MODIFY `vote_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote Id';
+--
+-- AUTO_INCREMENT for table `product_alert_price`
+--
+ALTER TABLE `product_alert_price`
+  MODIFY `alert_price_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert price id';
+--
+-- AUTO_INCREMENT for table `product_alert_stock`
+--
+ALTER TABLE `product_alert_stock`
+  MODIFY `alert_stock_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Product alert stock id';
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rating_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `rating_entity`
+--
+ALTER TABLE `rating_entity`
+  MODIFY `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `rating_option`
+--
+ALTER TABLE `rating_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rating Option Id',AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `rating_option_vote`
+--
+ALTER TABLE `rating_option_vote`
+  MODIFY `vote_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Vote id',AUTO_INCREMENT=47;
+--
+-- AUTO_INCREMENT for table `rating_option_vote_aggregated`
+--
+ALTER TABLE `rating_option_vote_aggregated`
+  MODIFY `primary_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Vote aggregation id',AUTO_INCREMENT=369;
+--
+-- AUTO_INCREMENT for table `report_compared_product_index`
+--
+ALTER TABLE `report_compared_product_index`
+  MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=50;
+--
+-- AUTO_INCREMENT for table `report_event`
+--
+ALTER TABLE `report_event`
+  MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Id',AUTO_INCREMENT=5025;
+--
+-- AUTO_INCREMENT for table `report_event_types`
+--
+ALTER TABLE `report_event_types`
+  MODIFY `event_type_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Event Type Id',AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `report_viewed_product_aggregated_daily`
+--
+ALTER TABLE `report_viewed_product_aggregated_daily`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `report_viewed_product_aggregated_monthly`
+--
+ALTER TABLE `report_viewed_product_aggregated_monthly`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `report_viewed_product_aggregated_yearly`
+--
+ALTER TABLE `report_viewed_product_aggregated_yearly`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `report_viewed_product_index`
+--
+ALTER TABLE `report_viewed_product_index`
+  MODIFY `index_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Index Id',AUTO_INCREMENT=3983;
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `review_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review id',AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `review_detail`
+--
+ALTER TABLE `review_detail`
+  MODIFY `detail_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review detail id',AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `review_entity`
+--
+ALTER TABLE `review_entity`
+  MODIFY `entity_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Review entity id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `review_entity_summary`
+--
+ALTER TABLE `review_entity_summary`
+  MODIFY `primary_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Summary review entity id',AUTO_INCREMENT=201;
+--
+-- AUTO_INCREMENT for table `review_status`
+--
+ALTER TABLE `review_status`
+  MODIFY `status_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Status id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `salesrule`
+--
+ALTER TABLE `salesrule`
+  MODIFY `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `salesrule_coupon`
+--
+ALTER TABLE `salesrule_coupon`
+  MODIFY `coupon_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Coupon Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `salesrule_customer`
+--
+ALTER TABLE `salesrule_customer`
+  MODIFY `rule_customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rule Customer Id';
+--
+-- AUTO_INCREMENT for table `salesrule_label`
+--
+ALTER TABLE `salesrule_label`
+  MODIFY `label_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Label Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sales_bestsellers_aggregated_daily`
+--
+ALTER TABLE `sales_bestsellers_aggregated_daily`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_bestsellers_aggregated_monthly`
+--
+ALTER TABLE `sales_bestsellers_aggregated_monthly`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_bestsellers_aggregated_yearly`
+--
+ALTER TABLE `sales_bestsellers_aggregated_yearly`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_billing_agreement`
+--
+ALTER TABLE `sales_billing_agreement`
+  MODIFY `agreement_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Agreement Id';
+--
+-- AUTO_INCREMENT for table `sales_flat_creditmemo`
+--
+ALTER TABLE `sales_flat_creditmemo`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `sales_flat_creditmemo_comment`
+--
+ALTER TABLE `sales_flat_creditmemo_comment`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `sales_flat_creditmemo_item`
+--
+ALTER TABLE `sales_flat_creditmemo_item`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id';
+--
+-- AUTO_INCREMENT for table `sales_flat_invoice`
+--
+ALTER TABLE `sales_flat_invoice`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sales_flat_invoice_comment`
+--
+ALTER TABLE `sales_flat_invoice_comment`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sales_flat_invoice_item`
+--
+ALTER TABLE `sales_flat_invoice_item`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `sales_flat_order`
+--
+ALTER TABLE `sales_flat_order`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `sales_flat_order_address`
+--
+ALTER TABLE `sales_flat_order_address`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `sales_flat_order_item`
+--
+ALTER TABLE `sales_flat_order_item`
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `sales_flat_order_payment`
+--
+ALTER TABLE `sales_flat_order_payment`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `sales_flat_order_status_history`
+--
+ALTER TABLE `sales_flat_order_status_history`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote`
+--
+ALTER TABLE `sales_flat_quote`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=115;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_address`
+--
+ALTER TABLE `sales_flat_quote_address`
+  MODIFY `address_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Id',AUTO_INCREMENT=429;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_address_item`
+--
+ALTER TABLE `sales_flat_quote_address_item`
+  MODIFY `address_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Address Item Id',AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_item`
+--
+ALTER TABLE `sales_flat_quote_item`
+  MODIFY `item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Item Id',AUTO_INCREMENT=203;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_item_option`
+--
+ALTER TABLE `sales_flat_quote_item_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id',AUTO_INCREMENT=480;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_payment`
+--
+ALTER TABLE `sales_flat_quote_payment`
+  MODIFY `payment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Payment Id',AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `sales_flat_quote_shipping_rate`
+--
+ALTER TABLE `sales_flat_quote_shipping_rate`
+  MODIFY `rate_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Rate Id',AUTO_INCREMENT=235;
+--
+-- AUTO_INCREMENT for table `sales_flat_shipment`
+--
+ALTER TABLE `sales_flat_shipment`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sales_flat_shipment_comment`
+--
+ALTER TABLE `sales_flat_shipment_comment`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `sales_flat_shipment_item`
+--
+ALTER TABLE `sales_flat_shipment_item`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `sales_flat_shipment_track`
+--
+ALTER TABLE `sales_flat_shipment_track`
+  MODIFY `entity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `sales_invoiced_aggregated`
+--
+ALTER TABLE `sales_invoiced_aggregated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_invoiced_aggregated_order`
+--
+ALTER TABLE `sales_invoiced_aggregated_order`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_order_aggregated_created`
+--
+ALTER TABLE `sales_order_aggregated_created`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_order_aggregated_updated`
+--
+ALTER TABLE `sales_order_aggregated_updated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_order_tax`
+--
+ALTER TABLE `sales_order_tax`
+  MODIFY `tax_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Id',AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `sales_order_tax_item`
+--
+ALTER TABLE `sales_order_tax_item`
+  MODIFY `tax_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tax Item Id',AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `sales_payment_transaction`
+--
+ALTER TABLE `sales_payment_transaction`
+  MODIFY `transaction_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Transaction Id';
+--
+-- AUTO_INCREMENT for table `sales_recurring_profile`
+--
+ALTER TABLE `sales_recurring_profile`
+  MODIFY `profile_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Profile Id';
+--
+-- AUTO_INCREMENT for table `sales_recurring_profile_order`
+--
+ALTER TABLE `sales_recurring_profile_order`
+  MODIFY `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Link Id';
+--
+-- AUTO_INCREMENT for table `sales_refunded_aggregated`
+--
+ALTER TABLE `sales_refunded_aggregated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_refunded_aggregated_order`
+--
+ALTER TABLE `sales_refunded_aggregated_order`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_shipping_aggregated`
+--
+ALTER TABLE `sales_shipping_aggregated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sales_shipping_aggregated_order`
+--
+ALTER TABLE `sales_shipping_aggregated_order`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `sendfriend_log`
+--
+ALTER TABLE `sendfriend_log`
+  MODIFY `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Log ID';
+--
+-- AUTO_INCREMENT for table `shipping_tablerate`
+--
+ALTER TABLE `shipping_tablerate`
+  MODIFY `pk` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary key';
+--
+-- AUTO_INCREMENT for table `sitemap`
+--
+ALTER TABLE `sitemap`
+  MODIFY `sitemap_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Sitemap Id';
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Id',AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tag_relation`
+--
+ALTER TABLE `tag_relation`
+  MODIFY `tag_relation_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Tag Relation Id';
+--
+-- AUTO_INCREMENT for table `tax_calculation`
+--
+ALTER TABLE `tax_calculation`
+  MODIFY `tax_calculation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tax_calculation_rate`
+--
+ALTER TABLE `tax_calculation_rate`
+  MODIFY `tax_calculation_rate_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Id',AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tax_calculation_rate_title`
+--
+ALTER TABLE `tax_calculation_rate_title`
+  MODIFY `tax_calculation_rate_title_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rate Title Id';
+--
+-- AUTO_INCREMENT for table `tax_calculation_rule`
+--
+ALTER TABLE `tax_calculation_rule`
+  MODIFY `tax_calculation_rule_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Tax Calculation Rule Id',AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tax_class`
+--
+ALTER TABLE `tax_class`
+  MODIFY `class_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT 'Class Id',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tax_order_aggregated_created`
+--
+ALTER TABLE `tax_order_aggregated_created`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `tax_order_aggregated_updated`
+--
+ALTER TABLE `tax_order_aggregated_updated`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id';
+--
+-- AUTO_INCREMENT for table `weee_tax`
+--
+ALTER TABLE `weee_tax`
+  MODIFY `value_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Value Id';
+--
+-- AUTO_INCREMENT for table `widget`
+--
+ALTER TABLE `widget`
+  MODIFY `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Widget Id';
+--
+-- AUTO_INCREMENT for table `widget_instance`
+--
+ALTER TABLE `widget_instance`
+  MODIFY `instance_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Instance Id';
+--
+-- AUTO_INCREMENT for table `widget_instance_page`
+--
+ALTER TABLE `widget_instance_page`
+  MODIFY `page_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Page Id';
+--
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `wishlist_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist ID';
+--
+-- AUTO_INCREMENT for table `wishlist_item`
+--
+ALTER TABLE `wishlist_item`
+  MODIFY `wishlist_item_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Wishlist item ID';
+--
+-- AUTO_INCREMENT for table `wishlist_item_option`
+--
+ALTER TABLE `wishlist_item_option`
+  MODIFY `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option Id';
+--
+-- AUTO_INCREMENT for table `xmlconnect_application`
+--
+ALTER TABLE `xmlconnect_application`
+  MODIFY `application_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Application Id';
+--
+-- AUTO_INCREMENT for table `xmlconnect_history`
+--
+ALTER TABLE `xmlconnect_history`
+  MODIFY `history_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'History Id';
+--
+-- AUTO_INCREMENT for table `xmlconnect_images`
+--
+ALTER TABLE `xmlconnect_images`
+  MODIFY `image_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Image Id';
+--
+-- AUTO_INCREMENT for table `xmlconnect_notification_template`
+--
+ALTER TABLE `xmlconnect_notification_template`
+  MODIFY `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Template Id';
+--
+-- AUTO_INCREMENT for table `xmlconnect_queue`
+--
+ALTER TABLE `xmlconnect_queue`
+  MODIFY `queue_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Queue Id';
 --
 -- Constraints for dumped tables
 --
@@ -41449,6 +44409,12 @@ ALTER TABLE `xmlconnect_config_data`
 --
 ALTER TABLE `xmlconnect_history`
   ADD CONSTRAINT `FK_8F08B9513373BC19F49EE3EF8340E270` FOREIGN KEY (`application_id`) REFERENCES `xmlconnect_application` (`application_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `xmlconnect_images`
+--
+ALTER TABLE `xmlconnect_images`
+  ADD CONSTRAINT `FK_6C55A623A089E4FEA9201FFE01693167` FOREIGN KEY (`application_id`) REFERENCES `xmlconnect_application` (`application_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `xmlconnect_notification_template`
